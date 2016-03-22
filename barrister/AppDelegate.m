@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "BaseTabbarController.h"
 
-
 @interface AppDelegate ()
 
 @end
@@ -18,24 +17,19 @@
 
 -(void)initControllersAndConfig
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     _tabBarCTL = [[BaseTabbarController alloc] init];
     self.window.rootViewController = _tabBarCTL;
     self.window.backgroundColor = [UIColor whiteColor];
-
+    [self.window makeKeyAndVisible];
     
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    
     [self initControllersAndConfig];
     
-    
-    
-    [self.window makeKeyAndVisible];
     
     return YES;
 }

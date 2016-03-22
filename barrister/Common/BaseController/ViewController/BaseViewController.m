@@ -49,7 +49,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    
     self.noContentString = @"没有数据";
     self.loadingString = @"正在加载...";
     

@@ -79,6 +79,9 @@
 		9597B1031CA1168200FF65D9 /* Tab04Normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9597B0F31CA1168200FF65D9 /* Tab04Normal@3x.png */; };
 		9597B1041CA1168200FF65D9 /* Tab04Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9597B0F41CA1168200FF65D9 /* Tab04Highlighted@2x.png */; };
 		9597B1051CA1168200FF65D9 /* Tab04Highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9597B0F51CA1168200FF65D9 /* Tab04Highlighted@3x.png */; };
+		9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9597B1141CA12C5D00FF65D9 /* timeline_image_loading.png */; };
+		9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1171CA1313E00FF65D9 /* DCPicScrollView.m */; };
+		9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1191CA1313E00FF65D9 /* DCWebImageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +233,11 @@
 		9597B0F31CA1168200FF65D9 /* Tab04Normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab04Normal@3x.png"; sourceTree = "<group>"; };
 		9597B0F41CA1168200FF65D9 /* Tab04Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab04Highlighted@2x.png"; sourceTree = "<group>"; };
 		9597B0F51CA1168200FF65D9 /* Tab04Highlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab04Highlighted@3x.png"; sourceTree = "<group>"; };
+		9597B1141CA12C5D00FF65D9 /* timeline_image_loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_image_loading.png; sourceTree = "<group>"; };
+		9597B1161CA1313E00FF65D9 /* DCPicScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCPicScrollView.h; sourceTree = "<group>"; };
+		9597B1171CA1313E00FF65D9 /* DCPicScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCPicScrollView.m; sourceTree = "<group>"; };
+		9597B1181CA1313E00FF65D9 /* DCWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCWebImageManager.h; sourceTree = "<group>"; };
+		9597B1191CA1313E00FF65D9 /* DCWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCWebImageManager.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -424,6 +432,7 @@
 		95412FEB1C9FD0F700D26B11 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				9597B1101CA1293400FF65D9 /* BannerView */,
 				9597B0821CA0EF8E00FF65D9 /* TableView */,
 				9597B0741CA0EBB100FF65D9 /* BadgeNumberView */,
 				9597B0701CA0EB7C00FF65D9 /* TabItemView */,
@@ -733,6 +742,7 @@
 		9597B0E01CA1168200FF65D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9597B1141CA12C5D00FF65D9 /* timeline_image_loading.png */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -786,6 +796,17 @@
 				9597B0F51CA1168200FF65D9 /* Tab04Highlighted@3x.png */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		9597B1101CA1293400FF65D9 /* BannerView */ = {
+			isa = PBXGroup;
+			children = (
+				9597B1161CA1313E00FF65D9 /* DCPicScrollView.h */,
+				9597B1171CA1313E00FF65D9 /* DCPicScrollView.m */,
+				9597B1181CA1313E00FF65D9 /* DCWebImageManager.h */,
+				9597B1191CA1313E00FF65D9 /* DCWebImageManager.m */,
+			);
+			path = BannerView;
 			sourceTree = "<group>";
 		};
 		AE61FCC7A6468021BFFF1318 /* Pods */ = {
@@ -911,6 +932,7 @@
 				9597B0FB1CA1168200FF65D9 /* Tab02Normal@3x.png in Resources */,
 				9597B0F71CA1168200FF65D9 /* Tab01Normal@3x.png in Resources */,
 				9597B0FC1CA1168200FF65D9 /* Tab02Highlighted@2x.png in Resources */,
+				9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */,
 				9597B0FD1CA1168200FF65D9 /* Tab02Highlighted@3x.png in Resources */,
 				9597B1051CA1168200FF65D9 /* Tab04Highlighted@3x.png in Resources */,
 				9597B1041CA1168200FF65D9 /* Tab04Highlighted@2x.png in Resources */,
@@ -981,6 +1003,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */,
+				9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */,
 				954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */,
 				9597B0DE1CA113AF00FF65D9 /* LearnCenterViewController.m in Sources */,
 				954130301CA003B500D26B11 /* UIView+Addition.m in Sources */,
@@ -997,6 +1020,7 @@
 				9597B0BE1CA0F12700FF65D9 /* UIScrollView+MJExtension.m in Sources */,
 				9597B0BA1CA0F12700FF65D9 /* MJRefreshGifHeader.m in Sources */,
 				9597B0B11CA0F12700FF65D9 /* MJRefreshAutoNormalFooter.m in Sources */,
+				9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */,
 				9597B0B91CA0F12700FF65D9 /* MJRefreshFooter.m in Sources */,
 				9541302B1CA003B500D26B11 /* UIImage+CompressImage.m in Sources */,
 				9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */,
