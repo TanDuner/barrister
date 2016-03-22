@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BaseNavigaitonController.h
 //  barrister
 //
 //  Created by 徐书传 on 16/3/21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BaseNavigaitonController : UINavigationController
 
 @end
-

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BaseTabbarController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic,retain)  BaseTabbarController *tabBarCTL;
 
 
 @end
