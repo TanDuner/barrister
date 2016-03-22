@@ -58,6 +58,7 @@
 		9597B0BE1CA0F12700FF65D9 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0A91CA0F12700FF65D9 /* UIScrollView+MJExtension.m */; };
 		9597B0BF1CA0F12700FF65D9 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0AB1CA0F12700FF65D9 /* UIScrollView+MJRefresh.m */; };
 		9597B0C01CA0F12700FF65D9 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0AD1CA0F12700FF65D9 /* UIView+MJExtension.m */; };
+		9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0C21CA0F94100FF65D9 /* BaseModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		9597B0AB1CA0F12700FF65D9 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		9597B0AC1CA0F12700FF65D9 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		9597B0AD1CA0F12700FF65D9 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		9597B0C11CA0F94100FF65D9 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		9597B0C21CA0F94100FF65D9 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -355,6 +358,8 @@
 			children = (
 				95412FF91C9FD3EF00D26B11 /* BaseDataSingleton.h */,
 				95412FFA1C9FD3EF00D26B11 /* BaseDataSingleton.m */,
+				9597B0C11CA0F94100FF65D9 /* BaseModel.h */,
+				9597B0C21CA0F94100FF65D9 /* BaseModel.m */,
 			);
 			path = BaseModel;
 			sourceTree = "<group>";
@@ -783,6 +788,7 @@
 				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				95412FA81C9F91FA00D26B11 /* main.m in Sources */,
 				9597B0BC1CA0F12700FF65D9 /* MJRefreshNormalHeader.m in Sources */,
+				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
 				9597B0771CA0EBB100FF65D9 /* BadgeNumberView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
