@@ -7,9 +7,7 @@
 //
 
 #import "BaseNavigaitonController.h"
-
-#define kNavigationBarColor     UIColorFromRGB(0xFFE02428)
-#define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
+#import "UIImage+Additions.h"
 
 @interface BaseNavigaitonController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
@@ -21,7 +19,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+        [[UINavigationBar appearanceWhenContainedIn:[BaseNavigaitonController class], nil] setBackgroundImage:[UIImage createImageWithColor:kNavigationBarColor] forBarMetrics:UIBarMetricsDefault];
+        
+        [[UINavigationBar appearanceWhenContainedIn:[BaseNavigaitonController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kNavigationTitleColor, NSForegroundColorAttributeName, nil]];
+
     }
     return self;
 }

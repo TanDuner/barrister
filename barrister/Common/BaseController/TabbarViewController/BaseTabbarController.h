@@ -9,13 +9,24 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseTabbarController : UITabBarController
+{
+    UIImageView * imagView;
+    UILabel * label;
+}
+@property (nonatomic,strong) NSMutableArray * btnArray;
+@property (nonatomic,strong) NSMutableArray * imageViewArray;
+@property (nonatomic,strong) NSMutableArray * newsMsgLabelArray;
+@property (nonatomic,strong) NSMutableArray * titleArray;
+@property (nonatomic,strong) UIImageView * selectView;
+@property (nonatomic,strong) UIImageView * tabBarBG;
 
-- (void)selectViewController:(UIViewController *)viewController;
 
-- (void)setPromptNum:(NSInteger)num onTabbarItem:(NSInteger)index;
-- (void)selectTab:(NSInteger)index;
-- (void)selectButtonAtIndex:(NSUInteger)index;
 
-- (void) hideTabBar:(BOOL) hidden;
+-(void)setNewMsgTipWithIndex:(int)index;
+-(void)hideNewMsgTipWithIndex:(int)index;
+
+- (void)changeViewController:(UIButton *)button;
+- (void)showTabBar;
+- (void)hiddenTabBar;
 
 @end

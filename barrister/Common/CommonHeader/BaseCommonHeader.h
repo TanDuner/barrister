@@ -45,6 +45,7 @@
 #define NAVBAR_HIGHTIOS_7 (44 + 20)
 #define NAVBAR_DEFAULT_HEIGHT  ((IS_IOS7) ? (NAVBAR_HIGHTIOS_7) : (44))
 #define STATUSBAR_DEFAULT_HEIGHT  ((IS_IOS7) ? (0) : (STATUSBAR_HIGHT))
+#define TABBAR_HEIGHT 49
 
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
@@ -67,7 +68,7 @@
 #pragma mark -
 #pragma mark - 导航栏
 
-#define kNavigationBarColor     UIColorFromRGB(0xFFE02428)
+#define kNavigationBarColor     UIColorFromRGB(0x1c84db)
 #define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
 #define kBaseViewBackgroundColor    UIColorFromRGB(0xFFF1F1F1)
 

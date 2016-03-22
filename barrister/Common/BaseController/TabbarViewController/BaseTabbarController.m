@@ -7,461 +7,250 @@
 //
 
 #import "BaseTabbarController.h"
+#import "HomeViewController.h"
+#import "OrderViewController.h"
+#import "LearnCenterViewController.h"
+#import "PersonCenterViewController.h"
+#import "BaseNavigaitonController.h"
 
-//#import "SingletonState.h"
-//#import "WTLoginViewController.h"
 
-#define kCartNumBackgroundImageTag 1001
-#define kCartNumTextLabelTag 1002
+#define     ImageWidth        25
 
-#define kItemCount 5
 
-#define kDuration .2
+#define ItemWidth SCREENWIDTH/4.0
 
 @interface BaseTabbarController ()
 
-@property (nonatomic, retain) NSMutableArray *buttons;
 
-- (void)createCustomTabBar;
-- (void)selectTab:(NSInteger)index;
+@property (nonatomic,strong) NSMutableArray * tabBarImageNames;
+@property (nonatomic,strong) NSMutableArray * tabBarSelectedImageNames;
+@property (nonatomic,strong) NSMutableArray * tabBarTitleNames;
+
+- (void)loadViewControllers;
+- (void)loadCustomTabBarView;
+
 @end
 
 @implementation BaseTabbarController
-@synthesize buttons = _buttons;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //隐藏系统TabBar
+        self.tabBar.hidden = YES;
+        self.newsMsgLabelArray = [NSMutableArray arrayWithCapacity:10];
     }
     return self;
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
-    if (_buttons == nil)
-    {
-        [self createCustomTabBar];
-    }
+    [super viewDidLoad];
+    
+    //加载视图控制器
+    [self loadViewControllers];
+    
+    //加载自定义TabBar
+    [self loadCustomTabBarView];
 }
 
-
-- (void)popToRootViewControllerWithIndex:(NSInteger)index
-{
-    NSInteger count = self.viewControllers.count;
-    
-    if (index < count)
-    {
-        UINavigationController *viewController = (UINavigationController *)[self.viewControllers objectAtIndex:index];
-        if (viewController != nil && [self.delegate tabBarController:self shouldSelectViewController:viewController])
-        {
-            [viewController popToRootViewControllerAnimated:YES];
-            [self.delegate tabBarController:self didSelectViewController:viewController];
-        }
-    }
-}
-
-- (void)selectButtonAtIndex:(NSUInteger)index
+#pragma mark-
+#pragma mark-加载
+- (void)loadViewControllers
 {
     
-    UIViewController *viewController = nil;
-    if (index < self.viewControllers.count)
-    {
-        viewController = [self.viewControllers objectAtIndex:index];
-    }
+    self.titleArray = [NSMutableArray arrayWithObjects:@"首页",@"订单",@"学习中心",@"个人中心", nil];
     
     
-    if (viewController != nil)
-    {
-        if (self.selectedIndex == index)
-        {
-            [self popToRootViewControllerWithIndex:index];
-        }
-        else
-        {
-            if ([self.delegate tabBarController:self shouldSelectViewController:viewController])
-            {
-                [self selectTab:index];
-                
-                [self setSelectedIndex:index];
-                [self.delegate tabBarController:self didSelectViewController:viewController];
-            }
-        }
-    }
+    self.btnArray = [NSMutableArray arrayWithCapacity:10];
+    
+    
+    HomeViewController *c1 = [[HomeViewController alloc] init];
+    c1.title = [self.titleArray objectAtIndex:0];
+    BaseNavigaitonController *ctl1 = [[BaseNavigaitonController alloc] initWithRootViewController:c1];
+    
+    
+    
+    OrderViewController *c2 = [[OrderViewController alloc] init];
+    c2.title = [self.titleArray objectAtIndex:1];
+    BaseNavigaitonController *ctl2 = [[BaseNavigaitonController alloc] initWithRootViewController:c2];
+    
+    LearnCenterViewController *c3 = [[LearnCenterViewController alloc] init];
+    c3.title = [self.titleArray objectAtIndex:2];
+    BaseNavigaitonController *ctl3 = [[BaseNavigaitonController alloc] initWithRootViewController:c3];
+    
+    PersonCenterViewController *c4 = [[PersonCenterViewController alloc] init];
+    c4.title = [self.titleArray objectAtIndex:3];
+    BaseNavigaitonController *ctl4 = [[BaseNavigaitonController alloc] initWithRootViewController:c4];
+    
+    
+    
+    
+    // 将视图控制器添加至数组中
+    NSArray *viewControllers = @[ctl1,ctl2,ctl3,ctl4];
+    
+    [self setViewControllers:viewControllers animated:YES];
+    
 }
 
-
-
-- (void)loginSuccess:(int) tag{
-    
-    UIViewController *viewController = nil;
-    if (tag < self.viewControllers.count)
-    {
-        viewController = [self.viewControllers objectAtIndex:tag];
-    }
-    
-    if ([self.delegate tabBarController:self shouldSelectViewController:viewController])
-    {
-        [self selectTab:tag];
-        [self.delegate tabBarController:self didSelectViewController:viewController];
-    }
-    [self hideTabBar:NO];
-}
-
-- (void)onTabItemDown:(id)sender
+- (void)loadCustomTabBarView
 {
+    [self initDatas];
     
-    UIButton *button = (UIButton *)sender;
-    NSInteger index = button.tag - 10000;
+    // 初始化自定义TabBar背景
     
-//    SingletonState *dm = [SingletonState sharedInstance];
-//    
-//    if (!dm.userHasLogin  && index > 2  && MainScreenHeight > 485) {
-//        [self showLoginView:index];
-//        return;
-//    }
+    _tabBarBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT-TABBAR_HEIGHT, SCREENWIDTH, TABBAR_HEIGHT)];
+    _tabBarBG.userInteractionEnabled = YES; //关键
+    _tabBarBG.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tabBarBG];
     
+    UIImageView *lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0.5, SCREENWIDTH, 0.5)];
+    lineImageView.backgroundColor = RGBCOLOR(172, 172, 172);
+    [_tabBarBG addSubview:lineImageView];
     
-    
-    UIViewController *viewController = nil;
-    if (index < self.viewControllers.count)
-    {
-        viewController = [self.viewControllers objectAtIndex:index];
-    }
-    
-    
-    if (viewController != nil)
-    {
-        if (self.selectedIndex == index)
-        {
-            [self popToRootViewControllerWithIndex:index];
-        }
-        else
-        {
-            if ([self.delegate tabBarController:self shouldSelectViewController:viewController])
-            {
-                [self selectTab:index];
-                [self.delegate tabBarController:self didSelectViewController:viewController];
-            }
-        }
-    }
-}
-
-
-
-- (void)onTabItemRepeat:(id)sender
-{
-    UIButton *button = (UIButton *)sender;
-    
-    NSInteger index = button.tag - 10000;
-    
-    [self popToRootViewControllerWithIndex:index];
-}
-
-- (void)createCustomTabBar
-{
-    
-    UIView *tabBarBackGroundView = [self.tabBar viewWithTag:kMainTabbarBgViewTag];
-    if (tabBarBackGroundView != nil)
-    {
-        [tabBarBackGroundView removeFromSuperview];
-    }
-    
-    tabBarBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, SCREENWIDTH, self.tabBar.frame.size.height)];
-    
-    //创建按钮,最多显示5个
-    NSInteger viewCount = self.viewControllers.count > kItemCount ? kItemCount : self.viewControllers.count;
-    self.buttons = [NSMutableArray arrayWithCapacity:viewCount];
-    
-    double itemWidth = SCREENWIDTH / viewCount;
-    
-    double itemHeight = self.tabBar.frame.size.height;
-    for (int i = 0; i < viewCount; i++)
-    {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(i * itemWidth, 0, itemWidth, itemHeight);
+    //tabbarItems
+    for (int i = 0; i < 4; i++) {
+        NSString *imageName = [self.tabBarImageNames objectAtIndex:i];
+        UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake((ItemWidth - ImageWidth)/2, 5, ImageWidth, ImageWidth)];
+        imageView.tag = 900;
+        imageView.image = [UIImage imageNamed:imageName];
         
-        [btn addTarget:self action:@selector(onTabItemDown:) forControlEvents:UIControlEventTouchDown];
-        [btn addTarget:self action:@selector(onTabItemRepeat:) forControlEvents:UIControlEventTouchDownRepeat];
-        btn.tag = 10000 + i;
-        btn.contentMode = UIViewContentModeCenter;
+        UIButton * tabbarItem = [UIButton buttonWithType:UIButtonTypeCustom];
+        tabbarItem.backgroundColor = [UIColor clearColor];
+        [self.btnArray addObject:tabbarItem];
+        tabbarItem.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        tabbarItem.titleLabel.textAlignment = NSTextAlignmentCenter;
+        tabbarItem.frame = CGRectMake(i*ItemWidth, 0, ItemWidth, TABBAR_HEIGHT);
+        tabbarItem.tag = i;
+        [tabbarItem addTarget:self action:@selector(changeViewController:) forControlEvents:UIControlEventTouchUpInside];
+        [tabbarItem addSubview:imageView];
+        [_tabBarBG addSubview:tabbarItem];
         
-        NSString *normalImgName = nil;
+        UILabel *labelT = [[UILabel alloc] initWithFrame:CGRectMake(0, TABBAR_HEIGHT - 15, ItemWidth, 12)];
+        labelT.font = [UIFont systemFontOfSize:12.0f];
+        labelT.textAlignment = NSTextAlignmentCenter;
+        labelT.textColor = RGBCOLOR(119, 119, 119 );
+        labelT.backgroundColor = [UIColor clearColor];
+        labelT.text = [self.titleArray objectAtIndex:i];
+        [tabbarItem addSubview:labelT];
         
-        switch (i)
-        {
-            case 0:
-                normalImgName = @"Tab01Normal.png";
-                break;
-                
-            case 1:
-                normalImgName = @"Tab02Normal.png";
-                break;
-                
-            case 2:
-                normalImgName = @"Tab03Normal.png";
-                break;
-                
-            case 3:
-                normalImgName = @"Tab04Normal.png";
-                break;
-            case 4:
-                normalImgName = @"Tab05Normal.png";
-                
-            default:
-                break;
-        }
         
-        [btn setBackgroundImage:[UIImage imageNamed:normalImgName] forState:UIControlStateNormal];
-        [btn setAdjustsImageWhenHighlighted:NO];
-        [self.buttons addObject:btn];
-        [tabBarBackGroundView addSubview:btn];
-    }
-    
-    [self.tabBar addSubview:tabBarBackGroundView];
-    //	[tabBarBackGroundView release];
-    [self selectTab:0];
-}
-
-- (void)selectTab:(NSInteger)index
-{
-    if (index >= _buttons.count)
-    {
-        return;
-    }
-    
-    NSString *normalImgName = nil;
-    switch (self.selectedIndex)
-    {
-        case 0:
-            normalImgName = @"Tab01Normal.png";
-            break;
-            
-        case 1:
-            normalImgName = @"Tab02Normal.png";
-            break;
-            
-        case 2:
-            normalImgName = @"Tab03Normal.png";
-            break;
-            
-        case 3:
-            normalImgName = @"Tab04Normal.png";
-            break;
-        case 4:
-            normalImgName = @"Tab05Normal.png";
-        default:
-            break;
-    }
-    
-    if (self.selectedIndex < _buttons.count)
-    {
-        UIButton *oldSelected = [_buttons objectAtIndex:self.selectedIndex];
-        [oldSelected setBackgroundImage:[UIImage imageNamed:normalImgName] forState:UIControlStateNormal];
-    }
-    
-    NSString *highlightedImgName = nil;
-    switch (index)
-    {
-        case 0:
-            highlightedImgName = @"Tab01Highlighted.png";
-            break;
-            
-        case 1:
-            highlightedImgName = @"Tab02Highlighted.png";
-            break;
-            
-        case 2:
-            highlightedImgName = @"Tab03Highlighted.png";
-            break;
-            
-        case 3:
-            highlightedImgName = @"Tab04Highlighted.png";
-            break;
-        case 4:
-            highlightedImgName = @"Tab05Highlighted.png";
-            break;
-        default:
-            break;
-    }
-    
-    if (index < _buttons.count)
-    {
-        UIButton *newSelected = [_buttons objectAtIndex:index];
-        UIImage * bg = [UIImage imageNamed:highlightedImgName];
-        [newSelected setBackgroundImage:bg forState:UIControlStateNormal];
-        self.selectedIndex = newSelected.tag - 10000;
-    }
-    
-    if (self.selectedIndex < self.viewControllers.count)
-    {
-        UIViewController *viewController = [self.viewControllers objectAtIndex:self.selectedIndex];
-        self.title = viewController.title;
-    }
-}
-
-- (void)selectViewController:(UIViewController *)viewController
-{
-    if (viewController == nil)
-    {
-        return;
-    }
-    
-    NSInteger controllerCount = self.viewControllers.count;
-    for (NSInteger i = 0; i < controllerCount; i++)
-    {
-        if (viewController == [self.viewControllers objectAtIndex:i])
-        {
-            [self selectTab:i];
-            break;
+        //默认第一个
+        if (i == self.selectedIndex) {
+            [self changeViewController:tabbarItem];
         }
     }
+
 }
 
-
-- (void)setPromptNum:(NSInteger)num onTabbarItem:(NSInteger)index
+#pragma mark-
+#pragma mark-显示/隐藏
+- (void)showTabBar
 {
-    NSInteger itemCount = _buttons.count;
+    self.tabBar.hidden = YES;//这里一定要有，否则不兼容ios7
+    [UIView beginAnimations:nil context:NULL];
+    if (IS_IOS7) {
+        [UIView setAnimationDuration:0.05];
+    }
+    else
+        [UIView setAnimationDuration:0.34];
     
-    if (index < 0 || index >= itemCount)
-    {
-        return;
+    _tabBarBG.frame = CGRectMake(0, SCREENHEIGHT-TABBAR_HEIGHT, SCREENWIDTH, TABBAR_HEIGHT);
+    [UIView commitAnimations];
+}
+
+- (void)hiddenTabBar
+{
+    [UIView beginAnimations:nil context:NULL];
+    if (IS_IOS7) {
+        [UIView setAnimationDuration:0.05];
+    }
+    else
+        [UIView setAnimationDuration:0.36];
+    
+    _tabBarBG.frame = CGRectMake(-SCREENWIDTH, SCREENHEIGHT-TABBAR_HEIGHT, SCREENWIDTH, TABBAR_HEIGHT);
+    [UIView commitAnimations];
+}
+
+#pragma mark-
+#pragma mark-初始化数据
+- (void)initDatas{
+    
+    self.tabBarImageNames = [[NSMutableArray alloc]initWithObjects:
+                              @"Tab01Normal.png",
+                              @"Tab02Normal.png",
+                              @"Tab03Normal.png",
+                              @"Tab04Normal.png",
+
+                              nil];
+    
+    self.tabBarSelectedImageNames = [[NSMutableArray alloc]initWithObjects:
+                                      @"Tab01Highlighted.png",
+                                      @"Tab02Highlighted.png",
+                                      @"Tab03Highlighted.png",
+                                      @"Tab04Highlighted.png",
+                                      nil];
+    
+}
+
+#pragma mark-
+#pragma mark-其他
+- (void)changeViewController:(UIButton *)button
+{
+    
+    UIButton *lastbtn = (UIButton *)[self.btnArray objectAtIndex:self.selectedIndex];
+    for (UIImageView *imageView in lastbtn.subviews) {
+        if (imageView.tag == 900) {
+            NSString *lastImageName = [self.tabBarImageNames objectAtIndex:self.selectedIndex];
+            [imageView setImage:[UIImage imageNamed:lastImageName]];
+        }
     }
     
-    UIButton *itemBtn = [_buttons objectAtIndex:index];
-    if (itemBtn != nil)
-    {
-        if (num > 0)
-        {
-            UIImageView *imageView = (UIImageView *)[itemBtn viewWithTag:kCartNumBackgroundImageTag];
-            if (imageView == nil)
-            {
-                imageView = [[UIImageView alloc] initWithFrame:CGRectMake(45.0, 1.0, 19.0, 19.0)];
-                imageView.tag = kCartNumBackgroundImageTag;
-                imageView.image = [UIImage imageNamed:@"Prompt"];
-                [itemBtn addSubview:imageView];
-                //                [imageView release];
-            }
-            
-            UILabel *label = (UILabel *)[itemBtn viewWithTag:kCartNumTextLabelTag];
-            if (label == nil)
-            {
-                label = [[UILabel alloc] initWithFrame:CGRectMake(45.5, 1.0, 18.0, 19.0)];
-                label.tag = kCartNumTextLabelTag;
-                label.font = [UIFont systemFontOfSize:11.0];
-                label.textColor = [UIColor whiteColor];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-                label.backgroundColor = [UIColor clearColor];
-                [itemBtn addSubview:label];
-                //                [label release];
-            }
-            
-            if (num > 99)
-            {
-                label.text = @"...";
-            }
-            else
-            {
-                label.text = [NSString stringWithFormat:@"%ld", num];
+    for (UIButton *btn in self.btnArray) {
+        if (btn == button) {
+            [btn setTitleColor:kNavigationBarColor forState:UIControlStateNormal];
+            for (UIImageView *imageView in btn.subviews) {
+                if (imageView.tag == 900) {
+                    NSString *seleteImage = [self.tabBarSelectedImageNames objectAtIndex:button.tag];
+                    [imageView setImage:[UIImage imageNamed:seleteImage]];
+                }
             }
         }
         else
         {
-            UIImageView *imageView = (UIImageView *)[itemBtn viewWithTag:kCartNumBackgroundImageTag];
-            if (imageView != nil)
-            {
-                [imageView removeFromSuperview];
-            }
             
-            UILabel *label = (UILabel *)[itemBtn viewWithTag:kCartNumTextLabelTag];
-            if (label != nil)
-            {
-                [label removeFromSuperview];
-            }
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }
     }
+    
+    //转到相应的视图
+    self.selectedIndex = button.tag;
+
 }
 
-CGFloat getDeviceHeight(){
-    UIScreen *screen = [UIScreen mainScreen];
-    return screen.bounds.size.height;
-}
+#pragma mark- 设置tabbar 角标
 
-#pragma mark- HiddenTabBarMethods
-BOOL isAnimating = NO;
-- (void) hideTabBar:(BOOL) hidden
+
+
+-(void)setNewMsgTipWithIndex:(int)index
 {
-    if (hidden && !isAnimating) {
-        isAnimating = YES;
-        [UIView animateWithDuration:kDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^(){
-            
-            CGRect frame = self.tabBar.frame;
-            frame.origin.y = getDeviceHeight();
-            self.tabBar.frame = frame;
-            
-        } completion:^(BOOL complete)
-         {
-             isAnimating = NO;
-         }];
-        
-    }else if (!hidden && !isAnimating){
-        isAnimating = YES;
-        [UIView animateWithDuration:kDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^(){
-            
-            CGRect frame = self.tabBar.frame;
-            frame.origin.y = getDeviceHeight() - 49;
-            self.tabBar.frame = frame;
-            
-        } completion:^(BOOL complete)
-         {
-             isAnimating = NO;
-         }];
-        
-        
+    if (index == 1) {
+        return;
     }
+    UILabel *labelTemp = [self.newsMsgLabelArray objectAtIndex:index];
+    [_tabBarBG addSubview:labelTemp];
+    labelTemp.hidden = NO;
+    
+}
+
+-(void)hideNewMsgTipWithIndex:(int)index
+{
+    UILabel *labelTemp = [self.newsMsgLabelArray objectAtIndex:index];
+    labelTemp.hidden = YES;
+    [labelTemp removeFromSuperview];
     
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-/*
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView
- {
- }
- */
-
-/*
- // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- - (void)viewDidLoad
- {
- [super viewDidLoad];
- }
- */
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 @end
