@@ -9,6 +9,10 @@
 #import "BaseSegmentViewController.h"
 #import "TabItemView.h"
 
+#define kTabHeight          40
+static const NSInteger kTagOffset = 1000;
+
+
 @interface BaseSegmentViewController ()
 
 @end
@@ -18,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (iOS7) {
+    if (IS_IOS7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     

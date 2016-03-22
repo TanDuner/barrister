@@ -142,8 +142,6 @@
 
 - (NSString *)getBackBtnText
 {
-    return NSLocalizedString(@"Back", nil);
-    
     UIViewController * perVc;
     NSString * backBtnText;
     NSUInteger curIndex = [self.navigationController.viewControllers indexOfObject:self];
@@ -349,7 +347,8 @@
         [_noContentView addSubview:_noContentImageView];
         
         UIFont *font = [UIFont systemFontOfSize:14.0f];
-        CGSize size = [self.noContentString sizeWithFont:font constrainedToSize:CGSizeMake(_noContentView.width - 40.0f, _noContentView.height)];
+        CGSize size = [self.noContentString XuSizeWithFont:font constrainedToSize:CGSizeMake(_noContentView.width - 40.0f, _noContentView.height)];
+        
         frame = CGRectMake(20.0f, _noContentImageView.y + _noContentImageView.height + 20.0f, _noContentView.width - 40.0f, size.height);
         _noContentLabel = [[UILabel alloc] initWithFrame:frame];
         _noContentLabel.font = font;
@@ -384,7 +383,8 @@
         _loadingView.backgroundColor = self.view.backgroundColor;
         
         UIFont *font = [UIFont systemFontOfSize:14.0f];
-        CGSize size = [self.loadingString sizeWithFont:font constrainedToSize:CGSizeMake(_loadingView.width - 40.0f, _loadingView.height)];
+        
+        CGSize size = [self.loadingString XuSizeWithFont:font constrainedToSize:CGSizeMake(_loadingView.width - 40.0f, _loadingView.height)];
         
         _loadingActivityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         CGRect frame = CGRectMake((_loadingView.width - (_loadingActivityIndicatorView.width + 10.0f + size.width)) / 2.0f, (_loadingView.height - _loadingActivityIndicatorView.height) / 2.0f, _loadingActivityIndicatorView.width, _loadingActivityIndicatorView.height);
@@ -414,13 +414,15 @@
     CGRect frame = CGRectMake((self.view.width - _noContentImageView.image.size.width) / 2.0f, (self.view.height - _noContentImageView.image.size.height) / 2.0f - _noContentImageView.image.size.height / 2.0f, _noContentImageView.image.size.width, _noContentImageView.image.size.height);
     _noContentImageView.frame = frame;
     UIFont *font = [UIFont systemFontOfSize:14.0f];
-    CGSize size = [self.noContentString sizeWithFont:font constrainedToSize:CGSizeMake(_noContentView.width - 40.0f, _noContentView.height)];
+    CGSize size = [self.noContentString XuSizeWithFont:font constrainedToSize:CGSizeMake(_noContentView.width - 40.0f, _noContentView.height)];
+
+    
     frame = CGRectMake(20.0f, _noContentImageView.y + _noContentImageView.height + 20.0f, _noContentView.width - 40.0f, size.height);
     _noContentLabel.frame = frame;
     
     // 正在加载
     _loadingView.frame = self.view.bounds;
-    size = [self.loadingString sizeWithFont:font constrainedToSize:CGSizeMake(_loadingView.width - 40.0f, _loadingView.height)];
+    size = [self.loadingString XuSizeWithFont:font constrainedToSize:CGSizeMake(_loadingView.width - 40.0f, _loadingView.height)];
     frame = CGRectMake((_loadingView.width - (_loadingActivityIndicatorView.width + 10.0f + size.width)) / 2.0f, (_loadingView.height - _loadingActivityIndicatorView.height) / 2.0f, _loadingActivityIndicatorView.width, _loadingActivityIndicatorView.height);
     _loadingActivityIndicatorView.frame = frame;
     frame = CGRectMake(_loadingActivityIndicatorView.x + _loadingActivityIndicatorView.width + 10.0f, (_loadingView.height - size.height) / 2.0f, size.width, size.height);

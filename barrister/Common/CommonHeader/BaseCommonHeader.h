@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "UIColorAdditions.h"
 #import "UIView+Addition.h"
+#import "NSString+Addition.h"
+#import "BaseDataSingleton.h"
+#import "XuUtlity.h"
 
 #define kLoadingViewTag 100000      // LoadingView tag
 #define kNetworkErrorViewTag 100001 // NetworkErrorView.xib tag
@@ -60,6 +63,18 @@
 
 
 //通用颜色
+
+#pragma mark -
+#pragma mark - 导航栏
+
+#define kNavigationBarColor     UIColorFromRGB(0xFFE02428)
+#define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
+#define kBaseViewBackgroundColor    UIColorFromRGB(0xFFF1F1F1)
+
+#define kButtonColor1Normal         UIColorFromRGB(0xFFF1F1F1)
+#define kButtonColor1Highlight      UIColorFromRGB(0xFF666666)
+
+
 #define kSeparatorColor         UIColorFromRGB(0xFFD8D8D8)
 #define kFormBackgroundColor    UIColorFromRGB(0xFFFFFFFF)
 

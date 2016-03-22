@@ -127,4 +127,52 @@
     return s;
 }
 
+- (CGSize)XuSizeWithFont:(UIFont *)font
+{
+    CGSize textSize = CGSizeZero;
+    if (IS_IOS7)
+    {
+        textSize = [self sizeWithAttributes:@{ NSFontAttributeName : font }];
+    }else{
+        textSize = [self sizeWithFont:font];
+    }
+    return textSize;
+}
+
+- (CGSize)XuSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+    CGSize textSize = CGSizeZero;
+    if (IS_IOS7)
+    {
+        textSize = [self boundingRectWithSize:size options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{ NSFontAttributeName : font } context:nil].size;
+    }else{
+        textSize = [self sizeWithFont:font constrainedToSize:size];
+    }
+    //textSize = [self sizeWithFont:font constrainedToSize:size];
+    return textSize;
+}
+
+- (CGSize)XuSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode
+{
+    CGSize textSize = CGSizeZero;
+    if (IS_IOS7)
+    {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = lineBreakMode;
+        NSDictionary *attributes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+        
+        textSize = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    }else{
+        textSize = [self sizeWithFont:font constrainedToSize:size lineBreakMode:lineBreakMode];
+    }
+    
+    return textSize;
+}
+
+- (CGSize)imSizeWithFont:(UIFont *)font forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode
+{
+    return [self XuSizeWithFont:font constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:lineBreakMode];
+}
+
+
 @end

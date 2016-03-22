@@ -30,4 +30,13 @@
 - (NSData *)hexToBytes;
 - (NSString *)stringByStrippingHTML;
 
+- (CGSize)XuSizeWithFont:(UIFont *)font;
+
+- (CGSize)XuSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+
+- (CGSize)XuSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode;
+
+- (CGSize)XuSizeWithFont:(UIFont *)font forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode;
+
+
 @end

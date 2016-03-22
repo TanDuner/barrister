@@ -7,7 +7,6 @@
 //
 
 #import "ZToastView.h"
-#import "Constant.h"
 
 @implementation ZToastView
 
@@ -61,7 +60,7 @@
     _message = [message copy];
     
     UILabel *label = [self label];
-    CGSize maxSize = CGSizeMake(self.width - 40.0f, KDeviceHeight - 55.0f);
+    CGSize maxSize = CGSizeMake(self.width - 40.0f, SCREENHEIGHT - 55.0f);
     CGSize size = [message sizeWithFont:label.font constrainedToSize:maxSize];
     
     CGRect frame = self.frame;

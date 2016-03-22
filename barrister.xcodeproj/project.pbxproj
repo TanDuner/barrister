@@ -33,6 +33,11 @@
 		9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0461CA0395F00FF65D9 /* BaseViewController.m */; };
 		9597B04B1CA03D3900FF65D9 /* ZToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B04A1CA03D3900FF65D9 /* ZToastView.m */; };
 		9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B04D1CA03E3900FF65D9 /* UIColorAdditions.m */; };
+		9597B0531CA0E31A00FF65D9 /* XuUtlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0521CA0E31A00FF65D9 /* XuUtlity.m */; };
+		9597B06B1CA0E97700FF65D9 /* BaseSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B06A1CA0E97700FF65D9 /* BaseSegmentViewController.m */; };
+		9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B06E1CA0E9CF00FF65D9 /* BaseTableViewController.m */; };
+		9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0721CA0EB7C00FF65D9 /* TabItemView.m */; };
+		9597B0771CA0EBB100FF65D9 /* BadgeNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0761CA0EBB100FF65D9 /* BadgeNumberView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +113,16 @@
 		9597B04A1CA03D3900FF65D9 /* ZToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZToastView.m; sourceTree = "<group>"; };
 		9597B04C1CA03E3900FF65D9 /* UIColorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorAdditions.h; sourceTree = "<group>"; };
 		9597B04D1CA03E3900FF65D9 /* UIColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorAdditions.m; sourceTree = "<group>"; };
+		9597B0511CA0E31A00FF65D9 /* XuUtlity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuUtlity.h; sourceTree = "<group>"; };
+		9597B0521CA0E31A00FF65D9 /* XuUtlity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuUtlity.m; sourceTree = "<group>"; };
+		9597B0691CA0E97700FF65D9 /* BaseSegmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSegmentViewController.h; sourceTree = "<group>"; };
+		9597B06A1CA0E97700FF65D9 /* BaseSegmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSegmentViewController.m; sourceTree = "<group>"; };
+		9597B06D1CA0E9CF00FF65D9 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		9597B06E1CA0E9CF00FF65D9 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		9597B0711CA0EB7C00FF65D9 /* TabItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabItemView.h; sourceTree = "<group>"; };
+		9597B0721CA0EB7C00FF65D9 /* TabItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabItemView.m; sourceTree = "<group>"; };
+		9597B0751CA0EBB100FF65D9 /* BadgeNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeNumberView.h; sourceTree = "<group>"; };
+		9597B0761CA0EBB100FF65D9 /* BadgeNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeNumberView.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +270,8 @@
 		95412FE81C9FCC1100D26B11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				9597B04F1CA0E30B00FF65D9 /* UIUtlity */,
+				9597B0501CA0E30B00FF65D9 /* Utlity */,
 				9541300A1CA003A600D26B11 /* Categorys */,
 			);
 			path = Util;
@@ -263,6 +280,8 @@
 		95412FE91C9FD0F700D26B11 /* BaseController */ = {
 			isa = PBXGroup;
 			children = (
+				9597B06C1CA0E9BD00FF65D9 /* BaseTableViewController */,
+				9597B0681CA0E97700FF65D9 /* SegmentController */,
 				95412FEC1C9FD1D500D26B11 /* NavigationController */,
 				95412FED1C9FD1D500D26B11 /* TabbarViewController */,
 				95412FF01C9FD1D500D26B11 /* ViewController */,
@@ -282,6 +301,8 @@
 		95412FEB1C9FD0F700D26B11 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				9597B0741CA0EBB100FF65D9 /* BadgeNumberView */,
+				9597B0701CA0EB7C00FF65D9 /* TabItemView */,
 				9597B0481CA03D3900FF65D9 /* ZToastView */,
 			);
 			path = BaseView;
@@ -364,6 +385,58 @@
 				9597B04A1CA03D3900FF65D9 /* ZToastView.m */,
 			);
 			path = ZToastView;
+			sourceTree = "<group>";
+		};
+		9597B04F1CA0E30B00FF65D9 /* UIUtlity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIUtlity;
+			sourceTree = "<group>";
+		};
+		9597B0501CA0E30B00FF65D9 /* Utlity */ = {
+			isa = PBXGroup;
+			children = (
+				9597B0511CA0E31A00FF65D9 /* XuUtlity.h */,
+				9597B0521CA0E31A00FF65D9 /* XuUtlity.m */,
+			);
+			path = Utlity;
+			sourceTree = "<group>";
+		};
+		9597B0681CA0E97700FF65D9 /* SegmentController */ = {
+			isa = PBXGroup;
+			children = (
+				9597B0691CA0E97700FF65D9 /* BaseSegmentViewController.h */,
+				9597B06A1CA0E97700FF65D9 /* BaseSegmentViewController.m */,
+			);
+			path = SegmentController;
+			sourceTree = "<group>";
+		};
+		9597B06C1CA0E9BD00FF65D9 /* BaseTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9597B06D1CA0E9CF00FF65D9 /* BaseTableViewController.h */,
+				9597B06E1CA0E9CF00FF65D9 /* BaseTableViewController.m */,
+			);
+			path = BaseTableViewController;
+			sourceTree = "<group>";
+		};
+		9597B0701CA0EB7C00FF65D9 /* TabItemView */ = {
+			isa = PBXGroup;
+			children = (
+				9597B0711CA0EB7C00FF65D9 /* TabItemView.h */,
+				9597B0721CA0EB7C00FF65D9 /* TabItemView.m */,
+			);
+			path = TabItemView;
+			sourceTree = "<group>";
+		};
+		9597B0741CA0EBB100FF65D9 /* BadgeNumberView */ = {
+			isa = PBXGroup;
+			children = (
+				9597B0751CA0EBB100FF65D9 /* BadgeNumberView.h */,
+				9597B0761CA0EBB100FF65D9 /* BadgeNumberView.m */,
+			);
+			path = BadgeNumberView;
 			sourceTree = "<group>";
 		};
 		AE61FCC7A6468021BFFF1318 /* Pods */ = {
@@ -546,7 +619,9 @@
 				954130301CA003B500D26B11 /* UIView+Addition.m in Sources */,
 				954130251CA003B500D26B11 /* NSDate+Addition.m in Sources */,
 				954130281CA003B500D26B11 /* NSString+Addition.m in Sources */,
+				9597B0531CA0E31A00FF65D9 /* XuUtlity.m in Sources */,
 				9541302A1CA003B500D26B11 /* UIImage+Cache.m in Sources */,
+				9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */,
 				954130271CA003B500D26B11 /* NSObject+Additions.m in Sources */,
 				954130291CA003B500D26B11 /* UIImage+Additions.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
@@ -554,6 +629,7 @@
 				9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */,
 				9541302C1CA003B500D26B11 /* UIImage+CreateImage.m in Sources */,
 				9597B04B1CA03D3900FF65D9 /* ZToastView.m in Sources */,
+				9597B06B1CA0E97700FF65D9 /* BaseSegmentViewController.m in Sources */,
 				95412FF41C9FD23F00D26B11 /* BaseNavigaitonController.m in Sources */,
 				954130261CA003B500D26B11 /* NSDictionary+Additions.m in Sources */,
 				95412FFB1C9FD3EF00D26B11 /* BaseDataSingleton.m in Sources */,
@@ -561,7 +637,9 @@
 				9541302E1CA003B500D26B11 /* UIImage+ImageEffects.m in Sources */,
 				954130091C9FDB4A00D26B11 /* BaseTabbarController.m in Sources */,
 				9541302D1CA003B500D26B11 /* UIImage+GIF.m in Sources */,
+				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				95412FA81C9F91FA00D26B11 /* main.m in Sources */,
+				9597B0771CA0EBB100FF65D9 /* BadgeNumberView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

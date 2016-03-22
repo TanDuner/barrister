@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+struct PhoneSate {
+    BOOL isopensound;
+    BOOL isopenvibrate;
+};
+typedef struct PhoneSate PhoneSate;
+
+
 @interface BaseDataSingleton : NSObject
+
+@property (nonatomic,assign) PhoneSate currentPhoneState;
 
 + (instancetype)shareInstance;
 

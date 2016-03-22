@@ -8,6 +8,9 @@
 
 #import "BaseNavigaitonController.h"
 
+#define kNavigationBarColor     UIColorFromRGB(0xFFE02428)
+#define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
+
 @interface BaseNavigaitonController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
 @end

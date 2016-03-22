@@ -7,3 +7,4 @@ pod 'MBProgressHUD', '~>0.9.2'
 
 pod 'Toast', '~> 2.4'
 pod 'SDWebImage'
+pod 'Reachability'
