@@ -41,7 +41,7 @@
 //    NSArray *titleArray = [@"第一张图片.第二张图片.第三张图片.第四张图片.第五张图片" componentsSeparatedByString:@"."];
     
     
-    DCPicScrollView  *picView = [DCPicScrollView picScrollViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200) WithImageUrls:UrlStringArray];
+    DCPicScrollView  *picView = [DCPicScrollView picScrollViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140) WithImageUrls:UrlStringArray];
     
 //    picView.titleData = titleArray;
     
