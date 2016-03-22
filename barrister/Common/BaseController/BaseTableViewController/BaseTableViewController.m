@@ -10,9 +10,18 @@
 
 @interface BaseTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+
 @end
 
 @implementation BaseTableViewController
+
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.items = [NSMutableArray arrayWithCapacity:1];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +35,32 @@
 }
 
 
-#pragma -mark -----
+#pragma -mark -----UITableView Delegate Methods-----
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.items.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [UITableViewCell new];
+}
+
+#pragma 
+#pragma -mark -----Custom Methods-----
+
+- (void)scrollToFirstRow {
+    if (self.tableView.contentOffset.y<0) {
+        return;
+    }
+    
+    
+    if (self.items && self.items.count > 1) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
+}
 
 @end

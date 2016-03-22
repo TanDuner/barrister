@@ -7,9 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "BaseTableView.h"
 
 @interface BaseTableViewController : BaseViewController
 
 @property (nonatomic,strong) NSMutableArray *items;
+
+@property (nonatomic,strong) BaseTableView *tableView;
 
 @end
