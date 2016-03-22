@@ -82,6 +82,9 @@
 		9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9597B1141CA12C5D00FF65D9 /* timeline_image_loading.png */; };
 		9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1171CA1313E00FF65D9 /* DCPicScrollView.m */; };
 		9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1191CA1313E00FF65D9 /* DCWebImageManager.m */; };
+		9597B1231CA1581400FF65D9 /* XuNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1221CA1581400FF65D9 /* XuNetWorking.m */; };
+		9597B12A1CA1595A00FF65D9 /* BaseNetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1291CA1595A00FF65D9 /* BaseNetProxy.m */; };
+		9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B12C1CA1597200FF65D9 /* HomePageProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +241,12 @@
 		9597B1171CA1313E00FF65D9 /* DCPicScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCPicScrollView.m; sourceTree = "<group>"; };
 		9597B1181CA1313E00FF65D9 /* DCWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCWebImageManager.h; sourceTree = "<group>"; };
 		9597B1191CA1313E00FF65D9 /* DCWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCWebImageManager.m; sourceTree = "<group>"; };
+		9597B1211CA1581400FF65D9 /* XuNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuNetWorking.h; sourceTree = "<group>"; };
+		9597B1221CA1581400FF65D9 /* XuNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuNetWorking.m; sourceTree = "<group>"; };
+		9597B1281CA1595A00FF65D9 /* BaseNetProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetProxy.h; sourceTree = "<group>"; };
+		9597B1291CA1595A00FF65D9 /* BaseNetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetProxy.m; sourceTree = "<group>"; };
+		9597B12B1CA1597200FF65D9 /* HomePageProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageProxy.h; sourceTree = "<group>"; };
+		9597B12C1CA1597200FF65D9 /* HomePageProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageProxy.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +309,7 @@
 		95412FA51C9F91FA00D26B11 /* barrister */ = {
 			isa = PBXGroup;
 			children = (
+				9597B1241CA1591600FF65D9 /* NetProxy */,
 				9597B0DF1CA1164100FF65D9 /* Resource */,
 				95412FE31C9FCC1100D26B11 /* Common */,
 				95412FE41C9FCC1100D26B11 /* HomePage */,
@@ -347,6 +357,7 @@
 		95412FE31C9FCC1100D26B11 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9597B1201CA1581400FF65D9 /* BaseNetModel */,
 				9597B0861CA0F0F100FF65D9 /* Vender */,
 				95412FF51C9FD2B100D26B11 /* CommonHeader */,
 				95412FE91C9FD0F700D26B11 /* BaseController */,
@@ -809,6 +820,26 @@
 			path = BannerView;
 			sourceTree = "<group>";
 		};
+		9597B1201CA1581400FF65D9 /* BaseNetModel */ = {
+			isa = PBXGroup;
+			children = (
+				9597B1211CA1581400FF65D9 /* XuNetWorking.h */,
+				9597B1221CA1581400FF65D9 /* XuNetWorking.m */,
+				9597B1281CA1595A00FF65D9 /* BaseNetProxy.h */,
+				9597B1291CA1595A00FF65D9 /* BaseNetProxy.m */,
+			);
+			path = BaseNetModel;
+			sourceTree = "<group>";
+		};
+		9597B1241CA1591600FF65D9 /* NetProxy */ = {
+			isa = PBXGroup;
+			children = (
+				9597B12B1CA1597200FF65D9 /* HomePageProxy.h */,
+				9597B12C1CA1597200FF65D9 /* HomePageProxy.m */,
+			);
+			path = NetProxy;
+			sourceTree = "<group>";
+		};
 		AE61FCC7A6468021BFFF1318 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,6 +1046,7 @@
 				9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */,
 				954130271CA003B500D26B11 /* NSObject+Additions.m in Sources */,
 				954130291CA003B500D26B11 /* UIImage+Additions.m in Sources */,
+				9597B1231CA1581400FF65D9 /* XuNetWorking.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
 				9597B0BF1CA0F12700FF65D9 /* UIScrollView+MJRefresh.m in Sources */,
 				9597B0BE1CA0F12700FF65D9 /* UIScrollView+MJExtension.m in Sources */,
@@ -1040,6 +1072,7 @@
 				9597B0C01CA0F12700FF65D9 /* UIView+MJExtension.m in Sources */,
 				95412FAB1C9F91FA00D26B11 /* AppDelegate.m in Sources */,
 				9541302E1CA003B500D26B11 /* UIImage+ImageEffects.m in Sources */,
+				9597B12A1CA1595A00FF65D9 /* BaseNetProxy.m in Sources */,
 				9597B0AF1CA0F12700FF65D9 /* MJRefreshAutoFooter.m in Sources */,
 				9597B0B81CA0F12700FF65D9 /* MJRefreshConst.m in Sources */,
 				9597B0C91CA112ED00FF65D9 /* HomeViewController.m in Sources */,
@@ -1051,6 +1084,7 @@
 				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				9597B0CF1CA1132800FF65D9 /* OrderViewController.m in Sources */,
 				95412FA81C9F91FA00D26B11 /* main.m in Sources */,
+				9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */,
 				9597B0BC1CA0F12700FF65D9 /* MJRefreshNormalHeader.m in Sources */,
 				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
 				9597B0771CA0EBB100FF65D9 /* BadgeNumberView.m in Sources */,
