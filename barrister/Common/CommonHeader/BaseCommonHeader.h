@@ -72,12 +72,14 @@
 #define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
 #define kBaseViewBackgroundColor    UIColorFromRGB(0xFFF1F1F1)
 
-#define kButtonColor1Normal         UIColorFromRGB(0xFFF1F1F1)
-#define kButtonColor1Highlight      UIColorFromRGB(0xFF666666)
+#define kButtonColor1Normal         UIColorFromRGB(0x1c84db)
+#define kButtonColor1Highlight      RGBCOLOR(73, 156, 226)
 
 
 #define kSeparatorColor         UIColorFromRGB(0xFFD8D8D8)
 #define kFormBackgroundColor    UIColorFromRGB(0xFFFFFFFF)
+#define kFormTextColor    UIColorFromRGB(0xFF222222)
+
 
 #define kTableCellBackgroundColor    UIColorFromRGB(0xFFF8F8F8)
 

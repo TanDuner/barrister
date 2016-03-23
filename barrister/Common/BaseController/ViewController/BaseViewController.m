@@ -9,9 +9,10 @@
 #import "BaseViewController.h"
 #import "ZToastView.h"
 #import "UIView+Toast.h"
+#import "AppDelegate.h"
 
-#define NAVIGATION_BAR_BTNCOLOR         RGBCOLOR(37, 134, 216)
 #define NAVIGATION_BAR_TITLECOLOR       [UIColor whiteColor]
+
 
 @interface BaseViewController ()
 
@@ -50,9 +51,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = kBaseViewBackgroundColor;
     
-    
+    [self addBackButton];
     self.noContentString = @"没有数据";
     self.loadingString = @"正在加载...";
     
@@ -145,42 +146,44 @@
 
 - (NSString *)getBackBtnText
 {
-    UIViewController * perVc;
-    NSString * backBtnText;
-    NSUInteger curIndex = [self.navigationController.viewControllers indexOfObject:self];
     
-    if (curIndex > 0 && curIndex < [self.navigationController.viewControllers count])
-    {
-        perVc = [self.navigationController.viewControllers objectAtIndex:curIndex - 1];
-        if (curIndex == 1
-            && self.navigationController.tabBarItem.title
-            && self.navigationController.tabBarItem.title.length > 0)
-        {
-            backBtnText = self.navigationController.tabBarItem.title;
-        }
-        else
-        {
-            backBtnText = perVc.navigationItem.title;
-        }
-    }
-    
-    if (!backBtnText || backBtnText.length <= 0)
-    {
-        backBtnText = NSLocalizedString(@"Back", nil);
-    }
-    
-    return backBtnText;
+    return @"返回";
+//    UIViewController * perVc;
+//    NSString * backBtnText;
+//    NSUInteger curIndex = [self.navigationController.viewControllers indexOfObject:self];
+//    
+//    if (curIndex > 0 && curIndex < [self.navigationController.viewControllers count])
+//    {
+//        perVc = [self.navigationController.viewControllers objectAtIndex:curIndex - 1];
+//        if (curIndex == 1
+//            && self.navigationController.tabBarItem.title
+//            && self.navigationController.tabBarItem.title.length > 0)
+//        {
+//            backBtnText = self.navigationController.tabBarItem.title;
+//        }
+//        else
+//        {
+//            backBtnText = perVc.navigationItem.title;
+//        }
+//    }
+//    
+//    if (!backBtnText || backBtnText.length <= 0)
+//    {
+//        backBtnText = NSLocalizedString(@"Back", nil);
+//    }
+//    
+//    return backBtnText;
 }
 
 - (void)addBackButton
 {
-
+    
     if (self != [self.navigationController.viewControllers objectAtIndex:0])
     {
         UIButton * backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [backBtn setTitle:[self getBackBtnText] forState:UIControlStateNormal];
-        [backBtn setTitleColor:NAVIGATION_BAR_BTNCOLOR forState:UIControlStateNormal];
-        [backBtn setTitleColor:[UIColor colorWithHexString:@"#ffaa60"] forState:UIControlStateHighlighted];
+        [backBtn setTitleColor:NAVIGATION_BAR_TITLECOLOR forState:UIControlStateNormal];
+        [backBtn setTitleColor:kButtonColor1Highlight forState:UIControlStateHighlighted];
         [backBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon"] forState:UIControlStateNormal];
         [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon_hl"] forState:UIControlStateHighlighted];
@@ -205,8 +208,8 @@
 
     UIButton * backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setTitle:btnText forState:UIControlStateNormal];
-    [backBtn setTitleColor:NAVIGATION_BAR_BTNCOLOR forState:UIControlStateNormal];
-    [backBtn setTitleColor:[UIColor colorWithHexString:@"#ffaa60"] forState:UIControlStateHighlighted];
+    [backBtn setTitleColor:NAVIGATION_BAR_TITLECOLOR forState:UIControlStateNormal];
+    [backBtn setTitleColor:kButtonColor1Highlight forState:UIControlStateHighlighted];
     [backBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon"] forState:UIControlStateNormal];
     [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon_hl"] forState:UIControlStateHighlighted];
@@ -222,8 +225,8 @@
 
 - (void)initNavigationRightTextButton:(NSString *)btnText action:(SEL)action
 {
-    NSDictionary  *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : NAVIGATION_BAR_BTNCOLOR } ;
-    NSDictionary  *disableAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : [ UIColor  lightGrayColor] } ;
+    NSDictionary  *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : NAVIGATION_BAR_TITLECOLOR } ;
+    NSDictionary  *disableAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : kButtonColor1Highlight } ;
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:btnText
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
@@ -235,7 +238,7 @@
 
 - (void)initNavigationRightTextButton:(NSString *)btnText action:(SEL)action target:(id)target
 {
-    NSDictionary  *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : NAVIGATION_BAR_BTNCOLOR } ;
+    NSDictionary  *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : NAVIGATION_BAR_TITLECOLOR } ;
     NSDictionary  *disableAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : [ UIColor  lightGrayColor] } ;
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:btnText
                                                                  style:UIBarButtonItemStylePlain
@@ -255,6 +258,19 @@
 - (void)showNavigationBar
 {
     self.navigationController.navigationBarHidden = NO;
+}
+
+-(void)showTabbar:(BOOL)isShowTabbar
+{
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (!isShowTabbar) {
+        [delegate.tabBarCTL hiddenTabBar];
+    }
+    else
+    {
+        [delegate.tabBarCTL showTabBar];
+    }
+
 }
 
 - (void)showLoadingHUD
@@ -433,5 +449,10 @@
 }
 
 
-
+-(UIView *)getLineViewWithFrame:(CGRect )rect
+{
+    UIView *view = [[UIView alloc] initWithFrame:rect];
+    view.backgroundColor = kSeparatorColor;
+    return view;
+}
 @end

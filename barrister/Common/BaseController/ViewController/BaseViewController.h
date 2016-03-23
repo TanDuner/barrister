@@ -85,4 +85,10 @@
 
 - (CGFloat)subviewTopY;
 
+
+-(void)showTabbar:(BOOL)isShowTabbar;
+
+-(UIView *)getLineViewWithFrame:(CGRect )rect;
+
+
 @end

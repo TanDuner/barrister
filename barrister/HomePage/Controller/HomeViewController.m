@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "DCPicScrollView.h"
 #import "DCWebImageManager.h"
+#import "BarristerLoginVC.h"
 
 @interface HomeViewController ()
 
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initView];
+    [self createView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +27,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma -mark ----UI---------
 
--(void)initView
+-(void)viewWillAppear:(BOOL)animated
 {
-    [self initBannerView];
+    [super viewWillAppear:animated];
+    [self showTabbar:YES];
 }
 
--(void)initBannerView
+#pragma -mark ----UI---------
+
+-(void)createView
+{
+    [self createBaseView];
+    [self createBannerView];
+}
+
+-(void)createBaseView
+{
+    [self initNavigationRightTextButton:@"登录" action:@selector(toLoginAction:)];
+}
+
+-(void)createBannerView
 {
     NSArray *UrlStringArray = @[@"http://e.hiphotos.baidu.com/lvpics/h=800/sign=61e9995c972397ddc97995046983b216/35a85edf8db1cb134d859ca8db54564e93584b98.jpg", @"http://e.hiphotos.baidu.com/lvpics/h=800/sign=1d1cc1876a81800a71e5840e813533d6/5366d0160924ab185b6fd93f33fae6cd7b890bb8.jpg", @"http://f.hiphotos.baidu.com/lvpics/h=800/sign=8430a8305cee3d6d3dc68acb73176d41/9213b07eca806538d9da1f8492dda144ad348271.jpg", @"http://d.hiphotos.baidu.com/lvpics/w=1000/sign=81bf893e12dfa9ecfd2e521752e0f603/242dd42a2834349b705785a7caea15ce36d3bebb.jpg", @"http://f.hiphotos.baidu.com/lvpics/w=1000/sign=4d69c022ea24b899de3c7d385e361c95/f31fbe096b63f6240e31d3218444ebf81a4ca3a0.jpg"];
     
@@ -65,7 +79,16 @@
     }];
     
 
-}   
+}
+
+#pragma -mark ------Action------------
+
+-(void)toLoginAction:(id)sender
+{
+    BarristerLoginVC *loginVC = [[BarristerLoginVC alloc] init];
+    [self.navigationController pushViewController:loginVC animated:YES];
+    
+}
 
 
 
