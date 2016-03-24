@@ -20,6 +20,7 @@
     BorderTextFieldView *codeTextField;
     BorderTextFieldView *passwordTextField;
     UIButton *getCodeBtn;
+    UIButton *registerBtn;
 }
 @end
 
@@ -37,13 +38,22 @@
 
 -(void)createView
 {
-    [self createInputView];
-    [self createOtherView];
+    [self createBaseView];
+    [self createContentView];
 }
+
+/**
+ *  创建非内容UI
+ */
+-(void)createBaseView
+{
+    self.title  = @"注册";
+}
+
 /**
  *  创建输入框部分的UI
  */
--(void)createInputView
+-(void)createContentView
 {
     UIView *inputBgView = [[UIView alloc] initWithFrame:RECT(0, 15, SCREENWIDTH, RowHeight * 3 + 1)];
     inputBgView.backgroundColor = [UIColor whiteColor];
@@ -122,15 +132,21 @@
     [inputBgView addSubview:sepView2];
     [inputBgView addSubview:passwordTextField];
     [self.view addSubview:inputBgView];
+    
+    registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [registerBtn setTitle:@"立即注册" forState:UIControlStateNormal];
+    [registerBtn setBackgroundColor:kNavigationBarColor];
+    [registerBtn.layer setCornerRadius:4.0f];
+    [registerBtn.layer setMasksToBounds:YES];
+    [registerBtn.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    [registerBtn setTitleColor:kNavigationTitleColor forState:UIControlStateNormal];
+    [registerBtn addTarget:self action:@selector(registerAciton:) forControlEvents:UIControlEventTouchUpInside];
+    [registerBtn setFrame:RECT(15, RowHeight *3 + 10 + 48, SCREENWIDTH - 30, 45)];
+    [self.view addSubview:registerBtn];
+
 
 }
-/**
- *  创建底部按钮部分的UI
- */
--(void)createOtherView
-{
-    self.title  = @"注册";
-}
+
 
 #pragma -mark ----UITextField Delegate methods -------
 
@@ -177,6 +193,11 @@
 -(void)getCodeAction
 {
     NSLog(@"获取验证码");
+}
+
+-(void)registerAciton:(UIButton *)button
+{
+
 }
 
 @end
