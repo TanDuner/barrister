@@ -74,12 +74,12 @@
                   moduleName = "barrister"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xu/Documents/barrister/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m"
-                  timestampString = "480418469.232925"
+                  timestampString = "480499280.559576"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
                   endingLineNumber = "85"
-                  offsetFromSymbolStart = "838">
+                  offsetFromSymbolStart = "676">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "barrister"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xu/Documents/barrister/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m"
-                  timestampString = "480418469.233102"
+                  timestampString = "480499280.559739"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -104,12 +104,12 @@
                   moduleName = "barrister"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xu/Documents/barrister/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m"
-                  timestampString = "480418469.23324"
+                  timestampString = "480499280.559874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

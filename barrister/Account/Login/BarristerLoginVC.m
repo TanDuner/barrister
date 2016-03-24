@@ -18,6 +18,9 @@ const float MidViewHeight = 175.0 / 2.0;
     UIButton *forgetBtn;
     BorderTextFieldView *accountTextField;
     BorderTextFieldView *passwordTextField;
+    
+    UIButton *wechatBtn;
+    UIButton *QQBtn;
 }
 
 @end
@@ -73,6 +76,7 @@ const float MidViewHeight = 175.0 / 2.0;
     
     accountTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, (MidViewHeight - 0.5)/2.0)];
     accountTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    accountTextField.backgroundColor = [UIColor lightGrayColor];
     accountTextField.placeholder = @"请输入手机号";
     accountTextField.textColor = kFormTextColor;
     accountTextField.cleanBtnOffset_x = accountTextField.width - 100;
@@ -118,10 +122,86 @@ const float MidViewHeight = 175.0 / 2.0;
 
 -(void)createBottomView
 {
-
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT - 200 , SCREENWIDTH, 150)];
+    
+    UIView *sepView1 = [self getLineViewWithFrame:RECT(0, 5, (SCREENWIDTH - 100)/2, .5)];
+    UIView *sepView2 = [self getLineViewWithFrame:RECT((SCREENWIDTH - 100)/2 + 100, 5, (SCREENWIDTH - 100)/2, .5)];
+    
+    [bottomView addSubview:sepView1];
+    [bottomView addSubview:sepView2];
+    
+    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREENWIDTH - 100)/2, 0, 100, 10)];
+    tipLabel.textColor = RGBCOLOR(155, 155, 155);
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    tipLabel.font = [UIFont systemFontOfSize:13.0f];
+    tipLabel.text = @"其他登录方式";
+    [bottomView addSubview:tipLabel];
+    
+    wechatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [wechatBtn setTitle:@"微信" forState:UIControlStateNormal];
+    [wechatBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_weixin"] forState:UIControlStateNormal];
+    [wechatBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2, bottomView.height - 60 - 51, 51, 51)];
+    wechatBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
+    [wechatBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
+    [wechatBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
+    wechatBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    
+    
+    QQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [QQBtn setTitle:@"微信" forState:UIControlStateNormal];
+    [QQBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2 + SCREENWIDTH/2, bottomView.height - 60 - 51, 51, 51)];
+    [QQBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
+    QQBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
+    [QQBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
+    QQBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    [QQBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_qq"] forState:UIControlStateNormal];
+    
+    [bottomView addSubview:wechatBtn];
+    [bottomView addSubview:QQBtn];
+    
+    [self.view addSubview:bottomView];
 }
 
 #pragma -mark ------TextField Delegate Methods--------
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField == accountTextField) {
+        if (textField.text.length > 11)
+        {
+            return NO;
+        }
+        else
+        {
+            return [self validateNumber:string];
+        }
+    }
+    else
+    {
+        return YES;
+        
+    }
+
+}
+
+
+
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
 
 
 #pragma -mark ---------Action--------
@@ -138,6 +218,11 @@ const float MidViewHeight = 175.0 / 2.0;
 }
 
 -(void)forgetPwdAction:(UIButton *)button
+{
+    
+}
+
+-(void)thirdLoginAction:(UIButton *)btn
 {
     
 }
