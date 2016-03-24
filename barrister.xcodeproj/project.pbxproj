@@ -95,6 +95,7 @@
 		95BCB7AC1CA3D28200E85E10 /* login3rd_icon_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7A81CA3D28200E85E10 /* login3rd_icon_qq@3x.png */; };
 		95BCB7AD1CA3D28200E85E10 /* login3rd_icon_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7A91CA3D28200E85E10 /* login3rd_icon_weixin@2x.png */; };
 		95BCB7AE1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7AA1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png */; };
+		95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,6 +270,8 @@
 		95BCB7A81CA3D28200E85E10 /* login3rd_icon_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login3rd_icon_qq@3x.png"; sourceTree = "<group>"; };
 		95BCB7A91CA3D28200E85E10 /* login3rd_icon_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login3rd_icon_weixin@2x.png"; sourceTree = "<group>"; };
 		95BCB7AA1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login3rd_icon_weixin@3x.png"; sourceTree = "<group>"; };
+		95BCB7AF1CA3DDA600E85E10 /* BarristerRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerRegisterVC.h; sourceTree = "<group>"; };
+		95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerRegisterVC.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -898,6 +901,8 @@
 		95BCB7821CA2787900E85E10 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				95BCB7AF1CA3DDA600E85E10 /* BarristerRegisterVC.h */,
+				95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1142,6 +1147,7 @@
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
 				9597B0BF1CA0F12700FF65D9 /* UIScrollView+MJRefresh.m in Sources */,
 				9597B0BE1CA0F12700FF65D9 /* UIScrollView+MJExtension.m in Sources */,
+				95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */,
 				9597B0BA1CA0F12700FF65D9 /* MJRefreshGifHeader.m in Sources */,
 				9597B0B11CA0F12700FF65D9 /* MJRefreshAutoNormalFooter.m in Sources */,
 				9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */,

@@ -33,15 +33,16 @@
     return self;
 }
 
-//控制左视图位置
-- (CGRect)leftViewRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x+8, bounds.origin.y + 8, bounds.size.width -10, bounds.size.height);
-    return inset;
-}
+////控制左视图位置
+//- (CGRect)leftViewRectForBounds:(CGRect)bounds{
+//    CGRect inset = CGRectMake(bounds.origin.x+8, bounds.origin.y + 8, bounds.size.width -10, bounds.size.height);
+//    return inset;
+//}
 
 //控制显示文本的位置
 - (CGRect)textRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x+ 10, bounds.origin.y, bounds.size.width, bounds.size.height);
+  self.textLeftOffset =  self.textLeftOffset > 0?self.textLeftOffset:10;
+    CGRect inset = CGRectMake(bounds.origin.x  +  self.textLeftOffset, bounds.origin.y, bounds.size.width - self.textLeftOffset, bounds.size.height);
     return inset;
 }
 
@@ -49,7 +50,7 @@
 -(CGRect)clearButtonRectForBounds:(CGRect)bounds
 {
     if (_row==1) {
-        return  CGRectMake(_cleanBtnOffset_x+100, bounds.origin.y + bounds.size.height -28, 15, 15);
+        return  CGRectMake(_cleanBtnOffset_x, bounds.origin.y + bounds.size.height -28, 15, 15);
     }
     return CGRectMake(_cleanBtnOffset_x, bounds.origin.y + bounds.size.height -28, 15, 15);
 }
@@ -57,9 +58,10 @@
 //控制placeHolder的位置，左右缩20
 -(CGRect)placeholderRectForBounds:(CGRect)bounds
 {
-    
+    self.textLeftOffset =  self.textLeftOffset > 0?self.textLeftOffset:10;
+
     if (IS_IOS7) {
-        CGRect inset = CGRectMake(bounds.origin.x + 10, bounds.origin.y + 13, bounds.size.width -10, bounds.size.height);
+        CGRect inset = CGRectMake(bounds.origin.x + self.textLeftOffset, bounds.origin.y + 14, bounds.size.width - self.textLeftOffset, bounds.size.height);
         return inset;
     }
     CGRect inset = CGRectMake(bounds.origin.x + 10, bounds.origin.y, bounds.size.width -10, bounds.size.height);//更好理解些
@@ -70,8 +72,9 @@
 -(CGRect)editingRectForBounds:(CGRect)bounds
 {
     //return CGRectInset( bounds, 10 , 0 );
-    
-    CGRect inset = CGRectMake(bounds.origin.x +10, bounds.origin.y, _textOffset_width -10 - 15, bounds.size.height);
+    self.textLeftOffset =  self.textLeftOffset > 0?self.textLeftOffset:10;
+
+    CGRect inset = CGRectMake(bounds.origin.x + self.textLeftOffset, bounds.origin.y, _textOffset_width - self.textLeftOffset - 10 - 15, bounds.size.height);
     return inset;
 }
 

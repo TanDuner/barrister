@@ -244,4 +244,11 @@ typedef enum
  */
 + (BOOL)pushNotifyIsOpened;
 
+
+/**
+ *  检测是否是数字
+ */
+
++(BOOL)validateNumber:(NSString*)number;
+
 @end

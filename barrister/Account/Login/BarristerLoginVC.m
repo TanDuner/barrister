@@ -8,7 +8,7 @@
 
 #import "BarristerLoginVC.h"
 #import "BorderTextFieldView.h"
-
+#import "BarristerRegisterVC.h"
 
 const float MidViewHeight = 175.0 / 2.0;
 
@@ -71,13 +71,11 @@ const float MidViewHeight = 175.0 / 2.0;
 
 -(void)createMidView
 {
-    UIView *inputBgView = [[UIView alloc] initWithFrame:RECT(0, 15, SCREENWIDTH, 175.0/2.0)];
+    UIView *inputBgView = [[UIView alloc] initWithFrame:RECT(0, 15, SCREENWIDTH, MidViewHeight)];
     inputBgView.backgroundColor = [UIColor whiteColor];
     
     accountTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, (MidViewHeight - 0.5)/2.0)];
     accountTextField.keyboardType = UIKeyboardTypeNumberPad;
-//    accountTextField.backgroundColor = [UIColor lightGrayColor];
-    accountTextField.placeholder = @"请输入手机号";
     accountTextField.textColor = kFormTextColor;
     accountTextField.cleanBtnOffset_x = accountTextField.width - 100;
     accountTextField.delegate = self;
@@ -88,10 +86,8 @@ const float MidViewHeight = 175.0 / 2.0;
     
     passwordTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(0, sepView.size.height + sepView.y, SCREENWIDTH, (MidViewHeight - 0.5)/2.0)];
     passwordTextField.delegate = self;
-    passwordTextField.placeholder = @"请输入密码";
     passwordTextField.textColor = kFormTextColor;
     passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName:RGBCOLOR(199, 199, 205)}];
-
     passwordTextField.cleanBtnOffset_x = passwordTextField.width - 100;
     
     [inputBgView addSubview:accountTextField];
@@ -173,7 +169,7 @@ const float MidViewHeight = 175.0 / 2.0;
         }
         else
         {
-            return [self validateNumber:string];
+            return [XuUtlity validateNumber:string];
         }
     }
     else
@@ -186,21 +182,6 @@ const float MidViewHeight = 175.0 / 2.0;
 
 
 
-- (BOOL)validateNumber:(NSString*)number {
-    BOOL res = YES;
-    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-    int i = 0;
-    while (i < number.length) {
-        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
-        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
-        if (range.length == 0) {
-            res = NO;
-            break;
-        }
-        i++;
-    }
-    return res;
-}
 
 
 
@@ -208,7 +189,8 @@ const float MidViewHeight = 175.0 / 2.0;
 
 -(void)toRegisterAction:(id)sender
 {
-    
+    BarristerRegisterVC *registerVC = [[BarristerRegisterVC alloc] init];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 

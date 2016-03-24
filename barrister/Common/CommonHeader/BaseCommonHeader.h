@@ -12,6 +12,7 @@
 #import "NSString+Addition.h"
 #import "BaseDataSingleton.h"
 #import "XuUtlity.h"
+#import "BaseCommonFunction.h"
 
 #define kLoadingViewTag 100000      // LoadingView tag
 #define kNetworkErrorViewTag 100001 // NetworkErrorView.xib tag

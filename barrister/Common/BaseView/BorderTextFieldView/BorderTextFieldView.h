@@ -14,4 +14,5 @@
 @property(nonatomic,assign)CGFloat cleanBtnOffset_x;
 @property(nonatomic,assign)CGFloat textOffset_width;
 
+@property (nonatomic,assign) CGFloat textLeftOffset;
 @end
