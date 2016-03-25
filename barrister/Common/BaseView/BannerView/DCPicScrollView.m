@@ -314,6 +314,20 @@
 
 
 - (void)scorll {
+    
+    
+    CGFloat contentOffsetX = _scrollView.contentOffset.x;
+    float count = contentOffsetX / myWidth;
+    NSString *str = [NSString stringWithFormat:@"%f",count];
+    if ([str intValue] != [str floatValue]) {
+        
+        CGFloat offsetTemp = ceilf(count) * myWidth;
+        [_scrollView setContentOffset:CGPointMake(offsetTemp, 0) animated:YES];
+
+        return;
+    }
+   
+   
     [_scrollView setContentOffset:CGPointMake(_scrollView.contentOffset.x + myWidth, 0) animated:YES];
 }
 
