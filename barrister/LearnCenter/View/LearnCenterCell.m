@@ -114,7 +114,7 @@
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.textColor = kFontColorGray1;
         _timeLabel.font = [UIFont systemFontOfSize:13.0f];
-        _timeLabel.textAlignment = NSTextAlignmentLeft;
+        _timeLabel.textAlignment = NSTextAlignmentRight;
     }
     return _timeLabel;
 }
