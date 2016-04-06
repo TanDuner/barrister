@@ -82,7 +82,11 @@
 }
 
 #pragma -mark ------Action------------
-
+/**
+ *  登录的方式
+ *
+ *  @param sender sender description
+ */
 -(void)toLoginAction:(id)sender
 {
     BarristerLoginVC *loginVC = [[BarristerLoginVC alloc] init];

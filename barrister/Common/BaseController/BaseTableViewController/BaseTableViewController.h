@@ -9,10 +9,14 @@
 #import "BaseViewController.h"
 #import "BaseTableView.h"
 
-@interface BaseTableViewController : BaseViewController
+@interface BaseTableViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) NSMutableArray *items;
 
 @property (nonatomic,strong) BaseTableView *tableView;
+
+-(void)addRefreshHeader;
+
+-(void)addLoadMoreFooter;
 
 @end

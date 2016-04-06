@@ -21,6 +21,10 @@
 @property (nonatomic,weak) id <BaseTableViewDelegate> refreshDelegate;
 
 
+-(void)loadItems;
+
+-(void)loadMoreData;
+
 @end
 
 

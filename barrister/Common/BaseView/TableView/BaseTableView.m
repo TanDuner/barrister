@@ -22,7 +22,6 @@
     if (self) {
         [self initBaseProprety];
         
-        [self createRefreshControl];
     }
     return self;
 }
@@ -32,14 +31,6 @@
     self.separatorStyle  = UITableViewCellSeparatorStyleNone;
 }
 
--(void)createRefreshControl
-{
-    MJRefreshNormalHeader *headerTemp = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadItems)];
-    self.mj_header = headerTemp;
-    
-    MJRefreshAutoNormalFooter *footerTemp = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    self.mj_footer = footerTemp;
-}
 
 -(void)loadItems
 {

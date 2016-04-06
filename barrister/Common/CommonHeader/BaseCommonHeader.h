@@ -13,6 +13,7 @@
 #import "BaseDataSingleton.h"
 #import "XuUtlity.h"
 
+
 #define kLoadingViewTag 100000      // LoadingView tag
 #define kNetworkErrorViewTag 100001 // NetworkErrorView.xib tag
 #define kMainTabbarBgViewTag 100002 // 主tabbar tag
@@ -46,6 +47,8 @@
 #define NAVBAR_DEFAULT_HEIGHT  ((IS_IOS7) ? (NAVBAR_HIGHTIOS_7) : (44))
 #define STATUSBAR_DEFAULT_HEIGHT  ((IS_IOS7) ? (0) : (STATUSBAR_HIGHT))
 #define TABBAR_HEIGHT 49
+
+#define LeftPadding 10
 
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height

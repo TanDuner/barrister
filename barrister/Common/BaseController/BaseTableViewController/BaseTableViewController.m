@@ -7,8 +7,10 @@
 //
 
 #import "BaseTableViewController.h"
+#import "MJRefreshNormalHeader.h"
+#import "MJRefreshAutoNormalFooter.h"
 
-@interface BaseTableViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface BaseTableViewController ()
 
 
 @end
@@ -31,6 +33,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma -mark --------UI------------
+
+-(void)addRefreshHeader
+{
+    MJRefreshNormalHeader *headerTemp = [MJRefreshNormalHeader headerWithRefreshingTarget:self.tableView refreshingAction:@selector(loadItems)];
+    self.tableView.mj_header = headerTemp;
+    
+}
+
+-(void)addLoadMoreFooter
+{
+    MJRefreshAutoNormalFooter *footerTemp = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self.tableView refreshingAction:@selector(loadMoreData)];
+    self.tableView.mj_footer = footerTemp;
 }
 
 
@@ -62,4 +80,15 @@
     }
 }
 
+#pragma -mark -------RefreshAndLoadMore--------
+
+-(void)circleTableViewDidTriggerRefresh:(id)object
+{
+    
+}
+
+-(void)circleTableViewDidLoadMoreData:(id)object
+{
+
+}
 @end
