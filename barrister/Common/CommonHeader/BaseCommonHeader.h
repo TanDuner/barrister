@@ -93,8 +93,9 @@
 #define kFontColorStrong        UIColorFromRGB(0xFFE02428)
 #define kFontColorButton        UIColorFromRGB(0xFFFFFFFF)
 
-#define kFontColorGray          UIColorFromRGB(0xFFC3C3C3)
-#define kFontColorRed          UIColorFromRGB(0xFFE02428)
+#define kFontColorGray1          UIColorFromRGB(0xFFC3C3C3)
+#define kFontColorGray2          UIColorFromRGB(0xFF666666)
+#define kFontColorGray3          UIColorFromRGB(0xFF333333)
 
 
 

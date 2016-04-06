@@ -19,4 +19,6 @@
 
 -(void)addLoadMoreFooter;
 
+-(void)loadItems;
+
 @end

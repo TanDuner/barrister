@@ -119,6 +119,15 @@
 		95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */; };
 		95C0EAE11CB4A677004F9DAD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C0EAE01CB4A677004F9DAD /* libsqlite3.tbd */; };
 		95C0EAE31CB4A686004F9DAD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C0EAE21CB4A686004F9DAD /* libz.tbd */; };
+		95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAE51CB4A781004F9DAD /* BarristerOrderModel.m */; };
+		95C0EAEA1CB4B0B0004F9DAD /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAE91CB4B0B0004F9DAD /* BaseTableViewCell.m */; };
+		95C0EAED1CB4B111004F9DAD /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAEC1CB4B111004F9DAD /* OrderViewCell.m */; };
+		95C0EAF01CB4B285004F9DAD /* CALayer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAEF1CB4B285004F9DAD /* CALayer+YYAdd.m */; };
+		95C0EAF71CB4B301004F9DAD /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAF21CB4B301004F9DAD /* UIControl+YYAdd.m */; };
+		95C0EAF81CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAF41CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.m */; };
+		95C0EAF91CB4B301004F9DAD /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAF61CB4B301004F9DAD /* UIView+YYAdd.m */; };
+		95C0EAFC1CB5152B004F9DAD /* LearnCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAFB1CB5152B004F9DAD /* LearnCenterModel.m */; };
+		95C0EAFF1CB5164F004F9DAD /* LearnCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAFE1CB5164F004F9DAD /* LearnCenterCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +349,24 @@
 		95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerRegisterVC.m; sourceTree = "<group>"; };
 		95C0EAE01CB4A677004F9DAD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		95C0EAE21CB4A686004F9DAD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		95C0EAE41CB4A781004F9DAD /* BarristerOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerOrderModel.h; sourceTree = "<group>"; };
+		95C0EAE51CB4A781004F9DAD /* BarristerOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerOrderModel.m; sourceTree = "<group>"; };
+		95C0EAE81CB4B0B0004F9DAD /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		95C0EAE91CB4B0B0004F9DAD /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		95C0EAEB1CB4B111004F9DAD /* OrderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
+		95C0EAEC1CB4B111004F9DAD /* OrderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
+		95C0EAEE1CB4B285004F9DAD /* CALayer+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+YYAdd.h"; sourceTree = "<group>"; };
+		95C0EAEF1CB4B285004F9DAD /* CALayer+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+YYAdd.m"; sourceTree = "<group>"; };
+		95C0EAF11CB4B301004F9DAD /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
+		95C0EAF21CB4B301004F9DAD /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
+		95C0EAF31CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+YYAdd.h"; sourceTree = "<group>"; };
+		95C0EAF41CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+YYAdd.m"; sourceTree = "<group>"; };
+		95C0EAF51CB4B301004F9DAD /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
+		95C0EAF61CB4B301004F9DAD /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
+		95C0EAFA1CB5152B004F9DAD /* LearnCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterModel.h; sourceTree = "<group>"; };
+		95C0EAFB1CB5152B004F9DAD /* LearnCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterModel.m; sourceTree = "<group>"; };
+		95C0EAFD1CB5164F004F9DAD /* LearnCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterCell.h; sourceTree = "<group>"; };
+		95C0EAFE1CB5164F004F9DAD /* LearnCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterCell.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,6 +443,14 @@
 		9520BF941CAA721A00961F05 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				95C0EAF11CB4B301004F9DAD /* UIControl+YYAdd.h */,
+				95C0EAF21CB4B301004F9DAD /* UIControl+YYAdd.m */,
+				95C0EAF31CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.h */,
+				95C0EAF41CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.m */,
+				95C0EAF51CB4B301004F9DAD /* UIView+YYAdd.h */,
+				95C0EAF61CB4B301004F9DAD /* UIView+YYAdd.m */,
+				95C0EAEE1CB4B285004F9DAD /* CALayer+YYAdd.h */,
+				95C0EAEF1CB4B285004F9DAD /* CALayer+YYAdd.m */,
 				9520BF951CAA721A00961F05 /* _YYWebImageSetter.h */,
 				9520BF961CAA721A00961F05 /* _YYWebImageSetter.m */,
 				9520BF971CAA721A00961F05 /* CALayer+YYWebImage.h */,
@@ -602,6 +637,8 @@
 				95412FFA1C9FD3EF00D26B11 /* BaseDataSingleton.m */,
 				9597B0C11CA0F94100FF65D9 /* BaseModel.h */,
 				9597B0C21CA0F94100FF65D9 /* BaseModel.m */,
+				95C0EAE41CB4A781004F9DAD /* BarristerOrderModel.h */,
+				95C0EAE51CB4A781004F9DAD /* BarristerOrderModel.m */,
 			);
 			path = BaseModel;
 			sourceTree = "<group>";
@@ -609,6 +646,7 @@
 		95412FEB1C9FD0F700D26B11 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				95C0EAE71CB4B093004F9DAD /* BaseTableViewCell */,
 				95BCB7981CA2825A00E85E10 /* BorderTextFieldView */,
 				9597B1101CA1293400FF65D9 /* BannerView */,
 				9597B0821CA0EF8E00FF65D9 /* TableView */,
@@ -855,6 +893,8 @@
 		9597B0CC1CA1131200FF65D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95C0EAEB1CB4B111004F9DAD /* OrderViewCell.h */,
+				95C0EAEC1CB4B111004F9DAD /* OrderViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -900,6 +940,8 @@
 		9597B0DA1CA1139D00FF65D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95C0EAFA1CB5152B004F9DAD /* LearnCenterModel.h */,
+				95C0EAFB1CB5152B004F9DAD /* LearnCenterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -907,6 +949,8 @@
 		9597B0DB1CA1139D00FF65D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95C0EAFD1CB5164F004F9DAD /* LearnCenterCell.h */,
+				95C0EAFE1CB5164F004F9DAD /* LearnCenterCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1074,6 +1118,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		95C0EAE71CB4B093004F9DAD /* BaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				95C0EAE81CB4B0B0004F9DAD /* BaseTableViewCell.h */,
+				95C0EAE91CB4B0B0004F9DAD /* BaseTableViewCell.m */,
+			);
+			path = BaseTableViewCell;
+			sourceTree = "<group>";
+		};
 		AE61FCC7A6468021BFFF1318 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1152,7 +1205,6 @@
 				TargetAttributes = {
 					95412FA21C9F91FA00D26B11 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = YEAH2N62L2;
 					};
 					95412FBB1C9F91FA00D26B11 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1280,6 +1332,7 @@
 				9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */,
 				954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */,
 				9520BFBD1CAA721A00961F05 /* YYAnimatedImageView.m in Sources */,
+				95C0EAF91CB4B301004F9DAD /* UIView+YYAdd.m in Sources */,
 				9520BFB61CAA721A00961F05 /* YYMemoryCache.m in Sources */,
 				9597B0DE1CA113AF00FF65D9 /* LearnCenterViewController.m in Sources */,
 				9520BFC31CAA721A00961F05 /* YYWebImageManager.m in Sources */,
@@ -1291,6 +1344,7 @@
 				9520BFB31CAA721A00961F05 /* YYCache.m in Sources */,
 				9520BFBB1CAA721A00961F05 /* UIImage+YYWebImage.m in Sources */,
 				9597B0531CA0E31A00FF65D9 /* XuUtlity.m in Sources */,
+				95C0EAF01CB4B285004F9DAD /* CALayer+YYAdd.m in Sources */,
 				9597B0B61CA0F12700FF65D9 /* MJRefreshBackStateFooter.m in Sources */,
 				9541302A1CA003B500D26B11 /* UIImage+Cache.m in Sources */,
 				9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */,
@@ -1318,8 +1372,10 @@
 				9520BFB91CAA721A00961F05 /* MKAnnotationView+YYWebImage.m in Sources */,
 				9597B0B21CA0F12700FF65D9 /* MJRefreshAutoStateFooter.m in Sources */,
 				9597B06B1CA0E97700FF65D9 /* BaseSegmentViewController.m in Sources */,
+				95C0EAF81CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.m in Sources */,
 				95412FF41C9FD23F00D26B11 /* BaseNavigaitonController.m in Sources */,
 				954130261CA003B500D26B11 /* NSDictionary+Additions.m in Sources */,
+				95C0EAF71CB4B301004F9DAD /* UIControl+YYAdd.m in Sources */,
 				9597B0851CA0EFEC00FF65D9 /* BaseTableView.m in Sources */,
 				9597B0D81CA1136B00FF65D9 /* PersonCenterViewController.m in Sources */,
 				9597B0B01CA0F12700FF65D9 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1335,10 +1391,14 @@
 				9597B12A1CA1595A00FF65D9 /* BaseNetProxy.m in Sources */,
 				9520BF7F1CAA4A5700961F05 /* PersonCenterAccountCell.m in Sources */,
 				9597B0AF1CA0F12700FF65D9 /* MJRefreshAutoFooter.m in Sources */,
+				95C0EAFF1CB5164F004F9DAD /* LearnCenterCell.m in Sources */,
+				95C0EAFC1CB5152B004F9DAD /* LearnCenterModel.m in Sources */,
+				95C0EAED1CB4B111004F9DAD /* OrderViewCell.m in Sources */,
 				9597B0B81CA0F12700FF65D9 /* MJRefreshConst.m in Sources */,
 				9597B0C91CA112ED00FF65D9 /* HomeViewController.m in Sources */,
 				954130091C9FDB4A00D26B11 /* BaseTabbarController.m in Sources */,
 				9541302D1CA003B500D26B11 /* UIImage+GIF.m in Sources */,
+				95C0EAEA1CB4B0B0004F9DAD /* BaseTableViewCell.m in Sources */,
 				95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */,
 				9597B0BB1CA0F12700FF65D9 /* MJRefreshHeader.m in Sources */,
 				9597B0B71CA0F12700FF65D9 /* MJRefreshComponent.m in Sources */,
@@ -1351,6 +1411,7 @@
 				9520BFB41CAA721A00961F05 /* YYDiskCache.m in Sources */,
 				9520BF761CAA48E400961F05 /* PersonCenterModel.m in Sources */,
 				9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */,
+				95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */,
 				9597B0BC1CA0F12700FF65D9 /* MJRefreshNormalHeader.m in Sources */,
 				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
 				9520BFC41CAA721A00961F05 /* YYWebImageOperation.m in Sources */,
@@ -1489,13 +1550,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
 				INFOPLIST_FILE = barrister/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xu.barrister;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wuba.bangjob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1507,13 +1568,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
 				INFOPLIST_FILE = barrister/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xu.barrister;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wuba.bangjob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

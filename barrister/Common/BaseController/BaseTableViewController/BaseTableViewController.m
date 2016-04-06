@@ -27,8 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self configTableView];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -36,7 +37,23 @@
 }
 
 
+#pragma -mark ------Data-------
+
+-(void)loadItems
+{
+
+}
+
+
 #pragma -mark --------UI------------
+
+-(void)configTableView
+{
+    self.tableView = [[BaseTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+}
 
 -(void)addRefreshHeader
 {
