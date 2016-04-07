@@ -195,7 +195,6 @@
         model = [self.items objectAtIndex:0];
         if (model.cellType == PersonCenterModelTypeZH) {
             model.isAccountLogin = !model.isAccountLogin;
-            model.isShowArrow = !model.isShowArrow;
             [self.tableView reloadData];
         }
     }

@@ -51,17 +51,16 @@
         [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, self.iconImageIVew.y + 5, SCREENWIDTH - self.iconImageIVew.width - LeftPadding - 5 - 15 - 30, 15)];
         [self.subtitleLabel setFrame:RECT(self.titleLabel.x, self.iconImageIVew.y + self.iconImageIVew.height - 20 , self.titleLabel.width, 10)];
         _titleLabel.textColor = kFontColorGray3;
-
+        self.rightRow.hidden = NO;
     }
     else
     {
         [self.iconImageIVew setFrame:RECT(LeftPadding + 5, ([PersonCenterAccountCell getCellHeight] - IconWidht)/2.0, IconWidht, IconWidht)];
         [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, ([PersonCenterAccountCell getCellHeight] - 15)/2.0, SCREENWIDTH - 100, 15)];
         _titleLabel.textColor = kFontColorGray2;
+        self.rightRow.hidden = YES;
 
     }
-    
-    self.rightRow.hidden = self.model.isShowArrow?NO:YES;
     
     [self.rightRow setFrame:CGRectMake(SCREENWIDTH - 15 - 15, ([PersonCenterAccountCell getCellHeight] - 15)/2.0, 15, 15)];
 }
@@ -75,6 +74,10 @@
             self.subtitleLabel.hidden = NO;
             self.subtitleLabel.text = @"律所：振华律师事务所";
             self.titleLabel.text = @"张大千";
+            UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"temlvshi.jpg" ofType:nil]];
+            self.iconImageIVew.image = image;
+            self.titleLabel.text = self.model.titleStr;
+
         }
         else{
             self.subtitleLabel.hidden = YES;
@@ -116,6 +119,8 @@
 {
     if (!_iconImageIVew) {
         _iconImageIVew = [[UIImageView alloc] init];
+        _iconImageIVew.layer.cornerRadius = IconWidht/2.0;
+        _iconImageIVew.layer.masksToBounds = YES;
     }
     return _iconImageIVew;
 }

@@ -136,6 +136,7 @@
 		95C0EB0D1CB61F81004F9DAD /* jiedan.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0C1CB61F81004F9DAD /* jiedan.png */; };
 		95C0EB0F1CB62079004F9DAD /* zhanghu.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0E1CB62079004F9DAD /* zhanghu.png */; };
 		95C0EB121CB62254004F9DAD /* HomeTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */; };
+		95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB131CB63136004F9DAD /* temlvshi.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +385,7 @@
 		95C0EB0E1CB62079004F9DAD /* zhanghu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhanghu.png; sourceTree = "<group>"; };
 		95C0EB101CB62254004F9DAD /* HomeTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeadView.h; sourceTree = "<group>"; };
 		95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeadView.m; sourceTree = "<group>"; };
+		95C0EB131CB63136004F9DAD /* temlvshi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = temlvshi.jpg; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -939,6 +941,7 @@
 		9597B0D51CA1135D00FF65D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95C0EB131CB63136004F9DAD /* temlvshi.jpg */,
 				9520BF7A1CAA4A3C00961F05 /* PersonCenterCustomCell.h */,
 				9520BF7B1CAA4A3C00961F05 /* PersonCenterCustomCell.m */,
 				9520BF7D1CAA4A5700961F05 /* PersonCenterAccountCell.h */,
@@ -1292,6 +1295,7 @@
 				9597B0F81CA1168200FF65D9 /* Tab01Highlighted@2x.png in Resources */,
 				9597B0FF1CA1168200FF65D9 /* Tab03Normal@3x.png in Resources */,
 				9597B0FA1CA1168200FF65D9 /* Tab02Normal@2x.png in Resources */,
+				95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */,
 				95C0EB061CB60CFB004F9DAD /* pingjia.png in Resources */,
 				9597B0AE1CA0F12700FF65D9 /* MJRefresh.bundle in Resources */,
 				9597B1001CA1168200FF65D9 /* Tab03Highlighted@2x.png in Resources */,
