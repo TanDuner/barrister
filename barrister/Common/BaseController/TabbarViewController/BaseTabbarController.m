@@ -119,7 +119,7 @@
         UIButton * tabbarItem = [UIButton buttonWithType:UIButtonTypeCustom];
         tabbarItem.backgroundColor = [UIColor clearColor];
         [self.btnArray addObject:tabbarItem];
-        tabbarItem.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        tabbarItem.titleLabel.font = SystemFont(12.0f);
         tabbarItem.titleLabel.textAlignment = NSTextAlignmentCenter;
         tabbarItem.frame = CGRectMake(i*ItemWidth, 0, ItemWidth, TABBAR_HEIGHT);
         tabbarItem.tag = i;
@@ -128,7 +128,7 @@
         [_tabBarBG addSubview:tabbarItem];
         
         UILabel *labelT = [[UILabel alloc] initWithFrame:CGRectMake(0, TABBAR_HEIGHT - 15, ItemWidth, 12)];
-        labelT.font = [UIFont systemFontOfSize:12.0f];
+        labelT.font = SystemFont(12.0f);
         labelT.textAlignment = NSTextAlignmentCenter;
         labelT.textColor = RGBCOLOR(119, 119, 119 );
         labelT.backgroundColor = [UIColor clearColor];

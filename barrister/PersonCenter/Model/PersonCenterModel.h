@@ -11,17 +11,23 @@
 typedef NS_ENUM(NSInteger, PersonCenterModelType)
 {
     PersonCenterModelTypeZH,
-    PersonCenterModelTypeZY,
+    PersonCenterModelTypeZHU,
     PersonCenterModelTypeDD,
     PersonCenterModelTypePJ,
+    PersonCenterModelTypeJDSZ,
     PersonCenterModelTypeSZ,
 };
+
+typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);
 
 @interface PersonCenterModel : BaseModel
 
 @property (nonatomic,strong) NSString *iconNameStr;
 @property (nonatomic,strong) NSString *titleStr;
+@property (nonatomic,strong) NSString *subtitleStr;
 @property (nonatomic,assign) BOOL isShowArrow;
 @property (nonatomic,assign) BOOL isAccountLogin;
+@property (nonatomic,strong) ModelActionBlock actionBlock;
+@property (nonatomic,assign) PersonCenterModelType cellType;
 
 @end

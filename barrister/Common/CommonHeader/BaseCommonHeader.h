@@ -58,6 +58,7 @@
 #define RGBCOLOR(r, g, b)     RGBACOLOR(r, g, b, 1)
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 
+#define SystemFont(fontSize)  [UIFont systemFontOfSize:fontSize]
 
 #define RECT(x, y, w, h) (CGRectMake((x), (y), (w), (h)))
 #define SIZE(w, h) (CGSizeMake((w), (h)))
@@ -73,7 +74,7 @@
 
 #define kNavigationBarColor     UIColorFromRGB(0x1c84db)
 #define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
-#define kBaseViewBackgroundColor    UIColorFromRGB(0xFFF1F1F1)
+#define kBaseViewBackgroundColor    RGBCOLOR(241, 241, 241)
 
 #define kButtonColor1Normal         UIColorFromRGB(0x1c84db)
 #define kButtonColor1Highlight      RGBCOLOR(73, 156, 226)
@@ -96,7 +97,7 @@
 #define kFontColorGray1          UIColorFromRGB(0xFFC3C3C3)
 #define kFontColorGray2          UIColorFromRGB(0xFF666666)
 #define kFontColorGray3          UIColorFromRGB(0xFF333333)
-
+#define kFontColorGray4          UIColorFromRGB(0xFF222222)
 
 
 static NSString * const kNetworkProtocolErrorNotification = @"kNetworkProtocolErrorNotification";                   // 协议错误，错误码-1

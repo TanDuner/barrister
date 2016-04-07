@@ -101,7 +101,7 @@ const float MidViewHeight = 175.0 / 2.0;
     [loginBtn setBackgroundColor:kNavigationBarColor];
     [loginBtn.layer setCornerRadius:4.0f];
     [loginBtn.layer setMasksToBounds:YES];
-    [loginBtn.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    [loginBtn.titleLabel setFont:SystemFont(14.0)];
     [loginBtn setTitleColor:kNavigationTitleColor forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     [loginBtn setFrame:RECT(15, inputBgView.y + inputBgView.height + 48, SCREENWIDTH - 30, 45)];
@@ -109,7 +109,7 @@ const float MidViewHeight = 175.0 / 2.0;
     
     forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
-    [forgetBtn.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
+    [forgetBtn.titleLabel setFont:SystemFont(13.0)];
     [forgetBtn addTarget:self action:@selector(forgetPwdAction:) forControlEvents:UIControlEventTouchUpInside];
     [forgetBtn setTitleColor:kNavigationBarColor forState:UIControlStateNormal];
     [forgetBtn setFrame:RECT(SCREENWIDTH - 40 - 100, loginBtn.y + loginBtn.height + 10, 100, 25)];
@@ -129,7 +129,7 @@ const float MidViewHeight = 175.0 / 2.0;
     UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREENWIDTH - 100)/2, 0, 100, 10)];
     tipLabel.textColor = RGBCOLOR(155, 155, 155);
     tipLabel.textAlignment = NSTextAlignmentCenter;
-    tipLabel.font = [UIFont systemFontOfSize:13.0f];
+    tipLabel.font = SystemFont(13.0f);
     tipLabel.text = @"其他登录方式";
     [bottomView addSubview:tipLabel];
     
@@ -140,7 +140,7 @@ const float MidViewHeight = 175.0 / 2.0;
     wechatBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
     [wechatBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
     [wechatBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-    wechatBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    wechatBtn.titleLabel.font = SystemFont(13.0f);
     
     
     QQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -149,7 +149,7 @@ const float MidViewHeight = 175.0 / 2.0;
     [QQBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
     QQBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
     [QQBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-    QQBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    QQBtn.titleLabel.font = SystemFont(13.0f);
     [QQBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_qq"] forState:UIControlStateNormal];
     
     [bottomView addSubview:wechatBtn];

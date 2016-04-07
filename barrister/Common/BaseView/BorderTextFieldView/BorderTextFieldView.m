@@ -81,7 +81,7 @@
 //控制placeHolder的颜色、字体
 - (void)drawPlaceholderInRect:(CGRect)rect
 {
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:RGBCOLOR(199, 199, 205)};
+    NSDictionary *attributes = @{NSFontAttributeName:SystemFont(14.0f),NSForegroundColorAttributeName:RGBCOLOR(199, 199, 205)};
     [[self placeholder] drawInRect:rect withAttributes:attributes];
 }
 

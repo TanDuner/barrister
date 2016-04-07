@@ -76,9 +76,6 @@
 {
     if (!_leftImageView) {
         _leftImageView = [[YYAnimatedImageView alloc] init];
-//        [_leftImageView.layer setCornerRadius:22.5f];
-//        [_leftImageView.layer setMasksToBounds:YES];
-        
     }
     return _leftImageView;
 }
@@ -89,7 +86,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = kFontColorGray3;
-        _titleLabel.font = [UIFont systemFontOfSize:15.0f];
+        _titleLabel.font = SystemFont(15.0f);
     }
     return _titleLabel;
 }
@@ -100,7 +97,7 @@
     if (!_subTitlelabel) {
         _subTitlelabel = [[UILabel alloc] init];
         _subTitlelabel.textColor = kFontColorGray1;
-        _subTitlelabel.font = [UIFont systemFontOfSize:13.0f];
+        _subTitlelabel.font = SystemFont(13.0f);
         _subTitlelabel.textAlignment = NSTextAlignmentLeft;
     }
     return _subTitlelabel;
@@ -113,7 +110,7 @@
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.textColor = kFontColorGray1;
-        _timeLabel.font = [UIFont systemFontOfSize:13.0f];
+        _timeLabel.font = SystemFont(13.0f);
         _timeLabel.textAlignment = NSTextAlignmentRight;
     }
     return _timeLabel;

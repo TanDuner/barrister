@@ -116,7 +116,7 @@
     static const int nLoadingIconWidth = 30;
     UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH - 160, 44)];
     UILabel * titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 44)];
-    [titleLab setFont:[UIFont systemFontOfSize:17.0]];
+    [titleLab setFont:SystemFont(17.0f)];
     [titleLab setTextColor:NAVIGATION_BAR_TITLECOLOR];
     [titleLab setText:self.navigationItem.title];
     [titleLab sizeToFit];
@@ -184,7 +184,7 @@
         [backBtn setTitle:[self getBackBtnText] forState:UIControlStateNormal];
         [backBtn setTitleColor:NAVIGATION_BAR_TITLECOLOR forState:UIControlStateNormal];
         [backBtn setTitleColor:kButtonColor1Highlight forState:UIControlStateHighlighted];
-        [backBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+        [backBtn.titleLabel setFont:SystemFont(16.0f)];
         [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon"] forState:UIControlStateNormal];
         [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon_hl"] forState:UIControlStateHighlighted];
         [backBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -210,7 +210,7 @@
     [backBtn setTitle:btnText forState:UIControlStateNormal];
     [backBtn setTitleColor:NAVIGATION_BAR_TITLECOLOR forState:UIControlStateNormal];
     [backBtn setTitleColor:kButtonColor1Highlight forState:UIControlStateHighlighted];
-    [backBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [backBtn.titleLabel setFont:SystemFont(16.0f)];
     [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon"] forState:UIControlStateNormal];
     [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon_hl"] forState:UIControlStateHighlighted];
     [backBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -225,8 +225,8 @@
 
 - (void)initNavigationRightTextButton:(NSString *)btnText action:(SEL)action
 {
-    NSDictionary  *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : NAVIGATION_BAR_TITLECOLOR } ;
-    NSDictionary  *disableAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : kButtonColor1Highlight } ;
+    NSDictionary  *attributes = @{ NSFontAttributeName : SystemFont(16.0f), NSForegroundColorAttributeName : NAVIGATION_BAR_TITLECOLOR } ;
+    NSDictionary  *disableAttributes = @{ NSFontAttributeName : SystemFont(16.0f), NSForegroundColorAttributeName : kButtonColor1Highlight } ;
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:btnText
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
@@ -238,8 +238,8 @@
 
 - (void)initNavigationRightTextButton:(NSString *)btnText action:(SEL)action target:(id)target
 {
-    NSDictionary  *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : NAVIGATION_BAR_TITLECOLOR } ;
-    NSDictionary  *disableAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : [ UIColor  lightGrayColor] } ;
+    NSDictionary  *attributes = @{ NSFontAttributeName : SystemFont(16.0f), NSForegroundColorAttributeName : NAVIGATION_BAR_TITLECOLOR } ;
+    NSDictionary  *disableAttributes = @{ NSFontAttributeName : SystemFont(16.0f), NSForegroundColorAttributeName : [ UIColor  lightGrayColor] } ;
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:btnText
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:target
@@ -365,7 +365,7 @@
         
         [_noContentView addSubview:_noContentImageView];
         
-        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        UIFont *font = SystemFont(14.0f);
         CGSize size = [self.noContentString XuSizeWithFont:font constrainedToSize:CGSizeMake(_noContentView.width - 40.0f, _noContentView.height)];
         
         frame = CGRectMake(20.0f, _noContentImageView.y + _noContentImageView.height + 20.0f, _noContentView.width - 40.0f, size.height);
@@ -401,7 +401,7 @@
         _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
         _loadingView.backgroundColor = self.view.backgroundColor;
         
-        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        UIFont *font = SystemFont(14.0f);
         
         CGSize size = [self.loadingString XuSizeWithFont:font constrainedToSize:CGSizeMake(_loadingView.width - 40.0f, _loadingView.height)];
         
@@ -432,7 +432,7 @@
     _noContentView.frame = self.view.bounds;
     CGRect frame = CGRectMake((self.view.width - _noContentImageView.image.size.width) / 2.0f, (self.view.height - _noContentImageView.image.size.height) / 2.0f - _noContentImageView.image.size.height / 2.0f, _noContentImageView.image.size.width, _noContentImageView.image.size.height);
     _noContentImageView.frame = frame;
-    UIFont *font = [UIFont systemFontOfSize:14.0f];
+    UIFont *font = SystemFont(14.0f);
     CGSize size = [self.noContentString XuSizeWithFont:font constrainedToSize:CGSizeMake(_noContentView.width - 40.0f, _noContentView.height)];
 
     

@@ -41,7 +41,7 @@
     [self addSubview:_badgeNumberView];
     
     _badgeNumberLabel = [[UILabel alloc] initWithFrame:frame];
-    _badgeNumberLabel.font = [UIFont systemFontOfSize:13];
+    _badgeNumberLabel.font = SystemFont(13);
     _badgeNumberLabel.backgroundColor = [UIColor clearColor];
     _badgeNumberLabel.textColor = kButtonColor1Normal;
     

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonCenterModel.h"
+#import "BaseTableViewCell.h"
 
-@interface PersonCenterCustomCell : UITableViewCell
+@interface PersonCenterCustomCell : BaseTableViewCell
+
+@property (nonatomic,strong) PersonCenterModel *model;
+
++(CGFloat)getCellHeight;
 
 @end

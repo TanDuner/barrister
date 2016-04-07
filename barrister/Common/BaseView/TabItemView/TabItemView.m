@@ -74,7 +74,7 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _titleLabel.font = [UIFont systemFontOfSize:14.0];
+        _titleLabel.font = SystemFont(14.0f);
         _titleLabel.textColor = kFontColorNormalJump;
         _titleLabel.backgroundColor = [UIColor clearColor];
         

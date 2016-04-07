@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "YYImage.h"
+#import "PersonCenterModel.h"
+#import "BaseTableViewCell.h"
 
-@interface PersonCenterAccountCell : UITableViewCell
+@interface PersonCenterAccountCell : BaseTableViewCell
 
 @property (nonatomic,strong) YYAnimatedImageView *headerImageView;
 
 @property (nonatomic,strong) UILabel *unLoginTipLabel;
 
 @property (nonatomic,strong) UILabel *nameLabel;
+
+@property (nonatomic,strong) PersonCenterModel *model;
+
++(CGFloat)getCellHeight;
 
 @end

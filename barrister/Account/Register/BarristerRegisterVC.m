@@ -61,7 +61,7 @@
     UILabel *label1 = [[UILabel alloc] initWithFrame:RECT(0, 0, LeftViewWidth, RowHeight)];
     label1.textAlignment = NSTextAlignmentLeft;
     label1.text = @"手机号";
-    label1.font = [UIFont systemFontOfSize:14.0f];
+    label1.font = SystemFont(14.0f);
     
     
     accountTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(LeftSpace, 0, SCREENWIDTH - 100 - .5 - LeftSpace, RowHeight)];
@@ -82,7 +82,7 @@
     getCodeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [getCodeBtn setFrame:RECT(SCREENWIDTH - 100, -1, 100, RowHeight + 2)];
-    getCodeBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    getCodeBtn.titleLabel.font = SystemFont(13.0f);
     [getCodeBtn setTitleColor:RGBCOLOR(165, 165, 165) forState:UIControlStateNormal];
     [getCodeBtn addTarget:self action:@selector(getCodeAction) forControlEvents:UIControlEventTouchUpInside];
 
@@ -92,7 +92,7 @@
     UILabel *label2 = [[UILabel alloc] initWithFrame:RECT(LeftSpace, 0, LeftViewWidth, RowHeight)];
     label2.textAlignment = NSTextAlignmentLeft;
     label2.text = @"验证码";
-    label2.font = [UIFont systemFontOfSize:14.0f];
+    label2.font = SystemFont(14.0f);
 
     
     codeTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(LeftSpace, sepView1.y + sepView1.height, SCREENWIDTH - LeftSpace, RowHeight)];
@@ -112,7 +112,7 @@
     UILabel *label3 = [[UILabel alloc] initWithFrame:RECT(0, 0, LeftViewWidth, RowHeight)];
     label3.textAlignment = NSTextAlignmentLeft;
     label3.text = @"密码";
-    label3.font = [UIFont systemFontOfSize:14.0f];
+    label3.font = SystemFont(14.0f);
 
     
     passwordTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(LeftSpace, sepView2.size.height + sepView2.y, SCREENWIDTH - LeftSpace, RowHeight)];
@@ -138,7 +138,7 @@
     [registerBtn setBackgroundColor:kNavigationBarColor];
     [registerBtn.layer setCornerRadius:4.0f];
     [registerBtn.layer setMasksToBounds:YES];
-    [registerBtn.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    [registerBtn.titleLabel setFont:SystemFont(14.0f)];
     [registerBtn setTitleColor:kNavigationTitleColor forState:UIControlStateNormal];
     [registerBtn addTarget:self action:@selector(registerAciton:) forControlEvents:UIControlEventTouchUpInside];
     [registerBtn setFrame:RECT(15, RowHeight *3 + 10 + 48, SCREENWIDTH - 30, 45)];
