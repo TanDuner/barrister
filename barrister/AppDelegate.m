@@ -13,6 +13,16 @@
 @end
 
 @implementation AppDelegate
+/**
+ *  选择tab 的Index
+ *
+ *  @param index 序号
+ */
+
+-(void)selectTabWithIndex:(NSInteger)index
+{
+    _tabBarCTL.selectedIndex = index;
+}
 
 -(void)initControllersAndConfig
 {

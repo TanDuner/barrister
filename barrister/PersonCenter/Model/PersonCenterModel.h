@@ -12,8 +12,8 @@ typedef NS_ENUM(NSInteger, PersonCenterModelType)
 {
     PersonCenterModelTypeZH,
     PersonCenterModelTypeZHU,
-    PersonCenterModelTypeDD,
-    PersonCenterModelTypePJ,
+    PersonCenterModelTypeXX,
+    PersonCenterModelTypeRZZT,
     PersonCenterModelTypeJDSZ,
     PersonCenterModelTypeSZ,
 };

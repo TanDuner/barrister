@@ -10,6 +10,7 @@
 #import "PersonCenterCustomCell.h"
 #import "PersonCenterAccountCell.h"
 #import "PersonCenterModel.h"
+#import "SettingViewController.h"
 
 @interface PersonCenterViewController ()
 
@@ -21,6 +22,12 @@
     [super viewDidLoad];
     [self configView];
     [self configData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self showTabbar:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,29 +55,28 @@
     model2.isAccountLogin = NO;
     
     PersonCenterModel *model3 = [[PersonCenterModel alloc] init];
-    model3.titleStr = @"我的订单";
-    model3.cellType = PersonCenterModelTypeDD;
-    model3.iconNameStr = @"dingdan.png";
+    model3.titleStr = @"我的消息";
+    model3.cellType = PersonCenterModelTypeXX;
+    model3.iconNameStr = @"xiaoxi.png";
     model3.isShowArrow = YES;
     model3.isAccountLogin = NO;
 
     
-    
     PersonCenterModel *model4 = [[PersonCenterModel alloc] init];
-    model4.titleStr = @"接单设置";
-    model4.cellType = PersonCenterModelTypeJDSZ;
-    model4.iconNameStr = @"jiedan.png";
-    model4.isShowArrow = YES;
+    model4.titleStr = @"认证状态";
+    model4.subtitleStr = @"未认证";
+    model4.cellType = PersonCenterModelTypeRZZT;
+    model4.iconNameStr = @"renzheng.png";
+    model4.isShowArrow = NO;
     model4.isAccountLogin = NO;
-
+    
     
     PersonCenterModel *model5 = [[PersonCenterModel alloc] init];
-    model5.titleStr = @"我的评价";
-    model5.cellType = PersonCenterModelTypePJ;
-    model5.iconNameStr = @"pingjia.png";
+    model5.titleStr = @"接单设置";
+    model5.cellType = PersonCenterModelTypeJDSZ;
+    model5.iconNameStr = @"jiedan.png";
     model5.isShowArrow = YES;
     model5.isAccountLogin = NO;
-    
 
     
     PersonCenterModel *model6 = [[PersonCenterModel alloc] init];
@@ -195,6 +201,7 @@
         model = [self.items objectAtIndex:0];
         if (model.cellType == PersonCenterModelTypeZH) {
             model.isAccountLogin = !model.isAccountLogin;
+            [BaseDataSingleton shareInstance].isAccountLogin = ![BaseDataSingleton shareInstance].isAccountLogin;
             [self.tableView reloadData];
         }
     }
@@ -204,7 +211,8 @@
     }
     else
     {
-        
+        SettingViewController *settingVC = [[SettingViewController alloc] init];
+        [self.navigationController pushViewController:settingVC animated:YES];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "OrderViewController.h"
 #import "BarristerOrderModel.h"
 #import "OrderViewCell.h"
+#import "OrderDetailViewController.h"
 
 @interface OrderViewController ()
 
@@ -26,6 +27,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self showTabbar:YES];
 }
 
 #pragma -mark ----UI------
@@ -102,6 +109,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 

@@ -19,6 +19,8 @@ typedef struct PhoneSate PhoneSate;
 
 @property (nonatomic,assign) PhoneSate currentPhoneState;
 
+@property (nonatomic,assign) BOOL isAccountLogin;
+
 + (instancetype)shareInstance;
 
 @end

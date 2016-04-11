@@ -137,6 +137,11 @@
 		95C0EB0F1CB62079004F9DAD /* zhanghu.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0E1CB62079004F9DAD /* zhanghu.png */; };
 		95C0EB121CB62254004F9DAD /* HomeTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */; };
 		95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB131CB63136004F9DAD /* temlvshi.jpg */; };
+		95C0EB161CB8A3C7004F9DAD /* HomeTableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB151CB8A3C7004F9DAD /* HomeTableHeadView.xib */; };
+		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
+		95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A41CBB4A49000C7E91 /* renzheng.png */; };
+		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
+		95F533AB1CBB835F000C7E91 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533AA1CBB835F000C7E91 /* OrderDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +391,13 @@
 		95C0EB101CB62254004F9DAD /* HomeTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeadView.h; sourceTree = "<group>"; };
 		95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeadView.m; sourceTree = "<group>"; };
 		95C0EB131CB63136004F9DAD /* temlvshi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = temlvshi.jpg; sourceTree = "<group>"; };
+		95C0EB151CB8A3C7004F9DAD /* HomeTableHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableHeadView.xib; sourceTree = "<group>"; };
+		95F533A21CBB4690000C7E91 /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
+		95F533A41CBB4A49000C7E91 /* renzheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renzheng.png; sourceTree = "<group>"; };
+		95F533A61CBB53FB000C7E91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		95F533A71CBB53FB000C7E91 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		95F533A91CBB835F000C7E91 /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
+		95F533AA1CBB835F000C7E91 /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -891,6 +903,7 @@
 			children = (
 				95C0EB101CB62254004F9DAD /* HomeTableHeadView.h */,
 				95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */,
+				95C0EB151CB8A3C7004F9DAD /* HomeTableHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -900,6 +913,8 @@
 			children = (
 				9597B0CD1CA1132800FF65D9 /* OrderViewController.h */,
 				9597B0CE1CA1132800FF65D9 /* OrderViewController.m */,
+				95F533A91CBB835F000C7E91 /* OrderDetailViewController.h */,
+				95F533AA1CBB835F000C7E91 /* OrderDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -925,6 +940,8 @@
 			children = (
 				9597B0D61CA1136B00FF65D9 /* PersonCenterViewController.h */,
 				9597B0D71CA1136B00FF65D9 /* PersonCenterViewController.m */,
+				95F533A61CBB53FB000C7E91 /* SettingViewController.h */,
+				95F533A71CBB53FB000C7E91 /* SettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1034,6 +1051,8 @@
 				95C0EB031CB60CFB004F9DAD /* zhanghao.png */,
 				95C0EB0C1CB61F81004F9DAD /* jiedan.png */,
 				95C0EB0E1CB62079004F9DAD /* zhanghu.png */,
+				95F533A41CBB4A49000C7E91 /* renzheng.png */,
+				95F533A21CBB4690000C7E91 /* xiaoxi.png */,
 			);
 			path = PersonCenter;
 			sourceTree = "<group>";
@@ -1273,9 +1292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BCB78C1CA280E300E85E10 /* navigationbar_back_icon@2x.png in Resources */,
+				95C0EB161CB8A3C7004F9DAD /* HomeTableHeadView.xib in Resources */,
 				95BCB78D1CA280E300E85E10 /* navigationbar_back_icon@3x.png in Resources */,
 				9597B1021CA1168200FF65D9 /* Tab04Normal@2x.png in Resources */,
 				95BCB7891CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png in Resources */,
+				95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */,
 				95412FB61C9F91FA00D26B11 /* LaunchScreen.storyboard in Resources */,
 				95412FB31C9F91FA00D26B11 /* Assets.xcassets in Resources */,
 				9597B0F61CA1168200FF65D9 /* Tab01Normal@2x.png in Resources */,
@@ -1308,6 +1329,7 @@
 				95C0EB071CB60CFB004F9DAD /* shezhi.png in Resources */,
 				95BCB7AE1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png in Resources */,
 				9597B1031CA1168200FF65D9 /* Tab04Normal@3x.png in Resources */,
+				95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1395,6 +1417,7 @@
 				9597B0BF1CA0F12700FF65D9 /* UIScrollView+MJRefresh.m in Sources */,
 				9520BFC11CAA721A00961F05 /* YYSpriteSheetImage.m in Sources */,
 				9597B0BE1CA0F12700FF65D9 /* UIScrollView+MJExtension.m in Sources */,
+				95F533AB1CBB835F000C7E91 /* OrderDetailViewController.m in Sources */,
 				95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */,
 				9597B0BA1CA0F12700FF65D9 /* MJRefreshGifHeader.m in Sources */,
 				9597B0B11CA0F12700FF65D9 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -1424,6 +1447,7 @@
 				9520BFB81CAA721A00961F05 /* CALayer+YYWebImage.m in Sources */,
 				95C0EB121CB62254004F9DAD /* HomeTableHeadView.m in Sources */,
 				9597B0C01CA0F12700FF65D9 /* UIView+MJExtension.m in Sources */,
+				95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */,
 				95412FAB1C9F91FA00D26B11 /* AppDelegate.m in Sources */,
 				9541302E1CA003B500D26B11 /* UIImage+ImageEffects.m in Sources */,
 				9597B12A1CA1595A00FF65D9 /* BaseNetProxy.m in Sources */,

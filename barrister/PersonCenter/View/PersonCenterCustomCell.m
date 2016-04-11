@@ -15,7 +15,7 @@
 @property (nonatomic,strong) UIImageView *iconImageIVew;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UIImageView *rightRow;
-
+@property (nonatomic,strong) UILabel *subTitleLabel;
 
 @end
 
@@ -27,6 +27,7 @@
         [self addSubview:self.iconImageIVew];
         [self addSubview:self.titleLabel];
         [self addSubview:self.rightRow];
+        [self addSubview:self.subTitleLabel];
     }
     return self;
 }
@@ -37,6 +38,7 @@
     [self.iconImageIVew setFrame:RECT(LeftPadding + 5, ([PersonCenterCustomCell getCellHeight] - IconWidht)/2.0, IconWidht, IconWidht)];
     [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, ([PersonCenterCustomCell getCellHeight] - 15)/2.0, SCREENWIDTH - 100, 15)];
     [self.rightRow setFrame:CGRectMake(SCREENWIDTH - 15 - 15, self.titleLabel.y, 15, 15)];
+    [self.subTitleLabel setFrame:RECT(SCREENWIDTH - 15 - 100, self.titleLabel.y, 100, 15)];
 }
 
 
@@ -49,9 +51,12 @@
         
         if (self.model.isShowArrow) {
             self.rightRow.hidden = NO;
+            self.subTitleLabel.hidden = YES;
         }
         else {
             self.rightRow.hidden = YES;
+            self.subTitleLabel.hidden = NO;
+            self.subTitleLabel.text = self.model.subtitleStr;
         }
     }
 }
@@ -115,6 +120,18 @@
 
     }
     return _rightRow;
+}
+
+-(UILabel *)subTitleLabel
+{
+    if (!_subTitleLabel) {
+        _subTitleLabel = [[UILabel alloc] init];
+        _subTitleLabel.textColor = kFontColorGray3;
+        _subTitleLabel.font = [UIFont systemFontOfSize:13.0f];
+        _subTitleLabel.textAlignment = NSTextAlignmentRight;
+        _subTitleLabel.hidden = YES;
+    }
+    return _subTitleLabel;
 }
 
 @end

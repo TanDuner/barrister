@@ -15,6 +15,7 @@
 
 @property (nonatomic,retain)  BaseTabbarController *tabBarCTL;
 
+-(void)selectTabWithIndex:(NSInteger)index;
 
 @end
 
