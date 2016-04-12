@@ -8,10 +8,6 @@
 
 #import "BaseTableView.h"
 
-#import "MJRefresh.h"
-
-#import "UIScrollView+MJRefresh.h"
-
 
 @implementation BaseTableView
 
@@ -32,19 +28,7 @@
 }
 
 
--(void)loadItems
-{
-    if (self.refreshDelegate && [self.refreshDelegate respondsToSelector:@selector(circleTableViewDidTriggerRefresh:)]) {
-        [self.refreshDelegate circleTableViewDidTriggerRefresh:nil];
-    }
-}
 
--(void)loadMoreData
-{
-    if (self.refreshDelegate && [self.refreshDelegate respondsToSelector:@selector(circleTableViewDidLoadMoreData:)]) {
-        [self.refreshDelegate circleTableViewDidLoadMoreData:nil];
-    }
-}
 
 
 @end

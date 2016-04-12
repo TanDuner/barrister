@@ -16,8 +16,8 @@
 
 typedef NS_ENUM(NSInteger, BarristerOrderType)
 {
-    BarristerOrderTypeMSJF,
-    BarristerOrderTypeLHJF,
+    BarristerOrderTypeJSZX,
+    BarristerOrderTypeYYZX,
 };
 
 
@@ -28,9 +28,11 @@ typedef NS_ENUM(NSInteger, BarristerOrderType)
 
 @property (nonatomic,strong) NSString *orderId;
 
-//@property (nonatomic,assign) BarristerOrderType orderType;
+@property (nonatomic,assign) BarristerOrderType orderType;
 
-@property (nonatomic,strong) NSString *orderType;
+//@property (nonatomic,strong) NSString *orderType;
+
+@property (nonatomic,strong) NSString *caseType;
 
 @property (nonatomic,strong) NSString *orderState;
 
@@ -39,6 +41,8 @@ typedef NS_ENUM(NSInteger, BarristerOrderType)
 @property (nonatomic,strong) NSString *startTime;
 
 @property (nonatomic,strong) NSString *endTime;
+
+@property (nonatomic,strong) NSString *orderTime;
 
 @property (nonatomic,strong) NSString *userHeder;
 

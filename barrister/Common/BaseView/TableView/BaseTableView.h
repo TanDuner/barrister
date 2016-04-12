@@ -8,22 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol BaseTableViewDelegate <NSObject>
-
--(void)circleTableViewDidTriggerRefresh:(id)object;
-
--(void)circleTableViewDidLoadMoreData:(id)object;
-
-@end
 
 @interface BaseTableView : UITableView
-
-@property (nonatomic,weak) id <BaseTableViewDelegate> refreshDelegate;
-
-
--(void)loadItems;
-
--(void)loadMoreData;
 
 @end
 

@@ -10,8 +10,15 @@
 #import "BarristerOrderModel.h"
 #import "OrderViewCell.h"
 #import "OrderDetailViewController.h"
+#import "RefreshTableView.h"
 
-@interface OrderViewController ()
+@interface OrderViewController ()<UITableViewDataSource,UITableViewDelegate,RefreshTableViewDelegate>
+
+@property (nonatomic,strong) RefreshTableView *leftTableView;
+@property (nonatomic,strong) RefreshTableView *rightTableView;
+
+@property (nonatomic,strong) NSMutableArray *leftItems;
+@property (nonatomic,strong) NSMutableArray *rightItems;
 
 @end
 
@@ -20,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configView];
-    [self loadItems];
+    [self initData];
+    [self loadLeftItems];
 }
 
 
@@ -39,50 +47,147 @@
 
 -(void)configView
 {
+    [self configNavigationView];
+    [self configTableView];
+    
+}
 
+-(void)configNavigationView
+{
+    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"电话咨询",@"预约咨询"]];
+    
+    [segmentControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    
+    segmentControl.tintColor = [UIColor whiteColor];
+    
+    [segmentControl setFrame:RECT(0, 0, 160, 30)];
+    
+    segmentControl.selectedSegmentIndex = 0;
+    
+    self.navigationItem.titleView = segmentControl;
+}
+
+-(void)configTableView
+{
+    _leftTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
+    [_leftTableView setFootLoadMoreControl];
+    _leftTableView.backgroundColor = [UIColor lightGrayColor];
+    _leftTableView.refreshDelegate = self;
+    _leftTableView.delegate = self;
+    _leftTableView.dataSource = self;
+    
+    _rightTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
+    [_rightTableView setFootLoadMoreControl];
+    _rightTableView.refreshDelegate = self;
+    _rightTableView.delegate = self;
+    _rightTableView.dataSource = self;
+    
+    [self.view addSubview:_rightTableView];
+    [self.view addSubview:_leftTableView];
 }
 
 #pragma -mark -----Data------
 
--(void)loadItems
+-(void)initData
+{
+    _leftItems = [NSMutableArray arrayWithCapacity:1];
+    _rightItems = [NSMutableArray arrayWithCapacity:1];
+}
+
+-(void)loadLeftItems
 {
     /**
      造假数据
-     
-     - returns: <#return value description#>
+     - returns:
      */
+    
+    if (_leftTableView.pageNum == 1 && _leftItems.count > 0) {
+        [self.leftTableView endRefreshing];
+        [_leftItems removeAllObjects];
+
+    }else{
+        [self.leftTableView endLoadMoreWithNoMoreData:NO];
+    }
+
     
     BarristerOrderModel *model = [[BarristerOrderModel alloc] init];
     model.customerName = @"用户134****7654";
     model.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
     model.startTime = @"2016/04/24 13:00";
     model.endTime = @"2016/03/24 14:00";
-    model.orderType = @"债务纠纷";
-
+    model.caseType = @"债务纠纷";
+    model.orderType = BarristerOrderTypeJSZX;
     
     BarristerOrderModel *model1 = [[BarristerOrderModel alloc] init];
     model1.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
     model1.customerName = @"用户158****0087";
     model1.startTime = @"2016/04/25 14:00";
     model1.endTime = @"2016/04/25 15:00";
-    model1.orderType = @"财产纠纷";
-
+    model1.caseType = @"财产纠纷";
+    model1.orderType = BarristerOrderTypeJSZX;
     
     BarristerOrderModel *model2 = [[BarristerOrderModel alloc] init];
     model2.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
     model2.customerName = @"用户186****7339";
     model2.startTime = @"2016/04/26 15:00";
     model2.endTime = @"2016/04/26 16:00";
-    model2.orderType = @"民事案件";
+    model2.caseType = @"民事案件";
+    model2.orderType = BarristerOrderTypeJSZX;
     
-    [self.items addObject:model];
-    [self.items addObject:model1];
-    [self.items addObject:model2];
+    [self.leftItems addObject:model];
+    [self.leftItems addObject:model1];
+    [self.leftItems addObject:model2];
     
-    [self.tableView reloadData];
+   
     
+    [self.leftTableView reloadData];
 }
 
+
+-(void)loadRightItems
+{
+    if (_rightTableView.pageNum == 1 && _rightItems.count > 0) {
+        [_rightTableView endRefreshing];
+        [_rightItems removeAllObjects];
+
+    }else{
+        [_rightTableView endLoadMoreWithNoMoreData:NO];
+    }
+    
+
+    BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
+    model4.customerName = @"用户134****7654";
+    model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
+    model4.startTime = @"2016/04/24 13:00";
+    model4.endTime = @"2016/03/24 14:00";
+    model4.caseType = @"债务纠纷";
+    model4.orderType = BarristerOrderTypeYYZX;
+    
+    BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
+    model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
+    model5.customerName = @"用户158****0087";
+    model5.startTime = @"2016/04/25 14:00";
+    model5.endTime = @"2016/04/25 15:00";
+    model5.caseType = @"财产纠纷";
+    model5.orderType = BarristerOrderTypeYYZX;
+    
+    BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
+    model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
+    model6.customerName = @"用户186****7339";
+    model6.startTime = @"2016/04/26 15:00";
+    model6.endTime = @"2016/04/26 16:00";
+    model6.caseType = @"民事案件";
+    model6.orderType = BarristerOrderTypeYYZX;
+    
+    [self.rightItems addObject:model4];
+    [self.rightItems addObject:model5];
+    [self.rightItems addObject:model6];
+    
+   
+    
+    [self.rightTableView reloadData];
+
+}
 
 #pragma -mark -----UITableVIewDelegate Methods------
 
@@ -90,15 +195,34 @@
 {
     static NSString *CellIdentifier = @"orderCell";
     
-    OrderViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    OrderViewCell *cell = [self.leftTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         
         cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    BarristerOrderModel *model =  (BarristerOrderModel *)[self.items objectAtIndex:indexPath.row];
-    cell.model = model;
+    if (tableView == _leftTableView) {
+        BarristerOrderModel *model =  (BarristerOrderModel *)[self.leftItems objectAtIndex:indexPath.row];
+        cell.model = model;
+    }
+    else
+    {
+        BarristerOrderModel *model =  (BarristerOrderModel *)[self.rightItems objectAtIndex:indexPath.row];
+        cell.model = model;
+    }
+
     return cell;
 
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == _leftTableView) {
+        return self.leftItems.count;
+    }
+    else
+    {
+        return self.rightItems.count;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,6 +237,49 @@
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }
+
+#pragma -mark -----Aciton------
+
+-(void)segmentAction:(UISegmentedControl *)segmentControl
+{
+    if (segmentControl.selectedSegmentIndex == 0) {
+        [self.view bringSubviewToFront:_leftTableView];
+    }
+    else if (segmentControl.selectedSegmentIndex == 1)
+    {
+        [self.view bringSubviewToFront:_rightTableView];
+    }
+    else{
+    }
+}
+
+
+#pragma -mark -----Refresh&Loadmore methods--------
+
+-(void)circleTableViewDidTriggerRefresh:(RefreshTableView *)tableView
+{
+    if (tableView == _leftTableView) {
+        [self loadLeftItems];
+    }
+    else
+    {
+        [self loadRightItems];
+    }
+
+}
+
+-(void)circleTableViewDidLoadMoreData:(RefreshTableView *)tableView
+{
+    if (tableView == _leftTableView) {
+        [self loadLeftItems];
+    }
+    else
+    {
+        [self loadRightItems];
+    }
+    
+}
+
 
 
 @end

@@ -37,12 +37,7 @@
 }
 
 
-#pragma -mark ------Data-------
 
--(void)loadItems
-{
-
-}
 
 
 #pragma -mark --------UI------------
@@ -58,14 +53,14 @@
 
 -(void)addRefreshHeader
 {
-    MJRefreshNormalHeader *headerTemp = [MJRefreshNormalHeader headerWithRefreshingTarget:self.tableView refreshingAction:@selector(loadItems)];
+    MJRefreshNormalHeader *headerTemp = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadItems)];
     self.tableView.mj_header = headerTemp;
     
 }
 
 -(void)addLoadMoreFooter
 {
-    MJRefreshAutoNormalFooter *footerTemp = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self.tableView refreshingAction:@selector(loadMoreData)];
+    MJRefreshAutoNormalFooter *footerTemp = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     self.tableView.mj_footer = footerTemp;
 }
 
@@ -103,15 +98,16 @@
     }
 }
 
-#pragma -mark -------RefreshAndLoadMore--------
+#pragma -mark -------RefreshMethods--------
 
--(void)circleTableViewDidTriggerRefresh:(id)object
+-(void)loadMoreData
 {
     
 }
 
--(void)circleTableViewDidLoadMoreData:(id)object
-{
 
+-(void)loadItems
+{
+    
 }
 @end

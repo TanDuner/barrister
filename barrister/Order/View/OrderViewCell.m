@@ -68,7 +68,7 @@
         [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userHeder] placeholder:[UIImage imageNamed:@"timeline_image_loading"]];
         self.nameLabel.text = self.model.customerName;
         self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",self.model.startTime,self.model.endTime];
-        self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.orderType];
+        self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType];
     }
 }
 
