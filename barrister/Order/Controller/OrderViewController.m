@@ -71,13 +71,14 @@
 {
     _leftTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
     [_leftTableView setFootLoadMoreControl];
-    _leftTableView.backgroundColor = [UIColor lightGrayColor];
+    _leftTableView.backgroundColor = KColorGray1;
     _leftTableView.refreshDelegate = self;
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
     
     _rightTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
     [_rightTableView setFootLoadMoreControl];
+    _rightTableView.backgroundColor = KColorGray2;
     _rightTableView.refreshDelegate = self;
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
@@ -113,24 +114,21 @@
     BarristerOrderModel *model = [[BarristerOrderModel alloc] init];
     model.customerName = @"用户134****7654";
     model.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
-    model.startTime = @"2016/04/24 13:00";
-    model.endTime = @"2016/03/24 14:00";
     model.caseType = @"债务纠纷";
+    model.orderTime = @"2016-04-09 15:00:00";
     model.orderType = BarristerOrderTypeJSZX;
     
     BarristerOrderModel *model1 = [[BarristerOrderModel alloc] init];
     model1.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
     model1.customerName = @"用户158****0087";
-    model1.startTime = @"2016/04/25 14:00";
-    model1.endTime = @"2016/04/25 15:00";
+    model1.orderTime = @"2016-04-10 13:17:24";
     model1.caseType = @"财产纠纷";
     model1.orderType = BarristerOrderTypeJSZX;
     
     BarristerOrderModel *model2 = [[BarristerOrderModel alloc] init];
     model2.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
     model2.customerName = @"用户186****7339";
-    model2.startTime = @"2016/04/26 15:00";
-    model2.endTime = @"2016/04/26 16:00";
+    model2.orderTime = @"2016-04-12 10:39:50";
     model2.caseType = @"民事案件";
     model2.orderType = BarristerOrderTypeJSZX;
     
@@ -243,10 +241,16 @@
 -(void)segmentAction:(UISegmentedControl *)segmentControl
 {
     if (segmentControl.selectedSegmentIndex == 0) {
+        if (_leftItems.count == 0) {
+            [self loadLeftItems];
+        }
         [self.view bringSubviewToFront:_leftTableView];
     }
     else if (segmentControl.selectedSegmentIndex == 1)
     {
+        if (_rightItems.count == 0) {
+            [self loadRightItems];
+        }
         [self.view bringSubviewToFront:_rightTableView];
     }
     else{

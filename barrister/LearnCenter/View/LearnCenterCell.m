@@ -85,7 +85,7 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.textColor = kFontColorGray3;
+        _titleLabel.textColor = KColorGray3;
         _titleLabel.font = SystemFont(15.0f);
     }
     return _titleLabel;
@@ -96,7 +96,7 @@
 {
     if (!_subTitlelabel) {
         _subTitlelabel = [[UILabel alloc] init];
-        _subTitlelabel.textColor = kFontColorGray1;
+        _subTitlelabel.textColor = KColorGray1;
         _subTitlelabel.font = SystemFont(13.0f);
         _subTitlelabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -109,7 +109,7 @@
 {
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.textColor = kFontColorGray1;
+        _timeLabel.textColor = KColorGray1;
         _timeLabel.font = SystemFont(13.0f);
         _timeLabel.textAlignment = NSTextAlignmentRight;
     }

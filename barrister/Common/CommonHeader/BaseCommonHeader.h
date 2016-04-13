@@ -94,10 +94,10 @@
 #define kFontColorStrong        UIColorFromRGB(0xFFE02428)
 #define kFontColorButton        UIColorFromRGB(0xFFFFFFFF)
 
-#define kFontColorGray1          UIColorFromRGB(0xFFC3C3C3)
-#define kFontColorGray2          UIColorFromRGB(0xFF666666)
-#define kFontColorGray3          UIColorFromRGB(0xFF333333)
-#define kFontColorGray4          UIColorFromRGB(0xFF222222)
+#define KColorGray1          UIColorFromRGB(0xFFC3C3C3)
+#define KColorGray2          UIColorFromRGB(0xFF666666)
+#define KColorGray3          UIColorFromRGB(0xFF333333)
+#define KColorGray4          UIColorFromRGB(0xFF222222)
 
 
 static NSString * const kNetworkProtocolErrorNotification = @"kNetworkProtocolErrorNotification";                   // 协议错误，错误码-1

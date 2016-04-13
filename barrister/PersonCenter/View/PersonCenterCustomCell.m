@@ -104,7 +104,7 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.textColor = kFontColorGray4;
+        _titleLabel.textColor = KColorGray4;
         _titleLabel.font = SystemFont(15.0f);
     }
     return _titleLabel;
@@ -126,7 +126,7 @@
 {
     if (!_subTitleLabel) {
         _subTitleLabel = [[UILabel alloc] init];
-        _subTitleLabel.textColor = kFontColorGray3;
+        _subTitleLabel.textColor = KColorGray3;
         _subTitleLabel.font = [UIFont systemFontOfSize:13.0f];
         _subTitleLabel.textAlignment = NSTextAlignmentRight;
         _subTitleLabel.hidden = YES;

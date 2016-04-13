@@ -67,7 +67,13 @@
     if (self.model) {
         [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userHeder] placeholder:[UIImage imageNamed:@"timeline_image_loading"]];
         self.nameLabel.text = self.model.customerName;
-        self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",self.model.startTime,self.model.endTime];
+        if (self.model.orderType == BarristerOrderTypeJSZX) {
+            self.timeLabel.text = [NSString stringWithFormat:@"%@",self.model.orderTime];
+        }
+        else
+        {
+            self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",self.model.startTime,self.model.endTime];
+        }
         self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType];
     }
 }
@@ -93,7 +99,7 @@
 {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.textColor = kFontColorGray3;
+        _nameLabel.textColor = KColorGray3;
         _nameLabel.font = SystemFont(15.0f);
     }
     return _nameLabel;
@@ -114,7 +120,7 @@
 {
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.textColor = kFontColorGray1;
+        _timeLabel.textColor = KColorGray1;
         _timeLabel.font = SystemFont(13.0f);
         _timeLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -125,7 +131,7 @@
 {
     if (!_typeLabel) {
         _typeLabel = [[UILabel alloc] init];
-        _typeLabel.textColor = kFontColorGray1;
+        _typeLabel.textColor = KColorGray1;
         _typeLabel.font = SystemFont(13.0f);
         _typeLabel.textAlignment = NSTextAlignmentRight;
     }

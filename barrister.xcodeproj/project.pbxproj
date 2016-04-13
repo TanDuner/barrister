@@ -116,9 +116,7 @@
 		95C0EB0B1CB60EAB004F9DAD /* rightRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0A1CB60EAB004F9DAD /* rightRow.png */; };
 		95C0EB0D1CB61F81004F9DAD /* jiedan.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0C1CB61F81004F9DAD /* jiedan.png */; };
 		95C0EB0F1CB62079004F9DAD /* zhanghu.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0E1CB62079004F9DAD /* zhanghu.png */; };
-		95C0EB121CB62254004F9DAD /* HomeTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */; };
 		95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB131CB63136004F9DAD /* temlvshi.jpg */; };
-		95C0EB161CB8A3C7004F9DAD /* HomeTableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB151CB8A3C7004F9DAD /* HomeTableHeadView.xib */; };
 		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
 		95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A41CBB4A49000C7E91 /* renzheng.png */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -143,6 +141,8 @@
 		95F534081CBCD758000C7E91 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533F81CBCD758000C7E91 /* MJRefreshHeader.m */; };
 		95F534091CBCD758000C7E91 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533FA1CBCD758000C7E91 /* MJRefreshNormalHeader.m */; };
 		95F5340A1CBCD758000C7E91 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533FC1CBCD758000C7E91 /* MJRefreshStateHeader.m */; };
+		95F5340D1CBD002D000C7E91 /* HomeAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F5340C1CBD002D000C7E91 /* HomeAccountCell.m */; };
+		95F534101CBD0E7B000C7E91 /* HomeAccountItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F5340F1CBD0E7B000C7E91 /* HomeAccountItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -351,10 +351,7 @@
 		95C0EB0A1CB60EAB004F9DAD /* rightRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightRow.png; sourceTree = "<group>"; };
 		95C0EB0C1CB61F81004F9DAD /* jiedan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiedan.png; sourceTree = "<group>"; };
 		95C0EB0E1CB62079004F9DAD /* zhanghu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhanghu.png; sourceTree = "<group>"; };
-		95C0EB101CB62254004F9DAD /* HomeTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeadView.h; sourceTree = "<group>"; };
-		95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeadView.m; sourceTree = "<group>"; };
 		95C0EB131CB63136004F9DAD /* temlvshi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = temlvshi.jpg; sourceTree = "<group>"; };
-		95C0EB151CB8A3C7004F9DAD /* HomeTableHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableHeadView.xib; sourceTree = "<group>"; };
 		95F533A21CBB4690000C7E91 /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
 		95F533A41CBB4A49000C7E91 /* renzheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renzheng.png; sourceTree = "<group>"; };
 		95F533A61CBB53FB000C7E91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -401,6 +398,10 @@
 		95F533FA1CBCD758000C7E91 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		95F533FB1CBCD758000C7E91 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshStateHeader.h; sourceTree = "<group>"; };
 		95F533FC1CBCD758000C7E91 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshStateHeader.m; sourceTree = "<group>"; };
+		95F5340B1CBD002D000C7E91 /* HomeAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAccountCell.h; sourceTree = "<group>"; };
+		95F5340C1CBD002D000C7E91 /* HomeAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAccountCell.m; sourceTree = "<group>"; };
+		95F5340E1CBD0E7B000C7E91 /* HomeAccountItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAccountItemView.h; sourceTree = "<group>"; };
+		95F5340F1CBD0E7B000C7E91 /* HomeAccountItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAccountItemView.m; sourceTree = "<group>"; };
 		FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -861,9 +862,10 @@
 		9597B0C61CA112D900FF65D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95C0EB101CB62254004F9DAD /* HomeTableHeadView.h */,
-				95C0EB111CB62254004F9DAD /* HomeTableHeadView.m */,
-				95C0EB151CB8A3C7004F9DAD /* HomeTableHeadView.xib */,
+				95F5340B1CBD002D000C7E91 /* HomeAccountCell.h */,
+				95F5340C1CBD002D000C7E91 /* HomeAccountCell.m */,
+				95F5340E1CBD0E7B000C7E91 /* HomeAccountItemView.h */,
+				95F5340F1CBD0E7B000C7E91 /* HomeAccountItemView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1297,7 +1299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BCB78C1CA280E300E85E10 /* navigationbar_back_icon@2x.png in Resources */,
-				95C0EB161CB8A3C7004F9DAD /* HomeTableHeadView.xib in Resources */,
 				95BCB78D1CA280E300E85E10 /* navigationbar_back_icon@3x.png in Resources */,
 				9597B1021CA1168200FF65D9 /* Tab04Normal@2x.png in Resources */,
 				95BCB7891CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png in Resources */,
@@ -1434,10 +1435,12 @@
 				9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */,
 				9541302B1CA003B500D26B11 /* UIImage+CompressImage.m in Sources */,
 				9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */,
+				95F5340D1CBD002D000C7E91 /* HomeAccountCell.m in Sources */,
 				9541302C1CA003B500D26B11 /* UIImage+CreateImage.m in Sources */,
 				9597B04B1CA03D3900FF65D9 /* ZToastView.m in Sources */,
 				9520BFBC1CAA721A00961F05 /* UIImageView+YYWebImage.m in Sources */,
 				9520BFB91CAA721A00961F05 /* MKAnnotationView+YYWebImage.m in Sources */,
+				95F534101CBD0E7B000C7E91 /* HomeAccountItemView.m in Sources */,
 				9597B06B1CA0E97700FF65D9 /* BaseSegmentViewController.m in Sources */,
 				95C0EAF81CB4B301004F9DAD /* UIGestureRecognizer+YYAdd.m in Sources */,
 				95412FF41C9FD23F00D26B11 /* BaseNavigaitonController.m in Sources */,
@@ -1451,7 +1454,6 @@
 				95412FFB1C9FD3EF00D26B11 /* BaseDataSingleton.m in Sources */,
 				9520BFB81CAA721A00961F05 /* CALayer+YYWebImage.m in Sources */,
 				95F534001CBCD758000C7E91 /* MJRefreshAutoStateFooter.m in Sources */,
-				95C0EB121CB62254004F9DAD /* HomeTableHeadView.m in Sources */,
 				95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */,
 				95412FAB1C9F91FA00D26B11 /* AppDelegate.m in Sources */,
 				9541302E1CA003B500D26B11 /* UIImage+ImageEffects.m in Sources */,
