@@ -12,4 +12,6 @@
 
 -(void)configData;
 
+-(UIView *)getLineViewWithRect:(CGRect)rect;
+
 @end

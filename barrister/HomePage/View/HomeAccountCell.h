@@ -10,9 +10,6 @@
 
 @interface HomeAccountCell : BaseTableViewCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style
-             reuseIdentifier:(NSString *)reuseIdentifier
-                 IconNameStr:(NSString *)iconNameStr
-                    titleStr:(NSString *)titleStr
-                 subTitleStr:(NSString *)subTitleStr;
++(CGFloat)getCellHeight;
+
 @end

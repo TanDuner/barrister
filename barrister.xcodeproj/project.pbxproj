@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		24CB192ACBC6ACEB923F90B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3208DA034C83D1BD08505B6E /* libPods.a */; };
+		950CB6E91CC342F3004D2A5D /* shuru@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950CB6E71CC342F3004D2A5D /* shuru@3x.png */; };
+		950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950CB6E81CC342F3004D2A5D /* yue@3x.png */; };
+		950CB7101CC5FE5F004D2A5D /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */; };
+		950CB7131CC5FEAB004D2A5D /* PersonInfoCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CB7121CC5FEAB004D2A5D /* PersonInfoCustomCell.m */; };
 		9520BF761CAA48E400961F05 /* PersonCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF751CAA48E300961F05 /* PersonCenterModel.m */; };
 		9520BF7C1CAA4A3C00961F05 /* PersonCenterCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF7B1CAA4A3C00961F05 /* PersonCenterCustomCell.m */; };
 		9520BF7F1CAA4A5700961F05 /* PersonCenterAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF7E1CAA4A5700961F05 /* PersonCenterAccountCell.m */; };
@@ -165,6 +169,12 @@
 /* Begin PBXFileReference section */
 		002279B49112E96E038ECFA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3208DA034C83D1BD08505B6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		950CB6E71CC342F3004D2A5D /* shuru@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuru@3x.png"; sourceTree = "<group>"; };
+		950CB6E81CC342F3004D2A5D /* yue@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yue@3x.png"; sourceTree = "<group>"; };
+		950CB70E1CC5FE5F004D2A5D /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
+		950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
+		950CB7111CC5FEAB004D2A5D /* PersonInfoCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoCustomCell.h; sourceTree = "<group>"; };
+		950CB7121CC5FEAB004D2A5D /* PersonInfoCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoCustomCell.m; sourceTree = "<group>"; };
 		9520BF741CAA48E300961F05 /* PersonCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterModel.h; sourceTree = "<group>"; };
 		9520BF751CAA48E300961F05 /* PersonCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterModel.m; sourceTree = "<group>"; };
 		9520BF7A1CAA4A3C00961F05 /* PersonCenterCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterCustomCell.h; sourceTree = "<group>"; };
@@ -902,6 +912,8 @@
 			children = (
 				9597B0D61CA1136B00FF65D9 /* PersonCenterViewController.h */,
 				9597B0D71CA1136B00FF65D9 /* PersonCenterViewController.m */,
+				950CB70E1CC5FE5F004D2A5D /* PersonInfoViewController.h */,
+				950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */,
 				95F533A61CBB53FB000C7E91 /* SettingViewController.h */,
 				95F533A71CBB53FB000C7E91 /* SettingViewController.m */,
 			);
@@ -923,6 +935,8 @@
 				95C0EB131CB63136004F9DAD /* temlvshi.jpg */,
 				9520BF7A1CAA4A3C00961F05 /* PersonCenterCustomCell.h */,
 				9520BF7B1CAA4A3C00961F05 /* PersonCenterCustomCell.m */,
+				950CB7111CC5FEAB004D2A5D /* PersonInfoCustomCell.h */,
+				950CB7121CC5FEAB004D2A5D /* PersonInfoCustomCell.m */,
 				9520BF7D1CAA4A5700961F05 /* PersonCenterAccountCell.h */,
 				9520BF7E1CAA4A5700961F05 /* PersonCenterAccountCell.m */,
 			);
@@ -985,6 +999,8 @@
 		9597B0E11CA1168200FF65D9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				950CB6E71CC342F3004D2A5D /* shuru@3x.png */,
+				950CB6E81CC342F3004D2A5D /* yue@3x.png */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1309,6 +1325,7 @@
 				9597B0FB1CA1168200FF65D9 /* Tab02Normal@3x.png in Resources */,
 				9597B0F71CA1168200FF65D9 /* Tab01Normal@3x.png in Resources */,
 				9597B0FC1CA1168200FF65D9 /* Tab02Highlighted@2x.png in Resources */,
+				950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */,
 				95C0EB051CB60CFB004F9DAD /* dingdan.png in Resources */,
 				95BCB7AC1CA3D28200E85E10 /* login3rd_icon_qq@3x.png in Resources */,
 				9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */,
@@ -1332,6 +1349,7 @@
 				95C0EB0F1CB62079004F9DAD /* zhanghu.png in Resources */,
 				9597B1011CA1168200FF65D9 /* Tab03Highlighted@3x.png in Resources */,
 				95BCB7AB1CA3D28200E85E10 /* login3rd_icon_qq@2x.png in Resources */,
+				950CB6E91CC342F3004D2A5D /* shuru@3x.png in Resources */,
 				95C0EB071CB60CFB004F9DAD /* shezhi.png in Resources */,
 				95BCB7AE1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png in Resources */,
 				9597B1031CA1168200FF65D9 /* Tab04Normal@3x.png in Resources */,
@@ -1400,6 +1418,7 @@
 				9520BFBD1CAA721A00961F05 /* YYAnimatedImageView.m in Sources */,
 				95C0EAF91CB4B301004F9DAD /* UIView+YYAdd.m in Sources */,
 				95F533FF1CBCD758000C7E91 /* MJRefreshAutoNormalFooter.m in Sources */,
+				950CB7131CC5FEAB004D2A5D /* PersonInfoCustomCell.m in Sources */,
 				9520BFB61CAA721A00961F05 /* YYMemoryCache.m in Sources */,
 				9597B0DE1CA113AF00FF65D9 /* LearnCenterViewController.m in Sources */,
 				9520BFC31CAA721A00961F05 /* YYWebImageManager.m in Sources */,
@@ -1476,6 +1495,7 @@
 				95F533AE1CBCA432000C7E91 /* RefreshTableView.m in Sources */,
 				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				9597B0CF1CA1132800FF65D9 /* OrderViewController.m in Sources */,
+				950CB7101CC5FE5F004D2A5D /* PersonInfoViewController.m in Sources */,
 				9520BFBA1CAA721A00961F05 /* UIButton+YYWebImage.m in Sources */,
 				95412FA81C9F91FA00D26B11 /* main.m in Sources */,
 				9520BFB41CAA721A00961F05 /* YYDiskCache.m in Sources */,

@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, PersonCenterModelType)
     PersonCenterModelTypeRZZT,
     PersonCenterModelTypeJDSZ,
     PersonCenterModelTypeSZ,
+    PersonCenterModelTypeTX,
+    
 };
 
 typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);
@@ -30,4 +32,8 @@ typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);
 @property (nonatomic,strong) ModelActionBlock actionBlock;
 @property (nonatomic,assign) PersonCenterModelType cellType;
 
+/**
+ *  for 个人资料页面 头像回显
+ */
+@property (nonatomic,strong)
 @end

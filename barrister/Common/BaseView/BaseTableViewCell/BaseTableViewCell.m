@@ -40,6 +40,13 @@
     [self configData];
 }
 
+-(UIView *)getLineViewWithRect:(CGRect)rect
+{
+    UIView *view = [[UIView alloc] initWithFrame:rect];
+    view.backgroundColor = kSeparatorColor;
+    return view;
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

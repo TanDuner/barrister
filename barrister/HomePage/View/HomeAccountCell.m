@@ -7,24 +7,14 @@
 //
 
 #import "HomeAccountCell.h"
+#import "HomeAccountItemView.h"
+#define ItemViewHeight 70
 
 @interface HomeAccountCell ()
 
-@property (nonatomic,strong) UIButton *bottomBtn;
-
-@property (nonatomic,strong) UIImageView *iconImageView;
-
-@property (nonatomic,strong) UILabel *titleLabel;
-
-@property (nonatomic,strong) UILabel *subTitleLabel;
-
-@property (nonatomic,strong) NSString *iconName;
-
-@property (nonatomic,strong) NSString *titleStr;
-
-@property (nonatomic,strong) NSString *subTitleStr;
-
-
+@property (nonatomic,strong) HomeAccountItemView *leftView;
+@property (nonatomic,strong) HomeAccountItemView *rightView;
+@property (nonatomic,strong) UIButton *tixianBtn;
 
 @end
 
@@ -32,22 +22,16 @@
 
 @implementation HomeAccountCell
 
-
--(instancetype)initWithStyle:(UITableViewCellStyle)style
-             reuseIdentifier:(NSString *)reuseIdentifier
-                 IconNameStr:(NSString *)iconNameStr
-                    titleStr:(NSString *)titleStr
-                 subTitleStr:(NSString *)subTitleStr
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self addSubview:self.bottomBtn];
-        [self addSubview:self.iconImageView];
-        [self addSubview:self.titleLabel];
-        [self addSubview:self.subTitleLabel];
-        self.iconName = iconNameStr;
-        self.titleStr = titleStr;
-        self.subTitleStr = subTitleStr;
+        [self addSubview:self.leftView];
+        [self addSubview:self.rightView];
+        [self addSubview:[self getLineViewWithRect:RECT((SCREENWIDTH - 1)/2.0, 10, 1, ItemViewHeight - 20)]];
+        [self addSubview:[self getLineViewWithRect:RECT(0, ItemViewHeight, SCREENWIDTH, 1)]];
+        [self addSubview:self.tixianBtn];
+        
     }
     return self;
 }
@@ -66,39 +50,42 @@
 }
 
 
++(CGFloat)getCellHeight
+{
+    return ItemViewHeight + 15 + 35 + 15;
+}
+
 #pragma -mark -----Getter------
 
--(UILabel *)titleLabel
+-(HomeAccountItemView *)leftView
 {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
+    if (!_leftView) {
+        _leftView = [[HomeAccountItemView alloc] initWithFrame:RECT(0, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"yue.png" titleStr:@"余额" subTitleStr:@"100"];
+        
     }
-    return _titleLabel;
+    return _leftView;
 }
 
--(UILabel *)subTitleLabel
+-(HomeAccountItemView *)rightView
 {
-    if (!_subTitleLabel) {
-        _subTitleLabel = [[UILabel alloc] init];
+    if (!_rightView) {
+        _rightView = [[HomeAccountItemView alloc] initWithFrame:RECT((SCREENWIDTH - 1)/2.0 + 1, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"shuru.png" titleStr:@"总收入" subTitleStr:@"180"];
     }
-    return _subTitleLabel;
+    return _rightView;
 }
 
--(UIButton *)bottomBtn
+-(UIButton *)tixianBtn
 {
-    if (!_bottomBtn) {
-        _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    if (!_tixianBtn) {
+        _tixianBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_tixianBtn setFrame:RECT(SCREENWIDTH/4.0, ItemViewHeight + 15, SCREENWIDTH/2.0, 35)];
+        [_tixianBtn setTitle:@"提现" forState:UIControlStateNormal];
+        _tixianBtn.titleLabel.font = SystemFont(15.0f);
+        [_tixianBtn setBackgroundColor:RGBCOLOR(250, 187, 47)];
+        _tixianBtn.layer.cornerRadius = 17.5f;
+        _tixianBtn.layer.masksToBounds = YES;
     }
-    return _bottomBtn;
-}
-
-
--(UIImageView *)iconImageView
-{
-    if (!_iconImageView) {
-        _iconImageView = [[UIImageView alloc] init];
-    }
-    return _iconImageView;
+    return _tixianBtn;
 }
 
 @end

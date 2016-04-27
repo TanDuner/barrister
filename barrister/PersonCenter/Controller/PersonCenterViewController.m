@@ -11,6 +11,7 @@
 #import "PersonCenterAccountCell.h"
 #import "PersonCenterModel.h"
 #import "SettingViewController.h"
+#import "PersonInfoViewController.m"
 
 @interface PersonCenterViewController ()
 
@@ -195,15 +196,9 @@
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
-    PersonCenterModel *model;
-    
     if (indexPath.section == 0) {
-        model = [self.items objectAtIndex:0];
-        if (model.cellType == PersonCenterModelTypeZH) {
-            model.isAccountLogin = !model.isAccountLogin;
-            [BaseDataSingleton shareInstance].isAccountLogin = ![BaseDataSingleton shareInstance].isAccountLogin;
-            [self.tableView reloadData];
-        }
+        PersonInfoViewController *personInfo = [[PersonInfoViewController alloc] init];
+        [self.navigationController pushViewController:personInfo animated:YES];
     }
     else if (indexPath.section == 1)
     {

@@ -18,7 +18,8 @@
 @interface HomeViewController ()
 
 @property (nonatomic,strong) NSMutableArray *orderItems;
-
+@property (nonatomic,strong) UIView *accountHeadView;
+@property (nonatomic,strong) UIView *daiBanHeadView;
 @end
 
 @implementation HomeViewController
@@ -153,7 +154,7 @@
 {
     if (indexPath.section == 0) {
         HomeAccountCell *cell = [[HomeAccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-
+        cell.selectionStyle  = UITableViewCellSelectionStyleNone;
         return cell;
     }
     else
@@ -172,7 +173,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 100;
+        return [HomeAccountCell getCellHeight];
     }
     else
     {
@@ -180,6 +181,29 @@
     }
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return self.accountHeadView;
+    }
+    else
+    {
+        
+        return self.daiBanHeadView;
+    }
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return self.accountHeadView.height;
+    }
+    else
+    {
+        return 55;
+    }
+}
 
 #pragma -mark ------Action------------
 
@@ -195,7 +219,84 @@
     
 }
 
+#pragma -mark ----Getter-----
 
+-(UIView *)accountHeadView
+{
+    if (!_accountHeadView) {
+        _accountHeadView = [[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 90)];
+        _accountHeadView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *topBGView = [[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 45)];
+        topBGView.backgroundColor = RGBCOLOR(241,242, 243);
+        
+        UILabel *stateLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 110)/2.0, 15, 110, 15)];
+        stateLabel.text = @"当前状态:正常接单";
+        stateLabel.textColor = RGBCOLOR(63, 39, 22);
+        stateLabel.font = SystemFont(13.0f);
+        
+        UIImageView *lightImage = [[UIImageView alloc] initWithFrame:RECT(stateLabel.x - 15, (45 - 10)/2.0, 10, 10)];
+        [lightImage setBackgroundColor:RGBCOLOR(54, 182, 31)];
+        lightImage.layer.cornerRadius = 5.0f;
+        lightImage.layer.masksToBounds = YES;
+        
+        [topBGView addSubview:stateLabel];
+        [topBGView addSubview:lightImage];
+
+        
+        [_accountHeadView addSubview:topBGView];
+
+        
+        UILabel *dindan = [[UILabel alloc] initWithFrame:RECT(LeftPadding, topBGView.height + 15, 100, 15)];
+        dindan.text = @"订单统计";
+        dindan.textAlignment = NSTextAlignmentLeft;
+        dindan.textColor = KColorGray4;
+        dindan.font = [UIFont boldSystemFontOfSize:15.0f];
+        [_accountHeadView addSubview:dindan];
+        
+        UIImageView *rightRow = [[UIImageView alloc] initWithFrame:RECT(SCREENWIDTH - 10 - 15, dindan.y, 15, 15)];
+        rightRow.image = [UIImage imageNamed:@"rightRow.png"];
+        
+        UILabel *leiji = [[UILabel alloc] initWithFrame:RECT(rightRow.x - 200 - 10, dindan.y, 200, 15)];
+        leiji.text = @"累计订单 23";
+        leiji.textAlignment = NSTextAlignmentRight;
+        leiji.textColor = KColorGray2;
+        leiji.font = SystemFont(14.0f);
+        
+        [_accountHeadView addSubview:rightRow];
+        
+        [_accountHeadView addSubview:leiji];
+        
+        [_accountHeadView addSubview:[self getLineViewWithFrame:RECT(0, _accountHeadView.height - 1, SCREENWIDTH, 1)]];
+
+    }
+    return _accountHeadView;
+}
+
+-(UIView *)daiBanHeadView
+{
+    if (!_daiBanHeadView) {
+        
+        _daiBanHeadView =[[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 55)];
+        _daiBanHeadView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *topView = [[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 10)];
+        topView.backgroundColor = RGBCOLOR(241,242, 243);
+        [_daiBanHeadView addSubview:topView];
+        
+        
+        UILabel *daiban = [[UILabel alloc] initWithFrame:RECT(LeftPadding, 15 + topView.height, 100, 15)];
+        daiban.text = @"待办事项";
+        daiban.textAlignment = NSTextAlignmentLeft;
+        daiban.textColor = KColorGray4;
+        daiban.font = [UIFont boldSystemFontOfSize:15.0f];
+        [_daiBanHeadView addSubview:daiban];
+
+        [_daiBanHeadView addSubview:[self getLineViewWithFrame:RECT(0, _daiBanHeadView.height - 1, SCREENWIDTH, 1)]];
+
+    }
+    return _daiBanHeadView;
+}
 
 
 

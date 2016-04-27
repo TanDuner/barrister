@@ -15,7 +15,8 @@
 
 -(id)initWithFrame:(CGRect)frame
           iconName:(NSString *)iconName
-          titleStr:(NSString *)titleStr;
+          titleStr:(NSString *)titleStr
+       subTitleStr:(NSString *)subTitleStr;
 
 
 @end
