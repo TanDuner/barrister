@@ -35,5 +35,5 @@ typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);
 /**
  *  for 个人资料页面 头像回显
  */
-@property (nonatomic,strong)
+
 @end

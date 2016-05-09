@@ -9,6 +9,8 @@
 #import "BarristerLoginVC.h"
 #import "BorderTextFieldView.h"
 #import "BarristerRegisterVC.h"
+#import "MessageCordView.h"
+
 
 const float MidViewHeight = 175.0 / 2.0;
 

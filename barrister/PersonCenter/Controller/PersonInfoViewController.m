@@ -19,7 +19,7 @@
     [super viewDidLoad];
     [self configData];
     [self configView];
-    UITabBarController
+
 }
 
 - (void)didReceiveMemoryWarning {

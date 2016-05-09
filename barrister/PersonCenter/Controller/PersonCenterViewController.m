@@ -11,7 +11,7 @@
 #import "PersonCenterAccountCell.h"
 #import "PersonCenterModel.h"
 #import "SettingViewController.h"
-#import "PersonInfoViewController.m"
+#import "PersonInfoViewController.h"
 
 @interface PersonCenterViewController ()
 

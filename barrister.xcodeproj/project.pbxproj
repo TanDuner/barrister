@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		24CB192ACBC6ACEB923F90B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3208DA034C83D1BD08505B6E /* libPods.a */; };
+		950C22651CD0680F000C4860 /* AppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C22641CD0680F000C4860 /* AppointmentViewController.m */; };
+		950C226C1CD06F1C000C4860 /* SlideHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C226B1CD06F1C000C4860 /* SlideHeadView.m */; };
+		950C226F1CD0B4C7000C4860 /* MessageCordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C226E1CD0B4C7000C4860 /* MessageCordView.m */; };
 		950CB6E91CC342F3004D2A5D /* shuru@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950CB6E71CC342F3004D2A5D /* shuru@3x.png */; };
 		950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950CB6E81CC342F3004D2A5D /* yue@3x.png */; };
 		950CB7101CC5FE5F004D2A5D /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */; };
@@ -169,6 +172,12 @@
 /* Begin PBXFileReference section */
 		002279B49112E96E038ECFA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3208DA034C83D1BD08505B6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		950C22631CD0680F000C4860 /* AppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentViewController.h; sourceTree = "<group>"; };
+		950C22641CD0680F000C4860 /* AppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentViewController.m; sourceTree = "<group>"; };
+		950C226A1CD06F1C000C4860 /* SlideHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideHeadView.h; sourceTree = "<group>"; };
+		950C226B1CD06F1C000C4860 /* SlideHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideHeadView.m; sourceTree = "<group>"; };
+		950C226D1CD0B4C7000C4860 /* MessageCordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCordView.h; sourceTree = "<group>"; };
+		950C226E1CD0B4C7000C4860 /* MessageCordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCordView.m; sourceTree = "<group>"; };
 		950CB6E71CC342F3004D2A5D /* shuru@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuru@3x.png"; sourceTree = "<group>"; };
 		950CB6E81CC342F3004D2A5D /* yue@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yue@3x.png"; sourceTree = "<group>"; };
 		950CB70E1CC5FE5F004D2A5D /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
@@ -451,6 +460,15 @@
 				3208DA034C83D1BD08505B6E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		950C22691CD06F1C000C4860 /* SlideNav */ = {
+			isa = PBXGroup;
+			children = (
+				950C226A1CD06F1C000C4860 /* SlideHeadView.h */,
+				950C226B1CD06F1C000C4860 /* SlideHeadView.m */,
+			);
+			path = SlideNav;
 			sourceTree = "<group>";
 		};
 		9520BF8A1CAA6EF500961F05 /* YYWebImage */ = {
@@ -847,6 +865,7 @@
 		9597B0861CA0F0F100FF65D9 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				950C22691CD06F1C000C4860 /* SlideNav */,
 				95F533C81CBCD454000C7E91 /* MJRefresh */,
 				9520BF8A1CAA6EF500961F05 /* YYWebImage */,
 			);
@@ -916,6 +935,8 @@
 				950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */,
 				95F533A61CBB53FB000C7E91 /* SettingViewController.h */,
 				95F533A71CBB53FB000C7E91 /* SettingViewController.m */,
+				950C22631CD0680F000C4860 /* AppointmentViewController.h */,
+				950C22641CD0680F000C4860 /* AppointmentViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1111,6 +1132,8 @@
 			children = (
 				95BCB7831CA27ADB00E85E10 /* BarristerLoginVC.h */,
 				95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */,
+				950C226D1CD0B4C7000C4860 /* MessageCordView.h */,
+				950C226E1CD0B4C7000C4860 /* MessageCordView.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1415,6 +1438,7 @@
 				9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */,
 				95F534091CBCD758000C7E91 /* MJRefreshNormalHeader.m in Sources */,
 				954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */,
+				950C22651CD0680F000C4860 /* AppointmentViewController.m in Sources */,
 				9520BFBD1CAA721A00961F05 /* YYAnimatedImageView.m in Sources */,
 				95C0EAF91CB4B301004F9DAD /* UIView+YYAdd.m in Sources */,
 				95F533FF1CBCD758000C7E91 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -1435,6 +1459,7 @@
 				95F5340A1CBCD758000C7E91 /* MJRefreshStateHeader.m in Sources */,
 				9597B0531CA0E31A00FF65D9 /* XuUtlity.m in Sources */,
 				95C0EAF01CB4B285004F9DAD /* CALayer+YYAdd.m in Sources */,
+				950C226C1CD06F1C000C4860 /* SlideHeadView.m in Sources */,
 				9541302A1CA003B500D26B11 /* UIImage+Cache.m in Sources */,
 				9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */,
 				954130271CA003B500D26B11 /* NSObject+Additions.m in Sources */,
@@ -1473,6 +1498,7 @@
 				95412FFB1C9FD3EF00D26B11 /* BaseDataSingleton.m in Sources */,
 				9520BFB81CAA721A00961F05 /* CALayer+YYWebImage.m in Sources */,
 				95F534001CBCD758000C7E91 /* MJRefreshAutoStateFooter.m in Sources */,
+				950C226F1CD0B4C7000C4860 /* MessageCordView.m in Sources */,
 				95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */,
 				95412FAB1C9F91FA00D26B11 /* AppDelegate.m in Sources */,
 				9541302E1CA003B500D26B11 /* UIImage+ImageEffects.m in Sources */,

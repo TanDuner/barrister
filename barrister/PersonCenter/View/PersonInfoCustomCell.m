@@ -80,9 +80,7 @@
 
 +(CGFloat)getCellHeightWithModel:(PersonCenterModel *)model
 {
-    if (model.cellType == PersonCenterModelTypeTX) {//是否是头像那一行
-        <#statements#>
-    }
+    return 0;
 }
 
 #pragma -mark ------Getter----------
