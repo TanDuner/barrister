@@ -113,3 +113,25 @@ static NSString * const kApplicationDidReceiveRemoteNotification = @"kApplicatio
 
 
 
+#if DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+
+//G－C－D
+#define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+#define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)
+
+//程序的本地化,引用国际化的文件
+#define MyLocal(x, ...) NSLocalizedString(x, nil)
+
+//读取本地图片
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+
+

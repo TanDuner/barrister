@@ -8,16 +8,42 @@
 
 #import "HomePageProxy.h"
 
-#define HomePageBannerUrl @""
+#define HomePageBannerUrl @"lunboAds"
+#define HomePageAccountUrl @"userHome"
 
 @implementation HomePageProxy
 
--(void)HomePageGetBannerDataWithParams:(NSDictionary *)dict
+/**
+ *  获取banner
+ *
+ *  @param params 请求参数
+ *  @param aBlock 返回处理Block
+ */
+
+-(void)getHomePageBannerWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking getWithUrl:HomePageBannerUrl params:dict success:^(id response) {
+    [XuNetWorking getWithUrl:[self appendUrlWithString:HomePageBannerUrl] params:params success:^(id response) {
         
     } fail:^(NSError *error) {
         
     }];
 }
+
+
+/**
+ *  获取首页账户信息接口
+ *
+ *  @param params 请求参数
+ *  @param aBlock 返回处理Block
+ */
+
+-(void)getHomePageAccountDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking getWithUrl:[self appendUrlWithString:HomePageAccountUrl] params:params success:^(id response) {
+        
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
 @end

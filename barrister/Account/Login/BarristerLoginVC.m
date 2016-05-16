@@ -9,20 +9,18 @@
 #import "BarristerLoginVC.h"
 #import "BorderTextFieldView.h"
 #import "BarristerRegisterVC.h"
-#import "MessageCordView.h"
+#import "TFSButton.h"
 
-
-const float MidViewHeight = 175.0 / 2.0;
+const float MidViewHeight = 190 / 2.0;
 
 @interface BarristerLoginVC ()<UITextFieldDelegate>
 {
     UIButton *loginBtn;
-    UIButton *forgetBtn;
+//    UIButton *forgetBtn;
     BorderTextFieldView *accountTextField;
     BorderTextFieldView *passwordTextField;
     
-    UIButton *wechatBtn;
-    UIButton *QQBtn;
+    UIButton *getValidCodeBtn;
 }
 
 @end
@@ -58,7 +56,7 @@ const float MidViewHeight = 175.0 / 2.0;
     
     [self createMidView];
     
-    [self createBottomView];
+//    [self createBottomView];
     
 }
 
@@ -66,7 +64,7 @@ const float MidViewHeight = 175.0 / 2.0;
 {
     
     self.navigationItem.title = @"登录";
-        
+    
     [self initNavigationRightTextButton:@"注册" action:@selector(toRegisterAction:)];
     
 }
@@ -86,10 +84,10 @@ const float MidViewHeight = 175.0 / 2.0;
     
     UIView *sepView = [self getLineViewWithFrame:RECT(0, accountTextField.height, SCREENWIDTH, .5)];
     
-    passwordTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(0, sepView.size.height + sepView.y, SCREENWIDTH, (MidViewHeight - 0.5)/2.0)];
+    passwordTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(0, sepView.size.height + sepView.y, SCREENWIDTH - 190, (MidViewHeight - 0.5)/2.0)];
     passwordTextField.delegate = self;
     passwordTextField.textColor = kFormTextColor;
-    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName:RGBCOLOR(199, 199, 205)}];
+    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入验证码" attributes:@{NSForegroundColorAttributeName:RGBCOLOR(199, 199, 205)}];
     passwordTextField.cleanBtnOffset_x = passwordTextField.width - 100;
     
     [inputBgView addSubview:accountTextField];
@@ -97,6 +95,17 @@ const float MidViewHeight = 175.0 / 2.0;
     [inputBgView addSubview:passwordTextField];
     
     [self.view addSubview:inputBgView];
+    
+    
+    __weak typeof(self) weakSelf = self;
+    
+    TFSButton* btn  = [[TFSButton alloc]initWithFrame:CGRectMake(SCREENWIDTH - 100, inputBgView.height - passwordTextField.height, 100, passwordTextField.height) touchBlock:^(TFSButton *btn) {
+        // 向服务器请求验证码
+        
+        [weakSelf requestValidCode];
+    }];
+    [inputBgView addSubview:btn];
+
     
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
@@ -109,56 +118,59 @@ const float MidViewHeight = 175.0 / 2.0;
     [loginBtn setFrame:RECT(15, inputBgView.y + inputBgView.height + 48, SCREENWIDTH - 30, 45)];
     [self.view addSubview:loginBtn];
     
-    forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
-    [forgetBtn.titleLabel setFont:SystemFont(13.0)];
-    [forgetBtn addTarget:self action:@selector(forgetPwdAction:) forControlEvents:UIControlEventTouchUpInside];
-    [forgetBtn setTitleColor:kNavigationBarColor forState:UIControlStateNormal];
-    [forgetBtn setFrame:RECT(SCREENWIDTH - 40 - 100, loginBtn.y + loginBtn.height + 10, 100, 25)];
-    [self.view addSubview:forgetBtn];
+    
+    
+    
+//    forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+//    [forgetBtn.titleLabel setFont:SystemFont(13.0)];
+//    [forgetBtn addTarget:self action:@selector(forgetPwdAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [forgetBtn setTitleColor:kNavigationBarColor forState:UIControlStateNormal];
+//    [forgetBtn setFrame:RECT(SCREENWIDTH - 40 - 100, loginBtn.y + loginBtn.height + 10, 100, 25)];
+//    [self.view addSubview:forgetBtn];
 }
 
--(void)createBottomView
-{
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT - 200 , SCREENWIDTH, 150)];
-    
-    UIView *sepView1 = [self getLineViewWithFrame:RECT(0, 5, (SCREENWIDTH - 100)/2, .5)];
-    UIView *sepView2 = [self getLineViewWithFrame:RECT((SCREENWIDTH - 100)/2 + 100, 5, (SCREENWIDTH - 100)/2, .5)];
-    
-    [bottomView addSubview:sepView1];
-    [bottomView addSubview:sepView2];
-    
-    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREENWIDTH - 100)/2, 0, 100, 10)];
-    tipLabel.textColor = RGBCOLOR(155, 155, 155);
-    tipLabel.textAlignment = NSTextAlignmentCenter;
-    tipLabel.font = SystemFont(13.0f);
-    tipLabel.text = @"其他登录方式";
-    [bottomView addSubview:tipLabel];
-    
-    wechatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [wechatBtn setTitle:@"微信" forState:UIControlStateNormal];
-    [wechatBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_weixin"] forState:UIControlStateNormal];
-    [wechatBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2, bottomView.height - 60 - 51, 51, 51)];
-    wechatBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
-    [wechatBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
-    [wechatBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-    wechatBtn.titleLabel.font = SystemFont(13.0f);
-    
-    
-    QQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [QQBtn setTitle:@"微信" forState:UIControlStateNormal];
-    [QQBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2 + SCREENWIDTH/2, bottomView.height - 60 - 51, 51, 51)];
-    [QQBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
-    QQBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
-    [QQBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-    QQBtn.titleLabel.font = SystemFont(13.0f);
-    [QQBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_qq"] forState:UIControlStateNormal];
-    
-    [bottomView addSubview:wechatBtn];
-    [bottomView addSubview:QQBtn];
-    
-    [self.view addSubview:bottomView];
-}
+//-(void)createBottomView
+//{
+//    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT - 200 , SCREENWIDTH, 150)];
+//    
+//    UIView *sepView1 = [self getLineViewWithFrame:RECT(0, 5, (SCREENWIDTH - 100)/2, .5)];
+//    UIView *sepView2 = [self getLineViewWithFrame:RECT((SCREENWIDTH - 100)/2 + 100, 5, (SCREENWIDTH - 100)/2, .5)];
+//    
+//    [bottomView addSubview:sepView1];
+//    [bottomView addSubview:sepView2];
+//    
+//    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREENWIDTH - 100)/2, 0, 100, 10)];
+//    tipLabel.textColor = RGBCOLOR(155, 155, 155);
+//    tipLabel.textAlignment = NSTextAlignmentCenter;
+//    tipLabel.font = SystemFont(13.0f);
+//    tipLabel.text = @"其他登录方式";
+//    [bottomView addSubview:tipLabel];
+//    
+//    wechatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [wechatBtn setTitle:@"微信" forState:UIControlStateNormal];
+//    [wechatBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_weixin"] forState:UIControlStateNormal];
+//    [wechatBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2, bottomView.height - 60 - 51, 51, 51)];
+//    wechatBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
+//    [wechatBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
+//    [wechatBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
+//    wechatBtn.titleLabel.font = SystemFont(13.0f);
+//    
+//    
+//    QQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [QQBtn setTitle:@"微信" forState:UIControlStateNormal];
+//    [QQBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2 + SCREENWIDTH/2, bottomView.height - 60 - 51, 51, 51)];
+//    [QQBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
+//    QQBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
+//    [QQBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
+//    QQBtn.titleLabel.font = SystemFont(13.0f);
+//    [QQBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_qq"] forState:UIControlStateNormal];
+//    
+//    [bottomView addSubview:wechatBtn];
+//    [bottomView addSubview:QQBtn];
+//    
+//    [self.view addSubview:bottomView];
+//}
 
 #pragma -mark ------TextField Delegate Methods--------
 
@@ -201,14 +213,20 @@ const float MidViewHeight = 175.0 / 2.0;
 
 }
 
--(void)forgetPwdAction:(UIButton *)button
+-(void)requestValidCode
 {
     
 }
 
--(void)thirdLoginAction:(UIButton *)btn
-{
-    
-}
+
+//-(void)forgetPwdAction:(UIButton *)button
+//{
+//    
+//}
+//
+//-(void)thirdLoginAction:(UIButton *)btn
+//{
+//    
+//}
 
 @end

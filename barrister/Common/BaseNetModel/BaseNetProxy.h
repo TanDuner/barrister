@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "XuNetWorking.h"
 
+typedef void(^ServiceCallBlock)(id returnData, BOOL success);
 
 @interface BaseNetProxy : NSObject
+
+-(NSString *)appendUrlWithString:(NSString *)urlString;
 
 @end

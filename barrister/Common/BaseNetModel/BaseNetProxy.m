@@ -7,7 +7,14 @@
 //
 
 #import "BaseNetProxy.h"
+#define BaseDomainUrl @""
 
 @implementation BaseNetProxy
+
+-(NSString *)appendUrlWithString:(NSString *)urlString
+{
+    NSString *retString = [NSString stringWithFormat:@"%@%@",BaseDomainUrl,urlString];
+    return retString;
+}
 
 @end
