@@ -85,29 +85,32 @@
 
 -(void)loadBannerData
 {
+    [self handleBannerDataWithDict:nil];
 
-    [_proxy getHomePageBannerWithParams:nil Block:^(id returnData, BOOL success) {
-        if (success) {
-            [self handleBannerDataWithDict:nil];
-        }
-        else
-        {
-        
-        }
-    }];
+//    [_proxy getHomePageBannerWithParams:nil Block:^(id returnData, BOOL success) {
+//        if (success) {
+//            [self handleBannerDataWithDict:nil];
+//        }
+//        else
+//        {
+//        
+//        }
+//    }];
 }
 
 -(void)loadAccountData
 {
-   [_proxy getHomePageAccountDataWithParams:nil Block:^(id returnData, BOOL success) {
-       if (success) {
-           [self handleAccountDataWithDict:nil];
-       }
-       else
-       {
-       
-       }
-   }];
+    [self handleAccountDataWithDict:nil];
+    
+//   [_proxy getHomePageAccountDataWithParams:nil Block:^(id returnData, BOOL success) {
+//       if (success) {
+//           [self handleAccountDataWithDict:nil];
+//       }
+//       else
+//       {
+//       
+//       }
+//   }];
 }
 
 
@@ -149,7 +152,7 @@
 -(void)handleBannerDataWithDict:(NSDictionary *)dict
 {
     NSArray *UrlStringArray = @[@"http://e.hiphotos.baidu.com/lvpics/h=800/sign=61e9995c972397ddc97995046983b216/35a85edf8db1cb134d859ca8db54564e93584b98.jpg", @"http://e.hiphotos.baidu.com/lvpics/h=800/sign=1d1cc1876a81800a71e5840e813533d6/5366d0160924ab185b6fd93f33fae6cd7b890bb8.jpg", @"http://f.hiphotos.baidu.com/lvpics/h=800/sign=8430a8305cee3d6d3dc68acb73176d41/9213b07eca806538d9da1f8492dda144ad348271.jpg", @"http://d.hiphotos.baidu.com/lvpics/w=1000/sign=81bf893e12dfa9ecfd2e521752e0f603/242dd42a2834349b705785a7caea15ce36d3bebb.jpg", @"http://f.hiphotos.baidu.com/lvpics/w=1000/sign=4d69c022ea24b899de3c7d385e361c95/f31fbe096b63f6240e31d3218444ebf81a4ca3a0.jpg"];
-    self.bannerView = []
+    [self setBannerViewWithUrls:UrlStringArray];
 
 }
 
@@ -247,10 +250,10 @@
 
 #pragma -mark ----Getter-----
 
--(DCPicScrollView *)bannerView
+-(DCPicScrollView *)setBannerViewWithUrls:(NSArray *)urlStrings
 {
     if (!_bannerView) {
-        _bannerView = [[DCPicScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140)];
+        _bannerView = [DCPicScrollView picScrollViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140) WithImageUrls:urlStrings];
         _bannerView.placeImage = [UIImage imageNamed:@"timeline_image_loading.png"];
         
         [_bannerView setImageViewDidTapAtIndex:^(NSInteger index) {
@@ -266,6 +269,8 @@
         [[DCWebImageManager shareManager] setDownLoadImageError:^(NSError *error, NSString *url) {
             
         }];
+        
+        self.tableView.tableHeaderView = _bannerView;
 
     }
     return _bannerView;
@@ -285,6 +290,10 @@
         stateLabel.text = @"当前状态:正常接单";
         stateLabel.textColor = RGBCOLOR(63, 39, 22);
         stateLabel.font = SystemFont(13.0f);
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingTimeAciton:)];
+        stateLabel.userInteractionEnabled = YES;
+        [stateLabel addGestureRecognizer:tap];
+        
         
         UIImageView *lightImage = [[UIImageView alloc] initWithFrame:RECT(stateLabel.x - 15, (45 - 10)/2.0, 10, 10)];
         [lightImage setBackgroundColor:RGBCOLOR(54, 182, 31)];
@@ -355,6 +364,17 @@
         _proxy = [[HomePageProxy alloc] init];
     }
     return _proxy;
+}
+
+#pragma -mark -------Aciton-----
+
+/**
+ *  去预约设置界面
+ */
+
+-(void)settingTimeAciton
+{
+    
 }
 
 @end

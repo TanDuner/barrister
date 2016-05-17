@@ -22,7 +22,7 @@
 
 -(void)getHomePageBannerWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking getWithUrl:[self appendUrlWithString:HomePageBannerUrl] params:params success:^(id response) {
+    [XuNetWorking getWithUrl:HomePageBannerUrl params:params success:^(id response) {
         
     } fail:^(NSError *error) {
         
@@ -39,7 +39,7 @@
 
 -(void)getHomePageAccountDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking getWithUrl:[self appendUrlWithString:HomePageAccountUrl] params:params success:^(id response) {
+    [XuNetWorking getWithUrl:HomePageAccountUrl params:params success:^(id response) {
         
     } fail:^(NSError *error) {
         

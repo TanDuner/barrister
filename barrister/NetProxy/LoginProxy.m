@@ -17,7 +17,7 @@
 
 -(void)loginWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking postWithUrl:[self appendUrlWithString:LoginUrl] params:params success:^(id response) {
+    [XuNetWorking postWithUrl:LoginUrl params:params success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }
@@ -31,7 +31,7 @@
 
 -(void)getValidCodeWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking postWithUrl:[self appendUrlWithString:GetValidCodeUrl] params:params success:^(id response) {
+    [XuNetWorking postWithUrl:GetValidCodeUrl params:params success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }

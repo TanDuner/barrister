@@ -95,6 +95,11 @@
 		9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B12C1CA1597200FF65D9 /* HomePageProxy.m */; };
 		95B078661CE962B200D8A220 /* TFSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B078651CE962B200D8A220 /* TFSButton.m */; };
 		95B078691CE96C8A00D8A220 /* LoginProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B078681CE96C8A00D8A220 /* LoginProxy.m */; };
+		95B078711CE9D3E100D8A220 /* NinaBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B0786B1CE9D3E100D8A220 /* NinaBaseView.m */; };
+		95B078721CE9D3E100D8A220 /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B0786D1CE9D3E100D8A220 /* NinaPagerView.m */; };
+		95B078731CE9D3E100D8A220 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B078701CE9D3E100D8A220 /* UIView+ViewController.m */; };
+		95B0787C1CE9E61400D8A220 /* AppointContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B0787B1CE9E61400D8A220 /* AppointContentViewController.m */; };
+		95B0787F1CE9E6A600D8A220 /* MeNetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B0787E1CE9E6A600D8A220 /* MeNetProxy.m */; };
 		95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */; };
 		95BCB7881CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */; };
 		95BCB7891CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7871CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png */; };
@@ -332,6 +337,17 @@
 		95B078651CE962B200D8A220 /* TFSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFSButton.m; sourceTree = "<group>"; };
 		95B078671CE96C8A00D8A220 /* LoginProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginProxy.h; sourceTree = "<group>"; };
 		95B078681CE96C8A00D8A220 /* LoginProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginProxy.m; sourceTree = "<group>"; };
+		95B0786A1CE9D3E100D8A220 /* NinaBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinaBaseView.h; sourceTree = "<group>"; };
+		95B0786B1CE9D3E100D8A220 /* NinaBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinaBaseView.m; sourceTree = "<group>"; };
+		95B0786C1CE9D3E100D8A220 /* NinaPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinaPagerView.h; sourceTree = "<group>"; };
+		95B0786D1CE9D3E100D8A220 /* NinaPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinaPagerView.m; sourceTree = "<group>"; };
+		95B0786E1CE9D3E100D8A220 /* UIParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIParameter.h; sourceTree = "<group>"; };
+		95B0786F1CE9D3E100D8A220 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		95B078701CE9D3E100D8A220 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		95B0787A1CE9E61400D8A220 /* AppointContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointContentViewController.h; sourceTree = "<group>"; };
+		95B0787B1CE9E61400D8A220 /* AppointContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointContentViewController.m; sourceTree = "<group>"; };
+		95B0787D1CE9E6A600D8A220 /* MeNetProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeNetProxy.h; sourceTree = "<group>"; };
+		95B0787E1CE9E6A600D8A220 /* MeNetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeNetProxy.m; sourceTree = "<group>"; };
 		95BCB7831CA27ADB00E85E10 /* BarristerLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerLoginVC.h; sourceTree = "<group>"; };
 		95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerLoginVC.m; sourceTree = "<group>"; };
 		95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_back_icon_hl@2x.png"; sourceTree = "<group>"; };
@@ -470,6 +486,13 @@
 			children = (
 				950C226A1CD06F1C000C4860 /* SlideHeadView.h */,
 				950C226B1CD06F1C000C4860 /* SlideHeadView.m */,
+				95B0786A1CE9D3E100D8A220 /* NinaBaseView.h */,
+				95B0786B1CE9D3E100D8A220 /* NinaBaseView.m */,
+				95B0786C1CE9D3E100D8A220 /* NinaPagerView.h */,
+				95B0786D1CE9D3E100D8A220 /* NinaPagerView.m */,
+				95B0786E1CE9D3E100D8A220 /* UIParameter.h */,
+				95B0786F1CE9D3E100D8A220 /* UIView+ViewController.h */,
+				95B078701CE9D3E100D8A220 /* UIView+ViewController.m */,
 			);
 			path = SlideNav;
 			sourceTree = "<group>";
@@ -941,6 +964,8 @@
 				95F533A71CBB53FB000C7E91 /* SettingViewController.m */,
 				950C22631CD0680F000C4860 /* AppointmentViewController.h */,
 				950C22641CD0680F000C4860 /* AppointmentViewController.m */,
+				95B0787A1CE9E61400D8A220 /* AppointContentViewController.h */,
+				95B0787B1CE9E61400D8A220 /* AppointContentViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1112,6 +1137,8 @@
 				9597B12C1CA1597200FF65D9 /* HomePageProxy.m */,
 				95B078671CE96C8A00D8A220 /* LoginProxy.h */,
 				95B078681CE96C8A00D8A220 /* LoginProxy.m */,
+				95B0787D1CE9E6A600D8A220 /* MeNetProxy.h */,
+				95B0787E1CE9E6A600D8A220 /* MeNetProxy.m */,
 			);
 			path = NetProxy;
 			sourceTree = "<group>";
@@ -1462,7 +1489,9 @@
 				9520BFC31CAA721A00961F05 /* YYWebImageManager.m in Sources */,
 				954130301CA003B500D26B11 /* UIView+Addition.m in Sources */,
 				95F534081CBCD758000C7E91 /* MJRefreshHeader.m in Sources */,
+				95B078731CE9D3E100D8A220 /* UIView+ViewController.m in Sources */,
 				95F534021CBCD758000C7E91 /* MJRefreshBackGifFooter.m in Sources */,
+				95B0787C1CE9E61400D8A220 /* AppointContentViewController.m in Sources */,
 				954130251CA003B500D26B11 /* NSDate+Addition.m in Sources */,
 				9520BF7C1CAA4A3C00961F05 /* PersonCenterCustomCell.m in Sources */,
 				95F534041CBCD758000C7E91 /* MJRefreshBackStateFooter.m in Sources */,
@@ -1538,12 +1567,15 @@
 				950CB7101CC5FE5F004D2A5D /* PersonInfoViewController.m in Sources */,
 				9520BFBA1CAA721A00961F05 /* UIButton+YYWebImage.m in Sources */,
 				95412FA81C9F91FA00D26B11 /* main.m in Sources */,
+				95B078721CE9D3E100D8A220 /* NinaPagerView.m in Sources */,
 				9520BFB41CAA721A00961F05 /* YYDiskCache.m in Sources */,
 				9520BF761CAA48E400961F05 /* PersonCenterModel.m in Sources */,
 				9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */,
 				95F533E01CBCD454000C7E91 /* UIView+MJExtension.m in Sources */,
+				95B0787F1CE9E6A600D8A220 /* MeNetProxy.m in Sources */,
 				95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */,
 				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
+				95B078711CE9D3E100D8A220 /* NinaBaseView.m in Sources */,
 				9520BFC41CAA721A00961F05 /* YYWebImageOperation.m in Sources */,
 				9597B0771CA0EBB100FF65D9 /* BadgeNumberView.m in Sources */,
 			);
