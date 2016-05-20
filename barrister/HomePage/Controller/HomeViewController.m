@@ -14,7 +14,7 @@
 #import "BarristerOrderModel.h"
 #import "HomeAccountCell.h"
 #import "HomePageProxy.h"
-
+#import "AppointmentViewController.h"
 
 @interface HomeViewController ()
 
@@ -290,7 +290,7 @@
         stateLabel.text = @"当前状态:正常接单";
         stateLabel.textColor = RGBCOLOR(63, 39, 22);
         stateLabel.font = SystemFont(13.0f);
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingTimeAciton:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingTimeAciton)];
         stateLabel.userInteractionEnabled = YES;
         [stateLabel addGestureRecognizer:tap];
         
@@ -374,7 +374,9 @@
 
 -(void)settingTimeAciton
 {
-    
+    AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
+    appointVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:appointVC animated:YES];
 }
 
 @end

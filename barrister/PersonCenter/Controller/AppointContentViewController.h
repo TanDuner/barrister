@@ -10,4 +10,6 @@
 
 @interface AppointContentViewController : BaseViewController
 
+@property (nonatomic,strong) NSMutableArray *showStr;
+
 @end

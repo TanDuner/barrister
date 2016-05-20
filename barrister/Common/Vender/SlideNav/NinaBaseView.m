@@ -109,7 +109,7 @@
         for (NSInteger i = 0; i < titlesArray.count; i++) {            
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
-            button.titleLabel.font = [UIFont systemFontOfSize:14];
+            button.titleLabel.font = [UIFont systemFontOfSize:11];
             if ([titlesArray[i] isKindOfClass:[NSString class]]) {
                  [button setTitle:titlesArray[i] forState:UIControlStateNormal];
                 button.titleLabel.numberOfLines = 0;

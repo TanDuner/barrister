@@ -12,6 +12,7 @@
 #import "PersonCenterModel.h"
 #import "SettingViewController.h"
 #import "PersonInfoViewController.h"
+#import "AppointmentViewController.h"
 
 @interface PersonCenterViewController ()
 
@@ -202,7 +203,24 @@
     }
     else if (indexPath.section == 1)
     {
-    
+        switch (indexPath.row) {
+            case 0:
+                
+                break;
+            case 1:
+                
+                break;
+             case 2:
+                break;
+            case 3:
+            {
+                AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
+                [self.navigationController pushViewController:appointVC animated:YES];
+            }
+                break;
+            default:
+                break;
+        }
     }
     else
     {

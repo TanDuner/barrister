@@ -14,6 +14,10 @@
 		950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950CB6E81CC342F3004D2A5D /* yue@3x.png */; };
 		950CB7101CC5FE5F004D2A5D /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */; };
 		950CB7131CC5FEAB004D2A5D /* PersonInfoCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CB7121CC5FEAB004D2A5D /* PersonInfoCustomCell.m */; };
+		951FCDC11CED810A00A57BEA /* Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 951FCDBD1CED810A00A57BEA /* Selected@2x.png */; };
+		951FCDC21CED810A00A57BEA /* Selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 951FCDBE1CED810A00A57BEA /* Selected@3x.png */; };
+		951FCDC31CED810A00A57BEA /* unSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 951FCDBF1CED810A00A57BEA /* unSelected@2x.png */; };
+		951FCDC41CED810A00A57BEA /* unSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 951FCDC01CED810A00A57BEA /* unSelected@3x.png */; };
 		9520BF761CAA48E400961F05 /* PersonCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF751CAA48E300961F05 /* PersonCenterModel.m */; };
 		9520BF7C1CAA4A3C00961F05 /* PersonCenterCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF7B1CAA4A3C00961F05 /* PersonCenterCustomCell.m */; };
 		9520BF7F1CAA4A5700961F05 /* PersonCenterAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF7E1CAA4A5700961F05 /* PersonCenterAccountCell.m */; };
@@ -188,6 +192,10 @@
 		950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
 		950CB7111CC5FEAB004D2A5D /* PersonInfoCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoCustomCell.h; sourceTree = "<group>"; };
 		950CB7121CC5FEAB004D2A5D /* PersonInfoCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoCustomCell.m; sourceTree = "<group>"; };
+		951FCDBD1CED810A00A57BEA /* Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Selected@2x.png"; sourceTree = "<group>"; };
+		951FCDBE1CED810A00A57BEA /* Selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Selected@3x.png"; sourceTree = "<group>"; };
+		951FCDBF1CED810A00A57BEA /* unSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelected@2x.png"; sourceTree = "<group>"; };
+		951FCDC01CED810A00A57BEA /* unSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelected@3x.png"; sourceTree = "<group>"; };
 		9520BF741CAA48E300961F05 /* PersonCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterModel.h; sourceTree = "<group>"; };
 		9520BF751CAA48E300961F05 /* PersonCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterModel.m; sourceTree = "<group>"; };
 		9520BF7A1CAA4A3C00961F05 /* PersonCenterCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterCustomCell.h; sourceTree = "<group>"; };
@@ -1072,6 +1080,10 @@
 		9597B0E41CA1168200FF65D9 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				951FCDBD1CED810A00A57BEA /* Selected@2x.png */,
+				951FCDBE1CED810A00A57BEA /* Selected@3x.png */,
+				951FCDBF1CED810A00A57BEA /* unSelected@2x.png */,
+				951FCDC01CED810A00A57BEA /* unSelected@3x.png */,
 				95C0EB001CB60CFB004F9DAD /* dingdan.png */,
 				95C0EB011CB60CFB004F9DAD /* pingjia.png */,
 				95C0EB021CB60CFB004F9DAD /* shezhi.png */,
@@ -1377,6 +1389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951FCDC21CED810A00A57BEA /* Selected@3x.png in Resources */,
 				95BCB78C1CA280E300E85E10 /* navigationbar_back_icon@2x.png in Resources */,
 				95BCB78D1CA280E300E85E10 /* navigationbar_back_icon@3x.png in Resources */,
 				9597B1021CA1168200FF65D9 /* Tab04Normal@2x.png in Resources */,
@@ -1391,8 +1404,10 @@
 				950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */,
 				95C0EB051CB60CFB004F9DAD /* dingdan.png in Resources */,
 				95BCB7AC1CA3D28200E85E10 /* login3rd_icon_qq@3x.png in Resources */,
+				951FCDC41CED810A00A57BEA /* unSelected@3x.png in Resources */,
 				9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */,
 				9597B0FD1CA1168200FF65D9 /* Tab02Highlighted@3x.png in Resources */,
+				951FCDC31CED810A00A57BEA /* unSelected@2x.png in Resources */,
 				9597B1051CA1168200FF65D9 /* Tab04Highlighted@3x.png in Resources */,
 				95C0EB0D1CB61F81004F9DAD /* jiedan.png in Resources */,
 				95C0EB081CB60CFB004F9DAD /* zhanghao.png in Resources */,
@@ -1405,6 +1420,7 @@
 				9597B0FA1CA1168200FF65D9 /* Tab02Normal@2x.png in Resources */,
 				95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */,
 				95C0EB061CB60CFB004F9DAD /* pingjia.png in Resources */,
+				951FCDC11CED810A00A57BEA /* Selected@2x.png in Resources */,
 				9597B1001CA1168200FF65D9 /* Tab03Highlighted@2x.png in Resources */,
 				9597B0F91CA1168200FF65D9 /* Tab01Highlighted@3x.png in Resources */,
 				95BCB7AD1CA3D28200E85E10 /* login3rd_icon_weixin@2x.png in Resources */,
