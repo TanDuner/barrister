@@ -60,7 +60,7 @@
 
     [_proxy getAppointDataWithParams:nil Block:^(id returnData, BOOL success) {
         if (success) {
-            [self createTopSlideView];
+//            [self createTopSlideView];
             
         }
     }];

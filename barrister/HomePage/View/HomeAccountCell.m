@@ -69,7 +69,7 @@
 -(HomeAccountItemView *)rightView
 {
     if (!_rightView) {
-        _rightView = [[HomeAccountItemView alloc] initWithFrame:RECT((SCREENWIDTH - 1)/2.0 + 1, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"shuru.png" titleStr:@"总收入" subTitleStr:@"180"];
+        _rightView = [[HomeAccountItemView alloc] initWithFrame:RECT((SCREENWIDTH - 1)/2.0 + 1, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"shouru.png" titleStr:@"总收入" subTitleStr:@"180"];
     }
     return _rightView;
 }
@@ -80,8 +80,8 @@
         _tixianBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_tixianBtn setFrame:RECT(SCREENWIDTH/4.0, ItemViewHeight + 15, SCREENWIDTH/2.0, 35)];
         [_tixianBtn setTitle:@"提现" forState:UIControlStateNormal];
+        [_tixianBtn setBackgroundImage:[UIImage imageNamed:@"tixian.png"] forState:UIControlStateNormal];
         _tixianBtn.titleLabel.font = SystemFont(15.0f);
-        [_tixianBtn setBackgroundColor:RGBCOLOR(250, 187, 47)];
         _tixianBtn.layer.cornerRadius = 17.5f;
         _tixianBtn.layer.masksToBounds = YES;
     }

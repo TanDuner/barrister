@@ -7,7 +7,7 @@
 //
 
 #import "HomeAccountItemView.h"
-
+#import "UIImage+Additions.h"
 #define ItemWidth  (SCREENWIDTH - 1)/2.0
 #define LabelWidth ItemWidth/2.0
 
@@ -22,6 +22,7 @@
 @property (nonatomic,copy) NSString *subTitleStr;
 @property (nonatomic,copy) NSString *iconNameStr;
 
+@property (nonatomic,strong) UIImageView *bottomImageView;
 @end
 
 @implementation HomeAccountItemView
@@ -35,9 +36,9 @@
     if (self) {
         
         [self addSubview:self.bottomBtn];
-        [self.bottomBtn addSubview:self.titleLabel];
-        [self.bottomBtn addSubview:self.subTitleLabel];
-        [self.bottomBtn addSubview:self.iconImageView];
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.subTitleLabel];
+        [self addSubview:self.iconImageView];
         
         self.titleStr  = titleStr;
         self.subTitleStr = subTitleStr;
@@ -51,10 +52,11 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    [self.bottomBtn setFrame:self.bounds];
+    [self.bottomBtn setFrame:CGRectMake(0, 0, self.width, self.height)];
     [self.titleLabel setFrame:RECT(LabelWidth, 20, LabelWidth, 15)];
     [self.subTitleLabel setFrame:RECT(self.titleLabel.x, self.titleLabel.y + self.titleLabel.height + 5, LabelWidth, 12)];
     [self.iconImageView setFrame:RECT((LabelWidth - 35)/2.0, 20, 35, 35)];
+
     [self configData];
 
 }
@@ -94,6 +96,9 @@
         _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_bottomBtn setFrame:CGRectMake(0, 0, ItemWidth, 70)];
         [_bottomBtn addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_bottomBtn setBackgroundImage:[UIImage createImageWithColor:[UIColor redColor]] forState:UIControlStateSelected];
+        [_bottomBtn setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+      
     }
     return _bottomBtn;
 }
@@ -103,6 +108,7 @@
 {
     if (!_iconImageView) {
         _iconImageView = [[UIImageView alloc] init];
+        _iconImageView.userInteractionEnabled = YES;
     }
     return _iconImageView;
 }
@@ -111,7 +117,7 @@
 
 -(void)clickAction:(UIButton *)btn
 {
-
+    
 }
 
 @end
