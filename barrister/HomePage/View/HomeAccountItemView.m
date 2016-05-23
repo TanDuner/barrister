@@ -96,9 +96,8 @@
         _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_bottomBtn setFrame:CGRectMake(0, 0, ItemWidth, 70)];
         [_bottomBtn addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_bottomBtn setBackgroundImage:[UIImage createImageWithColor:[UIColor redColor]] forState:UIControlStateSelected];
-        [_bottomBtn setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-      
+        [_bottomBtn setBackgroundImage:[UIImage createImageWithColor:RGBCOLOR(233, 233, 233)] forState:UIControlStateHighlighted];
+
     }
     return _bottomBtn;
 }
@@ -118,6 +117,11 @@
 -(void)clickAction:(UIButton *)btn
 {
     
+}
+
+-(void)setSubTitleStr:(NSString *)subTitleStr
+{
+    self.subTitleLabel.text = subTitleStr;
 }
 
 @end

@@ -21,6 +21,8 @@
 @property (nonatomic,strong) NSMutableArray *orderItems;
 @property (nonatomic,strong) UIView *accountHeadView;
 @property (nonatomic,strong) UIView *daiBanHeadView;
+@property (nonatomic,strong) UIImageView *lightImage;
+@property (nonatomic,strong) UILabel *stateLabel;
 
 @property (nonatomic,strong) DCPicScrollView *bannerView;
 @property (nonatomic,strong) HomePageProxy *proxy;
@@ -87,35 +89,55 @@
 {
     [self handleBannerDataWithDict:nil];
 
-//    [_proxy getHomePageBannerWithParams:nil Block:^(id returnData, BOOL success) {
-//        if (success) {
-//            [self handleBannerDataWithDict:nil];
-//        }
-//        else
-//        {
-//        
-//        }
-//    }];
+    [_proxy getHomePageBannerWithParams:nil Block:^(id returnData, BOOL success) {
+        if (success) {
+            [self handleBannerDataWithDict:nil];
+        }
+        else
+        {
+        
+        }
+    }];
 }
 
 -(void)loadAccountData
 {
     [self handleAccountDataWithDict:nil];
     
-//   [_proxy getHomePageAccountDataWithParams:nil Block:^(id returnData, BOOL success) {
-//       if (success) {
-//           [self handleAccountDataWithDict:nil];
-//       }
-//       else
-//       {
-//       
-//       }
-//   }];
+   [_proxy getHomePageAccountDataWithParams:nil Block:^(id returnData, BOOL success) {
+       if (success) {
+           NSDictionary *dict = (NSDictionary *)returnData;
+           NSString *resultCode = [dict objectForKey:@"resultCode"];
+           if (resultCode == 0) {
+               [self handleAccountDataWithDict:dict];
+           }
+
+       }
+       else
+       {
+       
+       }
+   }];
 }
 
 
 -(void)handleAccountDataWithDict:(NSDictionary *)dict
 {
+    
+    NSString *appintmentStatus = [dict objectForKey:@"status"];
+    
+    [BaseDataSingleton shareInstance].appointStatus = appintmentStatus?appintmentStatus:@"0";
+    [BaseDataSingleton shareInstance].remainingBalance = [dict objectForKey:@"remainingBalcnce"];
+    [BaseDataSingleton shareInstance].totalIncome = [dict objectForKey:@"totalIncome"];
+    [BaseDataSingleton shareInstance].orderQty = [dict objectForKey:@"orderQty"];
+    
+    [self updateAppointmentStatus];
+    
+    
+    NSArray *array = [dict objectForKey:@"todoList"];
+    
+    NSLog(@"arry.cout = %ld",array.count);
+    
     BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
     model4.customerName = @"用户134****7654";
     model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
@@ -183,6 +205,11 @@
 {
     if (indexPath.section == 0) {
         HomeAccountCell *cell = [[HomeAccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        __weak typeof(*&self) weakSelf = self;
+        cell.ActionBlock = ^(id object ,BaseTableViewCell *cellTemp)
+        {
+            [weakSelf tixianAction];
+        };
         cell.selectionStyle  = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -286,22 +313,22 @@
         UIView *topBGView = [[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 45)];
         topBGView.backgroundColor = RGBCOLOR(241,242, 243);
         
-        UILabel *stateLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 110)/2.0, 15, 110, 15)];
-        stateLabel.text = @"当前状态:正常接单";
-        stateLabel.textColor = RGBCOLOR(63, 39, 22);
-        stateLabel.font = SystemFont(13.0f);
+        _stateLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 110)/2.0, 15, 110, 15)];
+        _stateLabel.text = @"当前状态:正常接单";
+        _stateLabel.textColor = RGBCOLOR(63, 39, 22);
+        _stateLabel.font = SystemFont(13.0f);
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingTimeAciton)];
-        stateLabel.userInteractionEnabled = YES;
-        [stateLabel addGestureRecognizer:tap];
+        _stateLabel.userInteractionEnabled = YES;
+        [_stateLabel addGestureRecognizer:tap];
         
         
-        UIImageView *lightImage = [[UIImageView alloc] initWithFrame:RECT(stateLabel.x - 15, (45 - 10)/2.0, 10, 10)];
-        [lightImage setBackgroundColor:RGBCOLOR(54, 182, 31)];
-        lightImage.layer.cornerRadius = 5.0f;
-        lightImage.layer.masksToBounds = YES;
+        _lightImage = [[UIImageView alloc] initWithFrame:RECT(_stateLabel.x - 15, (45 - 10)/2.0, 10, 10)];
+        [_lightImage setBackgroundColor:RGBCOLOR(54, 182, 31)];
+        _lightImage.layer.cornerRadius = 5.0f;
+        _lightImage.layer.masksToBounds = YES;
         
-        [topBGView addSubview:stateLabel];
-        [topBGView addSubview:lightImage];
+        [topBGView addSubview:_stateLabel];
+        [topBGView addSubview:_lightImage];
 
         
         [_accountHeadView addSubview:topBGView];
@@ -377,6 +404,24 @@
     AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
     appointVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:appointVC animated:YES];
+}
+
+-(void)updateAppointmentStatus
+{
+    if ([[BaseDataSingleton shareInstance].appointStatus isEqualToString:@"1"]) {
+        self.stateLabel.text = @"当前状态:正常接单";
+        self.lightImage.backgroundColor = [UIColor greenColor];
+    }
+    else
+    {
+        self.stateLabel.text = @"当前状态:不可接单";
+        self.lightImage.backgroundColor = [UIColor redColor];
+    }
+}
+
+-(void)tixianAction
+{
+    
 }
 
 @end

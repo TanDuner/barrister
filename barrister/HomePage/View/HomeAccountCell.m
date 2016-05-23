@@ -46,6 +46,8 @@
 
 -(void)configData
 {
+    [self.leftView setSubTitleStr:[BaseDataSingleton shareInstance].remainingBalance];
+    [self.rightView setSubTitleStr:[BaseDataSingleton shareInstance].totalIncome];
 
 }
 
@@ -60,7 +62,7 @@
 -(HomeAccountItemView *)leftView
 {
     if (!_leftView) {
-        _leftView = [[HomeAccountItemView alloc] initWithFrame:RECT(0, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"yue.png" titleStr:@"余额" subTitleStr:@"100"];
+        _leftView = [[HomeAccountItemView alloc] initWithFrame:RECT(0, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"yue.png" titleStr:@"余额" subTitleStr:@"-"];
         
     }
     return _leftView;
@@ -69,7 +71,7 @@
 -(HomeAccountItemView *)rightView
 {
     if (!_rightView) {
-        _rightView = [[HomeAccountItemView alloc] initWithFrame:RECT((SCREENWIDTH - 1)/2.0 + 1, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"shouru.png" titleStr:@"总收入" subTitleStr:@"180"];
+        _rightView = [[HomeAccountItemView alloc] initWithFrame:RECT((SCREENWIDTH - 1)/2.0 + 1, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"shouru.png" titleStr:@"总收入" subTitleStr:@"-"];
     }
     return _rightView;
 }
@@ -81,11 +83,19 @@
         [_tixianBtn setFrame:RECT(SCREENWIDTH/4.0, ItemViewHeight + 15, SCREENWIDTH/2.0, 35)];
         [_tixianBtn setTitle:@"提现" forState:UIControlStateNormal];
         [_tixianBtn setBackgroundImage:[UIImage imageNamed:@"tixian.png"] forState:UIControlStateNormal];
+        [_tixianBtn addTarget:self action:@selector(tixianAction:) forControlEvents:UIControlEventTouchUpInside];
         _tixianBtn.titleLabel.font = SystemFont(15.0f);
         _tixianBtn.layer.cornerRadius = 17.5f;
         _tixianBtn.layer.masksToBounds = YES;
     }
     return _tixianBtn;
+}
+
+-(void)tixianAction:(UIButton *)button
+{
+    if (self.ActionBlock) {
+        self.ActionBlock(nil,self);
+    }
 }
 
 @end

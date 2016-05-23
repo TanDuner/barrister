@@ -19,4 +19,6 @@
        subTitleStr:(NSString *)subTitleStr;
 
 
+-(void)setSubTitleStr:(NSString *)subTitleStr;
+
 @end

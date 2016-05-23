@@ -67,6 +67,7 @@
 		9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 954130201CA003B500D26B11 /* UIImage+ImagePickerCrop.m */; };
 		954130301CA003B500D26B11 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 954130221CA003B500D26B11 /* UIView+Addition.m */; };
 		954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 954130241CA003B500D26B11 /* UIView+FormAdditions.m */; };
+		955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */ = {isa = PBXBuildFile; fileRef = 955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */; };
 		9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0461CA0395F00FF65D9 /* BaseViewController.m */; };
 		9597B04B1CA03D3900FF65D9 /* ZToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B04A1CA03D3900FF65D9 /* ZToastView.m */; };
 		9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B04D1CA03E3900FF65D9 /* UIColorAdditions.m */; };
@@ -298,6 +299,8 @@
 		954130221CA003B500D26B11 /* UIView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		954130231CA003B500D26B11 /* UIView+FormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FormAdditions.h"; sourceTree = "<group>"; };
 		954130241CA003B500D26B11 /* UIView+FormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FormAdditions.m"; sourceTree = "<group>"; };
+		955231331CF2ADCE00E35AD3 /* TiXianViewControlleer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiXianViewControlleer.h; sourceTree = "<group>"; };
+		955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiXianViewControlleer.m; sourceTree = "<group>"; };
 		9597B0451CA0395F00FF65D9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		9597B0461CA0395F00FF65D9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		9597B0491CA03D3900FF65D9 /* ZToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZToastView.h; sourceTree = "<group>"; };
@@ -837,6 +840,15 @@
 			path = Categorys;
 			sourceTree = "<group>";
 		};
+		955231321CF2ADBD00E35AD3 /* Tixian */ = {
+			isa = PBXGroup;
+			children = (
+				955231331CF2ADCE00E35AD3 /* TiXianViewControlleer.h */,
+				955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */,
+			);
+			path = Tixian;
+			sourceTree = "<group>";
+		};
 		9597B0481CA03D3900FF65D9 /* ZToastView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1185,18 +1197,11 @@
 		95BCB77F1CA2782000E85E10 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				95BCB7801CA2787900E85E10 /* FindPWD */,
+				955231321CF2ADBD00E35AD3 /* Tixian */,
 				95BCB7811CA2787900E85E10 /* Login */,
 				95BCB7821CA2787900E85E10 /* Register */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		95BCB7801CA2787900E85E10 /* FindPWD */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FindPWD;
 			sourceTree = "<group>";
 		};
 		95BCB7811CA2787900E85E10 /* Login */ = {
@@ -1544,6 +1549,7 @@
 				9597B0531CA0E31A00FF65D9 /* XuUtlity.m in Sources */,
 				95C0EAF01CB4B285004F9DAD /* CALayer+YYAdd.m in Sources */,
 				950C226C1CD06F1C000C4860 /* SlideHeadView.m in Sources */,
+				955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */,
 				9541302A1CA003B500D26B11 /* UIImage+Cache.m in Sources */,
 				9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */,
 				954130271CA003B500D26B11 /* NSObject+Additions.m in Sources */,
