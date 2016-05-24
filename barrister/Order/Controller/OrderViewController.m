@@ -11,6 +11,8 @@
 #import "OrderViewCell.h"
 #import "OrderDetailViewController.h"
 #import "RefreshTableView.h"
+#import "OrderProxy.h"
+#import "XuUItlity.h"
 
 @interface OrderViewController ()<UITableViewDataSource,UITableViewDelegate,RefreshTableViewDelegate>
 
@@ -19,6 +21,8 @@
 
 @property (nonatomic,strong) NSMutableArray *leftItems;
 @property (nonatomic,strong) NSMutableArray *rightItems;
+
+@property (nonatomic,strong) OrderProxy *proxy;
 
 @end
 
@@ -102,14 +106,38 @@
      - returns:
      */
     
+    //    userId,verifyCode,page,pageSize,type(IM即时,APPOINTMENT预约)
+
+    
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",[NSString stringWithFormat:@"%ld",_leftTableView.pageNum],@"page",[NSString stringWithFormat:@"%ld",_leftTableView.pageSize],@"pageSize",@"IM",@"type", nil];
+    
+    __weak typeof(*&self) weakSelf = self;
+    
+    [self.proxy getOrderListWithParams:params Block:^(id returnData, BOOL success) {
+        if (success) {
+            NSArray *array = (NSArray *)returnData;
+            [weakSelf wrapLeftOrderDataWithArray:array];
+        }
+        else
+        {
+            [XuUItlity showFailedHint:@"加载失败..." completionBlock:nil];
+        }
+    }];
+    
+    
+}
+
+-(void )wrapLeftOrderDataWithArray:(NSArray *)array
+{
     if (_leftTableView.pageNum == 1 && _leftItems.count > 0) {
         [self.leftTableView endRefreshing];
         [_leftItems removeAllObjects];
-
+        
     }else{
         [self.leftTableView endLoadMoreWithNoMoreData:NO];
     }
-
+    
     
     BarristerOrderModel *model = [[BarristerOrderModel alloc] init];
     model.customerName = @"用户134****7654";
@@ -136,23 +164,44 @@
     [self.leftItems addObject:model1];
     [self.leftItems addObject:model2];
     
-   
-    
     [self.leftTableView reloadData];
+
 }
 
 
 -(void)loadRightItems
 {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",[NSString stringWithFormat:@"%ld",_rightTableView.pageNum],@"page",[NSString stringWithFormat:@"%ld",_rightTableView.pageSize],@"pageSize",@"APPOINTMENT",@"type", nil];
+    
+    __weak typeof(*&self) weakSelf = self;
+    
+    [self.proxy getOrderListWithParams:params Block:^(id returnData, BOOL success) {
+        if (success) {
+            NSArray *array = (NSArray *)returnData;
+            [weakSelf wrapRightOrderDataWithArray:array];
+            
+        }
+        else
+        {
+            [XuUItlity showFailedHint:@"加载失败..." completionBlock:nil];
+        }
+    }];
+
+}
+
+
+-(void)wrapRightOrderDataWithArray:(NSArray *)array
+{
     if (_rightTableView.pageNum == 1 && _rightItems.count > 0) {
         [_rightTableView endRefreshing];
         [_rightItems removeAllObjects];
-
+        
     }else{
         [_rightTableView endLoadMoreWithNoMoreData:NO];
     }
     
-
+    
     BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
     model4.customerName = @"用户134****7654";
     model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
@@ -181,11 +230,12 @@
     [self.rightItems addObject:model5];
     [self.rightItems addObject:model6];
     
-   
     
     [self.rightTableView reloadData];
 
 }
+
+
 
 #pragma -mark -----UITableVIewDelegate Methods------
 
@@ -284,6 +334,15 @@
     
 }
 
+
+#pragma -mark -----Getter------
+-(OrderProxy *)proxy
+{
+    if (!_proxy) {
+        _proxy = [[OrderProxy alloc] init];
+    }
+    return _proxy;
+}
 
 
 @end

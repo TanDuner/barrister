@@ -236,5 +236,32 @@ static void HSVtoRGB( float *r, float *g, float *b, float h, float s, float v ) 
 							blue:((float) b / 255.0f)
 						   alpha:1.0f];
 }
+
++ (UIColor *)colorWithString:(NSString *)colorValue colorAlpha:(float)alpha{
+    
+    UIColor *color = [UIColor clearColor];
+    
+    if ([[colorValue substringToIndex:1] isEqualToString:@"#"]) {
+        
+        if ([colorValue length]==7) {
+            NSRange range = NSMakeRange(1,2);
+            NSString *strRed = [colorValue substringWithRange:range];
+            
+            range.location = 3;
+            NSString *strGreen = [colorValue substringWithRange:range];
+            
+            range.location = 5;
+            NSString *strBlue = [colorValue substringWithRange:range];
+            
+            
+            float r = [XuUtlity getIntegerFromString:strRed];
+            float g = [XuUtlity getIntegerFromString:strGreen];
+            float b = [XuUtlity getIntegerFromString:strBlue];
+            
+            color = [UIColor colorWithRed:r/255 green:g/255 blue:b/255 alpha:alpha];
+        }
+    }
+    return color;
+}
 @end
 

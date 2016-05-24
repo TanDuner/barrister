@@ -15,4 +15,6 @@ typedef void(^ServiceCallBlock)(id returnData, BOOL success);
 
 -(NSString *)appendUrlWithString:(NSString *)urlString;
 
+-(BOOL)isCommonCorrectResultCodeWithResponse:(id)response;
+
 @end

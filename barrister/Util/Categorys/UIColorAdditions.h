@@ -54,4 +54,9 @@
 
 + (UIColor *) colorWithHexString: (NSString *) stringToConvert;
 
+/**
+ *  16进制颜色
+ */
++ (UIColor *)colorWithString:(NSString *)colorValue colorAlpha:(float)alpha;
+
 @end

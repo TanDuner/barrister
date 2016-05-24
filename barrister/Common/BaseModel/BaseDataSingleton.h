@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BarristerUserModel.h"
 
 struct PhoneSate {
     BOOL isopensound;
@@ -29,6 +30,8 @@ typedef struct PhoneSate PhoneSate;
 @property (nonatomic,strong) NSString *remainingBalance;//余额
 
 @property (nonatomic,strong) NSString *totalIncome;//总收入
+
+@property (nonatomic,strong)BarristerUserModel *userModel; //用户
 
 
 + (instancetype)shareInstance;

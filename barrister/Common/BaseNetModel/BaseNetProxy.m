@@ -17,4 +17,16 @@
     return retString;
 }
 
+-(BOOL)isCommonCorrectResultCodeWithResponse:(id)response
+{
+    NSDictionary *dict = (NSDictionary *)response;
+    NSString *resultCode = [dict objectForKey:@"resultCode"];
+    if (resultCode.integerValue == 0) {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
 @end
