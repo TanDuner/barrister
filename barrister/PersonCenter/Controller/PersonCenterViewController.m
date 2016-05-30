@@ -13,6 +13,7 @@
 #import "SettingViewController.h"
 #import "PersonInfoViewController.h"
 #import "AppointmentViewController.h"
+#import "MyAccountHomeViewController.h"
 
 @interface PersonCenterViewController ()
 
@@ -205,7 +206,10 @@
     {
         switch (indexPath.row) {
             case 0:
-                
+            {
+                MyAccountHomeViewController *accountVC = [[MyAccountHomeViewController alloc] init];
+                [self.navigationController pushViewController:accountVC animated:YES];
+            }
                 break;
             case 1:
                 

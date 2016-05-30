@@ -446,5 +446,10 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     return newImage;
 }
 
++(void)clearTableViewEmptyCellWithTableView:(UITableView *)tableView
+{
+    tableView.tableFooterView = [UIView new];
+}
+
 
 @end

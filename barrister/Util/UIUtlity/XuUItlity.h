@@ -147,5 +147,11 @@ typedef void (^XuHUDCompletionBlock)();
  */
 + (UIImage *)scaleImageToSize:(UIImage *)Xug size:(CGSize)targetSize;
 
+/**
+ *  消除tableView 多余的cell
+ *
+ *  @param tableView
+ */
++(void)clearTableViewEmptyCellWithTableView:(UITableView *)tableView;
 
 @end

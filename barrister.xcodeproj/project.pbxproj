@@ -122,6 +122,14 @@
 		95B078731CE9D3E100D8A220 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B078701CE9D3E100D8A220 /* UIView+ViewController.m */; };
 		95B0787C1CE9E61400D8A220 /* AppointContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B0787B1CE9E61400D8A220 /* AppointContentViewController.m */; };
 		95B0787F1CE9E6A600D8A220 /* MeNetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B0787E1CE9E6A600D8A220 /* MeNetProxy.m */; };
+		95B425961CFB3001002EB36D /* MyAccountHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425951CFB3001002EB36D /* MyAccountHeadView.m */; };
+		95B425991CFB32A7002EB36D /* MyAccountDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425981CFB32A7002EB36D /* MyAccountDetailCell.m */; };
+		95B4259F1CFB3363002EB36D /* MyAccountDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B4259E1CFB3363002EB36D /* MyAccountDetailModel.m */; };
+		95B425AC1CFC8559002EB36D /* AccountProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425AB1CFC8559002EB36D /* AccountProxy.m */; };
+		95B425B11CFC9463002EB36D /* my-account_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425AD1CFC9463002EB36D /* my-account_card@2x.png */; };
+		95B425B21CFC9463002EB36D /* my-account_card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425AE1CFC9463002EB36D /* my-account_card@3x.png */; };
+		95B425B31CFC9463002EB36D /* my-account_cash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425AF1CFC9463002EB36D /* my-account_cash@2x.png */; };
+		95B425B41CFC9463002EB36D /* my-account_cash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425B01CFC9463002EB36D /* my-account_cash@3x.png */; };
 		95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */; };
 		95BCB7881CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */; };
 		95BCB7891CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7871CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png */; };
@@ -152,6 +160,7 @@
 		95C0EB0D1CB61F81004F9DAD /* jiedan.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0C1CB61F81004F9DAD /* jiedan.png */; };
 		95C0EB0F1CB62079004F9DAD /* zhanghu.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB0E1CB62079004F9DAD /* zhanghu.png */; };
 		95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0EB131CB63136004F9DAD /* temlvshi.jpg */; };
+		95C2C8011CF7E21200BE4971 /* MyAccountHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C2C8001CF7E21200BE4971 /* MyAccountHomeViewController.m */; };
 		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
 		95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A41CBB4A49000C7E91 /* renzheng.png */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -398,6 +407,18 @@
 		95B0787B1CE9E61400D8A220 /* AppointContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointContentViewController.m; sourceTree = "<group>"; };
 		95B0787D1CE9E6A600D8A220 /* MeNetProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeNetProxy.h; sourceTree = "<group>"; };
 		95B0787E1CE9E6A600D8A220 /* MeNetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeNetProxy.m; sourceTree = "<group>"; };
+		95B425941CFB3001002EB36D /* MyAccountHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountHeadView.h; sourceTree = "<group>"; };
+		95B425951CFB3001002EB36D /* MyAccountHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountHeadView.m; sourceTree = "<group>"; };
+		95B425971CFB32A7002EB36D /* MyAccountDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountDetailCell.h; sourceTree = "<group>"; };
+		95B425981CFB32A7002EB36D /* MyAccountDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountDetailCell.m; sourceTree = "<group>"; };
+		95B4259D1CFB3363002EB36D /* MyAccountDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountDetailModel.h; sourceTree = "<group>"; };
+		95B4259E1CFB3363002EB36D /* MyAccountDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountDetailModel.m; sourceTree = "<group>"; };
+		95B425AA1CFC8559002EB36D /* AccountProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountProxy.h; sourceTree = "<group>"; };
+		95B425AB1CFC8559002EB36D /* AccountProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountProxy.m; sourceTree = "<group>"; };
+		95B425AD1CFC9463002EB36D /* my-account_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_card@2x.png"; sourceTree = "<group>"; };
+		95B425AE1CFC9463002EB36D /* my-account_card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_card@3x.png"; sourceTree = "<group>"; };
+		95B425AF1CFC9463002EB36D /* my-account_cash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_cash@2x.png"; sourceTree = "<group>"; };
+		95B425B01CFC9463002EB36D /* my-account_cash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_cash@3x.png"; sourceTree = "<group>"; };
 		95BCB7831CA27ADB00E85E10 /* BarristerLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerLoginVC.h; sourceTree = "<group>"; };
 		95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerLoginVC.m; sourceTree = "<group>"; };
 		95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_back_icon_hl@2x.png"; sourceTree = "<group>"; };
@@ -440,6 +461,8 @@
 		95C0EB0C1CB61F81004F9DAD /* jiedan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiedan.png; sourceTree = "<group>"; };
 		95C0EB0E1CB62079004F9DAD /* zhanghu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhanghu.png; sourceTree = "<group>"; };
 		95C0EB131CB63136004F9DAD /* temlvshi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = temlvshi.jpg; sourceTree = "<group>"; };
+		95C2C7FF1CF7E21200BE4971 /* MyAccountHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountHomeViewController.h; sourceTree = "<group>"; };
+		95C2C8001CF7E21200BE4971 /* MyAccountHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountHomeViewController.m; sourceTree = "<group>"; };
 		95F533A21CBB4690000C7E91 /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
 		95F533A41CBB4A49000C7E91 /* renzheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renzheng.png; sourceTree = "<group>"; };
 		95F533A61CBB53FB000C7E91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -1167,6 +1190,10 @@
 		9597B0E41CA1168200FF65D9 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				95B425AD1CFC9463002EB36D /* my-account_card@2x.png */,
+				95B425AE1CFC9463002EB36D /* my-account_card@3x.png */,
+				95B425AF1CFC9463002EB36D /* my-account_cash@2x.png */,
+				95B425B01CFC9463002EB36D /* my-account_cash@3x.png */,
 				951FCDBD1CED810A00A57BEA /* Selected@2x.png */,
 				951FCDBE1CED810A00A57BEA /* Selected@3x.png */,
 				951FCDBF1CED810A00A57BEA /* unSelected@2x.png */,
@@ -1234,6 +1261,8 @@
 			children = (
 				9597B12B1CA1597200FF65D9 /* HomePageProxy.h */,
 				9597B12C1CA1597200FF65D9 /* HomePageProxy.m */,
+				95B425AA1CFC8559002EB36D /* AccountProxy.h */,
+				95B425AB1CFC8559002EB36D /* AccountProxy.m */,
 				95B078671CE96C8A00D8A220 /* LoginProxy.h */,
 				95B078681CE96C8A00D8A220 /* LoginProxy.m */,
 				95B0787D1CE9E6A600D8A220 /* MeNetProxy.h */,
@@ -1256,6 +1285,7 @@
 		95BCB77F1CA2782000E85E10 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				95C2C7FE1CF7E1F500BE4971 /* MyAccountHome */,
 				955231321CF2ADBD00E35AD3 /* Tixian */,
 				95BCB7811CA2787900E85E10 /* Login */,
 				95BCB7821CA2787900E85E10 /* Register */,
@@ -1308,6 +1338,21 @@
 				95C0EAE91CB4B0B0004F9DAD /* BaseTableViewCell.m */,
 			);
 			path = BaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		95C2C7FE1CF7E1F500BE4971 /* MyAccountHome */ = {
+			isa = PBXGroup;
+			children = (
+				95C2C7FF1CF7E21200BE4971 /* MyAccountHomeViewController.h */,
+				95C2C8001CF7E21200BE4971 /* MyAccountHomeViewController.m */,
+				95B425941CFB3001002EB36D /* MyAccountHeadView.h */,
+				95B425951CFB3001002EB36D /* MyAccountHeadView.m */,
+				95B425971CFB32A7002EB36D /* MyAccountDetailCell.h */,
+				95B425981CFB32A7002EB36D /* MyAccountDetailCell.m */,
+				95B4259D1CFB3363002EB36D /* MyAccountDetailModel.h */,
+				95B4259E1CFB3363002EB36D /* MyAccountDetailModel.m */,
+			);
+			path = MyAccountHome;
 			sourceTree = "<group>";
 		};
 		95F533C81CBCD454000C7E91 /* MJRefresh */ = {
@@ -1475,6 +1520,8 @@
 				951FCDD51CEEAD0100A57BEA /* yue@2x.png in Resources */,
 				955AA44A1CF3EE4E00A47121 /* common_icon_info@3x.png in Resources */,
 				951FCDC21CED810A00A57BEA /* Selected@3x.png in Resources */,
+				95B425B31CFC9463002EB36D /* my-account_cash@2x.png in Resources */,
+				95B425B11CFC9463002EB36D /* my-account_card@2x.png in Resources */,
 				95BCB78C1CA280E300E85E10 /* navigationbar_back_icon@2x.png in Resources */,
 				95BCB78D1CA280E300E85E10 /* navigationbar_back_icon@3x.png in Resources */,
 				955AA44B1CF3EE4E00A47121 /* common_icon_succeed@2x.png in Resources */,
@@ -1486,6 +1533,7 @@
 				951FCDD41CEEAD0100A57BEA /* shouru@3x.png in Resources */,
 				95412FB31C9F91FA00D26B11 /* Assets.xcassets in Resources */,
 				9597B0F61CA1168200FF65D9 /* Tab01Normal@2x.png in Resources */,
+				95B425B21CFC9463002EB36D /* my-account_card@3x.png in Resources */,
 				9597B0FB1CA1168200FF65D9 /* Tab02Normal@3x.png in Resources */,
 				9597B0F71CA1168200FF65D9 /* Tab01Normal@3x.png in Resources */,
 				9597B0FC1CA1168200FF65D9 /* Tab02Highlighted@2x.png in Resources */,
@@ -1523,6 +1571,7 @@
 				9597B1011CA1168200FF65D9 /* Tab03Highlighted@3x.png in Resources */,
 				95BCB7AB1CA3D28200E85E10 /* login3rd_icon_qq@2x.png in Resources */,
 				955AA44C1CF3EE4E00A47121 /* common_icon_succeed@3x.png in Resources */,
+				95B425B41CFC9463002EB36D /* my-account_cash@3x.png in Resources */,
 				951FCDDC1CF0013600A57BEA /* selectedBg@2x.png in Resources */,
 				95C0EB071CB60CFB004F9DAD /* shezhi.png in Resources */,
 				95BCB7AE1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png in Resources */,
@@ -1587,6 +1636,7 @@
 			files = (
 				9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */,
 				9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */,
+				95B4259F1CFB3363002EB36D /* MyAccountDetailModel.m in Sources */,
 				95F534091CBCD758000C7E91 /* MJRefreshNormalHeader.m in Sources */,
 				954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */,
 				950C22651CD0680F000C4860 /* AppointmentViewController.m in Sources */,
@@ -1607,6 +1657,7 @@
 				9520BF7C1CAA4A3C00961F05 /* PersonCenterCustomCell.m in Sources */,
 				95F534041CBCD758000C7E91 /* MJRefreshBackStateFooter.m in Sources */,
 				9520BFC01CAA721A00961F05 /* YYImageCoder.m in Sources */,
+				95B425991CFB32A7002EB36D /* MyAccountDetailCell.m in Sources */,
 				955AA4421CF3ECF900A47121 /* XuAlertView.m in Sources */,
 				954130281CA003B500D26B11 /* NSString+Addition.m in Sources */,
 				9520BFB31CAA721A00961F05 /* YYCache.m in Sources */,
@@ -1631,6 +1682,7 @@
 				95F534051CBCD758000C7E91 /* MJRefreshComponent.m in Sources */,
 				95F533DF1CBCD454000C7E91 /* UIScrollView+MJRefresh.m in Sources */,
 				95F534061CBCD758000C7E91 /* MJRefreshFooter.m in Sources */,
+				95B425961CFB3001002EB36D /* MyAccountHeadView.m in Sources */,
 				95F533AB1CBB835F000C7E91 /* OrderDetailViewController.m in Sources */,
 				95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */,
 				9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */,
@@ -1654,6 +1706,7 @@
 				9597B0D81CA1136B00FF65D9 /* PersonCenterViewController.m in Sources */,
 				9520BFB71CAA721A00961F05 /* _YYWebImageSetter.m in Sources */,
 				9520BFBE1CAA721A00961F05 /* YYFrameImage.m in Sources */,
+				95B425AC1CFC8559002EB36D /* AccountProxy.m in Sources */,
 				95412FFB1C9FD3EF00D26B11 /* BaseDataSingleton.m in Sources */,
 				9520BFB81CAA721A00961F05 /* CALayer+YYWebImage.m in Sources */,
 				95F534001CBCD758000C7E91 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1690,6 +1743,7 @@
 				9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */,
 				95F533E01CBCD454000C7E91 /* UIView+MJExtension.m in Sources */,
 				95B0787F1CE9E6A600D8A220 /* MeNetProxy.m in Sources */,
+				95C2C8011CF7E21200BE4971 /* MyAccountHomeViewController.m in Sources */,
 				95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */,
 				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
 				95B078711CE9D3E100D8A220 /* NinaBaseView.m in Sources */,
