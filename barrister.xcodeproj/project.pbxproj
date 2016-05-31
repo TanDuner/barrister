@@ -130,6 +130,9 @@
 		95B425B21CFC9463002EB36D /* my-account_card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425AE1CFC9463002EB36D /* my-account_card@3x.png */; };
 		95B425B31CFC9463002EB36D /* my-account_cash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425AF1CFC9463002EB36D /* my-account_cash@2x.png */; };
 		95B425B41CFC9463002EB36D /* my-account_cash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B425B01CFC9463002EB36D /* my-account_cash@3x.png */; };
+		95B425B71CFD2BE1002EB36D /* BaseTransparentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425B61CFD2BE1002EB36D /* BaseTransparentViewController.m */; };
+		95B425BB1CFD2C5D002EB36D /* BaseNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425BA1CFD2C5D002EB36D /* BaseNoDataView.m */; };
+		95B425BE1CFD2E06002EB36D /* UINavigationBar+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425BD1CFD2E06002EB36D /* UINavigationBar+Background.m */; };
 		95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */; };
 		95BCB7881CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */; };
 		95BCB7891CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7871CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png */; };
@@ -419,6 +422,12 @@
 		95B425AE1CFC9463002EB36D /* my-account_card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_card@3x.png"; sourceTree = "<group>"; };
 		95B425AF1CFC9463002EB36D /* my-account_cash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_cash@2x.png"; sourceTree = "<group>"; };
 		95B425B01CFC9463002EB36D /* my-account_cash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-account_cash@3x.png"; sourceTree = "<group>"; };
+		95B425B51CFD2BE1002EB36D /* BaseTransparentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTransparentViewController.h; sourceTree = "<group>"; };
+		95B425B61CFD2BE1002EB36D /* BaseTransparentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTransparentViewController.m; sourceTree = "<group>"; };
+		95B425B91CFD2C5D002EB36D /* BaseNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNoDataView.h; sourceTree = "<group>"; };
+		95B425BA1CFD2C5D002EB36D /* BaseNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNoDataView.m; sourceTree = "<group>"; };
+		95B425BC1CFD2E06002EB36D /* UINavigationBar+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Background.h"; sourceTree = "<group>"; };
+		95B425BD1CFD2E06002EB36D /* UINavigationBar+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Background.m"; sourceTree = "<group>"; };
 		95BCB7831CA27ADB00E85E10 /* BarristerLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerLoginVC.h; sourceTree = "<group>"; };
 		95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerLoginVC.m; sourceTree = "<group>"; };
 		95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_back_icon_hl@2x.png"; sourceTree = "<group>"; };
@@ -810,6 +819,7 @@
 		95412FEB1C9FD0F700D26B11 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				95B425B81CFD2C51002EB36D /* BaseNoDataView */,
 				955AA44F1CF3EEA100A47121 /* PointLoadingView */,
 				955AA43F1CF3ECEA00A47121 /* XuAlertView */,
 				95B078631CE962B200D8A220 /* TimerButton */,
@@ -847,6 +857,8 @@
 			children = (
 				9597B0451CA0395F00FF65D9 /* BaseViewController.h */,
 				9597B0461CA0395F00FF65D9 /* BaseViewController.m */,
+				95B425B51CFD2BE1002EB36D /* BaseTransparentViewController.h */,
+				95B425B61CFD2BE1002EB36D /* BaseTransparentViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -862,6 +874,8 @@
 		9541300A1CA003A600D26B11 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				95B425BC1CFD2E06002EB36D /* UINavigationBar+Background.h */,
+				95B425BD1CFD2E06002EB36D /* UINavigationBar+Background.m */,
 				9541300B1CA003B500D26B11 /* NSDate+Addition.h */,
 				9541300C1CA003B500D26B11 /* NSDate+Addition.m */,
 				9597B04C1CA03E3900FF65D9 /* UIColorAdditions.h */,
@@ -1282,6 +1296,15 @@
 			path = TimerButton;
 			sourceTree = "<group>";
 		};
+		95B425B81CFD2C51002EB36D /* BaseNoDataView */ = {
+			isa = PBXGroup;
+			children = (
+				95B425B91CFD2C5D002EB36D /* BaseNoDataView.h */,
+				95B425BA1CFD2C5D002EB36D /* BaseNoDataView.m */,
+			);
+			path = BaseNoDataView;
+			sourceTree = "<group>";
+		};
 		95BCB77F1CA2782000E85E10 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -1664,6 +1687,7 @@
 				9520BFBB1CAA721A00961F05 /* UIImage+YYWebImage.m in Sources */,
 				95F5340A1CBCD758000C7E91 /* MJRefreshStateHeader.m in Sources */,
 				9597B0531CA0E31A00FF65D9 /* XuUtlity.m in Sources */,
+				95B425B71CFD2BE1002EB36D /* BaseTransparentViewController.m in Sources */,
 				95C0EAF01CB4B285004F9DAD /* CALayer+YYAdd.m in Sources */,
 				950C226C1CD06F1C000C4860 /* SlideHeadView.m in Sources */,
 				955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */,
@@ -1678,6 +1702,7 @@
 				9520BFC21CAA721A00961F05 /* YYImageCache.m in Sources */,
 				95BCB79B1CA2827B00E85E10 /* BorderTextFieldView.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
+				95B425BE1CFD2E06002EB36D /* UINavigationBar+Background.m in Sources */,
 				9520BFC11CAA721A00961F05 /* YYSpriteSheetImage.m in Sources */,
 				95F534051CBCD758000C7E91 /* MJRefreshComponent.m in Sources */,
 				95F533DF1CBCD454000C7E91 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1722,6 +1747,7 @@
 				95F534011CBCD758000C7E91 /* MJRefreshBackFooter.m in Sources */,
 				95F533DE1CBCD454000C7E91 /* UIScrollView+MJExtension.m in Sources */,
 				9597B0C91CA112ED00FF65D9 /* HomeViewController.m in Sources */,
+				95B425BB1CFD2C5D002EB36D /* BaseNoDataView.m in Sources */,
 				954130091C9FDB4A00D26B11 /* BaseTabbarController.m in Sources */,
 				95F534071CBCD758000C7E91 /* MJRefreshGifHeader.m in Sources */,
 				95F534031CBCD758000C7E91 /* MJRefreshBackNormalFooter.m in Sources */,
