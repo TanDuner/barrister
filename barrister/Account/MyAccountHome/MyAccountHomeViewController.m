@@ -49,23 +49,42 @@
 {
     [super viewWillAppear:animated];
     [self showTabbar:NO];
+    self.detailTableView.delegate = self;
+
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];//用于去除导航栏的底线，也就是周围的边线
+
 }
+
+
 
 
 #pragma -mark ----UI----
 
 -(void)configView
 {
-    [self configTableView];
+    [self initTableView];
     self.title = @"我的账户";
 }
 
--(void)configTableView
+
+/**
+ *  tableView
+ */
+- (void)initTableView
 {
-    [XuUItlity clearTableViewEmptyCellWithTableView:self.detailTableView];
     
     [self.view addSubview:self.detailTableView];
+    [XuUItlity clearTableViewEmptyCellWithTableView:self.detailTableView];
+
+
 }
+
+
+-(void)configTableView
+{
+    
+}
+
 
 #pragma -mark ------Data----------
 -(void)configData
@@ -170,6 +189,11 @@
         _detailTableView.dataSource = self;
         _detailTableView.tableHeaderView = self.headView;
         _detailTableView.refreshDelegate = self;
+        _detailTableView.backgroundColor = [UIColor clearColor];
+        _detailTableView.backgroundView = nil;
+        _detailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _detailTableView.showsVerticalScrollIndicator = NO;
+
     }
     return _detailTableView;
 }

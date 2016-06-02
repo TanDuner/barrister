@@ -133,6 +133,9 @@
 		95B425B71CFD2BE1002EB36D /* BaseTransparentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425B61CFD2BE1002EB36D /* BaseTransparentViewController.m */; };
 		95B425BB1CFD2C5D002EB36D /* BaseNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425BA1CFD2C5D002EB36D /* BaseNoDataView.m */; };
 		95B425BE1CFD2E06002EB36D /* UINavigationBar+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425BD1CFD2E06002EB36D /* UINavigationBar+Background.m */; };
+		95B425E51D00156F002EB36D /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95B425E21D00156F002EB36D /* city.plist */; };
+		95B425E61D00156F002EB36D /* CityChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425E41D00156F002EB36D /* CityChooseViewController.m */; };
+		95B425E91D00157E002EB36D /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B425E81D00157E002EB36D /* NSData+ImageContentType.m */; };
 		95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */; };
 		95BCB7881CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */; };
 		95BCB7891CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7871CA2805F00E85E10 /* navigationbar_back_icon_hl@3x.png */; };
@@ -428,6 +431,11 @@
 		95B425BA1CFD2C5D002EB36D /* BaseNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNoDataView.m; sourceTree = "<group>"; };
 		95B425BC1CFD2E06002EB36D /* UINavigationBar+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Background.h"; sourceTree = "<group>"; };
 		95B425BD1CFD2E06002EB36D /* UINavigationBar+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Background.m"; sourceTree = "<group>"; };
+		95B425E21D00156F002EB36D /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		95B425E31D00156F002EB36D /* CityChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityChooseViewController.h; sourceTree = "<group>"; };
+		95B425E41D00156F002EB36D /* CityChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityChooseViewController.m; sourceTree = "<group>"; };
+		95B425E71D00157E002EB36D /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		95B425E81D00157E002EB36D /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		95BCB7831CA27ADB00E85E10 /* BarristerLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerLoginVC.h; sourceTree = "<group>"; };
 		95BCB7841CA27ADB00E85E10 /* BarristerLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerLoginVC.m; sourceTree = "<group>"; };
 		95BCB7861CA2805F00E85E10 /* navigationbar_back_icon_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_back_icon_hl@2x.png"; sourceTree = "<group>"; };
@@ -782,6 +790,7 @@
 		95412FE81C9FCC1100D26B11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				95B425E11D00156F002EB36D /* CityChoose */,
 				9597B04F1CA0E30B00FF65D9 /* UIUtlity */,
 				9597B0501CA0E30B00FF65D9 /* Utlity */,
 				9541300A1CA003A600D26B11 /* Categorys */,
@@ -874,6 +883,8 @@
 		9541300A1CA003A600D26B11 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				95B425E71D00157E002EB36D /* NSData+ImageContentType.h */,
+				95B425E81D00157E002EB36D /* NSData+ImageContentType.m */,
 				95B425BC1CFD2E06002EB36D /* UINavigationBar+Background.h */,
 				95B425BD1CFD2E06002EB36D /* UINavigationBar+Background.m */,
 				9541300B1CA003B500D26B11 /* NSDate+Addition.h */,
@@ -1305,6 +1316,16 @@
 			path = BaseNoDataView;
 			sourceTree = "<group>";
 		};
+		95B425E11D00156F002EB36D /* CityChoose */ = {
+			isa = PBXGroup;
+			children = (
+				95B425E21D00156F002EB36D /* city.plist */,
+				95B425E31D00156F002EB36D /* CityChooseViewController.h */,
+				95B425E41D00156F002EB36D /* CityChooseViewController.m */,
+			);
+			path = CityChoose;
+			sourceTree = "<group>";
+		};
 		95BCB77F1CA2782000E85E10 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -1574,6 +1595,7 @@
 				95C0EB0D1CB61F81004F9DAD /* jiedan.png in Resources */,
 				951FCDE01CF0042A00A57BEA /* tixian@2x.png in Resources */,
 				955AA44E1CF3EE4E00A47121 /* common_icon_warning@3x.png in Resources */,
+				95B425E51D00156F002EB36D /* city.plist in Resources */,
 				95C0EB081CB60CFB004F9DAD /* zhanghao.png in Resources */,
 				95C0EB0B1CB60EAB004F9DAD /* rightRow.png in Resources */,
 				95F533D91CBCD454000C7E91 /* MJRefresh.bundle in Resources */,
@@ -1667,6 +1689,7 @@
 				9520BFBD1CAA721A00961F05 /* YYAnimatedImageView.m in Sources */,
 				95C0EAF91CB4B301004F9DAD /* UIView+YYAdd.m in Sources */,
 				95F533FF1CBCD758000C7E91 /* MJRefreshAutoNormalFooter.m in Sources */,
+				95B425E91D00157E002EB36D /* NSData+ImageContentType.m in Sources */,
 				950CB7131CC5FEAB004D2A5D /* PersonInfoCustomCell.m in Sources */,
 				9520BFB61CAA721A00961F05 /* YYMemoryCache.m in Sources */,
 				9597B0DE1CA113AF00FF65D9 /* LearnCenterViewController.m in Sources */,
@@ -1764,6 +1787,7 @@
 				9520BFBA1CAA721A00961F05 /* UIButton+YYWebImage.m in Sources */,
 				95412FA81C9F91FA00D26B11 /* main.m in Sources */,
 				95B078721CE9D3E100D8A220 /* NinaPagerView.m in Sources */,
+				95B425E61D00156F002EB36D /* CityChooseViewController.m in Sources */,
 				9520BFB41CAA721A00961F05 /* YYDiskCache.m in Sources */,
 				9520BF761CAA48E400961F05 /* PersonCenterModel.m in Sources */,
 				9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */,

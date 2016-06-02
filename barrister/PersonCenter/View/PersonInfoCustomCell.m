@@ -80,7 +80,13 @@
 
 +(CGFloat)getCellHeightWithModel:(PersonCenterModel *)model
 {
-    return 0;
+    if (model.cellType == PersonCenterModelTypeInfoTX) {
+        return 50;
+    }
+    else
+    {
+        return 44;
+    }
 }
 
 #pragma -mark ------Getter----------

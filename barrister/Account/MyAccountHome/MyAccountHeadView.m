@@ -47,6 +47,7 @@
         self.totalIncomeLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 100)/2.0, self.height - 110, 100, 13)];
         self.totalIncomeLabel.textColor = RGBCOLOR(168, 188, 214);
         self.totalIncomeLabel.font = SystemFont(17.0f);
+        self.totalIncomeLabel.text = [BaseDataSingleton shareInstance].totalIncome;
         
         [self addSubview:self.totalIncomeLabel];
         

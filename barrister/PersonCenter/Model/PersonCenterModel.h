@@ -10,14 +10,14 @@
 
 typedef NS_ENUM(NSInteger, PersonCenterModelType)
 {
-    PersonCenterModelTypeZH,
-    PersonCenterModelTypeZHU,
-    PersonCenterModelTypeXX,
-    PersonCenterModelTypeRZZT,
-    PersonCenterModelTypeJDSZ,
-    PersonCenterModelTypeSZ,
-    PersonCenterModelTypeTX,
-    
+    PersonCenterModelTypeZH,//账号
+    PersonCenterModelTypeZHU,//账户
+    PersonCenterModelTypeXX,//消息
+    PersonCenterModelTypeRZZT,//认证状态
+    PersonCenterModelTypeJDSZ,//接单设置
+    PersonCenterModelTypeSZ,//设置
+    PersonCenterModelTypeInfoTX,//个人信息界面 头像
+    PersonCenterModelTypeInfoCommon,//个人信息界面 通用 左边title 右边subtitle 箭头
 };
 
 typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);

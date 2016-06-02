@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong) PersonCenterModel *model;
 
++(CGFloat)getCellHeightWithModel:(PersonCenterModel *)model;
+
 @end
