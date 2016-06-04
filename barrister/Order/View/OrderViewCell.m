@@ -15,7 +15,7 @@
 /**
  *  头像
  */
-@property (nonatomic,strong) YYAnimatedImageView *headerImageView;
+@property (nonatomic,strong) UIImageView *headerImageView;
 
 /**
  *  用户名称Label
@@ -105,10 +105,10 @@
     return _nameLabel;
 }
 
--(YYAnimatedImageView *)headerImageView
+-(UIImageView *)headerImageView
 {
     if (!_headerImageView) {
-        _headerImageView = [[YYAnimatedImageView alloc] init];
+        _headerImageView = [[UIImageView alloc] init];
         [_headerImageView.layer setCornerRadius:22.5f];
         [_headerImageView.layer setMasksToBounds:YES];
 

@@ -7,6 +7,8 @@
 //
 
 #import "PersonInfoCustomCell.h"
+#import "UIImageView+YYWebImage.h"
+#define ImageWidth 60
 
 @interface PersonInfoCustomCell ()
 
@@ -26,6 +28,7 @@
         [self addSubview:self.titleLabel];
         [self addSubview:self.rightRow];
         [self addSubview:self.subTitleLabel];
+        [self addSubview:self.headerImageView];
     }
     return self;
 }
@@ -52,6 +55,21 @@
             self.rightRow.hidden = YES;
             self.subTitleLabel.hidden = NO;
             self.subTitleLabel.text = self.model.subtitleStr;
+        }
+        
+        if (self.model.cellType == PersonCenterModelTypeInfoTX) {
+            self.headerImageView.hidden = NO;
+            if (self.model.headImageUrl) {
+                [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.headImageUrl] placeholder:[UIImage imageNamed:@"commom_default_head.png"]];
+            }
+            else if(self.model.headImage)
+            {
+                [self.headerImageView setImage:self.model.headImage];
+            }
+        }
+        else
+        {
+            self.headerImageView.hidden = YES;
         }
     }
 }
@@ -81,11 +99,11 @@
 +(CGFloat)getCellHeightWithModel:(PersonCenterModel *)model
 {
     if (model.cellType == PersonCenterModelTypeInfoTX) {
-        return 50;
+        return 80;
     }
     else
     {
-        return 44;
+        return 45;
     }
 }
 
@@ -129,6 +147,18 @@
     return _subTitleLabel;
 }
 
+-(UIImageView *)headerImageView
+{
+    if (!_headerImageView) {
+        _headerImageView = [[UIImageView alloc] init];
+        [_headerImageView setFrame:CGRectMake(SCREENWIDTH - 15 - 15 - 10 - ImageWidth, ([PersonInfoCustomCell getCellHeightWithModel:self.model] - ImageWidth)/2.0, ImageWidth, ImageWidth)];
+        _headerImageView.layer.cornerRadius = 30.0f;
+        _headerImageView.image = [UIImage imageNamed:@"commom_default_head.png"];
+        _headerImageView.layer.masksToBounds = YES;
+        
+    }
+    return _headerImageView;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

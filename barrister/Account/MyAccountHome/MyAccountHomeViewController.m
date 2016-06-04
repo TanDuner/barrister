@@ -15,6 +15,7 @@
 #import "MyAccountDetailModel.h"
 #import "XuUItlity.h"
 #import "RefreshTableView.h"
+#import "MyBankCardController.h"
 
 #define HeadViewHeight 115
 
@@ -176,7 +177,12 @@
 -(MyAccountHeadView *)headView
 {
     if (!_headView) {
+        __weak typeof(*&self) weakSelf = self;
         _headView = [[MyAccountHeadView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeadViewHeight)];
+        _headView.handleBlock = ^(NSInteger type)
+        {
+            [weakSelf handleHeadViewAcitonWithType:type];
+        };
     }
     return _headView;
 }
@@ -212,5 +218,29 @@
         _proxy = [[AccountProxy alloc] init];
     }
     return _proxy;
+}
+
+-(void)handleHeadViewAcitonWithType:(AccountHeadViewHandleType)type
+{
+    switch (type) {
+        case AccountHeadViewHandleTypeSM:
+        {
+        
+        }
+            break;
+        case AccountHeadViewHandleTypeTX:
+        {
+        
+        }
+            break;
+        case AccountHeadViewHandleTypeYHK:
+        {
+            MyBankCardController *myBankVC = [[MyBankCardController alloc] init];
+            [self.navigationController pushViewController:myBankVC animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 @end

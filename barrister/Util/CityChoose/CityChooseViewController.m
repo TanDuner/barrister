@@ -38,7 +38,7 @@
 
 #pragma mark 创建两个tableView
 - (void)addTableView {
-    self.title = @"城市";
+    self.title = @"选择城市";
     self.view.backgroundColor = [UIColor whiteColor];
     //获取目录下的city.plist文件
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"plist"];

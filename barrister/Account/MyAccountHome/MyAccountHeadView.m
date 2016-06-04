@@ -59,6 +59,7 @@
         [self.tixianButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.tixianButton setImage:[UIImage imageNamed:@"my-account_cash.png"] forState:UIControlStateNormal];
         [self.tixianButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+        [self.tixianButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.tixianButton];
         
         UIImageView *lineView = [[UIImageView alloc] initWithFrame:RECT((SCREENWIDTH - .5)/2.0, self.height - 30, .5, 20)];
@@ -72,6 +73,7 @@
         self.yinhangkaButton.titleLabel.font = SystemFont(14.0);
         [self.yinhangkaButton setTitle:@"银行卡" forState:UIControlStateNormal];
         [self.yinhangkaButton setImage:[UIImage imageNamed:@"my-account_card.png"] forState:UIControlStateNormal];
+        [self.yinhangkaButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.yinhangkaButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
         [self addSubview:self.yinhangkaButton];
 
@@ -81,7 +83,28 @@
 
 -(void)explainAction
 {
-    
+    if (self.handleBlock) {
+        self.handleBlock(AccountHeadViewHandleTypeSM);
+    }
+}
+
+-(void)buttonAction:(UIButton *)button
+{
+    if (self.handleBlock) {
+        NSInteger type = -1;
+        if (button == self.tixianButton) {
+            type = AccountHeadViewHandleTypeTX;
+        }
+        else if (button == self.yinhangkaButton)
+        {
+            type = AccountHeadViewHandleTypeYHK;
+        }
+        if (type != -1) {
+            self.handleBlock (type);                
+        }
+
+    }
+   
 }
 
 

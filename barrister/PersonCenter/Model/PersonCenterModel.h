@@ -31,6 +31,8 @@ typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);
 @property (nonatomic,assign) BOOL isAccountLogin;
 @property (nonatomic,strong) ModelActionBlock actionBlock;
 @property (nonatomic,assign) PersonCenterModelType cellType;
+@property (nonatomic,strong) UIImage *headImage;
+@property (nonatomic,strong) NSString *headImageUrl;
 
 /**
  *  for 个人资料页面 头像回显
