@@ -8,6 +8,9 @@
 
 #import "AddBankCardViewController.h"
 #import "BorderTextFieldView.h"
+#import "ScanCardViewController.h"
+#import "BankCardModel.h"
+#import "XuUItlity.h"
 
 #define RowHeight 44
 #define LeftSpace 10
@@ -33,11 +36,15 @@
 @end
 
 @implementation AddBankCardViewController
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 -(instancetype)init
 {
     if (self = [super init]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChangeFrame:) name:UIKeyboardWillHideNotification object:nil];
     };
     return self;
@@ -46,6 +53,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"添加银行卡";
     [self configView];
 }
 
@@ -149,6 +157,14 @@
     _bankCardNumTextField.leftViewMode = UITextFieldViewModeAlways;
     _bankCardNumTextField.textLeftOffset = LeftViewWidth + 20;
     
+    UIButton *scanBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [scanBtn setFrame:RECT(SCREENWIDTH - 30 - 20, 7, 30, RowHeight - 14)];
+    [scanBtn setImage:[UIImage imageNamed:@"canCard.png"] forState:UIControlStateNormal];
+    [scanBtn addTarget:self action:@selector(sacnCardAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_bankCardNumTextField addSubview:scanBtn];
+    
+    
+    
     [inputBgView addSubview:_nameTextField];
     [inputBgView addSubview:sepView1];
 
@@ -187,7 +203,15 @@
 #pragma -mark ----UITextField Methods-----
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    self.responderTextField = textField;
+    CGFloat offset = self.view.height - (textField.y + textField.height + 216 + 200);
+    if (offset <= 0) {
+        CGRect rect = self.view.frame;
+        rect.origin.y = offset;
+        [UIView animateWithDuration:.5 animations:^{
+            self.view.frame = rect;
+        }];
+    }
+    
     return YES;
 }
 
@@ -195,23 +219,68 @@
 
 -(void)keyBoardChangeFrame:(NSNotification *)aNotification
 {
-    NSDictionary *info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    
-    CGRect responderRect = [self.view convertRect:self.responderTextField.frame fromView:inputBgView];
-    
-    CGFloat detalHeight = responderRect.origin.y + responderRect.size.height - kbSize.height;
-    
-    if (detalHeight > 0) {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self.view setFrame:CGRectMake(0, -detalHeight, SCREENWIDTH, SCREENHEIGHT)];
-        }];
-    }
-    
-   
+    [UIView animateWithDuration:.5 animations:^{
+        self.view.frame = RECT(0, NAVBAR_HIGHTIOS_7, SCREENWIDTH, SCREENHEIGHT - NAVBAR_HIGHTIOS_7);
+    }];
     
 }
 
+-(void)sacnCardAction:(UIButton *)btn
+{
+    
+    __weak typeof(*&self) weakSelf = self;
+    
+    //"cardtype": "贷记卡",
+    //"cardlength": 16,
+    //"cardprefixnum": "518710",
+    //"cardname": "MASTER信用卡",
+    //"bankname": "招商银行信用卡中心",
+    //"banknum": "03080010"
+
+    ScanCardViewController *svc = [[ScanCardViewController alloc] init];
+    svc.cardBlock = ^(BankCardModel *model)
+    {
+        [XuUItlity hideLoading];
+        weakSelf.bankNameTextField.text = model.bankname;
+        weakSelf.bankCardNumTextField.text = model.cardNum;
+    };
+    [self.navigationController pushViewController:svc animated:YES];
+
+}
+
+/**
+ *  根据卡号识别卡的信息
+ */
+
+-(void)requestCardInfoWithCardNum:(NSString *)cardNo
+{
+    
+
+}
+
+//NSString *httpUrl = @"http://apis.baidu.com/datatiny/cardinfo/cardinfo";
+//NSString *httpArg = @"cardnum=5187102112341234";
+//[self request: httpUrl withHttpArg: httpArg];
+//
+//-(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
+//    NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
+//    NSURL *url = [NSURL URLWithString: urlStr];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
+//    [request setHTTPMethod: @"GET"];
+//    [request addValue: @"您自己的apikey" forHTTPHeaderField: @"apikey"];
+//    [NSURLConnection sendAsynchronousRequest: request
+//                                       queue: [NSOperationQueue mainQueue]
+//                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
+//                               if (error) {
+//                                   NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
+//                               } else {
+//                                   NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
+//                                   NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                                   NSLog(@"HttpResponseCode:%ld", responseCode);
+//                                   NSLog(@"HttpResponseBody %@",responseString);
+//                               }
+//                           }];
+//}
 
 
 @end

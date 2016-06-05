@@ -21,4 +21,13 @@
     return dataSingleTon;
 }
 
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.remainingBalance = @"300";
+        self.totalIncome = @"0";
+    }
+    return self;
+}
+
 @end

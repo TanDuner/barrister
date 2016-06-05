@@ -18,4 +18,18 @@
 
 -(void)getAccountDetailDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
 
+
+/**
+ *  根据卡号获取卡的信息
+ *
+ *  @param cardNum
+ */
+-(void)getCardInfoWithCardNum:(NSString *)cardNum WithBlock:(ServiceCallBlock)aBlock;
+
+/**
+ *  提现
+ */
+
+-(void)tiXianActionWithMoney:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+
 @end

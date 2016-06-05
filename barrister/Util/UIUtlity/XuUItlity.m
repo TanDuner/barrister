@@ -232,7 +232,7 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     [((XuPointLoadingView *)_loadingHUD.customView) startAnimating];
     
     [_loadingHUD setColor:[UIColor colorWithString:@"#000000" colorAlpha:0.55]];
-    _loadingHUD.labelColor = [UIColor colorWithString:@"#ffffff" colorAlpha:1.0];
+    [_hintHUD setTextColor:[UIColor colorWithString:@"#ffffff" colorAlpha:1.0]];
     [_loadingHUD setDimBackground:NO];
     
     [_loadingHUD show:YES];
@@ -258,7 +258,7 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     [((XuPointLoadingView *)_loadingHUD.customView) startAnimating];
     
     [_loadingHUD setColor:[UIColor colorWithString:@"#000000" colorAlpha:0.55]];
-    _loadingHUD.labelColor = [UIColor colorWithString:@"#ffffff" colorAlpha:1.0];
+    [_hintHUD setTextColor:[UIColor colorWithString:@"#ffffff" colorAlpha:1.0]];
     [_loadingHUD setDimBackground:NO];
     
     [_loadingHUD show:YES];
@@ -288,7 +288,7 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     else
     {
         //        _hintHUD.labelText = hintText;
-        _hintHUD.detailsLabelFont = SystemFont(32);
+        _hintHUD.detailsLabelFont = SystemFont(16.0f);
         _hintHUD.detailsLabelText = hintText;
     }
     _hintHUD.mode = MBProgressHUDModeCustomView;
@@ -296,9 +296,9 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     [theWindow addSubview:_hintHUD];
     
     [_hintHUD setColor:[UIColor colorWithString:@"#000000" colorAlpha:0.8]];
-    _hintHUD.labelColor = [UIColor colorWithString:@"#ffffff" colorAlpha:1.0];
+    [_hintHUD setTextColor:[UIColor colorWithString:@"#ffffff" colorAlpha:1.0]];
     [_hintHUD setDimBackground:NO];
-    [_hintHUD setMargin:INFO_HINT_MARGIN];
+    [_hintHUD setOutMargin:INFO_HINT_MARGIN];
     
     [_hintHUD showAnimated:YES whileExecutingBlock:nil completionBlock:aCompletion];
     [_hintHUD hide:YES afterDelay:2.0f];
@@ -363,7 +363,7 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     [aView addSubview:_hintHUD];
     
     [_hintHUD setColor:[UIColor colorWithString:@"#000000" colorAlpha:0.8]];
-    _hintHUD.labelColor = [UIColor colorWithString:@"#ffffff" colorAlpha:1.0];
+    [_hintHUD setTextColor:[UIColor colorWithString:@"#ffffff" colorAlpha:1.0]];
     [_hintHUD setDimBackground:NO];
     
     [_hintHUD showAnimated:YES whileExecutingBlock:nil completionBlock:aCompletion];

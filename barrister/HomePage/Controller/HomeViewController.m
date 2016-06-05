@@ -15,6 +15,7 @@
 #import "HomeAccountCell.h"
 #import "HomePageProxy.h"
 #import "AppointmentViewController.h"
+#import "TiXianViewControlleer.h"
 
 @interface HomeViewController ()
 
@@ -421,7 +422,8 @@
 
 -(void)tixianAction
 {
-    
+    TiXianViewControlleer *tixianVC = [[TiXianViewControlleer alloc] init];
+    [self.navigationController pushViewController:tixianVC animated:YES];
 }
 
 @end

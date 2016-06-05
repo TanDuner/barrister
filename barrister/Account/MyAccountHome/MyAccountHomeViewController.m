@@ -16,6 +16,7 @@
 #import "XuUItlity.h"
 #import "RefreshTableView.h"
 #import "MyBankCardController.h"
+#import "TiXianViewControlleer.h"
 
 #define HeadViewHeight 115
 
@@ -230,7 +231,8 @@
             break;
         case AccountHeadViewHandleTypeTX:
         {
-        
+            TiXianViewControlleer *tixian = [[TiXianViewControlleer alloc] init];
+            [self.navigationController pushViewController:tixian animated:YES];
         }
             break;
         case AccountHeadViewHandleTypeYHK:
