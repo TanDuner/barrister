@@ -14,7 +14,6 @@
 #import "KSFrameView.h"
 #import "AccountProxy.h"
 #import "BankCardModel.h"
-#import "XuUItlity.h"
 
 @interface ScanCardViewController ()<KSHRecDelegate>
 {

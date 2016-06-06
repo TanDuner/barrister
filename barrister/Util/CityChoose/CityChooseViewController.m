@@ -7,7 +7,6 @@
 //
 
 #import "CityChooseViewController.h"
-#import "XuUItlity.h"
 
 
 @interface CityChooseViewController ()<UITableViewDelegate, UITableViewDataSource>

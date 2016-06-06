@@ -8,7 +8,6 @@
 
 #import "TiXianViewControlleer.h"
 #import "BorderTextFieldView.h"
-#import "XuUItlity.h"
 #import "UIButton+EnlargeEdge.h"
 #import "AccountProxy.h"
 

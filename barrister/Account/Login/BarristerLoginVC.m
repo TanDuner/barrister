@@ -10,6 +10,7 @@
 #import "BorderTextFieldView.h"
 #import "BarristerRegisterVC.h"
 #import "TFSButton.h"
+#import "LoginProxy.h"
 
 const float MidViewHeight = 190 / 2.0;
 
@@ -23,6 +24,8 @@ const float MidViewHeight = 190 / 2.0;
     UIButton *getValidCodeBtn;
 }
 
+@property (nonatomic,strong) LoginProxy *proxy;
+
 @end
 
 
@@ -33,6 +36,8 @@ const float MidViewHeight = 190 / 2.0;
     [super viewDidLoad];
     
     [self createView];
+    
+    [self initData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +51,12 @@ const float MidViewHeight = 190 / 2.0;
     [self showTabbar:NO];
 }
 
+
+#pragma -mark ------Data-----
+-(void)initData
+{
+    self.proxy = [[LoginProxy alloc] init];
+}
 
 
 #pragma -mark ----UI-------
@@ -210,7 +221,19 @@ const float MidViewHeight = 190 / 2.0;
 
 -(void)loginAction:(UIButton *)button
 {
+    if ([XuUtlity validateMobile:accountTextField.text]) {
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone", nil];
+        [self.proxy loginWithParams:params Block:^(id returnData, BOOL success) {
+            if (success) {
+                [XuUItlity showSucceedHint:@"登录成功" completionBlock:nil];
+            }
+            else
+            {
+                [XuUItlity showFailedHint:@"登录失败" completionBlock:nil];
+            }
+        }];
 
+    }
 }
 
 -(void)requestValidCode
@@ -219,14 +242,6 @@ const float MidViewHeight = 190 / 2.0;
 }
 
 
-//-(void)forgetPwdAction:(UIButton *)button
-//{
-//    
-//}
-//
-//-(void)thirdLoginAction:(UIButton *)btn
-//{
-//    
-//}
+
 
 @end

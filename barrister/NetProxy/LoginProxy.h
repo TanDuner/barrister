@@ -26,4 +26,9 @@
  */
 -(void)getValidCodeWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
 
+/**
+ *  注销
+ */
+
+-(void)loginOutWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
 @end

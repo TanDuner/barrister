@@ -8,9 +8,9 @@
 
 #import "LoginProxy.h"
 
-#define GetValidCodeUrl @""
-#define LoginUrl  @""
-
+#define GetValidCodeUrl @"getVerifyCode"
+#define LoginUrl  @"login"
+#define LogoutUrl @"logout"
 
 
 @implementation LoginProxy
@@ -28,6 +28,19 @@
     }];
 }
 
+
+-(void)loginOutWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:LogoutUrl params:params success:^(id response) {
+        if (aBlock) {
+            aBlock(response,YES);
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,YES);
+        }
+    }];
+}
 
 -(void)getValidCodeWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {

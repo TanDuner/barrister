@@ -13,7 +13,6 @@
 #import "XuNetWorking.h"
 #import "AccountProxy.h"
 #import "MyAccountDetailModel.h"
-#import "XuUItlity.h"
 #import "RefreshTableView.h"
 #import "MyBankCardController.h"
 #import "TiXianViewControlleer.h"

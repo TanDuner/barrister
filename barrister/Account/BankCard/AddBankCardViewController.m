@@ -10,7 +10,6 @@
 #import "BorderTextFieldView.h"
 #import "ScanCardViewController.h"
 #import "BankCardModel.h"
-#import "XuUItlity.h"
 
 #define RowHeight 44
 #define LeftSpace 10

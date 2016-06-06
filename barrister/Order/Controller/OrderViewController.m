@@ -12,7 +12,6 @@
 #import "OrderDetailViewController.h"
 #import "RefreshTableView.h"
 #import "OrderProxy.h"
-#import "XuUItlity.h"
 
 @interface OrderViewController ()<UITableViewDataSource,UITableViewDelegate,RefreshTableViewDelegate>
 

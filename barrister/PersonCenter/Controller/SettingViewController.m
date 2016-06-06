@@ -9,10 +9,13 @@
 #import "SettingViewController.h"
 #import "BaseDataSingleton.h"
 #import "AppDelegate.h"
+#import "LoginProxy.h"
 
 @interface SettingViewController ()
 
 @property (nonatomic,strong) UIButton *bottomBtn;
+
+@property (nonatomic,strong) LoginProxy *proxy;
 
 @end
 
@@ -109,10 +112,29 @@
 -(void)logoutAction:(UIButton *)button
 {
     if ([BaseDataSingleton shareInstance].isAccountLogin) {
-        [self.navigationController popViewControllerAnimated:YES];
         
-        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        [delegate selectTabWithIndex:0];
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+        [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"id"];
+        [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+        [XuUItlity showLoading:@"正在注销"];
+        [self.proxy loginOutWithParams:params Block:^(id returnData, BOOL success) {
+            [XuUItlity hideLoading];
+            if (success) {
+                [self.navigationController popViewControllerAnimated:YES];
+                AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                [delegate selectTabWithIndex:0];
+                
+            }
+            else
+            {
+                [XuUItlity showFailedHint:@"注销失败" completionBlock:nil];
+            }
+        }];
+
+    }
+    else
+    {
+
     }
 }
 
@@ -124,6 +146,14 @@
         _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     }
     return _bottomBtn;
+}
+
+-(LoginProxy *)proxy
+{
+    if (!_proxy) {
+        _proxy = [[LoginProxy alloc] init];
+    }
+    return _proxy;
 }
 
 @end
