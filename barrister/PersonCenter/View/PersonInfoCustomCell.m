@@ -59,6 +59,7 @@
         
         if (self.model.cellType == PersonCenterModelTypeInfoTX) {
             self.headerImageView.hidden = NO;
+            [self.headerImageView setFrame:CGRectMake(SCREENWIDTH - 15 - 15 - 10 - ImageWidth, ([PersonInfoCustomCell getCellHeightWithModel:self.model] - ImageWidth)/2.0, ImageWidth, ImageWidth)];
             if (self.model.headImageUrl) {
                 [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.headImageUrl] placeholder:[UIImage imageNamed:@"commom_default_head.png"]];
             }
@@ -151,7 +152,6 @@
 {
     if (!_headerImageView) {
         _headerImageView = [[UIImageView alloc] init];
-        [_headerImageView setFrame:CGRectMake(SCREENWIDTH - 15 - 15 - 10 - ImageWidth, ([PersonInfoCustomCell getCellHeightWithModel:self.model] - ImageWidth)/2.0, ImageWidth, ImageWidth)];
         _headerImageView.layer.cornerRadius = 30.0f;
         _headerImageView.image = [UIImage imageNamed:@"commom_default_head.png"];
         _headerImageView.layer.masksToBounds = YES;

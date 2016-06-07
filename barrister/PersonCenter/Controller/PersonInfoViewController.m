@@ -10,8 +10,12 @@
 #import "PersonCenterModel.h"
 #import "PersonInfoCustomCell.h"
 #import "CityChooseViewController.h"
+#import "AJPhotoPickerViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface PersonInfoViewController ()
+@interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
+@property (nonatomic,strong) UIImage *headImage;
 
 @end
 
@@ -20,12 +24,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configData];
+    [self configView];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma -mark ----UI------
+
+-(void)configView
+{
+    self.title = @"个人信息";
 }
 
 #pragma -mark ---------Data--------
@@ -77,7 +89,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
+        {
+            AJPhotoPickerViewController *picker = [[AJPhotoPickerViewController alloc] init];
+            picker.assetsFilter = [ALAssetsFilter allPhotos];
+            picker.showEmptyGroups = YES;
+            picker.delegate = self;
+            picker.selectionFilter = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                return YES;
+            }];
             
+            [self presentViewController:picker animated:YES completion:nil];
+
+        }
             break;
         case 1:
             
@@ -103,15 +126,71 @@
 }
 
 
+#pragma -mark ---Photo Picker----
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)photoPickerDidCancel:(AJPhotoPickerViewController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
-*/
+
+- (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAssets:(NSArray *)assets {
+    if (assets.count == 1) {
+        ALAsset *asset = assets[0];
+        self.headImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
+        model.headImage = self.headImage;
+        [self.tableView reloadData];
+        
+    }
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    
+    
+}
+
+
+- (void)photoPickerTapCameraAction:(AJPhotoPickerViewController *)picker {
+    [self checkCameraAvailability:^(BOOL auth) {
+        if (!auth) {
+            NSLog(@"没有访问相机权限");
+            return;
+        }
+        
+        [picker dismissViewControllerAnimated:NO completion:nil];
+        UIImagePickerController *cameraUI = [UIImagePickerController new];
+        cameraUI.allowsEditing = NO;
+        cameraUI.delegate = self;
+        cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+        cameraUI.cameraFlashMode=UIImagePickerControllerCameraFlashModeAuto;
+        
+        [self presentViewController: cameraUI animated: YES completion:nil];
+    }];
+}
+
+- (void)checkCameraAvailability:(void (^)(BOOL auth))block {
+    BOOL status = NO;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusAuthorized) {
+        status = YES;
+    } else if (authStatus == AVAuthorizationStatusDenied) {
+        status = NO;
+    } else if (authStatus == AVAuthorizationStatusRestricted) {
+        status = NO;
+    } else if (authStatus == AVAuthorizationStatusNotDetermined) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if(granted){
+                if (block) {
+                    block(granted);
+                }
+            } else {
+                if (block) {
+                    block(granted);
+                }
+            }
+        }];
+        return;
+    }
+    if (block) {
+        block(status);
+    }
+}
 
 @end
