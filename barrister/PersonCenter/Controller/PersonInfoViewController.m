@@ -12,6 +12,7 @@
 #import "CityChooseViewController.h"
 #import "AJPhotoPickerViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ModifyInfoViewController.h"
 
 @interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -87,6 +88,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.items.count <= indexPath.row) {
+        return;
+    }
+    
+    PersonCenterModel *modelTemp = [self.items objectAtIndex:indexPath.row];
     switch (indexPath.row) {
         case 0:
         {
@@ -103,11 +109,20 @@
         }
             break;
         case 1:
-            
-            break;
         case 2:
-            break;
         case 3:
+        case 5:
+        case 6:
+        case 9:
+        {
+            ModifyInfoViewController *modifyVC = [[ModifyInfoViewController alloc] initWithModel:modelTemp];
+            modifyVC.modifyBlock = ^(PersonCenterModel *model)
+            {
+                [self.items replaceObjectAtIndex:indexPath.row withObject:model];
+                [self.tableView reloadData];
+            };
+            [self.navigationController pushViewController:modifyVC animated:YES];
+        }
             break;
         case 4:
         {
@@ -115,9 +130,9 @@
             [self.navigationController pushViewController:cityVC animated:YES];
         }
             break;
-        case 5:
+        case 7:
             break;
-        case 6:
+        case 8:
             break;
 
         default:
@@ -164,6 +179,30 @@
         [self presentViewController: cameraUI animated: YES completion:nil];
     }];
 }
+
+/**
+ *  相机拍摄完成图片
+ *
+ *  @param picker
+ *  @param image
+ *  @param editingInfo
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        UIImage* image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
+        self.headImage = image;
+        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
+        model.headImage = self.headImage;
+        [self.tableView reloadData];
+
+
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
+}
+
 
 - (void)checkCameraAvailability:(void (^)(BOOL auth))block {
     BOOL status = NO;

@@ -54,7 +54,6 @@
         else {
             self.rightRow.hidden = YES;
             self.subTitleLabel.hidden = NO;
-            self.subTitleLabel.text = self.model.subtitleStr;
         }
         
         if (self.model.cellType == PersonCenterModelTypeInfoTX) {
@@ -70,6 +69,7 @@
         }
         else
         {
+            self.subTitleLabel.text = self.model.subtitleStr;
             self.headerImageView.hidden = YES;
         }
     }

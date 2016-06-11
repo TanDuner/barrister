@@ -66,6 +66,7 @@
 		95412A111D06674800C6624F /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129F81D06674800C6624F /* NSArray+MASAdditions.m */; };
 		95412A121D06674800C6624F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129FB1D06674800C6624F /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		95412A131D06674800C6624F /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129FD1D06674800C6624F /* View+MASAdditions.m */; };
+		95412A161D07BD6200C6624F /* ModifyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95412A151D07BD6200C6624F /* ModifyInfoViewController.m */; };
 		95412FA81C9F91FA00D26B11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95412FA71C9F91FA00D26B11 /* main.m */; };
 		95412FAB1C9F91FA00D26B11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95412FAA1C9F91FA00D26B11 /* AppDelegate.m */; };
 		95412FB31C9F91FA00D26B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95412FB21C9F91FA00D26B11 /* Assets.xcassets */; };
@@ -378,6 +379,8 @@
 		954129FC1D06674800C6624F /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
 		954129FD1D06674800C6624F /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		954129FE1D06674800C6624F /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		95412A141D07BD6200C6624F /* ModifyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyInfoViewController.h; sourceTree = "<group>"; };
+		95412A151D07BD6200C6624F /* ModifyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyInfoViewController.m; sourceTree = "<group>"; };
 		95412FA31C9F91FA00D26B11 /* barrister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = barrister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95412FA71C9F91FA00D26B11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95412FA91C9F91FA00D26B11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1336,6 +1339,8 @@
 				9597B0D71CA1136B00FF65D9 /* PersonCenterViewController.m */,
 				950CB70E1CC5FE5F004D2A5D /* PersonInfoViewController.h */,
 				950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */,
+				95412A141D07BD6200C6624F /* ModifyInfoViewController.h */,
+				95412A151D07BD6200C6624F /* ModifyInfoViewController.m */,
 				95F533A61CBB53FB000C7E91 /* SettingViewController.h */,
 				95F533A71CBB53FB000C7E91 /* SettingViewController.m */,
 				950C22631CD0680F000C4860 /* AppointmentViewController.h */,
@@ -2238,6 +2243,7 @@
 				95412A0F1D06674800C6624F /* MASViewAttribute.m in Sources */,
 				9520BFB71CAA721A00961F05 /* _YYWebImageSetter.m in Sources */,
 				9520BFBE1CAA721A00961F05 /* YYFrameImage.m in Sources */,
+				95412A161D07BD6200C6624F /* ModifyInfoViewController.m in Sources */,
 				95B425AC1CFC8559002EB36D /* AccountProxy.m in Sources */,
 				95412FFB1C9FD3EF00D26B11 /* BaseDataSingleton.m in Sources */,
 				9520BFB81CAA721A00961F05 /* CALayer+YYWebImage.m in Sources */,
