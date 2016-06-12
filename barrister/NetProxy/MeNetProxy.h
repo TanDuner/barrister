@@ -36,6 +36,8 @@
  *  @param params <#params description#>
  *  @param aBlock <#aBlock description#>
  */
--(void)uploadHeadImageWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
-
+-(void)UploadHeadImageUrlWithImage:(UIImage *)image
+                            params:(NSMutableDictionary *)params
+                          fileName:(NSString *)fileName
+                             Block:(ServiceCallBlock)aBlock;
 @end

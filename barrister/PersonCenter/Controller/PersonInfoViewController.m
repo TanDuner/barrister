@@ -14,11 +14,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ModifyInfoViewController.h"
 #import "XuNetWorking.h"
+#import "MeNetProxy.h"
 
 @interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) UIImage *headImage;
 
+@property (nonatomic,strong) MeNetProxy *proxy;
 @end
 
 @implementation PersonInfoViewController
@@ -241,7 +243,29 @@
 
 -(void)uploadHeadImage
 {
+    [self.proxy UploadHeadImageUrlWithImage:self.headImage params:nil fileName:@"userIcon" Block:^(id returnData, BOOL success) {
+        if (success) {
+            [XuUItlity showSucceedHint:@"上传成功" completionBlock:nil];
+            PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
+            model.headImage = self.headImage;
+            [self.tableView reloadData];
 
+        }
+        else
+        {
+            [XuUItlity showFailedHint:@"上传失败" completionBlock:nil];
+        }
+    }];
+}
+
+#pragma -mark ----getter----
+
+-(MeNetProxy *)proxy
+{
+    if (!_proxy) {
+        _proxy = [[MeNetProxy alloc] init];
+    }
+    return _proxy;
 }
 
 @end

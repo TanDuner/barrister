@@ -56,7 +56,11 @@
  *  @param params 参数
  *  @param aBlock 回调
  */
--(void)uploadHeadImageWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+
+-(void)UploadHeadImageUrlWithImage:(UIImage *)image
+                            params:(NSMutableDictionary *)params
+                          fileName:(NSString *)fileName
+                             Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking uploadWithImage:nil url:UploadHeadImageUrl filename:@"uploadUserIcon.jpg" name:@"" mimeType:@"" parameters:nil progress:nil success:^(id response) {
         if (aBlock) {
