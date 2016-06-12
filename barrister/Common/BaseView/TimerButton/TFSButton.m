@@ -31,12 +31,12 @@ typedef void(^TouchBtn)(TFSButton* btn);
 //        self.layer.masksToBounds = YES;
         
         [self initBtnStatus];
-        [self setTitleColor:KColorGray2 forState:UIControlStateNormal];
+        [self setTitleColor:KColorGray666 forState:UIControlStateNormal];
         self.titleLabel.font = SystemFont(13.0f);
         [self setTitle:@"获取验证码" forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         
-        [self setBackgroundImage:[UIImage createImageWithColor:KColorGray1] forState:UIControlStateSelected];
+        [self setBackgroundImage:[UIImage createImageWithColor:KColorGray999] forState:UIControlStateSelected];
         [self addTarget:self action:@selector(clickSelfBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;

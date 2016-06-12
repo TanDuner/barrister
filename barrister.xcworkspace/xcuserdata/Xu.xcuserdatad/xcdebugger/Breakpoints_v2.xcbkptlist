@@ -74,7 +74,7 @@
                   moduleName = "barrister"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xu/Documents/barrister/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m"
-                  timestampString = "487066518.91273"
+                  timestampString = "487421166.162968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -89,7 +89,7 @@
                   moduleName = "barrister"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xu/Documents/barrister/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m"
-                  timestampString = "487066518.912998"
+                  timestampString = "487421166.163302"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -104,7 +104,7 @@
                   moduleName = "barrister"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xu/Documents/barrister/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m"
-                  timestampString = "487066518.913164"
+                  timestampString = "487421166.163543"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -154,6 +154,16 @@
             endingLineNumber = "215"
             landmarkName = "-didEndRecNumber:image:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

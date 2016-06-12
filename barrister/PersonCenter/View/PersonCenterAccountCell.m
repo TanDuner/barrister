@@ -50,14 +50,14 @@
     if (self.model.isAccountLogin) {
         [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, self.iconImageIVew.y + 5, SCREENWIDTH - self.iconImageIVew.width - LeftPadding - 5 - 15 - 30, 15)];
         [self.subtitleLabel setFrame:RECT(self.titleLabel.x, self.iconImageIVew.y + self.iconImageIVew.height - 20 , self.titleLabel.width, 10)];
-        _titleLabel.textColor = KColorGray3;
+        _titleLabel.textColor = KColorGray333;
         self.rightRow.hidden = NO;
     }
     else
     {
         [self.iconImageIVew setFrame:RECT(LeftPadding + 5, ([PersonCenterAccountCell getCellHeight] - IconWidht)/2.0, IconWidht, IconWidht)];
         [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, ([PersonCenterAccountCell getCellHeight] - 15)/2.0, SCREENWIDTH - 100, 15)];
-        _titleLabel.textColor = KColorGray2;
+        _titleLabel.textColor = KColorGray666;
         self.rightRow.hidden = YES;
 
     }
@@ -130,7 +130,7 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.textColor = KColorGray2;
+        _titleLabel.textColor = KColorGray666;
         _titleLabel.font = SystemFont(15.0f);
     }
     return _titleLabel;
@@ -154,7 +154,7 @@
     if (!_subtitleLabel) {
         _subtitleLabel = [[UILabel alloc] init];
         _subtitleLabel.font = SystemFont(13.0f);
-        _subtitleLabel.textColor = KColorGray2;
+        _subtitleLabel.textColor = KColorGray666;
         _subtitleLabel.hidden = YES;
     }
     return _subtitleLabel;

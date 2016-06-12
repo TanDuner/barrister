@@ -14,6 +14,8 @@
 #import "XuUtlity.h"
 #import "XuUItlity.h"
 
+#define BaseUrl  @"http://119.254.167.200:8080/lawerservice/"
+
 #define kLoadingViewTag 100000      // LoadingView tag
 #define kNetworkErrorViewTag 100001 // NetworkErrorView.xib tag
 #define kMainTabbarBgViewTag 100002 // 主tabbar tag
@@ -74,13 +76,13 @@
 
 #define kNavigationBarColor     RGBCOLOR(55, 114, 174)
 #define kNavigationTitleColor   UIColorFromRGB(0xFFFFFFFF)
-#define kBaseViewBackgroundColor    RGBCOLOR(241, 241, 241)
+#define kBaseViewBackgroundColor    UIColorFromRGB(0xFFF2F2F2)
 
 #define kButtonColor1Normal         UIColorFromRGB(0x1c84db)
 #define kButtonColor1Highlight      RGBCOLOR(73, 156, 226)
 
 
-#define kSeparatorColor         UIColorFromRGB(0xFFD8D8D8)
+#define kSeparatorColor         UIColorFromRGB(0xFFCCCCCC)
 #define kFormBackgroundColor    UIColorFromRGB(0xFFFFFFFF)
 #define kFormTextColor    UIColorFromRGB(0xFF222222)
 
@@ -94,10 +96,10 @@
 #define kFontColorStrong        UIColorFromRGB(0xFFE02428)
 #define kFontColorButton        UIColorFromRGB(0xFFFFFFFF)
 
-#define KColorGray1          UIColorFromRGB(0xFFC3C3C3)
-#define KColorGray2          UIColorFromRGB(0xFF666666)
-#define KColorGray3          UIColorFromRGB(0xFF333333)
-#define KColorGray4          UIColorFromRGB(0xFF222222)
+#define KColorGray999          UIColorFromRGB(0xFF999999)
+#define KColorGray666          UIColorFromRGB(0xFF666666)
+#define KColorGray333          UIColorFromRGB(0xFF333333)
+#define KColorGray222          UIColorFromRGB(0xFF222222)
 
 
 static NSString * const kNetworkProtocolErrorNotification = @"kNetworkProtocolErrorNotification";                   // 协议错误，错误码-1

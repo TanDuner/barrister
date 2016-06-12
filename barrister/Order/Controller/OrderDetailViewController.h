@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "BarristerOrderModel.h"
 
 @interface OrderDetailViewController : BaseViewController
+
+-(id)initWithModel:(BarristerOrderModel *)orderModel;
 
 @end

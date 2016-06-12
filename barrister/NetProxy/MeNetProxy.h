@@ -28,4 +28,14 @@
  */
 -(void)setAppintDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
 
+
+
+/**
+ *  上传头像
+ *
+ *  @param params <#params description#>
+ *  @param aBlock <#aBlock description#>
+ */
+-(void)uploadHeadImageWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
+
 @end

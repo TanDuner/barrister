@@ -57,7 +57,7 @@
     if ([BaseDataSingleton shareInstance].isAccountLogin) {
         [_bottomBtn setTitle:@"退出登录" forState:UIControlStateNormal];\
         _bottomBtn.backgroundColor = [UIColor whiteColor];
-        [_bottomBtn setTitleColor:KColorGray3 forState:UIControlStateNormal];
+        [_bottomBtn setTitleColor:KColorGray333 forState:UIControlStateNormal];
     }
     else
     {
@@ -97,7 +97,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
     }
-    cell.textLabel.textColor = KColorGray2;
+    cell.textLabel.textColor = KColorGray666;
     cell.textLabel.text = [self.items objectAtIndex:indexPath.row];
     return cell;
 }

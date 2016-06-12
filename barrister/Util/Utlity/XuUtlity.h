@@ -37,7 +37,8 @@ typedef enum
 //格式话返回文件大小
 + (NSString *)stringForAllFileSize:(UInt64)fileSize;
 
-+ (CGFloat)textHeightWithFont:(NSString *)text withFont:(UIFont *)font sizeWidth:(float)width;
++ (CGFloat)textHeightWithString:(NSString *)text withFont:(UIFont *)font sizeWidth:(float)width;
++ (CGFloat)textHeightWithString:(NSString *)text withFont:(UIFont *)font sizeWidth:(float)width WithLineSpace:(CGFloat)lineSpace;
 + (CGFloat)textHeightWithStirng:(NSString *)inputString ShowFont:(UIFont *)font TitleFrame:(CGRect)frame;
 + (CGFloat)textWidthWithStirng:(NSString *)inputString ShowFont:(UIFont *)font sizeHeight:(CGFloat)height;
 

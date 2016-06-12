@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "XuNetWorking.h"
+#import "OpenUDID.h"
 @interface AppDelegate ()
 
 @end
@@ -35,11 +36,32 @@
     
 }
 
+-(void)initNetWorkingData
+{
+    [XuNetWorking updateBaseUrl:BaseUrl];
+    
+    NSMutableDictionary *headerDict = [NSMutableDictionary dictionary];
+    [headerDict setObject:[OpenUDID value] forKey:@"X-DEVICE-NUM"];
+    [headerDict setObject:[NSString stringWithFormat:@"ios-%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]] forKey:@"X-VERSION"];
+    [headerDict setObject:[[UIDevice currentDevice] model] forKey:@"X-TYPE"];
+    [headerDict setObject: @"ios" forKey:@"X-SYSTEM"];
+    [headerDict setObject:[XuUtlity getIOSVersion] forKey:@"X-SYSTEM-VERSION"];
+    [headerDict setObject:[NSString stringWithFormat:@"%f*%f",SCREENWIDTH ,SCREENHEIGHT] forKey:@"X-SCREEN"];
+    [headerDict setObject:@"appleStore" forKey:@"X-MARKET"];
+    if ([BaseDataSingleton shareInstance].userModel != nil) {
+        [headerDict setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"X-UID"];
+    }
+    
+    [XuNetWorking configCommonHttpHeaders:headerDict];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [self initControllersAndConfig];
     
     
+    [self initNetWorkingData];
+   
     return YES;
 }
 

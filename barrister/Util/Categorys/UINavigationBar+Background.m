@@ -50,7 +50,7 @@ static char overlayKey;
     
     self.overlay = nil;
     
-    [self setNavigationBarTitleColor:KColorGray2];
+    [self setNavigationBarTitleColor:KColorGray666];
     
     self.barStyle = UIBarStyleDefault;
 }

@@ -55,7 +55,7 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = KColorGray1;
+    self.view.backgroundColor = KColorGray999;
     
     [self configData];
     
@@ -224,7 +224,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    UIColor *color = KColorGray1;
+    UIColor *color = KColorGray999;
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
@@ -267,13 +267,13 @@
 #pragma mark - navigationBar custom
 - (void)showNormarlNavigationBar
 {
-    [self.navigationController.navigationBar setNavigationBarBackgroundColor:[KColorGray1 colorWithAlphaComponent:1]];
+    [self.navigationController.navigationBar setNavigationBarBackgroundColor:[KColorGray999 colorWithAlphaComponent:1]];
     
     [self.navigationItem.leftBarButtonItem.customView setImage:[UIImage imageNamed:@"job_coin_orange_back"] forState:UIControlStateNormal];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     
-    [self.navigationController.navigationBar setNavigationBarTitleColor:KColorGray2];
+    [self.navigationController.navigationBar setNavigationBarTitleColor:KColorGray666];
     
     [self.navigationController.navigationBar setShadowImage:nil];//用于去除导航栏的底线
     

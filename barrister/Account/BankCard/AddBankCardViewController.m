@@ -8,7 +8,6 @@
 
 #import "AddBankCardViewController.h"
 #import "BorderTextFieldView.h"
-#import "ScanCardViewController.h"
 #import "BankCardModel.h"
 
 #define RowHeight 44
@@ -227,7 +226,7 @@
 -(void)sacnCardAction:(UIButton *)btn
 {
     
-    __weak typeof(*&self) weakSelf = self;
+//    __weak typeof(*&self) weakSelf = self;
     
     //"cardtype": "贷记卡",
     //"cardlength": 16,
@@ -236,14 +235,14 @@
     //"bankname": "招商银行信用卡中心",
     //"banknum": "03080010"
 
-    ScanCardViewController *svc = [[ScanCardViewController alloc] init];
-    svc.cardBlock = ^(BankCardModel *model)
-    {
-        [XuUItlity hideLoading];
-        weakSelf.bankNameTextField.text = model.bankname;
-        weakSelf.bankCardNumTextField.text = model.cardNum;
-    };
-    [self.navigationController pushViewController:svc animated:YES];
+//    ScanCardViewController *svc = [[ScanCardViewController alloc] init];
+//    svc.cardBlock = ^(BankCardModel *model)
+//    {
+//        [XuUItlity hideLoading];
+//        weakSelf.bankNameTextField.text = model.bankname;
+//        weakSelf.bankCardNumTextField.text = model.cardNum;
+//    };
+//    [self.navigationController pushViewController:svc animated:YES];
 
 }
 

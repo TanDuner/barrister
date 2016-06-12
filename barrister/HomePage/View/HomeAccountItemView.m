@@ -74,7 +74,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = SystemFont(14.0f);
-        _titleLabel.textColor = KColorGray4;
+        _titleLabel.textColor = KColorGray222;
     }
     return _titleLabel;
 }
@@ -84,7 +84,7 @@
     if (!_subTitleLabel) {
         _subTitleLabel = [[UILabel alloc] init];
         _subTitleLabel.font = SystemFont(12.0f);
-        _subTitleLabel.textColor = KColorGray2;
+        _subTitleLabel.textColor = KColorGray666;
         
     }
     return _subTitleLabel;

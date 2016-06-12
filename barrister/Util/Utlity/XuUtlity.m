@@ -73,7 +73,7 @@ typedef struct PhoneSate PhoneSate;
     return nil;
 }
 
-+ (CGFloat)textHeightWithFont:(NSString *)text withFont:(UIFont *)font sizeWidth:(float)width{
++ (CGFloat)textHeightWithString:(NSString *)text withFont:(UIFont *)font sizeWidth:(float)width{
     if (width <= 0) {
         return 0;
     }
@@ -83,6 +83,28 @@ typedef struct PhoneSate PhoneSate;
     
     return textsize.height;
 }
+
+
++ (CGFloat)textHeightWithString:(NSString *)text withFont:(UIFont *)font sizeWidth:(float)width WithLineSpace:(CGFloat)lineSpace
+{
+    if (width <= 0) {
+        return 0;
+    }
+    
+    NSMutableParagraphStyle* mps = [[NSMutableParagraphStyle alloc] init];
+    mps.lineBreakMode = NSLineBreakByCharWrapping;
+    mps.lineSpacing = lineSpace;
+    
+    CGSize size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
+                                     options:  NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : mps}
+                                     context:nil].size;
+
+    return size.height;
+    
+}
+
+
 
 + (CGFloat)textHeightWithStirng:(NSString *)inputString ShowFont:(UIFont *)font TitleFrame:(CGRect)frame
 {

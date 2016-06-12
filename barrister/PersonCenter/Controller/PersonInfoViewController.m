@@ -13,6 +13,7 @@
 #import "AJPhotoPickerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "ModifyInfoViewController.h"
+#import "XuNetWorking.h"
 
 @interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -151,9 +152,11 @@
     if (assets.count == 1) {
         ALAsset *asset = assets[0];
         self.headImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
-        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
-        model.headImage = self.headImage;
-        [self.tableView reloadData];
+        
+        [self uploadHeadImage];
+//        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
+//        model.headImage = self.headImage;
+//        [self.tableView reloadData];
         
     }
     [picker dismissViewControllerAnimated:NO completion:nil];
@@ -193,9 +196,11 @@
     {
         UIImage* image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
         self.headImage = image;
-        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
-        model.headImage = self.headImage;
-        [self.tableView reloadData];
+        
+        
+//        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
+//        model.headImage = self.headImage;
+//        [self.tableView reloadData];
 
 
     }
@@ -230,6 +235,13 @@
     if (block) {
         block(status);
     }
+}
+
+#pragma -mark ----UploadHeaderImage------
+
+-(void)uploadHeadImage
+{
+
 }
 
 @end

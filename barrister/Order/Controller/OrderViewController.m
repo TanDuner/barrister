@@ -23,6 +23,8 @@
 
 @property (nonatomic,strong) OrderProxy *proxy;
 
+@property (nonatomic,assign) BOOL isShowLeft;
+
 @end
 
 @implementation OrderViewController
@@ -74,14 +76,14 @@
 {
     _leftTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
     [_leftTableView setFootLoadMoreControl];
-    _leftTableView.backgroundColor = KColorGray1;
+    _leftTableView.backgroundColor = KColorGray999;
     _leftTableView.refreshDelegate = self;
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
     
     _rightTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
     [_rightTableView setFootLoadMoreControl];
-    _rightTableView.backgroundColor = KColorGray2;
+    _rightTableView.backgroundColor = KColorGray666;
     _rightTableView.refreshDelegate = self;
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
@@ -96,6 +98,7 @@
 {
     _leftItems = [NSMutableArray arrayWithCapacity:1];
     _rightItems = [NSMutableArray arrayWithCapacity:1];
+    self.isShowLeft = YES;
 }
 
 -(void)loadLeftItems
@@ -138,25 +141,37 @@
     }
     
     
-    BarristerOrderModel *model = [[BarristerOrderModel alloc] init];
+    BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:nil];
     model.customerName = @"用户134****7654";
     model.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
     model.caseType = @"债务纠纷";
+    model.orderState = BarristerOrderStateFinished;
+    model.orderPrice = @"50.00";
+    model.markStr = @"别人惹我我就打他";
     model.orderTime = @"2016-04-09 15:00:00";
+    model.customPhone = @"13330987878";
     model.orderType = BarristerOrderTypeJSZX;
     
-    BarristerOrderModel *model1 = [[BarristerOrderModel alloc] init];
+    BarristerOrderModel *model1 = [[BarristerOrderModel alloc] initWithDictionary:nil];
     model1.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
     model1.customerName = @"用户158****0087";
     model1.orderTime = @"2016-04-10 13:17:24";
+    model1.orderState = BarristerOrderStateCanceled;
+    model1.orderPrice = @"50.00";
     model1.caseType = @"财产纠纷";
+    model1.markStr = @"别人惹我我就躲";
+    model1.customPhone = @"13346788764";
     model1.orderType = BarristerOrderTypeJSZX;
     
-    BarristerOrderModel *model2 = [[BarristerOrderModel alloc] init];
+    BarristerOrderModel *model2 = [[BarristerOrderModel alloc] initWithDictionary:nil];
     model2.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
     model2.customerName = @"用户186****7339";
+    model2.orderPrice = @"50.00";
     model2.orderTime = @"2016-04-12 10:39:50";
+    model2.customPhone = @"18611249902";
+    model2.orderState = BarristerOrderStateWaiting;
     model2.caseType = @"民事案件";
+    model2.markStr = @"别人惹我我就跑";
     model2.orderType = BarristerOrderTypeJSZX;
     
     [self.leftItems addObject:model];
@@ -272,6 +287,7 @@
     }
 }
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 75;
@@ -280,8 +296,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] init];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if (self.isShowLeft) {
+        BarristerOrderModel *model = [self.leftItems objectAtIndex:indexPath.row];
+        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+    else
+    {
+        BarristerOrderModel *model = [self.rightItems objectAtIndex:indexPath.row];
+        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+
     
 }
 

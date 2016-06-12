@@ -8,9 +8,11 @@
 
 #import "LoginProxy.h"
 
-#define GetValidCodeUrl @"getVerifyCode"
-#define LoginUrl  @"login"
-#define LogoutUrl @"logout"
+
+
+#define GetValidCodeUrl @"getVerifyCode.do"
+#define LoginUrl  @"login.do"
+#define LogoutUrl @"logout.do"
 
 
 @implementation LoginProxy
@@ -50,7 +52,7 @@
         }
     } fail:^(NSError *error) {
         if (aBlock) {
-            aBlock(error,YES);
+            aBlock(error,NO);
         }
    }];
 }

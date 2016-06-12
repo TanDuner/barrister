@@ -58,7 +58,7 @@
     self.textLab.frame = CGRectMake((SCREENWIDTH-290)*0.5, image.size.height+10, 290, 60);
     [self.textLab setText:str];
     [self.textLab setNumberOfLines:0];
-    [self.textLab setTextColor:KColorGray1];
+    [self.textLab setTextColor:KColorGray999];
     [self.textLab setFont:[UIFont systemFontOfSize:15]];
     [self.textLab setTextAlignment:NSTextAlignmentCenter];
     [self.backView addSubview:self.textLab];

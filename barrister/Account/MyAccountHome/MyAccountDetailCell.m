@@ -64,7 +64,7 @@
         _titleLabel.font = SystemFont(14);
         [_titleLabel setFrame:RECT(10, 22, 240, 12)];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
-        _titleLabel.textColor = KColorGray3;
+        _titleLabel.textColor = KColorGray333;
     }
     return _titleLabel;
 }
@@ -76,7 +76,7 @@
         _timeLabel.font = SystemFont(12);
         [_timeLabel setFrame:RECT(10, self.titleLabel.y + self.titleLabel.height + 10, 240, 10)];
         _timeLabel.textAlignment = NSTextAlignmentLeft;
-        _timeLabel.textColor = KColorGray2;
+        _timeLabel.textColor = KColorGray666;
     }
     return _timeLabel;
 }
@@ -87,7 +87,7 @@
         _handleLabel = [[UILabel alloc] init];
         _handleLabel.frame = RECT(SCREENWIDTH - 80 - 10, (60-13)/2.0, 80, 13);
         _handleLabel.font = SystemFont(17);
-        _handleLabel.textColor = KColorGray4;
+        _handleLabel.textColor = KColorGray222;
         _handleLabel.textAlignment = NSTextAlignmentRight;
     }
     return _handleLabel;

@@ -338,7 +338,7 @@
         UILabel *dindan = [[UILabel alloc] initWithFrame:RECT(LeftPadding, topBGView.height + 15, 100, 15)];
         dindan.text = @"订单统计";
         dindan.textAlignment = NSTextAlignmentLeft;
-        dindan.textColor = KColorGray4;
+        dindan.textColor = KColorGray222;
         dindan.font = [UIFont boldSystemFontOfSize:15.0f];
         [_accountHeadView addSubview:dindan];
         
@@ -348,7 +348,7 @@
         UILabel *leiji = [[UILabel alloc] initWithFrame:RECT(rightRow.x - 200 - 10, dindan.y, 200, 15)];
         leiji.text = @"累计订单 23";
         leiji.textAlignment = NSTextAlignmentRight;
-        leiji.textColor = KColorGray2;
+        leiji.textColor = KColorGray666;
         leiji.font = SystemFont(14.0f);
         
         [_accountHeadView addSubview:rightRow];
@@ -376,7 +376,7 @@
         UILabel *daiban = [[UILabel alloc] initWithFrame:RECT(LeftPadding, 15 + topView.height, 100, 15)];
         daiban.text = @"待办事项";
         daiban.textAlignment = NSTextAlignmentLeft;
-        daiban.textColor = KColorGray4;
+        daiban.textColor = KColorGray222;
         daiban.font = [UIFont boldSystemFontOfSize:15.0f];
         [_daiBanHeadView addSubview:daiban];
 

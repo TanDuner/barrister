@@ -9,6 +9,7 @@
 #import "MeNetProxy.h"
 #define GetAppointDataUrl @""
 #define SetAppointDataUrl @""
+#define UploadHeadImageUrl @"uploadUserIcon.do"
 
 @implementation MeNetProxy
 /**
@@ -33,12 +34,31 @@
 /**
  *  设置预约的数据
  *
- *  @param params nil
- *  @param aBlock nil
+ *  @param params 参数
+ *  @param aBlock 回调
  */
 -(void)setAppintDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking getWithUrl:SetAppointDataUrl params:params success:^(id response) {
+        if (aBlock) {
+            aBlock(response,YES);
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+    }];
+}
+
+/**
+ *  上传头像
+ *
+ *  @param params 参数
+ *  @param aBlock 回调
+ */
+-(void)uploadHeadImageWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking uploadWithImage:nil url:UploadHeadImageUrl filename:@"uploadUserIcon.jpg" name:@"" mimeType:@"" parameters:nil progress:nil success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }
