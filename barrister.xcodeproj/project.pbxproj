@@ -213,6 +213,11 @@
 		95C2C8011CF7E21200BE4971 /* MyAccountHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C2C8001CF7E21200BE4971 /* MyAccountHomeViewController.m */; };
 		95CA1B991D0D625A00AAE490 /* OrderDetailMarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1B981D0D625A00AAE490 /* OrderDetailMarkCell.m */; };
 		95CA1B9D1D0D709F00AAE490 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1B9C1D0D709F00AAE490 /* OpenUDID.m */; };
+		95CA1BA01D0E250A00AAE490 /* UploadQualificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1B9F1D0E250A00AAE490 /* UploadQualificationViewController.m */; };
+		95CA1BA31D0E268300AAE490 /* UploadQualificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BA21D0E268300AAE490 /* UploadQualificationCell.m */; };
+		95CA1BA61D0E288700AAE490 /* UploadQualificaitonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BA51D0E288700AAE490 /* UploadQualificaitonModel.m */; };
+		95CA1BA91D0E53A300AAE490 /* uploadImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95CA1BA71D0E53A300AAE490 /* uploadImage@2x.png */; };
+		95CA1BAA1D0E53A300AAE490 /* uploadImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95CA1BA81D0E53A300AAE490 /* uploadImage@3x.png */; };
 		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
 		95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A41CBB4A49000C7E91 /* renzheng.png */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -614,6 +619,14 @@
 		95CA1B981D0D625A00AAE490 /* OrderDetailMarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailMarkCell.m; sourceTree = "<group>"; };
 		95CA1B9B1D0D709F00AAE490 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
 		95CA1B9C1D0D709F00AAE490 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
+		95CA1B9E1D0E250A00AAE490 /* UploadQualificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadQualificationViewController.h; sourceTree = "<group>"; };
+		95CA1B9F1D0E250A00AAE490 /* UploadQualificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadQualificationViewController.m; sourceTree = "<group>"; };
+		95CA1BA11D0E268300AAE490 /* UploadQualificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadQualificationCell.h; sourceTree = "<group>"; };
+		95CA1BA21D0E268300AAE490 /* UploadQualificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadQualificationCell.m; sourceTree = "<group>"; };
+		95CA1BA41D0E288700AAE490 /* UploadQualificaitonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadQualificaitonModel.h; sourceTree = "<group>"; };
+		95CA1BA51D0E288700AAE490 /* UploadQualificaitonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadQualificaitonModel.m; sourceTree = "<group>"; };
+		95CA1BA71D0E53A300AAE490 /* uploadImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uploadImage@2x.png"; sourceTree = "<group>"; };
+		95CA1BA81D0E53A300AAE490 /* uploadImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uploadImage@3x.png"; sourceTree = "<group>"; };
 		95F533A21CBB4690000C7E91 /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
 		95F533A41CBB4A49000C7E91 /* renzheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renzheng.png; sourceTree = "<group>"; };
 		95F533A61CBB53FB000C7E91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -1327,6 +1340,8 @@
 				9597B0D71CA1136B00FF65D9 /* PersonCenterViewController.m */,
 				950CB70E1CC5FE5F004D2A5D /* PersonInfoViewController.h */,
 				950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */,
+				95CA1B9E1D0E250A00AAE490 /* UploadQualificationViewController.h */,
+				95CA1B9F1D0E250A00AAE490 /* UploadQualificationViewController.m */,
 				95412A141D07BD6200C6624F /* ModifyInfoViewController.h */,
 				95412A151D07BD6200C6624F /* ModifyInfoViewController.m */,
 				95F533A61CBB53FB000C7E91 /* SettingViewController.h */,
@@ -1344,6 +1359,8 @@
 			children = (
 				9520BF741CAA48E300961F05 /* PersonCenterModel.h */,
 				9520BF751CAA48E300961F05 /* PersonCenterModel.m */,
+				95CA1BA41D0E288700AAE490 /* UploadQualificaitonModel.h */,
+				95CA1BA51D0E288700AAE490 /* UploadQualificaitonModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1358,6 +1375,8 @@
 				950CB7121CC5FEAB004D2A5D /* PersonInfoCustomCell.m */,
 				9520BF7D1CAA4A5700961F05 /* PersonCenterAccountCell.h */,
 				9520BF7E1CAA4A5700961F05 /* PersonCenterAccountCell.m */,
+				95CA1BA11D0E268300AAE490 /* UploadQualificationCell.h */,
+				95CA1BA21D0E268300AAE490 /* UploadQualificationCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1461,6 +1480,8 @@
 		9597B0E41CA1168200FF65D9 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				95CA1BA71D0E53A300AAE490 /* uploadImage@2x.png */,
+				95CA1BA81D0E53A300AAE490 /* uploadImage@3x.png */,
 				95B425AD1CFC9463002EB36D /* my-account_card@2x.png */,
 				95B425AE1CFC9463002EB36D /* my-account_card@3x.png */,
 				95B425AF1CFC9463002EB36D /* my-account_cash@2x.png */,
@@ -1889,6 +1910,7 @@
 				9597B0FB1CA1168200FF65D9 /* Tab02Normal@3x.png in Resources */,
 				9597B0F71CA1168200FF65D9 /* Tab01Normal@3x.png in Resources */,
 				9597B0FC1CA1168200FF65D9 /* Tab02Highlighted@2x.png in Resources */,
+				95CA1BAA1D0E53A300AAE490 /* uploadImage@3x.png in Resources */,
 				950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */,
 				95C0EB051CB60CFB004F9DAD /* dingdan.png in Resources */,
 				95412A261D0C5D5600C6624F /* orderdetail_play@2x.png in Resources */,
@@ -1921,6 +1943,7 @@
 				95412A271D0C5D5600C6624F /* orderdetail_play@3x.png in Resources */,
 				95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */,
 				95FC44571D042B06005BB02A /* unagree@2x.png in Resources */,
+				95CA1BA91D0E53A300AAE490 /* uploadImage@2x.png in Resources */,
 				95C0EB061CB60CFB004F9DAD /* pingjia.png in Resources */,
 				95A79D441D028301004293F6 /* commom_default_head@2x.png in Resources */,
 				95A79D931D03E4CB004293F6 /* canCard@3x.png in Resources */,
@@ -2064,7 +2087,9 @@
 				9520BFB51CAA721A00961F05 /* YYKVStorage.m in Sources */,
 				9520BFC21CAA721A00961F05 /* YYImageCache.m in Sources */,
 				95BCB79B1CA2827B00E85E10 /* BorderTextFieldView.m in Sources */,
+				95CA1BA31D0E268300AAE490 /* UploadQualificationCell.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
+				95CA1BA61D0E288700AAE490 /* UploadQualificaitonModel.m in Sources */,
 				95B425BE1CFD2E06002EB36D /* UINavigationBar+Background.m in Sources */,
 				9520BFC11CAA721A00961F05 /* YYSpriteSheetImage.m in Sources */,
 				95F534051CBCD758000C7E91 /* MJRefreshComponent.m in Sources */,
@@ -2099,6 +2124,7 @@
 				9597B0D81CA1136B00FF65D9 /* PersonCenterViewController.m in Sources */,
 				95412A0F1D06674800C6624F /* MASViewAttribute.m in Sources */,
 				9520BFB71CAA721A00961F05 /* _YYWebImageSetter.m in Sources */,
+				95CA1BA01D0E250A00AAE490 /* UploadQualificationViewController.m in Sources */,
 				9520BFBE1CAA721A00961F05 /* YYFrameImage.m in Sources */,
 				95412A161D07BD6200C6624F /* ModifyInfoViewController.m in Sources */,
 				95B425AC1CFC8559002EB36D /* AccountProxy.m in Sources */,

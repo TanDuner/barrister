@@ -53,6 +53,9 @@
     }
     
     [XuNetWorking configCommonHttpHeaders:headerDict];
+    
+    //打开debug开关
+    [XuNetWorking enableInterfaceDebug:YES];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

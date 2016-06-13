@@ -15,6 +15,7 @@
 #import "ModifyInfoViewController.h"
 #import "XuNetWorking.h"
 #import "MeNetProxy.h"
+#import "UploadQualificationViewController.h"
 
 @interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -35,6 +36,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self showTabbar:NO];
 }
 
 #pragma -mark ----UI------
@@ -66,9 +73,6 @@
 
         [self.items addObject:model];
     }
-  
-
-    
 }
 
 #pragma -mark ----------UITableViewDataSource Methods---------
@@ -116,7 +120,6 @@
         case 3:
         case 5:
         case 6:
-        case 9:
         {
             ModifyInfoViewController *modifyVC = [[ModifyInfoViewController alloc] initWithModel:modelTemp];
             modifyVC.modifyBlock = ^(PersonCenterModel *model)
@@ -134,8 +137,14 @@
         }
             break;
         case 7:
+        {
+            UploadQualificationViewController *uploadVC = [[UploadQualificationViewController alloc] init];
+            [self.navigationController pushViewController:uploadVC animated:YES];
+        }
             break;
         case 8:
+            break;
+        case 9:
             break;
 
         default:
@@ -156,10 +165,6 @@
         self.headImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
         
         [self uploadHeadImage];
-//        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
-//        model.headImage = self.headImage;
-//        [self.tableView reloadData];
-        
     }
     [picker dismissViewControllerAnimated:NO completion:nil];
     
@@ -198,12 +203,7 @@
     {
         UIImage* image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
         self.headImage = image;
-        
-        
-//        PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
-//        model.headImage = self.headImage;
-//        [self.tableView reloadData];
-
+        [self uploadHeadImage];
 
     }
     [picker dismissViewControllerAnimated:YES completion:nil];

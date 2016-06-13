@@ -52,7 +52,12 @@
 @property (nonatomic,strong) NSString *lawOffice;
 
 /**
- * 地区
+ * 市
+ */
+@property (nonatomic,strong) NSString *city;
+
+/**
+ *  地区
  */
 @property (nonatomic,strong) NSString *area;
 
@@ -119,5 +124,65 @@
  */
 
 @property (nonatomic,strong) NSString *refuseCause;
+
+/**
+ *  邮箱
+ */
+@property (nonatomic,strong) NSString *email;
+
+/**
+ *  年龄
+ */
+@property (nonatomic,strong) NSString *age;
+
+/**
+ *  通信地址
+ */
+
+@property (nonatomic,strong) NSString *address;
+
+/**
+ *  推送id
+ */
+@property (nonatomic,strong) NSString *pushId;
+
+/**
+ *  擅长
+ */
+
+@property (nonatomic,strong) NSString *goodAt;
+
+/**
+ *  律所
+ */
+
+@property (nonatomic,strong) NSString *company;
+
+/**
+ *  从业时间
+ */
+
+@property (nonatomic,strong) NSString *workingStartYear;
+
+//String id;//用户id
+//String nickname;//昵称
+//String userIcon;//用户头像
+//String name;//姓名
+//String phone;//电话
+//String email;//邮箱
+//String age;//年龄：60后，70后，80后，90后，00后
+//String introduction;//自我介绍
+//String gender;//性别
+//String address;//通信地址
+//String state;//省、州
+//String city;//市
+//String area;//地区
+//String location;//暂时无用，保留字段；位置信息 经纬度：x，y，逗号分隔
+//String pushId;//推送id
+//String goodAt;//擅长
+//String company;//律所
+//String verifyStatus;//认证状态 ；成功 STATUS_SUCCESS; 失败 STATUS_FAILED; 审核中 STATUS_VERIFYING;
+//String workingStartYear;//从业开始时间。工作年限等于当前年减去工作开始时间
+
 
 @end
