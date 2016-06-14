@@ -84,7 +84,14 @@
 
 -(void)confirmModify
 {
-    modifyModel.subtitleStr = self.modifyTextField.text;
+    if (![modifyModel.titleStr isEqualToString:@"个人简介"]) {
+        modifyModel.subtitleStr = self.modifyTextField.text;
+    }
+    else
+    {
+        modifyModel.subtitleStr = _modifyTextView.text;
+    }
+
     if (self.modifyBlock) {
         self.modifyBlock(modifyModel);
     }
@@ -117,7 +124,16 @@
 -(UITextView *)modifyTextView
 {
     if (!_modifyTextView) {
-        _modifyTextView = [[UITextView alloc] init];
+        
+        UILabel *tipLabel = [[UILabel alloc] initWithFrame:RECT(LeftPadding, 10, 200, 12)];
+        tipLabel.text = @"请填写个人简介";
+        tipLabel.font = SystemFont(14.0f);
+        tipLabel.textColor = KColorGray666;
+        
+        [self.view addSubview:tipLabel];
+        _modifyTextView = [[UITextView alloc] initWithFrame:RECT(LeftPadding, 35, SCREENWIDTH - LeftPadding *2, 200)];
+
+        
     }
     return _modifyTextView;
 }

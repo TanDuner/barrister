@@ -47,4 +47,12 @@
  *  @param aBlock 回调block
  */
 -(void)UploadAuthFilesWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
+/**
+ *  我的消息
+ */
+
+-(void)getMyMessageWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
 @end
+
+

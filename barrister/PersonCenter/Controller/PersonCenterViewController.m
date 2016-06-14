@@ -14,6 +14,7 @@
 #import "PersonInfoViewController.h"
 #import "AppointmentViewController.h"
 #import "MyAccountHomeViewController.h"
+#import "MyMessageViewController.h"
 
 @interface PersonCenterViewController ()
 
@@ -212,7 +213,10 @@
             }
                 break;
             case 1:
-                
+            {
+                MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
+                [self.navigationController pushViewController:messageVC animated:YES];
+            }
                 break;
              case 2:
                 break;

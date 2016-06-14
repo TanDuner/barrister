@@ -16,7 +16,6 @@
 #import "XuNetWorking.h"
 #import "MeNetProxy.h"
 #import "UploadQualificationViewController.h"
-
 @interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) UIImage *headImage;
@@ -120,6 +119,7 @@
         case 3:
         case 5:
         case 6:
+        case 9:
         {
             ModifyInfoViewController *modifyVC = [[ModifyInfoViewController alloc] initWithModel:modelTemp];
             modifyVC.modifyBlock = ^(PersonCenterModel *model)
@@ -143,8 +143,6 @@
         }
             break;
         case 8:
-            break;
-        case 9:
             break;
 
         default:

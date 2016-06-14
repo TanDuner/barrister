@@ -38,7 +38,16 @@
     [super layoutSubviews];
     [self.titleLabel setFrame:RECT(LeftPadding, ([PersonInfoCustomCell getCellHeightWithModel:self.model] - 15)/2.0, 200, 15)];
     [self.rightRow setFrame:CGRectMake(SCREENWIDTH - 15 - 15, self.titleLabel.y, 15, 15)];
-    [self.subTitleLabel setFrame:RECT(SCREENWIDTH - 15 - 200, self.titleLabel.y, 200, 15)];
+    if (self.model.isShowArrow) {
+        self.rightRow.hidden = NO;
+        [self.subTitleLabel setFrame:RECT(SCREENWIDTH - 15  - 10 - 15 - 200, self.titleLabel.y, 200, 15)];
+    }
+    else {
+        self.rightRow.hidden = YES;
+        self.subTitleLabel.hidden = NO;
+        [self.subTitleLabel setFrame:RECT(SCREENWIDTH - 15 - 200, self.titleLabel.y, 200, 15)];
+        
+    }
 }
 
 
@@ -47,14 +56,7 @@
     if (self.model) {
         self.titleLabel.text = self.model.titleStr;
         
-        if (self.model.isShowArrow) {
-            self.rightRow.hidden = NO;
-            self.subTitleLabel.hidden = YES;
-        }
-        else {
-            self.rightRow.hidden = YES;
-            self.subTitleLabel.hidden = NO;
-        }
+     
         
         if (self.model.cellType == PersonCenterModelTypeInfoTX) {
             self.headerImageView.hidden = NO;
@@ -143,7 +145,6 @@
         _subTitleLabel.textColor = KColorGray333;
         _subTitleLabel.font = [UIFont systemFontOfSize:13.0f];
         _subTitleLabel.textAlignment = NSTextAlignmentRight;
-        _subTitleLabel.hidden = YES;
     }
     return _subTitleLabel;
 }

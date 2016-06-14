@@ -62,7 +62,7 @@
                           fileName:(NSString *)fileName
                              Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking uploadWithImage:nil url:UploadHeadImageUrl filename:@"uploadUserIcon.jpg" name:@"" mimeType:@"" parameters:nil progress:nil success:^(id response) {
+    [XuNetWorking uploadWithImage:image url:UploadHeadImageUrl filename:@"uploadUserIcon.jpg" name:@"xxx" mimeType:@"" parameters:nil progress:nil success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }
@@ -70,6 +70,22 @@
         if (aBlock) {
             aBlock(error,NO);
         }
+    }];
+}
+
+-(void)getMyMessageWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:@"" params:params success:^(id response) {
+        if (aBlock) {
+            NSArray *list = [response objectForKey:@"msgs"];
+            aBlock(list,YES);
+        }
+
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+
     }];
 }
 
