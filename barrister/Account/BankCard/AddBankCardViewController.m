@@ -9,6 +9,7 @@
 #import "AddBankCardViewController.h"
 #import "BorderTextFieldView.h"
 #import "BankCardModel.h"
+#import "AccountProxy.h"
 
 #define RowHeight 44
 #define LeftSpace 10
@@ -30,6 +31,8 @@
 @property (nonatomic,strong) UITextField *responderTextField;//当前焦点的textField
 
 @property (nonatomic,strong) UIButton *confirmButton;
+
+@property (nonatomic,strong) AccountProxy *proxy;
 
 @end
 
@@ -194,7 +197,28 @@
 
 -(void)confirmAction:(UIButton *)btn
 {
-    
+    if (_nameTextField.text.length > 0 &&_bankCardNumTextField.text.length > 0 && _bankNameTextField.text.length > 0 && _phoneTextField.text.length > 0 && _openBankNameTextField.text.length > 0) {
+        
+        if (![XuUtlity validateMobile:_phoneTextField.text]) {
+            [XuUItlity showFailedHint:@"手机号不合法" completionBlock:nil];
+        }
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",_bankCardNumTextField.text,@"cardNum",_nameTextField.text,@"cardholderName",_openBankNameTextField.text,@"bankAddress",_bankNameTextField.text,@"bankName", nil];
+        [self.proxy bindCarkWithParams:params block:^(id returnData, BOOL success) {
+            if (success) {
+                [XuUItlity showSucceedHint:@"绑定成功" completionBlock:nil];
+            }
+            else
+            {
+                [XuUItlity showFailedHint:@"绑定失败" completionBlock:nil];
+            }
+        }];
+
+    }
+    else
+    {
+        [XuUItlity showFailedHint:@"请补充完整信息" completionBlock:nil];
+    }
 }
 
 

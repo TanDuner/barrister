@@ -32,4 +32,10 @@
 
 -(void)tiXianActionWithMoney:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock;
 
+
+/**
+ *  绑定银行卡
+ */
+-(void)bindCarkWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
 @end

@@ -221,6 +221,7 @@
 		95CA1BB51D0F79EA00AAE490 /* MyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BB41D0F79EA00AAE490 /* MyMessageViewController.m */; };
 		95CA1BB81D0F7E8D00AAE490 /* MyMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BB71D0F7E8D00AAE490 /* MyMessageModel.m */; };
 		95CA1BBB1D0F800100AAE490 /* MyMessgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BBA1D0F800100AAE490 /* MyMessgeCell.m */; };
+		95CA1BC41D10C5F000AAE490 /* LearnCenterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */; };
 		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
 		95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A41CBB4A49000C7E91 /* renzheng.png */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -636,6 +637,8 @@
 		95CA1BB71D0F7E8D00AAE490 /* MyMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageModel.m; sourceTree = "<group>"; };
 		95CA1BB91D0F800100AAE490 /* MyMessgeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessgeCell.h; sourceTree = "<group>"; };
 		95CA1BBA1D0F800100AAE490 /* MyMessgeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessgeCell.m; sourceTree = "<group>"; };
+		95CA1BC21D10C5F000AAE490 /* LearnCenterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterProxy.h; sourceTree = "<group>"; };
+		95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterProxy.m; sourceTree = "<group>"; };
 		95F533A21CBB4690000C7E91 /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
 		95F533A41CBB4A49000C7E91 /* renzheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renzheng.png; sourceTree = "<group>"; };
 		95F533A61CBB53FB000C7E91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -1576,6 +1579,8 @@
 				95B0787E1CE9E6A600D8A220 /* MeNetProxy.m */,
 				955AA4361CF34F2800A47121 /* OrderProxy.h */,
 				955AA4371CF34F2800A47121 /* OrderProxy.m */,
+				95CA1BC21D10C5F000AAE490 /* LearnCenterProxy.h */,
+				95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */,
 			);
 			path = NetProxy;
 			sourceTree = "<group>";
@@ -2170,6 +2175,7 @@
 				95F534031CBCD758000C7E91 /* MJRefreshBackNormalFooter.m in Sources */,
 				9541302D1CA003B500D26B11 /* UIImage+GIF.m in Sources */,
 				955AA43B1CF352B500A47121 /* BarristerUserModel.m in Sources */,
+				95CA1BC41D10C5F000AAE490 /* LearnCenterProxy.m in Sources */,
 				95F533DB1CBCD454000C7E91 /* MJRefreshConst.m in Sources */,
 				95C0EAEA1CB4B0B0004F9DAD /* BaseTableViewCell.m in Sources */,
 				95CA1BBB1D0F800100AAE490 /* MyMessgeCell.m in Sources */,

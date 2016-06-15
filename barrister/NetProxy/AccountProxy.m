@@ -10,8 +10,29 @@
 
 #define AccountDetialUrl @""
 #define TixianUrl @""
+#define BindBankCardUrl @"bindBankCard"
 
 @implementation AccountProxy
+
+
+/**
+ *  绑定银行卡
+ userId,verifyCode,cardNum（卡号）,cardholderName（持卡人姓名），bankName(银行名称)，bankAddress(开户行)
+ */
+-(void)bindCarkWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking getWithUrl:BindBankCardUrl params:params success:^(id response) {
+        if (aBlock) {
+            aBlock(response,YES);
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,YES);
+        }
+        
+    }];
+
+}
 
 -(void)getAccountDetailDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
