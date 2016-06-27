@@ -19,6 +19,7 @@
 #import "TiXianViewControlleer.h"
 #import "BarristerLoginManager.h"
 #import "HomeBannerModel.h"
+#import "HomeWaitHandleModel.h"
 
 @interface HomeViewController ()
 
@@ -27,6 +28,8 @@
 @property (nonatomic,strong) UIView *daiBanHeadView;
 @property (nonatomic,strong) UIImageView *lightImage;
 @property (nonatomic,strong) UILabel *stateLabel;
+
+@property (nonatomic,strong) UILabel *leijiLabel;
 
 @property (nonatomic,strong) DCPicScrollView *bannerView;
 @property (nonatomic,strong) HomePageProxy *proxy;
@@ -159,37 +162,44 @@
     NSArray *array = [dict objectForKey:@"todoList"];
     
     if ([XuUtlity isValidArray:array]) {
-        NSLog(@"arry.cout = %ld",array.count);
-        
-        BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
-        model4.customerName = @"用户134****7654";
-        model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
-        model4.startTime = @"2016/04/24 13:00";
-        model4.endTime = @"2016/03/24 14:00";
-        model4.caseType = @"债务纠纷";
-        model4.orderType = BarristerOrderTypeYYZX;
-        
-        BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
-        model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
-        model5.customerName = @"用户158****0087";
-        model5.startTime = @"2016/04/25 14:00";
-        model5.endTime = @"2016/04/25 15:00";
-        model5.caseType = @"财产纠纷";
-        model5.orderType = BarristerOrderTypeYYZX;
-        
-        BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
-        model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
-        model6.customerName = @"用户186****7339";
-        model6.startTime = @"2016/04/26 15:00";
-        model6.endTime = @"2016/04/26 16:00";
-        model6.caseType = @"民事案件";
-        model6.orderType = BarristerOrderTypeYYZX;
-        
-        [self.orderItems addObject:model4];
-        [self.orderItems addObject:model5];
-        [self.orderItems addObject:model6];
-        
+
+        for (int i = 0; i < array.count; i ++) {
+            NSDictionary *dict = [array objectAtIndex:i];
+            HomeWaitHandleModel *model = [[HomeWaitHandleModel alloc] initWithDictionary:dict];
+            [self.orderItems addObject:model];
+        }
         [self.tableView reloadData];
+//        return;
+//        
+//        BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
+//        model4.customerName = @"用户134****7654";
+//        model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
+//        model4.startTime = @"2016/04/24 13:00";
+//        model4.endTime = @"2016/03/24 14:00";
+//        model4.caseType = @"债务纠纷";
+//        model4.orderType = BarristerOrderTypeYYZX;
+//        
+//        BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
+//        model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
+//        model5.customerName = @"用户158****0087";
+//        model5.startTime = @"2016/04/25 14:00";
+//        model5.endTime = @"2016/04/25 15:00";
+//        model5.caseType = @"财产纠纷";
+//        model5.orderType = BarristerOrderTypeYYZX;
+//        
+//        BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
+//        model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
+//        model6.customerName = @"用户186****7339";
+//        model6.startTime = @"2016/04/26 15:00";
+//        model6.endTime = @"2016/04/26 16:00";
+//        model6.caseType = @"民事案件";
+//        model6.orderType = BarristerOrderTypeYYZX;
+//        
+//        [self.orderItems addObject:model4];
+//        [self.orderItems addObject:model5];
+//        [self.orderItems addObject:model6];
+//        
+//        [self.tableView reloadData];
 
     }
 
@@ -377,17 +387,17 @@
         UIImageView *rightRow = [[UIImageView alloc] initWithFrame:RECT(SCREENWIDTH - 10 - 15, dindan.y, 15, 15)];
         rightRow.image = [UIImage imageNamed:@"rightRow.png"];
         
-        UILabel *leiji = [[UILabel alloc] initWithFrame:RECT(rightRow.x - 200 - 10, dindan.y, 200, 15)];
-        leiji.text = @"累计订单 23";
-        leiji.textAlignment = NSTextAlignmentRight;
-        leiji.textColor = KColorGray666;
-        leiji.font = SystemFont(14.0f);
+        self.leijiLabel = [[UILabel alloc] initWithFrame:RECT(rightRow.x - 200 - 10, dindan.y, 200, 15)];
+        self.leijiLabel.text = [NSString stringWithFormat:@"累计订单%@",[BaseDataSingleton shareInstance].orderQty?[BaseDataSingleton shareInstance].orderQty:@"0"];
+        self.leijiLabel.textAlignment = NSTextAlignmentRight;
+        self.leijiLabel.textColor = KColorGray666;
+        self.leijiLabel.font = SystemFont(14.0f);
         
         [_accountHeadView addSubview:rightRow];
         
-        [_accountHeadView addSubview:leiji];
+        [_accountHeadView addSubview:self.leijiLabel];
         
-        [_accountHeadView addSubview:[self getLineViewWithFrame:RECT(0, _accountHeadView.height - 1, SCREENWIDTH, 1)]];
+        [_accountHeadView addSubview:[self getLineViewWithFrame:RECT(0, _accountHeadView.height - .5, SCREENWIDTH, .5)]];
 
     }
     return _accountHeadView;
@@ -412,7 +422,7 @@
         daiban.font = [UIFont boldSystemFontOfSize:15.0f];
         [_daiBanHeadView addSubview:daiban];
 
-        [_daiBanHeadView addSubview:[self getLineViewWithFrame:RECT(0, _daiBanHeadView.height - 1, SCREENWIDTH, 1)]];
+        [_daiBanHeadView addSubview:[self getLineViewWithFrame:RECT(0, _daiBanHeadView.height - .5, SCREENWIDTH, .5)]];
 
     }
     return _daiBanHeadView;
@@ -451,6 +461,7 @@
         self.stateLabel.text = @"当前状态:正常接单";
         self.lightImage.backgroundColor = [UIColor greenColor];
     }
+    self.leijiLabel.text = [NSString stringWithFormat:@"累计订单 %@",[BaseDataSingleton shareInstance].orderQty];
 }
 
 -(void)tixianAction

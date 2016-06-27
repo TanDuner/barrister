@@ -101,6 +101,7 @@
 		954130301CA003B500D26B11 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 954130221CA003B500D26B11 /* UIView+Addition.m */; };
 		954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 954130241CA003B500D26B11 /* UIView+FormAdditions.m */; };
 		9545051D1D2173870039C6B1 /* HomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545051C1D2173870039C6B1 /* HomeBannerModel.m */; };
+		954505231D2185C40039C6B1 /* HomeWaitHandleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */; };
 		955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */ = {isa = PBXBuildFile; fileRef = 955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */; };
 		955A7AE71D1D790E00D1DEAC /* BaseAppointmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7AE61D1D790E00D1DEAC /* BaseAppointmentModel.m */; };
 		955A7B1D1D1F712000D1DEAC /* BarristerLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7B1C1D1F712000D1DEAC /* BarristerLoginManager.m */; };
@@ -464,6 +465,8 @@
 		9545051B1D2173870039C6B1 /* HomeBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBannerModel.h; sourceTree = "<group>"; };
 		9545051C1D2173870039C6B1 /* HomeBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBannerModel.m; sourceTree = "<group>"; };
 		9545051E1D2178970039C6B1 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
+		954505211D2185C40039C6B1 /* HomeWaitHandleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWaitHandleModel.h; sourceTree = "<group>"; };
+		954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWaitHandleModel.m; sourceTree = "<group>"; };
 		955231331CF2ADCE00E35AD3 /* TiXianViewControlleer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiXianViewControlleer.h; sourceTree = "<group>"; };
 		955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiXianViewControlleer.m; sourceTree = "<group>"; };
 		955A7AE51D1D790E00D1DEAC /* BaseAppointmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAppointmentModel.h; sourceTree = "<group>"; };
@@ -1354,6 +1357,8 @@
 			children = (
 				9545051B1D2173870039C6B1 /* HomeBannerModel.h */,
 				9545051C1D2173870039C6B1 /* HomeBannerModel.m */,
+				954505211D2185C40039C6B1 /* HomeWaitHandleModel.h */,
+				954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2183,6 +2188,7 @@
 				9520BFC21CAA721A00961F05 /* YYImageCache.m in Sources */,
 				95BCB79B1CA2827B00E85E10 /* BorderTextFieldView.m in Sources */,
 				95CA1BA31D0E268300AAE490 /* UploadQualificationCell.m in Sources */,
+				954505231D2185C40039C6B1 /* HomeWaitHandleModel.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
 				95CA1BA61D0E288700AAE490 /* UploadQualificaitonModel.m in Sources */,
 				95B425BE1CFD2E06002EB36D /* UINavigationBar+Background.m in Sources */,

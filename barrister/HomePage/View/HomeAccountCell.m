@@ -28,8 +28,8 @@
     if (self) {
         [self addSubview:self.leftView];
         [self addSubview:self.rightView];
-        [self addSubview:[self getLineViewWithRect:RECT((SCREENWIDTH - 1)/2.0, 10, 1, ItemViewHeight - 20)]];
-        [self addSubview:[self getLineViewWithRect:RECT(0, ItemViewHeight, SCREENWIDTH, 1)]];
+        [self addSubview:[self getLineViewWithRect:RECT((SCREENWIDTH - .5)/2.0, 10, .5, ItemViewHeight - 20)]];
+        [self addSubview:[self getLineViewWithRect:RECT(0, ItemViewHeight, SCREENWIDTH, .5)]];
         [self addSubview:self.tixianBtn];
         
     }

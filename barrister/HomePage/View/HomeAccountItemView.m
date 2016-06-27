@@ -56,7 +56,6 @@
     [self.titleLabel setFrame:RECT(LabelWidth, 20, LabelWidth, 15)];
     [self.subTitleLabel setFrame:RECT(self.titleLabel.x, self.titleLabel.y + self.titleLabel.height + 5, LabelWidth, 12)];
     [self.iconImageView setFrame:RECT((LabelWidth - 35)/2.0, 20, 35, 35)];
-    self.subTitleLabel.backgroundColor = [UIColor redColor];
     [self configData];
 
 }
@@ -64,7 +63,6 @@
 -(void)configData
 {
     self.titleLabel.text  = self.titleStr;
-    self.subTitleLabel.text = self.subTitleStr;
     self.iconImageView.image = [UIImage imageNamed:self.iconNameStr];
 
 }
@@ -84,6 +82,7 @@
     if (!_subTitleLabel) {
         _subTitleLabel = [[UILabel alloc] init];
         _subTitleLabel.font = SystemFont(12.0f);
+        _subTitleLabel.text = @"-";
         _subTitleLabel.textColor = KColorGray666;
         
     }
@@ -121,7 +120,7 @@
 
 -(void)setSubTitleStr:(NSString *)subTitleStr
 {
-    self.subTitleLabel.text = subTitleStr;
+    self.subTitleLabel.text = subTitleStr?subTitleStr:@"-";
 }
 
 @end

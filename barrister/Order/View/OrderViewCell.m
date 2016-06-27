@@ -65,14 +65,15 @@
     [super configData];
     
     if (self.model) {
-        [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userHeder] placeholder:[UIImage imageNamed:@"timeline_image_loading"]];
-        self.nameLabel.text = self.model.customerName;
-        if (self.model.orderType == BarristerOrderTypeJSZX) {
-            self.timeLabel.text = [NSString stringWithFormat:@"%@",self.model.orderTime];
+        [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userIcon] placeholder:[UIImage imageNamed:@"timeline_image_loading"]];
+        self.nameLabel.text = self.model.nickname;
+        if ([self.model.type isEqualToString:@"APPOINTMENT"]) {
+            self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",self.model.date,self.model.date];
+
         }
         else
         {
-            self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",self.model.startTime,self.model.endTime];
+            self.timeLabel.text = [NSString stringWithFormat:@"%@",self.model.date];
         }
         self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType];
     }
