@@ -29,17 +29,17 @@
 /**
  *  姓名
  */
-@property (nonatomic,strong) NSString *username;
+@property (nonatomic,strong) NSString *name;
 
 /**
  *  头像地址
  */
-@property (nonatomic,strong) NSString *headUrl;
+@property (nonatomic,strong) NSString *userIcon;
 
 /**
  *  手机
  */
-@property (nonatomic,strong) NSString *mobile;
+@property (nonatomic,strong) NSString *phone;
 
 /**
  *  邮箱
@@ -51,6 +51,13 @@
  */
 @property (nonatomic,strong) NSString *lawOffice;
 
+
+/**
+ *  介绍
+ */
+
+@property (nonatomic,strong) NSString *introduction;
+
 /**
  * 市
  */
@@ -60,6 +67,11 @@
  *  地区
  */
 @property (nonatomic,strong) NSString *area;
+
+/**
+ *  定位区域
+ */
+@property (nonatomic,strong) NSString *location;
 
 /**
  * 执业证书编号
@@ -147,10 +159,22 @@
 @property (nonatomic,strong) NSString *pushId;
 
 /**
- *  擅长
+ *  擅长领域
  */
 
-@property (nonatomic,strong) NSString *goodAt;
+@property (nonatomic,strong) NSMutableArray *bizAreaList;
+
+/**
+ *  擅长类型
+ */
+@property (nonatomic,strong) NSMutableArray *bizTypeList;
+
+
+/**
+ *  接单状态
+ */
+@property (nonatomic,strong) NSString *state;
+
 
 /**
  *  律所
@@ -164,25 +188,16 @@
 
 @property (nonatomic,strong) NSString *workingStartYear;
 
-//String id;//用户id
-//String nickname;//昵称
-//String userIcon;//用户头像
-//String name;//姓名
-//String phone;//电话
-//String email;//邮箱
-//String age;//年龄：60后，70后，80后，90后，00后
-//String introduction;//自我介绍
-//String gender;//性别
-//String address;//通信地址
-//String state;//省、州
-//String city;//市
-//String area;//地区
-//String location;//暂时无用，保留字段；位置信息 经纬度：x，y，逗号分隔
-//String pushId;//推送id
-//String goodAt;//擅长
-//String company;//律所
-//String verifyStatus;//认证状态 ；成功 STATUS_SUCCESS; 失败 STATUS_FAILED; 审核中 STATUS_VERIFYING;
-//String workingStartYear;//从业开始时间。工作年限等于当前年减去工作开始时间
+/**
+ *  工作年限
+ */
+@property (nonatomic,strong) NSString *workYears;
+
+/**
+ *  验证状态
+ */
+
+@property (nonatomic,strong) NSString *verifyStatus;
 
 
 @end

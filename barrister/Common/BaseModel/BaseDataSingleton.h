@@ -21,9 +21,9 @@ typedef struct PhoneSate PhoneSate;
 
 @property (nonatomic,assign) PhoneSate currentPhoneState;
 
-@property (nonatomic,assign) BOOL isAccountLogin; //是否登录
+@property (nonatomic,assign) NSString * loginState; //是否登录 //1 登录 0 未登录
 
-@property (nonatomic,strong) NSString *appointStatus;//预约状态
+@property (nonatomic,strong) NSString *appointStatus;//预约状态 1 
 
 @property (nonatomic,strong) NSString *orderQty;//订单数
 
@@ -35,5 +35,16 @@ typedef struct PhoneSate PhoneSate;
 
 
 + (instancetype)shareInstance;
+
+/**
+ *  设置登录状态
+ *
+ *  @param validCode
+ */
+
+-(void)setLoginStateWithValidCode:(NSString *)validCode Phone:(NSString *)phone;
+
+
+-(BOOL) archive;
 
 @end

@@ -1,3 +1,4 @@
+
 //
 //  HomeViewController.m
 //  barrister
@@ -16,6 +17,8 @@
 #import "HomePageProxy.h"
 #import "AppointmentViewController.h"
 #import "TiXianViewControlleer.h"
+#import "BarristerLoginManager.h"
+#import "HomeBannerModel.h"
 
 @interface HomeViewController ()
 
@@ -44,6 +47,12 @@
 {
     [super viewWillAppear:animated];
     [self showTabbar:YES];
+    NSLog(@"%@",[BaseDataSingleton shareInstance]);
+    if ([BaseDataSingleton shareInstance].loginState.intValue != 1) {
+        [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
+    }
+    
+    
 }
 
 #pragma -mark ----UI---------
@@ -63,10 +72,7 @@
     NSArray *UrlStringArray = @[@"http://e.hiphotos.baidu.com/lvpics/h=800/sign=61e9995c972397ddc97995046983b216/35a85edf8db1cb134d859ca8db54564e93584b98.jpg", @"http://e.hiphotos.baidu.com/lvpics/h=800/sign=1d1cc1876a81800a71e5840e813533d6/5366d0160924ab185b6fd93f33fae6cd7b890bb8.jpg", @"http://f.hiphotos.baidu.com/lvpics/h=800/sign=8430a8305cee3d6d3dc68acb73176d41/9213b07eca806538d9da1f8492dda144ad348271.jpg", @"http://d.hiphotos.baidu.com/lvpics/w=1000/sign=81bf893e12dfa9ecfd2e521752e0f603/242dd42a2834349b705785a7caea15ce36d3bebb.jpg", @"http://f.hiphotos.baidu.com/lvpics/w=1000/sign=4d69c022ea24b899de3c7d385e361c95/f31fbe096b63f6240e31d3218444ebf81a4ca3a0.jpg"];
     
     DCPicScrollView  *picView = [DCPicScrollView picScrollViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140) WithImageUrls:UrlStringArray];
-    
-    
-    
-    
+
     self.tableView.tableHeaderView = picView;
 
 }
@@ -76,43 +82,55 @@
 -(void)initData
 {
     self.orderItems = [NSMutableArray arrayWithCapacity:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginSuccessAciton:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
+    if ([[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
+        [BarristerLoginManager shareManager].showController  = self;
+        [[BarristerLoginManager shareManager] userAutoLogin];
+    }
 }
+
+-(void)LoginSuccessAciton:(NSNotification *)nsnotifi
+{
+    [self loadAccountData];
+}
+
 
 -(void)configData
 {
     
     [self loadBannerData];
-    [self loadAccountData];
     
 }
 
 -(void)loadBannerData
 {
-    [self handleBannerDataWithDict:nil];
-
-    [_proxy getHomePageBannerWithParams:nil Block:^(id returnData, BOOL success) {
+    
+    [self.proxy getHomePageBannerWithParams:nil Block:^(id returnData, BOOL success) {
         if (success) {
-            [self handleBannerDataWithDict:nil];
+            NSDictionary *dict = (NSDictionary *)returnData;
+            if ([dict respondsToSelector:@selector(objectForKey:)]) {
+                NSArray *listArray = [dict objectForKey:@"list"];
+                [self handleBannerDataWithArray:listArray];
+            }
         }
-        else
-        {
-        
-        }
+   
     }];
 }
 
 -(void)loadAccountData
 {
-    [self handleAccountDataWithDict:nil];
-    
-   [_proxy getHomePageAccountDataWithParams:nil Block:^(id returnData, BOOL success) {
+
+    NSMutableDictionary *aParams = [NSMutableDictionary dictionary];
+    [aParams setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
+    [aParams setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+   [_proxy getHomePageAccountDataWithParams:aParams Block:^(id returnData, BOOL success) {
        if (success) {
            NSDictionary *dict = (NSDictionary *)returnData;
            NSString *resultCode = [dict objectForKey:@"resultCode"];
-           if (resultCode == 0) {
+           if (resultCode.integerValue == 200) {
                [self handleAccountDataWithDict:dict];
            }
-
        }
        else
        {
@@ -127,55 +145,68 @@
     
     NSString *appintmentStatus = [dict objectForKey:@"status"];
     
-    [BaseDataSingleton shareInstance].appointStatus = appintmentStatus?appintmentStatus:@"0";
-    [BaseDataSingleton shareInstance].remainingBalance = [dict objectForKey:@"remainingBalcnce"];
+    [BaseDataSingleton shareInstance].appointStatus = appintmentStatus?appintmentStatus:@"can_not";
+
+    
+    [BaseDataSingleton shareInstance].remainingBalance = [dict objectForKey:@"remainingBalance"];
     [BaseDataSingleton shareInstance].totalIncome = [dict objectForKey:@"totalIncome"];
     [BaseDataSingleton shareInstance].orderQty = [dict objectForKey:@"orderQty"];
     
     [self updateAppointmentStatus];
     
+    [self.tableView reloadData];
     
     NSArray *array = [dict objectForKey:@"todoList"];
     
-    NSLog(@"arry.cout = %ld",array.count);
-    
-    BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
-    model4.customerName = @"用户134****7654";
-    model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
-    model4.startTime = @"2016/04/24 13:00";
-    model4.endTime = @"2016/03/24 14:00";
-    model4.caseType = @"债务纠纷";
-    model4.orderType = BarristerOrderTypeYYZX;
-    
-    BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
-    model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
-    model5.customerName = @"用户158****0087";
-    model5.startTime = @"2016/04/25 14:00";
-    model5.endTime = @"2016/04/25 15:00";
-    model5.caseType = @"财产纠纷";
-    model5.orderType = BarristerOrderTypeYYZX;
-    
-    BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
-    model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
-    model6.customerName = @"用户186****7339";
-    model6.startTime = @"2016/04/26 15:00";
-    model6.endTime = @"2016/04/26 16:00";
-    model6.caseType = @"民事案件";
-    model6.orderType = BarristerOrderTypeYYZX;
-    
-    [self.orderItems addObject:model4];
-    [self.orderItems addObject:model5];
-    [self.orderItems addObject:model6];
-    
-    [self.tableView reloadData];
+    if ([XuUtlity isValidArray:array]) {
+        NSLog(@"arry.cout = %ld",array.count);
+        
+        BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
+        model4.customerName = @"用户134****7654";
+        model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
+        model4.startTime = @"2016/04/24 13:00";
+        model4.endTime = @"2016/03/24 14:00";
+        model4.caseType = @"债务纠纷";
+        model4.orderType = BarristerOrderTypeYYZX;
+        
+        BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
+        model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
+        model5.customerName = @"用户158****0087";
+        model5.startTime = @"2016/04/25 14:00";
+        model5.endTime = @"2016/04/25 15:00";
+        model5.caseType = @"财产纠纷";
+        model5.orderType = BarristerOrderTypeYYZX;
+        
+        BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
+        model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
+        model6.customerName = @"用户186****7339";
+        model6.startTime = @"2016/04/26 15:00";
+        model6.endTime = @"2016/04/26 16:00";
+        model6.caseType = @"民事案件";
+        model6.orderType = BarristerOrderTypeYYZX;
+        
+        [self.orderItems addObject:model4];
+        [self.orderItems addObject:model5];
+        [self.orderItems addObject:model6];
+        
+        [self.tableView reloadData];
+
+    }
 
 }
 
 
--(void)handleBannerDataWithDict:(NSDictionary *)dict
+-(void)handleBannerDataWithArray:(NSArray *)array
 {
-    NSArray *UrlStringArray = @[@"http://e.hiphotos.baidu.com/lvpics/h=800/sign=61e9995c972397ddc97995046983b216/35a85edf8db1cb134d859ca8db54564e93584b98.jpg", @"http://e.hiphotos.baidu.com/lvpics/h=800/sign=1d1cc1876a81800a71e5840e813533d6/5366d0160924ab185b6fd93f33fae6cd7b890bb8.jpg", @"http://f.hiphotos.baidu.com/lvpics/h=800/sign=8430a8305cee3d6d3dc68acb73176d41/9213b07eca806538d9da1f8492dda144ad348271.jpg", @"http://d.hiphotos.baidu.com/lvpics/w=1000/sign=81bf893e12dfa9ecfd2e521752e0f603/242dd42a2834349b705785a7caea15ce36d3bebb.jpg", @"http://f.hiphotos.baidu.com/lvpics/w=1000/sign=4d69c022ea24b899de3c7d385e361c95/f31fbe096b63f6240e31d3218444ebf81a4ca3a0.jpg"];
-    [self setBannerViewWithUrls:UrlStringArray];
+    NSMutableArray *imageUrls = [NSMutableArray arrayWithCapacity:1];
+    for (int i = 0; i < array.count; i ++) {
+        NSDictionary *dict = [array objectAtIndex:i];
+        HomeBannerModel *model = [[HomeBannerModel alloc] initWithDictionary:dict];
+        [imageUrls addObject:model.image];
+        [imageUrls addObject:model.image];
+    }
+    
+    [self setBannerViewWithUrls:imageUrls];
 
 }
 
@@ -300,6 +331,7 @@
         
         self.tableView.tableHeaderView = _bannerView;
 
+        [self.tableView reloadData];
     }
     return _bannerView;
 }
@@ -409,14 +441,15 @@
 
 -(void)updateAppointmentStatus
 {
-    if ([[BaseDataSingleton shareInstance].appointStatus isEqualToString:@"1"]) {
-        self.stateLabel.text = @"当前状态:正常接单";
-        self.lightImage.backgroundColor = [UIColor greenColor];
-    }
-    else
-    {
+    if ([[BaseDataSingleton shareInstance].appointStatus isEqualToString:@"can_not"]) {
         self.stateLabel.text = @"当前状态:不可接单";
         self.lightImage.backgroundColor = [UIColor redColor];
+    }
+
+    else
+    {
+        self.stateLabel.text = @"当前状态:正常接单";
+        self.lightImage.backgroundColor = [UIColor greenColor];
     }
 }
 

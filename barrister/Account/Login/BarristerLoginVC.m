@@ -8,21 +8,23 @@
 
 #import "BarristerLoginVC.h"
 #import "BorderTextFieldView.h"
-#import "BarristerRegisterVC.h"
 #import "TFSButton.h"
 #import "LoginProxy.h"
+#import "BarristerUserModel.h"
+#import "BarristerLoginManager.h"
 
 const float MidViewHeight = 190 / 2.0;
 
 @interface BarristerLoginVC ()<UITextFieldDelegate>
 {
     UIButton *loginBtn;
-//    UIButton *forgetBtn;
     BorderTextFieldView *accountTextField;
     BorderTextFieldView *passwordTextField;
     
     UIButton *getValidCodeBtn;
 }
+
+@property (nonatomic,strong)TFSButton *validBtn;
 
 @property (nonatomic,strong) LoginProxy *proxy;
 
@@ -67,16 +69,40 @@ const float MidViewHeight = 190 / 2.0;
     
     [self createMidView];
     
-//    [self createBottomView];
     
+    [self addBackButton];
+}
+
+-(void)addBackButton
+{
+    return;
+    UIButton * backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [backBtn setTitleColor:kNavigationTitleColor forState:UIControlStateNormal];
+    [backBtn setTitleColor:kButtonColor1Highlight forState:UIControlStateHighlighted];
+    [backBtn.titleLabel setFont:SystemFont(16.0f)];
+    [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_icon_hl"] forState:UIControlStateHighlighted];
+    [backBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn setFrame:CGRectMake(0, 0, 50, 30)];
+    [backBtn setImageEdgeInsets:UIEdgeInsetsMake(2, -10, 0, 0)];
+    [backBtn setTitleEdgeInsets:UIEdgeInsetsMake(2, -5, 0, 0)];
+    
+    UIBarButtonItem * backBar = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = backBar;
+
+}
+
+-(void)backAction:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)createBaseView
 {
     
     self.navigationItem.title = @"登录";
-    
-    [self initNavigationRightTextButton:@"注册" action:@selector(toRegisterAction:)];
     
 }
 
@@ -108,15 +134,15 @@ const float MidViewHeight = 190 / 2.0;
     [self.view addSubview:inputBgView];
     
     
-    __weak typeof(self) weakSelf = self;
     
-    TFSButton* btn  = [[TFSButton alloc]initWithFrame:CGRectMake(SCREENWIDTH - 100, inputBgView.height - passwordTextField.height, 100, passwordTextField.height) touchBlock:^(TFSButton *btn) {
-        // 向服务器请求验证码
-        
-        [weakSelf requestValidCode];
-    }];
-    [inputBgView addSubview:btn];
+    self.validBtn  = [[TFSButton alloc]initWithFrame:CGRectMake(SCREENWIDTH - 100, inputBgView.height - passwordTextField.height, 100, passwordTextField.height)];
+    [self.validBtn addTarget:self action:@selector(requestValidCode:) forControlEvents:UIControlEventTouchUpInside];
 
+    
+    [inputBgView addSubview:self.validBtn];
+
+    
+    
     
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
@@ -131,57 +157,7 @@ const float MidViewHeight = 190 / 2.0;
     
     
     
-    
-//    forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
-//    [forgetBtn.titleLabel setFont:SystemFont(13.0)];
-//    [forgetBtn addTarget:self action:@selector(forgetPwdAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [forgetBtn setTitleColor:kNavigationBarColor forState:UIControlStateNormal];
-//    [forgetBtn setFrame:RECT(SCREENWIDTH - 40 - 100, loginBtn.y + loginBtn.height + 10, 100, 25)];
-//    [self.view addSubview:forgetBtn];
 }
-
-//-(void)createBottomView
-//{
-//    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT - 200 , SCREENWIDTH, 150)];
-//    
-//    UIView *sepView1 = [self getLineViewWithFrame:RECT(0, 5, (SCREENWIDTH - 100)/2, .5)];
-//    UIView *sepView2 = [self getLineViewWithFrame:RECT((SCREENWIDTH - 100)/2 + 100, 5, (SCREENWIDTH - 100)/2, .5)];
-//    
-//    [bottomView addSubview:sepView1];
-//    [bottomView addSubview:sepView2];
-//    
-//    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREENWIDTH - 100)/2, 0, 100, 10)];
-//    tipLabel.textColor = RGBCOLOR(155, 155, 155);
-//    tipLabel.textAlignment = NSTextAlignmentCenter;
-//    tipLabel.font = SystemFont(13.0f);
-//    tipLabel.text = @"其他登录方式";
-//    [bottomView addSubview:tipLabel];
-//    
-//    wechatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [wechatBtn setTitle:@"微信" forState:UIControlStateNormal];
-//    [wechatBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_weixin"] forState:UIControlStateNormal];
-//    [wechatBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2, bottomView.height - 60 - 51, 51, 51)];
-//    wechatBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
-//    [wechatBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
-//    [wechatBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-//    wechatBtn.titleLabel.font = SystemFont(13.0f);
-//    
-//    
-//    QQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [QQBtn setTitle:@"微信" forState:UIControlStateNormal];
-//    [QQBtn setFrame:RECT((SCREENWIDTH/2 - 51)/2 + SCREENWIDTH/2, bottomView.height - 60 - 51, 51, 51)];
-//    [QQBtn setTitleColor:RGBCOLOR(155, 155, 155) forState:UIControlStateNormal];
-//    QQBtn.titleEdgeInsets = UIEdgeInsetsMake(85, 0, 0, 0);
-//    [QQBtn addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];
-//    QQBtn.titleLabel.font = SystemFont(13.0f);
-//    [QQBtn setBackgroundImage:[UIImage imageNamed:@"login3rd_icon_qq"] forState:UIControlStateNormal];
-//    
-//    [bottomView addSubview:wechatBtn];
-//    [bottomView addSubview:QQBtn];
-//    
-//    [self.view addSubview:bottomView];
-//}
 
 #pragma -mark ------TextField Delegate Methods--------
 
@@ -212,33 +188,64 @@ const float MidViewHeight = 190 / 2.0;
 
 #pragma -mark ---------Action--------
 
--(void)toRegisterAction:(id)sender
-{
-    BarristerRegisterVC *registerVC = [[BarristerRegisterVC alloc] init];
-    [self.navigationController pushViewController:registerVC animated:YES];
-}
+
 
 
 -(void)loginAction:(UIButton *)button
 {
+    [self.view endEditing:YES];
+    
+    if (accountTextField.text.length == 0 ) {
+        [XuUItlity showFailedHint:@"请输入手机号" completionBlock:nil];
+        return;
+    }
+    else if(passwordTextField.text.length == 0)
+    {
+        [XuUItlity showFailedHint:@"请输入验证码" completionBlock:nil];
+        return;
+    }
+    
     if ([XuUtlity validateMobile:accountTextField.text]) {
-        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone", nil];
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone",passwordTextField.text,@"verifyCode", nil];
+        [XuUItlity showLoading:@"正在登录"];
         [self.proxy loginWithParams:params Block:^(id returnData, BOOL success) {
+            [XuUItlity hideLoading];
             if (success) {
-                [XuUItlity showSucceedHint:@"登录成功" completionBlock:nil];
+                NSDictionary *dict = (NSDictionary *)returnData;
+                NSDictionary *userDict = [dict objectForKey:@"user"];
+                BarristerUserModel *user = [[BarristerUserModel alloc] initWithDictionary:userDict];
+                [BaseDataSingleton shareInstance].userModel = user;
+                [[BaseDataSingleton shareInstance] setLoginStateWithValidCode:user.verifyCode Phone:user.phone];
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:nil];
+                [XuUItlity showSucceedHint:@"登录成功" completionBlock:^{
+                    if ([user.verifyStatus isEqualToString:@"verify.status.unautherized"] ) {
+                        [[BarristerLoginManager shareManager] hideLoginViewController:self isToPersonInfoVC:YES];                        
+                    }
+
+                }];
+                
             }
             else
             {
+                
+                [BaseDataSingleton shareInstance].userModel.verifyCode = nil;
+                [BaseDataSingleton shareInstance].loginState = @"0";
+                [BaseDataSingleton shareInstance].userModel = nil;
                 [XuUItlity showFailedHint:@"登录失败" completionBlock:nil];
             }
         }];
 
     }
+    else
+    {
+        [XuUItlity showFailedHint:@"手机号不合法" completionBlock:nil];
+    }
 }
 
--(void)requestValidCode
+-(void)requestValidCode:(TFSButton *)btn
 {
     if ([XuUtlity validateMobile:accountTextField.text]) {
+        [btn clickSelfBtn:btn];
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone", nil];
         [self.proxy getValidCodeWithParams:params Block:^(id returnData, BOOL success) {
             if (success) {
@@ -250,7 +257,11 @@ const float MidViewHeight = 190 / 2.0;
             
             }
         }];
-    };
+    }
+    else
+    {
+        [XuUItlity showFailedHint:@"请输入合法手机号" completionBlock:nil];
+    }
 }
 
 

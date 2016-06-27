@@ -224,7 +224,7 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     }
     _loadingHUD = [[MBProgressHUD alloc] initWithFrame:theFrame];
     //    _loadingHUD.labelText = hintText;
-    _loadingHUD.labelText = LOADING_VIEW_TEXT;
+    _loadingHUD.labelText = hintText;
     [parentView addSubview:_loadingHUD];
     
     _loadingHUD.mode = MBProgressHUDModeCustomView;
@@ -249,7 +249,7 @@ static const NSInteger InputAlertTextFieldTag = 12345;
     }
     _loadingHUD = [[MBProgressHUD alloc] initWithFrame:theFrame];
     //    _loadingHUD.labelText = hintText;
-    _loadingHUD.labelText = LOADING_VIEW_TEXT;
+    _loadingHUD.labelText = hintText;
     [theWindow addSubview:_loadingHUD];
  
     

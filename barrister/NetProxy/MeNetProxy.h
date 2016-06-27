@@ -53,6 +53,21 @@
  */
 
 -(void)getMyMessageWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
+
+/**
+ *  业务领域 业务类型列表
+ *
+ *  @param params 参数
+ *  @param aBlock 回调
+ */
+-(void)getAreaAndTypeListWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
+/**
+ *  修改个人信息
+ */
+
+-(void)updateUserInfoWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
 @end
 
 

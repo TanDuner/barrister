@@ -10,4 +10,18 @@
 
 @implementation BarristerUserModel
 
+-(id)initWithDictionary:(NSDictionary *)jsonObject
+{
+    if (self = [super initWithDictionary:jsonObject]) {
+        [self handlePropretyWithDict:jsonObject];
+    }
+    return self;
+}
+
+-(void)handlePropretyWithDict:(NSDictionary *)jsoObject
+{
+    self.userId = [jsoObject objectForKey:@"id"];
+    
+}
+
 @end

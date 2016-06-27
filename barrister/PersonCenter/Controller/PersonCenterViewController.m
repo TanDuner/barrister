@@ -32,6 +32,7 @@
 {
     [super viewWillAppear:animated];
     [self showTabbar:YES];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +49,7 @@
     model1.cellType = PersonCenterModelTypeZH;
     model1.iconNameStr = @"zhanghao.png";
     model1.isShowArrow = NO;
-    model1.isAccountLogin = NO;
+    model1.isAccountLogin = [BaseDataSingleton shareInstance].loginState.integerValue == 1?YES:NO;
  
     
     PersonCenterModel *model2 = [[PersonCenterModel alloc] init];
@@ -201,6 +202,7 @@
     
     if (indexPath.section == 0) {
         PersonInfoViewController *personInfo = [[PersonInfoViewController alloc] init];
+        personInfo.fromType = @"1";
         [self.navigationController pushViewController:personInfo animated:YES];
     }
     else if (indexPath.section == 1)

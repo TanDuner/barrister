@@ -7,6 +7,7 @@
 //
 
 #import "AppointContentViewController.h"
+#import "BaseAppointmentModel.h"
 
 #define ButtonNum 48
 
@@ -23,7 +24,7 @@
 
 @property (nonatomic,assign) NSInteger endTimeNum;
 
-@property (nonatomic,assign) BOOL isSelected;
+@property (nonatomic,assign) AppointMentState state;
 
 @end
 
@@ -53,18 +54,22 @@
     _showLabel.textColor = [UIColor grayColor];
     [self addSubview:_showLabel];
     
-    self.isSelected = NO;
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    if (self.isSelected) {
+    
+    if (self.state == AppointMentStateSelect) {
         _checkImageView.image = [UIImage imageNamed:@"Selected.png"];
     }
-    else
+    else if(self.state == AppointMentStateUnSelect)
     {
         _checkImageView.image = [UIImage imageNamed:@"unSelected.png"];
+    }
+    else if (self.state == AppointMentStateUnSelectable)
+    {
+        _checkImageView.image = [UIImage imageNamed:@"unSelectedable.png"];
     }
 }
 
@@ -142,7 +147,14 @@
 -(void)checkAciton:(UITapGestureRecognizer *)tap
 {
     AppointCheckView *checkView = (AppointCheckView *)[tap view];
-    checkView.isSelected = !checkView.isSelected;
+    if (checkView.state == AppointMentStateSelect) {
+        checkView.state = AppointMentStateUnSelect;
+    }
+    else if(checkView.state == AppointMentStateUnSelect)
+    {
+        checkView.state = AppointMentStateSelect;
+    }
+    
     [checkView setNeedsLayout];
    
 }

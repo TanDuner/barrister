@@ -54,7 +54,7 @@
     
     _bottomBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 60, SCREENWIDTH - 30, 44)];
     
-    if ([BaseDataSingleton shareInstance].isAccountLogin) {
+    if ([BaseDataSingleton shareInstance].loginState.intValue == 1) {
         [_bottomBtn setTitle:@"退出登录" forState:UIControlStateNormal];\
         _bottomBtn.backgroundColor = [UIColor whiteColor];
         [_bottomBtn setTitleColor:KColorGray333 forState:UIControlStateNormal];
@@ -111,7 +111,7 @@
 
 -(void)logoutAction:(UIButton *)button
 {
-    if ([BaseDataSingleton shareInstance].isAccountLogin) {
+    if ([BaseDataSingleton shareInstance].loginState.intValue == 1) {
         
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
         [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"id"];

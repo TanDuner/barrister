@@ -25,6 +25,7 @@
 @property (nonatomic,strong) UITextView *modifyTextView;
 
 
+
 @end
 
 @implementation ModifyInfoViewController
@@ -84,14 +85,33 @@
 
 -(void)confirmModify
 {
-    if (![modifyModel.titleStr isEqualToString:@"个人简介"]) {
+    
+    if (modifyModel.cellType == PersonCenterModelTypeInfoIntroduce) {
+        modifyModel.subtitleStr = self.modifyTextView.text;
+    }
+    else if (modifyModel.cellType == PersonCenterModelTypeInfoEmail)
+    {
+        if ([XuUtlity validateEmail:self.modifyTextField.text]) {
+            modifyModel.subtitleStr = self.modifyTextField.text;
+        }
+        else
+        {
+            [XuUItlity showFailedHint:@"请填写正确的邮箱" completionBlock:^{
+                self.modifyTextField.text = nil;
+            }];
+            return;
+        }
+
+    }
+    else if (modifyModel.cellType == PersonCenterModelTypeInfoName)
+    {
         modifyModel.subtitleStr = self.modifyTextField.text;
     }
-    else
+    else if (modifyModel.cellType == PersonCenterModelTypeInfoCompany)
     {
-        modifyModel.subtitleStr = _modifyTextView.text;
+        modifyModel.subtitleStr = self.modifyTextField.text;
     }
-
+    
     if (self.modifyBlock) {
         self.modifyBlock(modifyModel);
     }
@@ -137,6 +157,7 @@
     }
     return _modifyTextView;
 }
+
 
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PersonCenterAccountCell.h"
+#import "YYWebImage.h"
 
 #define IconWidht 65
 
@@ -18,6 +19,8 @@
 @property (nonatomic,strong) UIImageView *rightRow;
 
 @property (nonatomic,strong) UILabel *subtitleLabel;
+
+
 
 @end
 
@@ -48,8 +51,9 @@
     [super layoutSubviews];
     
     if (self.model.isAccountLogin) {
+        [self.iconImageIVew setFrame:RECT(LeftPadding + 5, ([PersonCenterAccountCell getCellHeight] - IconWidht)/2.0, IconWidht, IconWidht)];
         [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, self.iconImageIVew.y + 5, SCREENWIDTH - self.iconImageIVew.width - LeftPadding - 5 - 15 - 30, 15)];
-        [self.subtitleLabel setFrame:RECT(self.titleLabel.x, self.iconImageIVew.y + self.iconImageIVew.height - 20 , self.titleLabel.width, 10)];
+        [self.subtitleLabel setFrame:RECT(self.titleLabel.x, self.iconImageIVew.y + self.iconImageIVew.height - 35 , self.titleLabel.width, 10)];
         _titleLabel.textColor = KColorGray333;
         self.rightRow.hidden = NO;
     }
@@ -72,11 +76,9 @@
    
         if (self.model.isAccountLogin) {
             self.subtitleLabel.hidden = NO;
-            self.subtitleLabel.text = @"律所：振华律师事务所";
-            self.titleLabel.text = @"张大千";
-            UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"temlvshi.jpg" ofType:nil]];
-            self.iconImageIVew.image = image;
-            self.titleLabel.text = self.model.titleStr;
+            _titleLabel.text = [BaseDataSingleton shareInstance].userModel.name;
+            _subtitleLabel.text = [BaseDataSingleton shareInstance].userModel.company;
+            [_iconImageIVew yy_setImageWithURL:[NSURL URLWithString:[BaseDataSingleton shareInstance].userModel.userIcon] placeholder:[UIImage imageNamed:self.model.iconNameStr]];
 
         }
         else{

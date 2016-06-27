@@ -39,7 +39,6 @@
 -(void)initNetWorkingData
 {
     [XuNetWorking updateBaseUrl:BaseUrl];
-    
     NSMutableDictionary *headerDict = [NSMutableDictionary dictionary];
     [headerDict setObject:[OpenUDID value] forKey:@"X-DEVICE-NUM"];
     [headerDict setObject:[NSString stringWithFormat:@"ios-%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]] forKey:@"X-VERSION"];

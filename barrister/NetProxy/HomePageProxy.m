@@ -8,8 +8,8 @@
 
 #import "HomePageProxy.h"
 
-#define HomePageBannerUrl @"lunboAds"
-#define HomePageAccountUrl @"userHome"
+#define HomePageBannerUrl @"lunboAds.do"
+#define HomePageAccountUrl @"userHome.do"
 
 @implementation HomePageProxy
 
@@ -23,9 +23,13 @@
 -(void)getHomePageBannerWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking getWithUrl:HomePageBannerUrl params:params success:^(id response) {
-        
+        if (aBlock) {
+            aBlock(response,YES);
+        }
     } fail:^(NSError *error) {
-        
+        if (aBlock) {
+            aBlock(error,YES);
+        }
     }];
 }
 
@@ -40,7 +44,24 @@
 -(void)getHomePageAccountDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking getWithUrl:HomePageAccountUrl params:params success:^(id response) {
-        
+        if ([response respondsToSelector:@selector(objectForKey:)]) {
+            NSString *resultCode = [response objectForKey:@"resultCode"];
+
+            if (aBlock) {
+                if (resultCode.integerValue == 200) {
+                    aBlock(response,YES);
+                }
+                else
+                {
+                    NSString *resultMsg = [response objectForKey:@"response"];
+                    aBlock(resultMsg,NO);
+                    
+                }
+
+            }
+
+        }
+
     } fail:^(NSError *error) {
         
     }];

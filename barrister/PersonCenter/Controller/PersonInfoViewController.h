@@ -10,4 +10,7 @@
 
 @interface PersonInfoViewController : BaseTableViewController
 
+//页面来源 0 是从登录界面过来的 1是从个人中心点击进来的
+@property (nonatomic,strong) NSString *fromType;
+
 @end

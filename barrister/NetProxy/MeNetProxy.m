@@ -10,6 +10,9 @@
 #define GetAppointDataUrl @""
 #define SetAppointDataUrl @""
 #define UploadHeadImageUrl @"uploadUserIcon.do"
+#define AreaAndTypeUrl @"bizAreaAndBizTypeList.do?"
+#define UpdateUserInfo @"updateUserInfo.do"
+
 
 @implementation MeNetProxy
 /**
@@ -62,7 +65,7 @@
                           fileName:(NSString *)fileName
                              Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking uploadWithImage:image url:UploadHeadImageUrl filename:@"uploadUserIcon.jpg" name:@"xxx" mimeType:@"" parameters:nil progress:nil success:^(id response) {
+    [XuNetWorking uploadWithImage:image url:UploadHeadImageUrl filename:@"userIcon" name:@"userIcon" mimeType:@"image/jpeg" parameters:params progress:nil success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }
@@ -89,4 +92,44 @@
     }];
 }
 
+/**
+ *  业务领域 业务类型列表
+ *
+ *  @param params 参数
+ *  @param aBlock 回调
+ */
+
+
+-(void)getAreaAndTypeListWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:AreaAndTypeUrl params:params success:^(id response) {
+        if (aBlock) {
+            aBlock(response,YES);
+        }
+        
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+        
+    }];
+
+}
+
+
+-(void)updateUserInfoWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:UpdateUserInfo params:params success:^(id response) {
+        if (aBlock) {
+            aBlock(response,YES);
+        }
+        
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+        
+    }];
+    
+}
 @end

@@ -56,22 +56,17 @@
     if (self.model) {
         self.titleLabel.text = self.model.titleStr;
         
-     
-        
         if (self.model.cellType == PersonCenterModelTypeInfoTX) {
             self.headerImageView.hidden = NO;
             [self.headerImageView setFrame:CGRectMake(SCREENWIDTH - 15 - 15 - 10 - ImageWidth, ([PersonInfoCustomCell getCellHeightWithModel:self.model] - ImageWidth)/2.0, ImageWidth, ImageWidth)];
-            if (self.model.headImageUrl) {
-                [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.headImageUrl] placeholder:[UIImage imageNamed:@"commom_default_head.png"]];
+            if (self.model.userIcon) {
+                [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userIcon] placeholder:[UIImage imageNamed:@"commom_default_head.png"]];
             }
-            else if(self.model.headImage)
-            {
-                [self.headerImageView setImage:self.model.headImage];
-            }
+        
         }
         else
         {
-            self.subTitleLabel.text = self.model.subtitleStr;
+            self.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.model.subtitleStr];
             self.headerImageView.hidden = YES;
         }
     }

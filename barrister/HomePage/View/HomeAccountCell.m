@@ -46,8 +46,8 @@
 
 -(void)configData
 {
-    [self.leftView setSubTitleStr:[BaseDataSingleton shareInstance].remainingBalance];
-    [self.rightView setSubTitleStr:[BaseDataSingleton shareInstance].totalIncome];
+    [self.leftView setSubTitleStr:[NSString stringWithFormat:@"%@",[BaseDataSingleton shareInstance].remainingBalance]];
+    [self.rightView setSubTitleStr:[NSString stringWithFormat:@"%@",[BaseDataSingleton shareInstance].totalIncome]];
 
 }
 

@@ -10,9 +10,6 @@
 
 @interface HomeAccountItemView : UIView
 
-
-@property (nonatomic,strong)UILabel *subLabel;
-
 -(id)initWithFrame:(CGRect)frame
           iconName:(NSString *)iconName
           titleStr:(NSString *)titleStr

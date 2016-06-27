@@ -56,7 +56,7 @@
     [self.titleLabel setFrame:RECT(LabelWidth, 20, LabelWidth, 15)];
     [self.subTitleLabel setFrame:RECT(self.titleLabel.x, self.titleLabel.y + self.titleLabel.height + 5, LabelWidth, 12)];
     [self.iconImageView setFrame:RECT((LabelWidth - 35)/2.0, 20, 35, 35)];
-
+    self.subTitleLabel.backgroundColor = [UIColor redColor];
     [self configData];
 
 }
