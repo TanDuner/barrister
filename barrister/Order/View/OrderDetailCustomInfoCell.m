@@ -75,7 +75,7 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:RECT(10, 13, 200, 13)];
-        _titleLabel.text = @"订单信息";
+        _titleLabel.text = @"用户信息";
         _titleLabel.textColor = KColorGray222;
         _titleLabel.font = SystemFont(15.0f);
     }

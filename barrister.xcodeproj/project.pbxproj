@@ -103,6 +103,8 @@
 		9545051D1D2173870039C6B1 /* HomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545051C1D2173870039C6B1 /* HomeBannerModel.m */; };
 		954505231D2185C40039C6B1 /* HomeWaitHandleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */; };
 		954505291D2225B40039C6B1 /* BarristerOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 954505281D2225B40039C6B1 /* BarristerOrderDetailModel.m */; };
+		9545052C1D2240010039C6B1 /* LearnCenterContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545052B1D2240010039C6B1 /* LearnCenterContentView.m */; };
+		9545052F1D225EC60039C6B1 /* LearnCenterChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545052E1D225EC60039C6B1 /* LearnCenterChannelModel.m */; };
 		955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */ = {isa = PBXBuildFile; fileRef = 955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */; };
 		955A7AE71D1D790E00D1DEAC /* BaseAppointmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7AE61D1D790E00D1DEAC /* BaseAppointmentModel.m */; };
 		955A7B1D1D1F712000D1DEAC /* BarristerLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7B1C1D1F712000D1DEAC /* BarristerLoginManager.m */; };
@@ -470,6 +472,10 @@
 		954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWaitHandleModel.m; sourceTree = "<group>"; };
 		954505271D2225B40039C6B1 /* BarristerOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerOrderDetailModel.h; sourceTree = "<group>"; };
 		954505281D2225B40039C6B1 /* BarristerOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerOrderDetailModel.m; sourceTree = "<group>"; };
+		9545052A1D2240010039C6B1 /* LearnCenterContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterContentView.h; sourceTree = "<group>"; };
+		9545052B1D2240010039C6B1 /* LearnCenterContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterContentView.m; sourceTree = "<group>"; };
+		9545052D1D225EC60039C6B1 /* LearnCenterChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterChannelModel.h; sourceTree = "<group>"; };
+		9545052E1D225EC60039C6B1 /* LearnCenterChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterChannelModel.m; sourceTree = "<group>"; };
 		955231331CF2ADCE00E35AD3 /* TiXianViewControlleer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiXianViewControlleer.h; sourceTree = "<group>"; };
 		955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiXianViewControlleer.m; sourceTree = "<group>"; };
 		955A7AE51D1D790E00D1DEAC /* BaseAppointmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAppointmentModel.h; sourceTree = "<group>"; };
@@ -1479,6 +1485,8 @@
 			children = (
 				9597B0DC1CA113AF00FF65D9 /* LearnCenterViewController.h */,
 				9597B0DD1CA113AF00FF65D9 /* LearnCenterViewController.m */,
+				9545052A1D2240010039C6B1 /* LearnCenterContentView.h */,
+				9545052B1D2240010039C6B1 /* LearnCenterContentView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1486,6 +1494,8 @@
 		9597B0DA1CA1139D00FF65D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9545052D1D225EC60039C6B1 /* LearnCenterChannelModel.h */,
+				9545052E1D225EC60039C6B1 /* LearnCenterChannelModel.m */,
 				95C0EAFA1CB5152B004F9DAD /* LearnCenterModel.h */,
 				95C0EAFB1CB5152B004F9DAD /* LearnCenterModel.m */,
 			);
@@ -2149,6 +2159,7 @@
 				9520BFB61CAA721A00961F05 /* YYMemoryCache.m in Sources */,
 				95CA1B9D1D0D709F00AAE490 /* OpenUDID.m in Sources */,
 				95412A041D06674800C6624F /* AJPhotoListView.m in Sources */,
+				9545052F1D225EC60039C6B1 /* LearnCenterChannelModel.m in Sources */,
 				95412A031D06674800C6624F /* AJPhotoListCellTapView.m in Sources */,
 				9597B0DE1CA113AF00FF65D9 /* LearnCenterViewController.m in Sources */,
 				9520BFC31CAA721A00961F05 /* YYWebImageManager.m in Sources */,
@@ -2234,6 +2245,7 @@
 				9597B0851CA0EFEC00FF65D9 /* BaseTableView.m in Sources */,
 				9597B0D81CA1136B00FF65D9 /* PersonCenterViewController.m in Sources */,
 				95412A0F1D06674800C6624F /* MASViewAttribute.m in Sources */,
+				9545052C1D2240010039C6B1 /* LearnCenterContentView.m in Sources */,
 				9520BFB71CAA721A00961F05 /* _YYWebImageSetter.m in Sources */,
 				95CA1BA01D0E250A00AAE490 /* UploadQualificationViewController.m in Sources */,
 				9520BFBE1CAA721A00961F05 /* YYFrameImage.m in Sources */,

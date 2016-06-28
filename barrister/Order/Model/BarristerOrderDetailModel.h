@@ -35,7 +35,12 @@
 @property (nonatomic,strong) NSString *remarks;
 @property (nonatomic,strong) NSString *status;
 @property (nonatomic,strong) NSString *type;
+@property (nonatomic,strong) NSString *startTime;
+@property (nonatomic,strong) NSString *endTime;
+@property (nonatomic,strong) NSString *lawFeedback;
 
 @property (nonatomic,assign) CGFloat markHeight;
+
+
 
 @end

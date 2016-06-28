@@ -18,6 +18,7 @@
 {
     self.separatorStyle  = UITableViewCellSeparatorStyleNone;
     self.pageNum = 1;
+    self.pageSize = 20;
     [self setHeaderRefreshControl];
 }
 

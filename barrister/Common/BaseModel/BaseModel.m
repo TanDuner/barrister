@@ -17,7 +17,10 @@
     if(self= [super init])
     {
         [self objectFromDictionary:jsonObject];
-        [self handlePropretyWithDict:jsonObject];
+        if ([jsonObject respondsToSelector:@selector(objectForKey:)]) {
+            [self handlePropretyWithDict:jsonObject];            
+        }
+
     }
     return self;
 }
