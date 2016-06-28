@@ -7,11 +7,11 @@
 //
 
 #import "BaseTableViewCell.h"
-#import "HomeWaitHandleModel.h"
+#import "BarristerOrderModel.h"
 
 
 @interface OrderViewCell : BaseTableViewCell
 
-@property (nonatomic,strong)HomeWaitHandleModel *model;
+@property (nonatomic,strong)BarristerOrderModel *model;
 
 @end

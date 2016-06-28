@@ -13,20 +13,23 @@
 -(id)initWithDictionary:(NSDictionary *)jsonObject
 {
     if (self = [super initWithDictionary:jsonObject]) {
-        [self handleProprety];
     }
     return self;
 }
 
--(void)handleProprety
+-(void)handlePropretyWithDict:(NSDictionary *)jsonObject
 {
-    CGFloat height = [XuUtlity textHeightWithString:self.markStr withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 20 WithLineSpace:5];
-
-    if (height <= 13) {
-        height = 13;
+    if ([jsonObject respondsToSelector:@selector(objectForKey:)]) {
+        CGFloat height = [XuUtlity textHeightWithString:self.markStr withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 20 WithLineSpace:5];
+        
+        if (height <= 13) {
+            height = 13;
+        }
+        self.markHeight = height;
+        
+        self.orderId = [jsonObject objectForKey:@"id"];
+        
     }
-    self.markHeight = height;
-    
 }
 
 @end

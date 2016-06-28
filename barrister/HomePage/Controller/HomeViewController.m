@@ -19,7 +19,6 @@
 #import "TiXianViewControlleer.h"
 #import "BarristerLoginManager.h"
 #import "HomeBannerModel.h"
-#import "HomeWaitHandleModel.h"
 
 @interface HomeViewController ()
 
@@ -165,7 +164,7 @@
 
         for (int i = 0; i < array.count; i ++) {
             NSDictionary *dict = [array objectAtIndex:i];
-            HomeWaitHandleModel *model = [[HomeWaitHandleModel alloc] initWithDictionary:dict];
+            BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:dict];
             [self.orderItems addObject:model];
         }
         [self.tableView reloadData];

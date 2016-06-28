@@ -13,7 +13,6 @@
 -(id)initWithDictionary:(NSDictionary *)jsonObject
 {
     if (self = [super initWithDictionary:jsonObject]) {
-        [self handlePropretyWithDict:jsonObject];
     }
     return self;
 }

@@ -102,6 +102,7 @@
 		954130311CA003B500D26B11 /* UIView+FormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 954130241CA003B500D26B11 /* UIView+FormAdditions.m */; };
 		9545051D1D2173870039C6B1 /* HomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545051C1D2173870039C6B1 /* HomeBannerModel.m */; };
 		954505231D2185C40039C6B1 /* HomeWaitHandleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */; };
+		954505291D2225B40039C6B1 /* BarristerOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 954505281D2225B40039C6B1 /* BarristerOrderDetailModel.m */; };
 		955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */ = {isa = PBXBuildFile; fileRef = 955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */; };
 		955A7AE71D1D790E00D1DEAC /* BaseAppointmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7AE61D1D790E00D1DEAC /* BaseAppointmentModel.m */; };
 		955A7B1D1D1F712000D1DEAC /* BarristerLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7B1C1D1F712000D1DEAC /* BarristerLoginManager.m */; };
@@ -467,6 +468,8 @@
 		9545051E1D2178970039C6B1 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
 		954505211D2185C40039C6B1 /* HomeWaitHandleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWaitHandleModel.h; sourceTree = "<group>"; };
 		954505221D2185C40039C6B1 /* HomeWaitHandleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWaitHandleModel.m; sourceTree = "<group>"; };
+		954505271D2225B40039C6B1 /* BarristerOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerOrderDetailModel.h; sourceTree = "<group>"; };
+		954505281D2225B40039C6B1 /* BarristerOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerOrderDetailModel.m; sourceTree = "<group>"; };
 		955231331CF2ADCE00E35AD3 /* TiXianViewControlleer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiXianViewControlleer.h; sourceTree = "<group>"; };
 		955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiXianViewControlleer.m; sourceTree = "<group>"; };
 		955A7AE51D1D790E00D1DEAC /* BaseAppointmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAppointmentModel.h; sourceTree = "<group>"; };
@@ -1388,6 +1391,8 @@
 		9597B0CB1CA1131200FF65D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				954505271D2225B40039C6B1 /* BarristerOrderDetailModel.h */,
+				954505281D2225B40039C6B1 /* BarristerOrderDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2223,6 +2228,7 @@
 				955AA43E1CF3EC7A00A47121 /* XuUItlity.m in Sources */,
 				954130261CA003B500D26B11 /* NSDictionary+Additions.m in Sources */,
 				95FC44501D040620005BB02A /* BankCardModel.m in Sources */,
+				954505291D2225B40039C6B1 /* BarristerOrderDetailModel.m in Sources */,
 				95F533FD1CBCD758000C7E91 /* MJRefreshAutoFooter.m in Sources */,
 				95C0EAF71CB4B301004F9DAD /* UIControl+YYAdd.m in Sources */,
 				9597B0851CA0EFEC00FF65D9 /* BaseTableView.m in Sources */,

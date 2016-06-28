@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XuNetWorking.h"
+#define CommonNetErrorTip @"网络错误,请稍后再试"
 
 typedef void(^ServiceCallBlock)(id returnData, BOOL success);
 

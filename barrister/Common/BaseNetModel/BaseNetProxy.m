@@ -20,13 +20,20 @@
 -(BOOL)isCommonCorrectResultCodeWithResponse:(id)response
 {
     NSDictionary *dict = (NSDictionary *)response;
-    NSString *resultCode = [dict objectForKey:@"resultCode"];
-    if (resultCode.integerValue == 0) {
-        return YES;
+    if ([dict respondsToSelector:@selector(objectForKey:)]) {
+        NSString *resultCode = [dict objectForKey:@"resultCode"];
+        if (resultCode.integerValue == 200) {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
     }
-    else
-    {
+    else{
         return NO;
     }
 }
+
+
 @end

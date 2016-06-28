@@ -10,6 +10,10 @@
 #import "OrderDetailOrderCell.h"
 #import "OrderDetailCustomInfoCell.h"
 #import "OrderDetailCallRecordCell.h"
+#import "OrderProxy.h"
+#import "BarristerOrderDetailModel.h"
+
+
 /**
  * 用于显示Detail的类型
  */
@@ -42,20 +46,31 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 
 @interface OrderDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    BarristerOrderModel *model;
+    BarristerOrderDetailModel *model;
 }
 
 @property (nonatomic,strong) UITableView *orderTableView;
 @property (nonatomic,strong) NSMutableArray *items;
+@property (nonatomic,strong) NSString *orderId;
 
 @end
+
+
+ ////////////// ////////////// ////////////// ////订单详情////////// ////////////// //////////////
+
+@interface OrderDetailViewController ()
+
+@property (nonatomic,strong) OrderProxy *proxy;
+
+@end
+
 
 @implementation OrderDetailViewController
 
 -(id)initWithModel:(BarristerOrderModel *)orderModel
 {
     if (self  =[super init]) {
-        model = orderModel;
+        self.orderId = orderModel.orderId;
     }
     return self;
 }
@@ -64,7 +79,6 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     [super viewDidLoad];
     [self configView];
     [self initData];
-    [self configData];
 }
 
 
@@ -89,6 +103,34 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 -(void)initData
 {
     self.items = [NSMutableArray arrayWithCapacity:1];
+    NSMutableDictionary *aParams = [NSMutableDictionary dictionary];
+    if (self.orderId.length != 0) {
+        [aParams setObject:self.orderId forKey:@"orderId"];
+    }
+    else
+    {
+        //没有订单id 进入详情
+        [XuUItlity showFailedHint:@"数据异常" completionBlock:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        return;
+    }
+    [aParams setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
+    [aParams setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+    
+    __weak typeof(*&self) weakSelf = self;
+    [self.proxy getOrderDetailWithParams:aParams Block:^(id returnData, BOOL success) {
+        if (success) {
+            NSDictionary *dict = (NSDictionary *)returnData;
+            BarristerOrderDetailModel *model = [[BarristerOrderDetailModel alloc] initWithDictionary:dict];
+            [weakSelf configData];
+        }
+        else
+        {
+        
+        }
+    }];
+    
 }
 
 -(void)configData
@@ -105,7 +147,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     model3.showType = OrderDetailShowTypeOrderCallRecord;
     [self.items addObject:model3];
     
-    if (model.markStr.length > 0) {
+    if (model.remarks.length > 0) {
         OrderDetailCellModel *model4 = [[OrderDetailCellModel alloc] init];
         model4.showType = OrderDetailShowTypeOrderMark;
         [self.items addObject:model4];
@@ -122,13 +164,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (model.markStr.length > 0) {
-        return 4;
-    }
-    else
-    {
-        return 3;
-    }
+    return self.items.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,6 +200,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
             break;
     }
 }
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -203,6 +240,15 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
         _orderTableView.tableFooterView = [UIView new];
     }
     return _orderTableView;
+}
+
+-(OrderProxy *)proxy
+{
+    if (!_proxy) {
+        _proxy = [[OrderProxy alloc] init];
+        
+    }
+    return _proxy;
 }
 
 @end

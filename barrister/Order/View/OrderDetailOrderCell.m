@@ -27,7 +27,7 @@
 
 @implementation OrderDetailOrderCell
 
-+(CGFloat)getHeightWithModel:(BarristerOrderModel *)model
++(CGFloat)getHeightWithModel:(BarristerOrderDetailModel *)model
 {
     return   150 + 15 + model.markHeight + 15 + 10;
 }
@@ -64,25 +64,32 @@
     
     
     [self.markLabel setFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 10 + 15, SCREENWIDTH - 20, self.model.markHeight)];
-    self.orderNoLabel.text = [NSString stringWithFormat:@"订单号：%@",self.model.orderNo?self.model.orderNo:@""];
+//    self.orderNoLabel.text = [NSString stringWithFormat:@"订单号：%@",self.model.orderNo?self.model.orderNo:@""];
     self.orderTypeLabel.text = [NSString stringWithFormat:@"订单类型：%@",self.model.caseType?self.model.caseType:@""];
-    self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",self.model.orderTime?self.model.orderTime:@""];
-    self.orderPriceLabel.text = [NSString stringWithFormat:@"订单金额：%@",self.model.orderPrice?self.model.orderPrice:@""];
-    self.markLabel.text = [NSString stringWithFormat:@"备注：%@",self.model.markStr?self.model.markStr:@"无"];
+    self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",self.model.payTime?self.model.payTime:@""];
+    self.orderPriceLabel.text = [NSString stringWithFormat:@"订单金额：%@",self.model.paymentAmount?self.model.paymentAmount:@""];
+    self.markLabel.text = [NSString stringWithFormat:@"备注：%@",self.model.remarks?self.model.remarks:@"无"];
     
-    switch (self.model.orderState) {
-        case BarristerOrderStateFinished:
-            self.stateLabel.text = @"已完成";
-            break;
-        case BarristerOrderStateClosed:
-            self.stateLabel.text = @"已关闭";
-        case BarristerOrderStateCanceled:
-            self.stateLabel.text = @"已取消";
-        case BarristerOrderStateWaiting:
-            self.stateLabel.text = @"待办";
-        default:
-            break;
+    if ([self.model.status isEqualToString:STATUS_WAITING]) {
+        self.stateLabel.text = @"待处理";
     }
+    else if ([self.model.status  isEqualToString:STATUS_DOING])
+    {
+        self.stateLabel.text = @"已完成";
+    }
+    else if ([self.model.status isEqualToString:STATUS_REFUND])
+    {
+        self.stateLabel.text = @"退款中";
+    }
+    else if ([self.model.status isEqualToString:STATUS_DOING])
+    {
+        self.stateLabel.text = @"进行中";
+    }
+    else if ([self.model.status isEqualToString:STATUS_CANCELED])
+    {
+        self.stateLabel.text = @"已取消";
+    }
+    
 }
 
 #pragma -mark ----Getter---

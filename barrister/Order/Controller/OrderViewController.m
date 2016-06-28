@@ -76,15 +76,17 @@
 {
     _leftTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
     [_leftTableView setFootLoadMoreControl];
-    _leftTableView.backgroundColor = KColorGray999;
+    _leftTableView.pageSize = 10;
+    _leftTableView.backgroundColor = kBaseViewBackgroundColor;
     _leftTableView.refreshDelegate = self;
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
     
     _rightTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
     [_rightTableView setFootLoadMoreControl];
-    _rightTableView.backgroundColor = KColorGray666;
+    _rightTableView.backgroundColor = kBaseViewBackgroundColor;
     _rightTableView.refreshDelegate = self;
+    _rightTableView.pageSize = 10;
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
     
@@ -137,56 +139,23 @@
         [_leftItems removeAllObjects];
         
     }else{
-        [self.leftTableView endLoadMoreWithNoMoreData:NO];
+        if (array.count < self.leftTableView.pageSize) {
+            [self.leftTableView endLoadMoreWithNoMoreData:YES];
+        }
+        else
+        {
+            [self.leftTableView endLoadMoreWithNoMoreData:NO];
+        }
+
     }
     
-    
-    BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:nil];
-    model.customerName = @"用户134****7654";
-    model.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
-    model.caseType = @"债务纠纷";
-    model.orderState = BarristerOrderStateFinished;
-    model.orderPrice = @"50.00";
-    model.markStr = @"别人惹我我就打他";
-    model.orderTime = @"2016-04-09 15:00:00";
-    model.customPhone = @"13330987878";
-    model.orderType = BarristerOrderTypeJSZX;
-    
-    BarristerOrderModel *model1 = [[BarristerOrderModel alloc] initWithDictionary:nil];
-    model1.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
-    model1.customerName = @"用户158****0087";
-    model1.orderTime = @"2016-04-10 13:17:24";
-    model1.orderState = BarristerOrderStateCanceled;
-    model1.orderPrice = @"50.00";
-    model1.caseType = @"财产纠纷";
-    model1.markStr = @"别人惹我我就躲";
-    model1.customPhone = @"13346788764";
-    model1.orderType = BarristerOrderTypeJSZX;
-    
-    BarristerOrderModel *model2 = [[BarristerOrderModel alloc] initWithDictionary:nil];
-    model2.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
-    model2.customerName = @"用户186****7339";
-    model2.orderPrice = @"50.00";
-    model2.orderTime = @"2016-04-12 10:39:50";
-    model2.customPhone = @"18611249902";
-    model2.orderState = BarristerOrderStateWaiting;
-    model2.caseType = @"民事案件";
-    model2.markStr = @"别人惹我我就跑";
-    model2.orderType = BarristerOrderTypeJSZX;
-    
-    [self.leftItems addObject:model];
-    [self.leftItems addObject:model1];
-    [self.leftItems addObject:model2];
-    
-    [self.leftTableView reloadData];
-
 }
 
 
 -(void)loadRightItems
 {
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",[NSString stringWithFormat:@"%ld",_rightTableView.pageNum],@"page",[NSString stringWithFormat:@"%ld",_rightTableView.pageSize],@"pageSize",@"APPOINTMENT",@"type", nil];
+//    userId,verifyCode,page,pageSize,type
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",[NSString stringWithFormat:@"%ld",_rightTableView.pageNum],@"page",[NSString stringWithFormat:@"%ld",_rightTableView.pageSize],@"pageSize",APPOINTMENT,@"type", nil];
     
     __weak typeof(*&self) weakSelf = self;
     
@@ -212,41 +181,24 @@
         [_rightItems removeAllObjects];
         
     }else{
-        [_rightTableView endLoadMoreWithNoMoreData:NO];
+        if (array.count < self.rightTableView.pageSize) {
+            [_rightTableView endLoadMoreWithNoMoreData:YES];
+        }
+        else
+        {
+            [_rightTableView endLoadMoreWithNoMoreData:NO];
+        }
+
     }
     
-    
-    BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
-    model4.customerName = @"用户134****7654";
-    model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
-    model4.startTime = @"2016/04/24 13:00";
-    model4.endTime = @"2016/03/24 14:00";
-    model4.caseType = @"债务纠纷";
-    model4.orderType = BarristerOrderTypeYYZX;
-    
-    BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
-    model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
-    model5.customerName = @"用户158****0087";
-    model5.startTime = @"2016/04/25 14:00";
-    model5.endTime = @"2016/04/25 15:00";
-    model5.caseType = @"财产纠纷";
-    model5.orderType = BarristerOrderTypeYYZX;
-    
-    BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
-    model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
-    model6.customerName = @"用户186****7339";
-    model6.startTime = @"2016/04/26 15:00";
-    model6.endTime = @"2016/04/26 16:00";
-    model6.caseType = @"民事案件";
-    model6.orderType = BarristerOrderTypeYYZX;
-    
-    [self.rightItems addObject:model4];
-    [self.rightItems addObject:model5];
-    [self.rightItems addObject:model6];
-    
-    
+    for (int i = 0; i < array.count; i ++) {
+        NSDictionary *dict = [array objectAtIndex:i];
+        BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:dict];
+        [self.rightItems addObject:model];
+    }
     [self.rightTableView reloadData];
-
+    
+    
 }
 
 
@@ -316,6 +268,7 @@
 -(void)segmentAction:(UISegmentedControl *)segmentControl
 {
     if (segmentControl.selectedSegmentIndex == 0) {
+        self.isShowLeft = YES;
         if (_leftItems.count == 0) {
             [self loadLeftItems];
         }
@@ -323,6 +276,7 @@
     }
     else if (segmentControl.selectedSegmentIndex == 1)
     {
+        self.isShowLeft = NO;
         if (_rightItems.count == 0) {
             [self loadRightItems];
         }

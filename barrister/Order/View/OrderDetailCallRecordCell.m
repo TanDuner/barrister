@@ -31,9 +31,9 @@
 
 @implementation OrderDetailCallRecordCell
 
-+(CGFloat)getHeightWithModel:(BarristerOrderModel *)model
++(CGFloat)getHeightWithModel:(BarristerOrderDetailModel *)model
 {
-    if (model.orderState == BarristerOrderStateFinished) {
+    if ([model.status isEqualToString:STATUS_DONE]) {
         return 145 + 10;
     }
     return 40 + 10;
@@ -78,7 +78,7 @@
 {
     [super layoutSubviews];
     
-    if (self.model.orderState == BarristerOrderStateFinished) {
+    if ([self.model.status isEqualToString:STATUS_DONE]) {
 
         self.appointTimeLabel.hidden = NO;
         self.playBtn.hidden = NO;
@@ -96,8 +96,8 @@
         [self.playBtn setFrame:RECT(LeftPadding + 64 + 10 + 10, self.voiceRecordLabel.y, 15, 15)];
         [self.playerSlider setFrame:RECT(self.playBtn.x + self.playBtn.width + 10, self.voiceRecordLabel.y, (160.0/320.0) *SCREENWIDTH, 13)];
         
-        self.talkTimeLabel.text = [NSString stringWithFormat:@"通话时长：%@",self.model.talkTime?self.model.talkTime:@"0.0"];
-        self.appointTimeLabel.text = [NSString stringWithFormat:@"预约时间：%@ - %@",self.model.startTime?self.model.startTime:@"0",self.model.endTime?self.model.endTime:@"0"];
+//        self.talkTimeLabel.text = [NSString stringWithFormat:@"通话时长：%@",self.model.talkTime?self.model.talkTime:@"0.0"];
+//        self.appointTimeLabel.text = [NSString stringWithFormat:@"预约时间：%@ - %@",self.model.startTime?self.model.startTime:@"0",self.model.endTime?self.model.endTime:@"0"];
 
     }
     else
