@@ -8,11 +8,39 @@
 
 #import "AccountProxy.h"
 
+#define MyAccountUrl @"myAccount.do"
 #define AccountDetialUrl @""
 #define TixianUrl @""
 #define BindBankCardUrl @"bindBankCard"
 
 @implementation AccountProxy
+
+/**
+ *  获取我的账户信息
+ *
+ *  @param params 参数
+ *  @param aBlock nil
+ */
+
+-(void)getMyAccountDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:MyAccountUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                aBlock(response,YES);
+            }
+        }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+        
+    } fail:^(NSError *error) {
+        
+        aBlock(CommonNetErrorTip,NO);
+    }];
+}
+
 
 
 /**

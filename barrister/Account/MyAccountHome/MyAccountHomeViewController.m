@@ -42,7 +42,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configView];
+//    [self configView];
     [self configData];
 }
 
@@ -76,10 +76,7 @@
     
     [self.view addSubview:self.detailTableView];
     [XuUItlity clearTableViewEmptyCellWithTableView:self.detailTableView];
-
-
 }
-
 
 -(void)configTableView
 {
@@ -90,44 +87,99 @@
 #pragma -mark ------Data----------
 -(void)configData
 {
+ 
+    [self requestMyAccountData];
     
-    MyAccountDetailModel *model1 = [[MyAccountDetailModel alloc] init];
-    model1.titleStr = @"2014443043053";
-    model1.dateStr = @"2016-05-25";
-    model1.handleType = 0;
-    model1.numStr = @"140";
+    [self requestAccountDetailData];
     
-    MyAccountDetailModel *model2 = [[MyAccountDetailModel alloc] init];
-    model2.titleStr = @"2014443043053";
-    model2.dateStr = @"2016-05-25";
-    model2.handleType = 0;
-    model2.numStr = @"30";
+}
+
+-(void)requestMyAccountData
+{
+    __weak typeof(*&self) weakSelf = self;
+    NSMutableDictionary *aParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode", nil];
+     [self.proxy getMyAccountDataWithParams:aParams Block:^(id returnData, BOOL success) {
+         if (success) {
+             NSDictionary *dict = (NSDictionary *)returnData;
+             if ([dict respondsToSelector:@selector(objectForKey:)]) {
+                 [weakSelf handleMyAccountDataWithDict:dict];
+             }
+
+         }
+         else
+         {
+             NSString *errorTip = (NSString *)returnData;
+             [XuUItlity showFailedHint:errorTip completionBlock:nil];
+         }
+     }];
+}
+
+
+-(void)handleMyAccountDataWithDict:(NSDictionary *)dict
+{
     
-    MyAccountDetailModel *model3 = [[MyAccountDetailModel alloc] init];
-    model3.titleStr = @"提现";
-    model3.dateStr = @"2016-05-28";
-    model3.handleType = 1;
-    model3.numStr = @"1000";
-    
-    MyAccountDetailModel *model4 = [[MyAccountDetailModel alloc] init];
-    model4.titleStr = @"2014443043053";
-    model4.dateStr = @"2016-05-15";
-    model4.handleType = 0;
-    model4.numStr = @"200";
-    
-    [self.detailArray addObject:model1];
-    [self.detailArray addObject:model2];
-    [self.detailArray addObject:model3];
-    [self.detailArray addObject:model4];
-    
-    [self.detailTableView reloadData];
-    
-    [self.proxy getAccountDetailDataWithParams:nil Block:^(id returnData, BOOL success) {
+}
+
+
+-(void)requestAccountDetailData
+{
+    __weak typeof(*&self) weakSelf = self;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
+    [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+    [params setObject:[NSString stringWithFormat:@"%ld",self.detailTableView.pageSize] forKey:@"pageSize"];
+    [params setObject:[NSString stringWithFormat:@"%ld",self.detailTableView.pageNum] forKey:@"page"];
+    [self.proxy getAccountDetailDataWithParams:params Block:^(id returnData, BOOL success) {
         if (success) {
+            NSDictionary *dict = (NSDictionary *)returnData;
+            NSArray *detailArray = [dict objectForKey:@"items"];
+            if ([XuUtlity isValidArray:detailArray]) {
+                [weakSelf handleAccountDetailDataWithArray:detailArray];
+            }
+            else
+            {
+                [weakSelf handleAccountDetailDataWithArray:@[]];
+            }
             
+         
+        }
+        else
+        {
+            [XuUItlity showFailedHint:@"明细加载失败" completionBlock:nil];
         }
     }];
+    
 }
+
+-(void)handleAccountDetailDataWithArray:(NSArray *)array
+{
+    if (self.detailTableView.pageNum == 1) {
+        [self.detailArray removeAllObjects];
+        [self.detailTableView endRefreshing];
+    }
+    else
+    {
+        if (array.count < self.detailTableView.pageSize) {
+            [self.detailTableView endLoadMoreWithNoMoreData:YES];
+        }
+        else
+        {
+            [self.detailTableView endLoadMoreWithNoMoreData:NO];
+        }
+    }
+    
+    for (int i = 0; i < array.count; i ++) {
+        NSDictionary *dict = [array objectAtIndex:i];
+        MyAccountDetailModel *detailModel = [[MyAccountDetailModel alloc] initWithDictionary:dict];
+        [self.detailArray addObject:detailModel];
+    }
+   
+    [self.detailTableView reloadData];
+    
+    
+}
+
+
 
 #pragma -mark ----UITableView DataSource-----
 
@@ -147,7 +199,6 @@
     MyAccountDetailCell *cell = (MyAccountDetailCell *)[tableView dequeueReusableCellWithIdentifier:identifi];
     if (!cell) {
         cell = [[MyAccountDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     MyAccountDetailModel *model = [self.detailArray objectAtIndex:indexPath.row];
     cell.model = model;

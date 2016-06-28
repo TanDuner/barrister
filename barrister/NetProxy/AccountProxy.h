@@ -9,6 +9,17 @@
 #import "BaseNetProxy.h"
 
 @interface AccountProxy : BaseNetProxy
+
+
+/**
+ *  获取我的账户信息
+ *
+ *  @param params 参数
+ *  @param aBlock nil
+ */
+-(void)getMyAccountDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
+
+
 /**
  *  获取账户明细接口
  *
