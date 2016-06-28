@@ -157,7 +157,10 @@
         if (self.tixianTextField.text.floatValue <= [BaseDataSingleton shareInstance].remainingBalance.floatValue) {
             
             [XuUItlity showLoading:@"正在提交"];
-            [self.proxy tiXianActionWithMoney:nil Block:^(id returnData, BOOL success) {
+            
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",@"self.tixianTextField.text",@"moneny", nil];
+            
+            [self.proxy tiXianActionWithMoney:params Block:^(id returnData, BOOL success) {
                 [XuUItlity hideLoading];
                 if (success) {
                     [XuUItlity showSucceedHint:@"提交成功" completionBlock:nil];

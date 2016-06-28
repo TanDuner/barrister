@@ -12,8 +12,9 @@
 #define UploadHeadImageUrl @"uploadUserIcon.do"
 #define AreaAndTypeUrl @"bizAreaAndBizTypeList.do?"
 #define UpdateUserInfo @"updateUserInfo.do"
-
-
+#define UploadAuthUrl @"uploadFiles.do"
+#define TixianUrl @"getMoney.do";
+#define MyMessageUrl @"getMyMsgs.do"
 @implementation MeNetProxy
 /**
  *  获取预约设置的数据
@@ -76,13 +77,26 @@
     }];
 }
 
+/**
+ *  我的消息列表
+ *
+ *  @param params 参数
+ *  @param aBlock 回调block
+ */
 -(void)getMyMessageWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking postWithUrl:@"" params:params success:^(id response) {
-        if (aBlock) {
-            NSArray *list = [response objectForKey:@"msgs"];
-            aBlock(list,YES);
+    [XuNetWorking postWithUrl:MyMessageUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                NSArray *list = [response objectForKey:@"msgs"];
+                aBlock(list,YES);
+            }
         }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+
 
     } fail:^(NSError *error) {
         if (aBlock) {
@@ -116,7 +130,12 @@
 
 }
 
-
+/**
+ *  修改个人信息接口
+ *
+ *  @param params 参数
+ *  @param aBlock 回调
+ */
 -(void)updateUserInfoWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking postWithUrl:UpdateUserInfo params:params success:^(id response) {
@@ -132,4 +151,29 @@
     }];
     
 }
+
+/**
+ *  上传资格认证证书
+ *
+ *  @param params 参数
+ *  @param aBlock 回调block
+ */
+-(void)UploadAuthImageUrlWithImage:(UIImage *)image
+                            params:(NSMutableDictionary *)params
+                          fileName:(NSString *)fileName
+                             Block:(ServiceCallBlock)aBlock
+{
+
+    [XuNetWorking uploadWithImage:image url:UploadAuthUrl filename:@"userIcon" name:@"userIcon" mimeType:@"image/jpeg" parameters:params progress:nil success:^(id response) {
+        if (aBlock) {
+            aBlock(response,YES);
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+    }];
+}
+
+
 @end

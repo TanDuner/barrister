@@ -33,6 +33,9 @@ typedef struct PhoneSate PhoneSate;
 
 @property (nonatomic,strong)BarristerUserModel *userModel; //用户
 
+@property (nonatomic,strong) NSString *bankCardBindStatus;//绑定银行卡的状态
+
+@property (nonatomic,strong) NSDictionary *bankCardDict;//银行卡的字典
 
 + (instancetype)shareInstance;
 

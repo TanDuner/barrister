@@ -25,3 +25,18 @@
 #define STATUS_REFUND  @"order.status.refund"
 
 
+
+#define AUTH_STATUS_UNAUTHERIZED @"verify.status.unautherized"
+#define AUTH_STATUS_SUCCESS @"verify.status.success"
+#define AUTH_STATUS_FAILED @"verify.status.failed"
+#define AUTH_STATUS_VERIFYING @"verify.status.verifying"
+
+#define CARD_STATUS_NOT_BOUND  @"0";//未绑定
+#define CARD_STATUS_BOUND  @"1";//已绑定
+
+
+
+
+#define ORDER_STATUS_CAN   @"can"; //可以接单
+#define ORDER_STATUS_NOT   @"can_not"; //不可以接单
+

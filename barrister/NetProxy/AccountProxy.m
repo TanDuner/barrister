@@ -9,9 +9,9 @@
 #import "AccountProxy.h"
 
 #define MyAccountUrl @"myAccount.do"
-#define AccountDetialUrl @""
-#define TixianUrl @""
-#define BindBankCardUrl @"bindBankCard"
+#define AccountDetialUrl @"getIncomeDetailList.do"
+#define TixianUrl @"getMoney.do"
+#define BindBankCardUrl @"bindBankCard.do"
 
 @implementation AccountProxy
 
@@ -70,7 +70,7 @@
         }
     } fail:^(NSError *error) {
         if (aBlock) {
-            aBlock(error,YES);
+            aBlock(CommonNetErrorTip,NO);
         }
 
     }];
@@ -79,9 +79,12 @@
 -(void)tiXianActionWithMoney:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking postWithUrl:TixianUrl params:params success:^(id response) {
-        aBlock(response ,YES);
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response ,YES);
+        }
     } fail:^(NSError *error) {
-        aBlock(nil,NO);
+        
+        aBlock(CommonNetErrorTip,NO);
     }];
 }
 

@@ -42,7 +42,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self configView];
+    [self configView];
     [self configData];
 }
 
@@ -75,13 +75,10 @@
 {
     
     [self.view addSubview:self.detailTableView];
+
     [XuUItlity clearTableViewEmptyCellWithTableView:self.detailTableView];
 }
 
--(void)configTableView
-{
-    
-}
 
 
 #pragma -mark ------Data----------
@@ -117,6 +114,14 @@
 
 -(void)handleMyAccountDataWithDict:(NSDictionary *)dict
 {
+
+    NSDictionary *accountDict = [dict objectForKey:@"account"];
+    [BaseDataSingleton shareInstance].bankCardDict = [accountDict objectForKey:@"bankCard"];
+    [BaseDataSingleton shareInstance].bankCardBindStatus = [accountDict objectForKey:@"bankCardBindStatus"];
+    [BaseDataSingleton shareInstance].remainingBalance = [accountDict objectForKey:@"remainingBalance"];
+    [BaseDataSingleton shareInstance].totalIncome = [accountDict objectForKey:@"totalIncome"];
+    
+    [self.headView setNeedsLayout];
     
 }
 

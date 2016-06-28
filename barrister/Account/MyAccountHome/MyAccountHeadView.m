@@ -24,7 +24,7 @@
         
         self.backgroundColor = kNavigationBarColor;
         
-        UILabel *totalTipLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 100)/2.0, self.height - 110, 100, 13)];
+        UILabel *totalTipLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 100)/2.0, self.height - 110 + 10, 100, 13)];
         totalTipLabel.text = @"总收入(元)";
         totalTipLabel.textColor = [UIColor whiteColor];
         totalTipLabel.textAlignment  = NSTextAlignmentCenter;
@@ -43,14 +43,14 @@
         explainLabel.layer.cornerRadius = 7.5;
         explainLabel.layer.masksToBounds = YES;
         [self addSubview:explainLabel];
-        
-        self.totalIncomeLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 100)/2.0, self.height - 110, 100, 13)];
+
+        self.totalIncomeLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 100)/2.0, self.height - 110  + 10 + 25, 100, 13)];
         self.totalIncomeLabel.textColor = RGBCOLOR(168, 188, 214);
+        self.totalIncomeLabel.textAlignment = NSTextAlignmentCenter;
         self.totalIncomeLabel.font = SystemFont(17.0f);
-        self.totalIncomeLabel.text = [BaseDataSingleton shareInstance].totalIncome;
         
         [self addSubview:self.totalIncomeLabel];
-        
+
         
         self.tixianButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.tixianButton setTitle:@"提现" forState:UIControlStateNormal];
@@ -80,6 +80,14 @@
     }
     return self;
 }
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.totalIncomeLabel.text = [NSString stringWithFormat:@"%@",[BaseDataSingleton shareInstance].totalIncome];
+
+}
+
 
 -(void)explainAction
 {

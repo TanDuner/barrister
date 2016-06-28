@@ -34,7 +34,7 @@
         }
     } fail:^(NSError *error) {
         if (aBlock) {
-            aBlock(@"网络有问题，稍后重试",YES);
+            aBlock(@"网络有问题，稍后重试",NO);
         }
     }];
 }

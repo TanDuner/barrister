@@ -69,7 +69,24 @@
     
     PersonCenterModel *model4 = [[PersonCenterModel alloc] init];
     model4.titleStr = @"认证状态";
-    model4.subtitleStr = @"未认证";
+    if ([[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_UNAUTHERIZED]) {
+        
+        model4.subtitleStr = @"未认证";
+    }
+    else if ([[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_FAILED])
+    {
+        model4.subtitleStr = @"认证失败";
+    
+    }
+    else if ([[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_SUCCESS])
+    {
+        model4.subtitleStr = @"已认证";
+    }
+    else if ([[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_VERIFYING])
+    {
+        model4.subtitleStr = @"审核中";
+    }
+    
     model4.cellType = PersonCenterModelTypeRZZT;
     model4.iconNameStr = @"renzheng.png";
     model4.isShowArrow = NO;

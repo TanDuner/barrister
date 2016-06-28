@@ -46,7 +46,10 @@
  *  @param params 参数
  *  @param aBlock 回调block
  */
--(void)UploadAuthFilesWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+-(void)UploadAuthImageUrlWithImage:(UIImage *)image
+                            params:(NSMutableDictionary *)params
+                          fileName:(NSString *)fileName
+                             Block:(ServiceCallBlock)aBlock;
 
 /**
  *  我的消息
