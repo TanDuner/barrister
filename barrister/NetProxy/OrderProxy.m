@@ -31,7 +31,7 @@
         }
     } fail:^(NSError *error) {
         if (aBlock) {
-            aBlock(CommonNetErrorTip,YES);
+            aBlock(CommonNetErrorTip,NO);
         }
     }];
 }

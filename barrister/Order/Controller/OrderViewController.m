@@ -134,20 +134,20 @@
 
 -(void )wrapLeftOrderDataWithArray:(NSArray *)array
 {
-    if (_leftTableView.pageNum == 1 && _leftItems.count > 0) {
-        [self.leftTableView endRefreshing];
-        [_leftItems removeAllObjects];
-        
-    }else{
-        if (array.count < self.leftTableView.pageSize) {
-            [self.leftTableView endLoadMoreWithNoMoreData:YES];
-        }
-        else
-        {
-            [self.leftTableView endLoadMoreWithNoMoreData:NO];
-        }
-
+    
+    __weak typeof(*&self) weakSelf = self;
+    [self handleTableRefreshOrLoadMoreWithTableView:self.leftTableView array:array aBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.leftItems removeAllObjects];
+    }];
+    
+    for (int i = 0; i < array.count; i ++) {
+        NSDictionary *dict = [array objectAtIndex:i];
+        BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:dict];
+        [self.leftItems addObject:model];
     }
+    [self.leftTableView reloadData];
+
     
 }
 
@@ -167,7 +167,7 @@
         }
         else
         {
-            [XuUItlity showFailedHint:@"加载失败..." completionBlock:nil];
+            [XuUItlity showFailedHint:@"加载失败" completionBlock:nil];
         }
     }];
 
@@ -176,20 +176,13 @@
 
 -(void)wrapRightOrderDataWithArray:(NSArray *)array
 {
-    if (_rightTableView.pageNum == 1 && _rightItems.count > 0) {
-        [_rightTableView endRefreshing];
-        [_rightItems removeAllObjects];
-        
-    }else{
-        if (array.count < self.rightTableView.pageSize) {
-            [_rightTableView endLoadMoreWithNoMoreData:YES];
-        }
-        else
-        {
-            [_rightTableView endLoadMoreWithNoMoreData:NO];
-        }
 
-    }
+    
+    __weak typeof(*&self) weakSelf = self;
+    [self handleTableRefreshOrLoadMoreWithTableView:self.rightTableView array:array aBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.rightItems removeAllObjects];
+    }];
     
     for (int i = 0; i < array.count; i ++) {
         NSDictionary *dict = [array objectAtIndex:i];
@@ -197,7 +190,7 @@
         [self.rightItems addObject:model];
     }
     [self.rightTableView reloadData];
-    
+
     
 }
 

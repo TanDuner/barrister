@@ -88,8 +88,7 @@
     [XuNetWorking postWithUrl:MyMessageUrl params:params success:^(id response) {
         if ([self isCommonCorrectResultCodeWithResponse:response]) {
             if (aBlock) {
-                NSArray *list = [response objectForKey:@"msgs"];
-                aBlock(list,YES);
+                aBlock(response,YES);
             }
         }
         else

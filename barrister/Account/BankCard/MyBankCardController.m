@@ -13,6 +13,12 @@
 
 @property (nonatomic,strong) UIView *addBankCardView;
 
+@property (nonatomic,strong) UIView *showBankCardView;
+
+@property (nonatomic,strong) UIImageView *bankLogoImageView;
+
+@property (nonatomic,strong) UILabel *bankNameLabel;
+
 @end
 
 @implementation MyBankCardController
@@ -27,10 +33,64 @@
 -(void)configView
 {
     self.title  = @"我的银行卡";
-    [self.view addSubview:self.addBankCardView];
+    if ([[BaseDataSingleton shareInstance].bankCardBindStatus isEqualToString:@"0"]) {
+        [self.view addSubview:self.addBankCardView];
+    }
+    else
+    {
+        [self.view addSubview:self.showBankCardView];
+    }
+
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self judgeShowBankView];
+
+}
+
+-(void)judgeShowBankView
+{
+    if ([[BaseDataSingleton shareInstance].bankCardBindStatus isEqualToString:@"0"]) {
+        [self.view addSubview:self.addBankCardView];
+    }
+    else
+    {
+        [self setBankCardDatas];
+        [self.view addSubview:self.showBankCardView];
+    }
+
+}
+
+-(void)setBankCardDatas
+{
+    
+}
+
+
+
 #pragma -mark ---Getter---
+
+-(UIView *)showBankCardView
+{
+    if (!_showBankCardView) {
+        _showBankCardView = [[UIView alloc] initWithFrame:RECT(10, 15, SCREENWIDTH - 20, 100)];
+        _showBankCardView.backgroundColor = [UIColor whiteColor];
+        _showBankCardView.userInteractionEnabled = YES;
+        _showBankCardView.layer.cornerRadius = 5.0f;
+        _showBankCardView.layer.masksToBounds = YES;
+        
+        _bankLogoImageView = [[UIImageView alloc] initWithFrame:RECT(LeftPadding, LeftPadding, 40, 40)];
+        
+        
+//        _bankNameLabel = [UILabel alloc] initWithFrame:RECT(<#x#>, <#y#>, <#w#>, <#h#>)
+    }
+    return _showBankCardView;
+}
+
 
 -(UIView *)addBankCardView
 {
@@ -62,11 +122,6 @@
         
         [_addBankCardView addSubview:btn];
         
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addCardAction)];
-//        [_addBankCardView addGestureRecognizer:tap];
-//        
-//        UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addCardAction)];
-//        [tipLabel addGestureRecognizer:tap1];
         
 
     }

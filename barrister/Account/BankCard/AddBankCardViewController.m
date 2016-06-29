@@ -73,7 +73,6 @@
     
     
     _nameTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(LeftSpace, 0, SCREENWIDTH - 100 - .5 - LeftSpace, RowHeight)];
-    _nameTextField.keyboardType = UIKeyboardTypeNumberPad;
     _nameTextField.textColor = kFormTextColor;
     _nameTextField.row = 1;
     _nameTextField.cleanBtnOffset_x = _nameTextField.width - CleanBtnLessSpace;
@@ -203,6 +202,9 @@
             [XuUItlity showFailedHint:@"手机号不合法" completionBlock:nil];
         }
         
+//        :userId,verifyCode,cardNum（卡号）,cardholderName（持卡人姓名），bankName(银行名称)，bankAddress(开户行)
+
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",_bankCardNumTextField.text,@"cardNum",_nameTextField.text,@"cardholderName",_openBankNameTextField.text,@"bankAddress",_bankNameTextField.text,@"bankName", nil];
         [self.proxy bindCarkWithParams:params block:^(id returnData, BOOL success) {
             if (success) {
@@ -279,6 +281,55 @@
     
 
 }
+
+/**
+ *  判断卡号输入是否正确
+ *
+ *  @param cardNo 卡号
+ *
+ *  @return 
+ */
+
+- (BOOL) checkCardNo:(NSString*) cardNo{
+    int oddsum = 0;     //奇数求和
+    int evensum = 0;    //偶数求和
+    int allsum = 0;
+    int cardNoLength = (int)[cardNo length];
+    int lastNum = [[cardNo substringFromIndex:cardNoLength-1] intValue];
+    
+    cardNo = [cardNo substringToIndex:cardNoLength - 1];
+    for (int i = cardNoLength -1 ; i>=1;i--) {
+        NSString *tmpString = [cardNo substringWithRange:NSMakeRange(i-1, 1)];
+        int tmpVal = [tmpString intValue];
+        if (cardNoLength % 2 ==1 ) {
+            if((i % 2) == 0){
+                tmpVal *= 2;
+                if(tmpVal>=10)
+                    tmpVal -= 9;
+                evensum += tmpVal;
+            }else{
+                oddsum += tmpVal;
+            }
+        }else{
+            if((i % 2) == 1){
+                tmpVal *= 2;
+                if(tmpVal>=10)
+                    tmpVal -= 9;
+                evensum += tmpVal;
+            }else{
+                oddsum += tmpVal;
+            }
+        }
+    }
+    
+    allsum = oddsum + evensum;
+    allsum += lastNum;
+    if((allsum % 10) == 0)
+        return YES;
+    else
+        return NO;
+}
+
 
 //NSString *httpUrl = @"http://apis.baidu.com/datatiny/cardinfo/cardinfo";
 //NSString *httpArg = @"cardnum=5187102112341234";

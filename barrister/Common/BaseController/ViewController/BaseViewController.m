@@ -10,6 +10,7 @@
 #import "ZToastView.h"
 #import "UIView+Toast.h"
 #import "AppDelegate.h"
+#import "RefreshTableView.h"
 
 #define NAVIGATION_BAR_TITLECOLOR       [UIColor whiteColor]
 
@@ -456,5 +457,33 @@
     UIView *view = [[UIView alloc] initWithFrame:rect];
     view.backgroundColor = kSeparatorColor;
     return view;
+}
+
+/**
+ *  处理tableview 上下拉刷新的 数据问题
+ */
+-(void)handleTableRefreshOrLoadMoreWithTableView:(RefreshTableView *)tableView array:(NSArray *)array aBlock:(void(^)())aBlock
+{
+    if (tableView.pageNum == 1) {
+        if (aBlock) {
+            aBlock();
+        }
+        [tableView endRefreshing];
+    }
+    
+    if (array.count == 0) {
+        [self showNoContentView];
+    }
+    else
+    {
+        if (array.count < tableView.pageSize) {
+            [tableView endLoadMoreWithNoMoreData:YES];
+        }
+        else
+        {
+            [tableView endLoadMoreWithNoMoreData:NO];
+        }
+    }
+    
 }
 @end
