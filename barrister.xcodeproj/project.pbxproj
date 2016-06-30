@@ -106,7 +106,6 @@
 		9545052C1D2240010039C6B1 /* LearnCenterContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545052B1D2240010039C6B1 /* LearnCenterContentView.m */; };
 		9545052F1D225EC60039C6B1 /* LearnCenterChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9545052E1D225EC60039C6B1 /* LearnCenterChannelModel.m */; };
 		955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */ = {isa = PBXBuildFile; fileRef = 955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */; };
-		955A7AE71D1D790E00D1DEAC /* BaseAppointmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7AE61D1D790E00D1DEAC /* BaseAppointmentModel.m */; };
 		955A7B1D1D1F712000D1DEAC /* BarristerLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7B1C1D1F712000D1DEAC /* BarristerLoginManager.m */; };
 		955A7B3A1D1FE0E300D1DEAC /* SandboxFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A7B391D1FE0E300D1DEAC /* SandboxFile.m */; };
 		955A7B4B1D1FEF7E00D1DEAC /* common_point_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955A7B491D1FEF7E00D1DEAC /* common_point_loading@2x.png */; };
@@ -206,6 +205,14 @@
 		95BCB7AD1CA3D28200E85E10 /* login3rd_icon_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7A91CA3D28200E85E10 /* login3rd_icon_weixin@2x.png */; };
 		95BCB7AE1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7AA1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png */; };
 		95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */; };
+		95BEDD8B1D23EA0500292895 /* AnotherStarEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */; };
+		95BEDD8F1D24096700292895 /* evaStarEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */; };
+		95BEDD901D24096700292895 /* unSelectedable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8D1D24096700292895 /* unSelectedable@2x.png */; };
+		95BEDD911D24096700292895 /* unSelectedable@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8E1D24096700292895 /* unSelectedable@3x.png */; };
+		95BEDD931D2409E700292895 /* evaStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD921D2409E700292895 /* evaStar@2x.png */; };
+		95BEDD961D2410D900292895 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD951D2410D900292895 /* FeedBackViewController.m */; };
+		95BEDD9E1D24C19600292895 /* AppointmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD9D1D24C19600292895 /* AppointmentManager.m */; };
+		95BEDDA11D24C1E100292895 /* AppointmentMoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDDA01D24C1E100292895 /* AppointmentMoel.m */; };
 		95C0EAE11CB4A677004F9DAD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C0EAE01CB4A677004F9DAD /* libsqlite3.tbd */; };
 		95C0EAE31CB4A686004F9DAD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C0EAE21CB4A686004F9DAD /* libz.tbd */; };
 		95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C0EAE51CB4A781004F9DAD /* BarristerOrderModel.m */; };
@@ -478,8 +485,6 @@
 		9545052E1D225EC60039C6B1 /* LearnCenterChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterChannelModel.m; sourceTree = "<group>"; };
 		955231331CF2ADCE00E35AD3 /* TiXianViewControlleer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiXianViewControlleer.h; sourceTree = "<group>"; };
 		955231341CF2ADCE00E35AD3 /* TiXianViewControlleer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiXianViewControlleer.m; sourceTree = "<group>"; };
-		955A7AE51D1D790E00D1DEAC /* BaseAppointmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAppointmentModel.h; sourceTree = "<group>"; };
-		955A7AE61D1D790E00D1DEAC /* BaseAppointmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAppointmentModel.m; sourceTree = "<group>"; };
 		955A7B1B1D1F712000D1DEAC /* BarristerLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerLoginManager.h; sourceTree = "<group>"; };
 		955A7B1C1D1F712000D1DEAC /* BarristerLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerLoginManager.m; sourceTree = "<group>"; };
 		955A7B381D1FE0E300D1DEAC /* SandboxFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandboxFile.h; sourceTree = "<group>"; };
@@ -633,6 +638,18 @@
 		95BCB7AA1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login3rd_icon_weixin@3x.png"; sourceTree = "<group>"; };
 		95BCB7AF1CA3DDA600E85E10 /* BarristerRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerRegisterVC.h; sourceTree = "<group>"; };
 		95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerRegisterVC.m; sourceTree = "<group>"; };
+		95BEDD891D23EA0500292895 /* AnotherStarEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherStarEvaluator.h; sourceTree = "<group>"; };
+		95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotherStarEvaluator.m; sourceTree = "<group>"; };
+		95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "evaStarEmpty@2x.png"; sourceTree = "<group>"; };
+		95BEDD8D1D24096700292895 /* unSelectedable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelectedable@2x.png"; sourceTree = "<group>"; };
+		95BEDD8E1D24096700292895 /* unSelectedable@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelectedable@3x.png"; sourceTree = "<group>"; };
+		95BEDD921D2409E700292895 /* evaStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "evaStar@2x.png"; sourceTree = "<group>"; };
+		95BEDD941D2410D900292895 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		95BEDD951D2410D900292895 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
+		95BEDD9C1D24C19600292895 /* AppointmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentManager.h; sourceTree = "<group>"; };
+		95BEDD9D1D24C19600292895 /* AppointmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentManager.m; sourceTree = "<group>"; };
+		95BEDD9F1D24C1E100292895 /* AppointmentMoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentMoel.h; sourceTree = "<group>"; };
+		95BEDDA01D24C1E100292895 /* AppointmentMoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentMoel.m; sourceTree = "<group>"; };
 		95C0EAE01CB4A677004F9DAD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		95C0EAE21CB4A686004F9DAD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		95C0EAE41CB4A781004F9DAD /* BarristerOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerOrderModel.h; sourceTree = "<group>"; };
@@ -1081,6 +1098,7 @@
 		95412FE71C9FCC1100D26B11 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				95BEDD9B1D24C18000292895 /* Util */,
 				9597B0D31CA1135D00FF65D9 /* Controller */,
 				9597B0D41CA1135D00FF65D9 /* Model */,
 				9597B0D51CA1135D00FF65D9 /* View */,
@@ -1114,8 +1132,6 @@
 		95412FEA1C9FD0F700D26B11 /* BaseModel */ = {
 			isa = PBXGroup;
 			children = (
-				955A7AE51D1D790E00D1DEAC /* BaseAppointmentModel.h */,
-				955A7AE61D1D790E00D1DEAC /* BaseAppointmentModel.m */,
 				95412FF91C9FD3EF00D26B11 /* BaseDataSingleton.h */,
 				95412FFA1C9FD3EF00D26B11 /* BaseDataSingleton.m */,
 				9597B0C11CA0F94100FF65D9 /* BaseModel.h */,
@@ -1338,6 +1354,7 @@
 		9597B0861CA0F0F100FF65D9 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				95BEDD881D23E9F000292895 /* StarView */,
 				950009601D21355800A5815C /* DatePicker */,
 				955A7B371D1FE0E300D1DEAC /* SandBoxUtil */,
 				95CA1B9A1D0D709F00AAE490 /* OpenUDID */,
@@ -1441,6 +1458,8 @@
 				95B0787B1CE9E61400D8A220 /* AppointContentViewController.m */,
 				95CA1BB31D0F79EA00AAE490 /* MyMessageViewController.h */,
 				95CA1BB41D0F79EA00AAE490 /* MyMessageViewController.m */,
+				95BEDD941D2410D900292895 /* FeedBackViewController.h */,
+				95BEDD951D2410D900292895 /* FeedBackViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1458,6 +1477,8 @@
 				955A7B5B1D20C00F00D1DEAC /* BizAreaModel.m */,
 				955A7B5D1D20C0F000D1DEAC /* BizTypeModel.h */,
 				955A7B5E1D20C0F000D1DEAC /* BizTypeModel.m */,
+				95BEDD9F1D24C1E100292895 /* AppointmentMoel.h */,
+				95BEDDA01D24C1E100292895 /* AppointmentMoel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1585,6 +1606,10 @@
 		9597B0E41CA1168200FF65D9 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */,
+				95BEDD921D2409E700292895 /* evaStar@2x.png */,
+				95BEDD8D1D24096700292895 /* unSelectedable@2x.png */,
+				95BEDD8E1D24096700292895 /* unSelectedable@3x.png */,
 				95CA1BA71D0E53A300AAE490 /* uploadImage@2x.png */,
 				95CA1BA81D0E53A300AAE490 /* uploadImage@3x.png */,
 				95B425AD1CFC9463002EB36D /* my-account_card@2x.png */,
@@ -1801,6 +1826,24 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		95BEDD881D23E9F000292895 /* StarView */ = {
+			isa = PBXGroup;
+			children = (
+				95BEDD891D23EA0500292895 /* AnotherStarEvaluator.h */,
+				95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */,
+			);
+			path = StarView;
+			sourceTree = "<group>";
+		};
+		95BEDD9B1D24C18000292895 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				95BEDD9C1D24C19600292895 /* AppointmentManager.h */,
+				95BEDD9D1D24C19600292895 /* AppointmentManager.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		95C0EAE71CB4B093004F9DAD /* BaseTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1999,6 +2042,7 @@
 				951FCDD51CEEAD0100A57BEA /* yue@2x.png in Resources */,
 				955AA44A1CF3EE4E00A47121 /* common_icon_info@3x.png in Resources */,
 				951FCDC21CED810A00A57BEA /* Selected@3x.png in Resources */,
+				95BEDD901D24096700292895 /* unSelectedable@2x.png in Resources */,
 				95B425B31CFC9463002EB36D /* my-account_cash@2x.png in Resources */,
 				95B425B11CFC9463002EB36D /* my-account_card@2x.png in Resources */,
 				95BCB78C1CA280E300E85E10 /* navigationbar_back_icon@2x.png in Resources */,
@@ -2028,6 +2072,7 @@
 				95BCB7AC1CA3D28200E85E10 /* login3rd_icon_qq@3x.png in Resources */,
 				951FCDDD1CF0013600A57BEA /* selectedBg@3x.png in Resources */,
 				951FCDC41CED810A00A57BEA /* unSelected@3x.png in Resources */,
+				95BEDD8F1D24096700292895 /* evaStarEmpty@2x.png in Resources */,
 				955AA4491CF3EE4E00A47121 /* common_icon_info@2x.png in Resources */,
 				9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */,
 				9597B0FD1CA1168200FF65D9 /* Tab02Highlighted@3x.png in Resources */,
@@ -2049,6 +2094,7 @@
 				9597B0FF1CA1168200FF65D9 /* Tab03Normal@3x.png in Resources */,
 				951FCDD31CEEAD0100A57BEA /* shouru@2x.png in Resources */,
 				95FC44581D042B06005BB02A /* unagree@3x.png in Resources */,
+				95BEDD931D2409E700292895 /* evaStar@2x.png in Resources */,
 				9597B0FA1CA1168200FF65D9 /* Tab02Normal@2x.png in Resources */,
 				95412A271D0C5D5600C6624F /* orderdetail_play@3x.png in Resources */,
 				95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */,
@@ -2067,6 +2113,7 @@
 				95BCB7AD1CA3D28200E85E10 /* login3rd_icon_weixin@2x.png in Resources */,
 				9597B0FE1CA1168200FF65D9 /* Tab03Normal@2x.png in Resources */,
 				95C0EB0F1CB62079004F9DAD /* zhanghu.png in Resources */,
+				95BEDD911D24096700292895 /* unSelectedable@3x.png in Resources */,
 				9597B1011CA1168200FF65D9 /* Tab03Highlighted@3x.png in Resources */,
 				955A7B4C1D1FEF7E00D1DEAC /* common_point_loading@3x.png in Resources */,
 				95BCB7AB1CA3D28200E85E10 /* login3rd_icon_qq@2x.png in Resources */,
@@ -2198,7 +2245,6 @@
 				954130291CA003B500D26B11 /* UIImage+Additions.m in Sources */,
 				95CA1BB81D0F7E8D00AAE490 /* MyMessageModel.m in Sources */,
 				95F533FE1CBCD758000C7E91 /* MJRefreshAutoGifFooter.m in Sources */,
-				955A7AE71D1D790E00D1DEAC /* BaseAppointmentModel.m in Sources */,
 				9597B1231CA1581400FF65D9 /* XuNetWorking.m in Sources */,
 				9520BFB51CAA721A00961F05 /* YYKVStorage.m in Sources */,
 				9520BFC21CAA721A00961F05 /* YYImageCache.m in Sources */,
@@ -2227,6 +2273,7 @@
 				95412A101D06674800C6624F /* MASViewConstraint.m in Sources */,
 				9597B04B1CA03D3900FF65D9 /* ZToastView.m in Sources */,
 				9520BFBC1CAA721A00961F05 /* UIImageView+YYWebImage.m in Sources */,
+				95BEDD961D2410D900292895 /* FeedBackViewController.m in Sources */,
 				950009691D21363700A5815C /* KKDatePickerViewModel.m in Sources */,
 				950009681D21363700A5815C /* KKDatePickerView.m in Sources */,
 				9520BFB91CAA721A00961F05 /* MKAnnotationView+YYWebImage.m in Sources */,
@@ -2256,6 +2303,7 @@
 				9520BFB81CAA721A00961F05 /* CALayer+YYWebImage.m in Sources */,
 				95412A051D06674800C6624F /* AJPhotoPickerViewController.m in Sources */,
 				95F534001CBCD758000C7E91 /* MJRefreshAutoStateFooter.m in Sources */,
+				95BEDD9E1D24C19600292895 /* AppointmentManager.m in Sources */,
 				955AA4381CF34F2800A47121 /* OrderProxy.m in Sources */,
 				95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */,
 				95412FAB1C9F91FA00D26B11 /* AppDelegate.m in Sources */,
@@ -2271,6 +2319,7 @@
 				9597B0C91CA112ED00FF65D9 /* HomeViewController.m in Sources */,
 				954129FF1D06674800C6624F /* AJGradientView.m in Sources */,
 				95B425BB1CFD2C5D002EB36D /* BaseNoDataView.m in Sources */,
+				95BEDDA11D24C1E100292895 /* AppointmentMoel.m in Sources */,
 				954130091C9FDB4A00D26B11 /* BaseTabbarController.m in Sources */,
 				95F534071CBCD758000C7E91 /* MJRefreshGifHeader.m in Sources */,
 				95412A121D06674800C6624F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -2283,6 +2332,7 @@
 				95CA1BBB1D0F800100AAE490 /* MyMessgeCell.m in Sources */,
 				95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */,
 				9520BFBF1CAA721A00961F05 /* YYImage.m in Sources */,
+				95BEDD8B1D23EA0500292895 /* AnotherStarEvaluator.m in Sources */,
 				95F533AE1CBCA432000C7E91 /* RefreshTableView.m in Sources */,
 				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				95412A111D06674800C6624F /* NSArray+MASAdditions.m in Sources */,
@@ -2461,7 +2511,7 @@
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphoneos",
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphonesimulator",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wuba.barrister;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xu.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2487,7 +2537,7 @@
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphoneos",
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphonesimulator",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wuba.barrister;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xu.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

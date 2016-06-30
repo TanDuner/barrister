@@ -94,6 +94,7 @@
 
 -(void)LoginSuccessAciton:(NSNotification *)nsnotifi
 {
+    [self.orderItems removeAllObjects];
     [self loadAccountData];
 }
 

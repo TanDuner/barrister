@@ -7,9 +7,10 @@
 //
 
 #import "AppointContentViewController.h"
-#import "BaseAppointmentModel.h"
+#import "AppointmentManager.h"
 
-#define ButtonNum 48
+
+#define ButtonNum 36
 
 #define ButtonWidth 25
 
@@ -26,6 +27,8 @@
 
 @property (nonatomic,assign) AppointMentState state;
 
+
+
 @end
 
 @implementation AppointCheckView
@@ -38,6 +41,8 @@
     }
     return self;
 }
+
+
 
 -(void)createView
 {
@@ -81,6 +86,12 @@
 #define X_CenterPadding (SCREENWIDTH - 3*CheckWidth - LeftPadding *2)/2.0
 #define Y_CenterPaddng 10
 #define TopPadding 50
+
+@interface AppointContentViewController ()
+
+@property (nonatomic,strong) AppointCheckView *checkView;
+
+@end
 @implementation AppointContentViewController
 
 #pragma -mark ----lifeCycle----
@@ -88,8 +99,18 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.checkView = [[AppointCheckView alloc] initWithFrame:RECT(LeftPadding, LeftPadding, CheckWidth, 25)];
+    self.checkView.showLabel.text = @"选择全部";
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkAllAction:)];
+    [self.checkView addGestureRecognizer:tap];
+    [self.view addSubview:self.checkView];
+
+    
     [self createView];
 }
+
 
 #pragma -mark ----UI------
 
@@ -99,6 +120,14 @@
     NSInteger endTimeNum = 13 *30;
     NSInteger stopTimeNum = 48 *30;
     
+    if (self.model.settingArray.count < ButtonNum) {
+        [self showNoContentView];
+        return;
+    }
+    else
+    {
+        [self hideNoContentView];
+    }
     
     for (int i = 0; i < ButtonNum; i ++) {
         
@@ -108,21 +137,26 @@
         
         AppointCheckView *checkView = [[AppointCheckView alloc] init];
         NSString *startStr = [self getTimeStrWithTimeNum:startTimeNum];
-        
         NSString *endStr = [self getTimeStrWithTimeNum:endTimeNum];
         
-        NSString *showStr = [NSString stringWithFormat:@"%@~%@",startStr,endStr];
+        NSString *stateStr = [self.model.settingArray objectAtIndex:i];
+        checkView.state = stateStr.integerValue;
         
+        
+        NSString *showStr = [NSString stringWithFormat:@"%@~%@",startStr,endStr];
         
         
         checkView.startTimeNum = startTimeNum;
         checkView.endTimeNum = endTimeNum;
         
-        checkView.tag = i + 1;
+        checkView.tag = i + 1000;
+        
         [checkView setFrame:CGRectMake(LeftPadding + (i%3)*(CheckWidth + X_CenterPadding), TopPadding + (i / 3)*(Y_CenterPaddng + ButtonWidth), CheckWidth, 25)];
         checkView.showLabel.text = showStr;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkAciton:)];
         [checkView addGestureRecognizer:tap];
+        
+        [self.checkViewItems addObject:checkView];
         [self.view addSubview:checkView];
 
         startTimeNum += 30;
@@ -147,6 +181,32 @@
 -(void)checkAciton:(UITapGestureRecognizer *)tap
 {
     AppointCheckView *checkView = (AppointCheckView *)[tap view];
+   
+    
+    if (self.model.settingArray.count > checkView.tag - 1000) {
+        if (checkView.state == AppointMentStateSelect) {
+            checkView.state = AppointMentStateUnSelect;
+            //替换array  和字符串中的状态
+            [self.model.settingArray replaceObjectAtIndex:checkView.tag - 1000 withObject:@"0"];
+            [self.model replaceStringWithArrayIndex:checkView.tag - 1000 withStatus:@"0"];
+        }
+        else if(checkView.state == AppointMentStateUnSelect)
+        {
+            checkView.state = AppointMentStateSelect;
+            [self.model.settingArray replaceObjectAtIndex:checkView.tag - 1000 withObject:@"1"];
+            [self.model replaceStringWithArrayIndex:checkView.tag - 1000 withStatus:@"1"];
+        }
+        
+    }
+
+    
+    [checkView setNeedsLayout];
+   
+}
+
+-(void)checkAllAction:(UITapGestureRecognizer *)tap
+{
+    AppointCheckView *checkView = (AppointCheckView *)[tap view];
     if (checkView.state == AppointMentStateSelect) {
         checkView.state = AppointMentStateUnSelect;
     }
@@ -154,9 +214,29 @@
     {
         checkView.state = AppointMentStateSelect;
     }
-    
     [checkView setNeedsLayout];
-   
+
+    for (AppointCheckView *temp in self.checkViewItems) {
+        if (temp.state == AppointMentStateUnSelect) {
+            temp.state = AppointMentStateSelect;
+        }
+        [checkView setNeedsLayout];
+    }
+    
+    for ( int i = 0; i < self.model.settingArray.count; i ++) {
+        [self.model.settingArray replaceObjectAtIndex:i withObject:@"1"];
+    }
+    
+    
+    
+}
+
+-(NSMutableArray *)checkViewItems
+{
+    if (!_checkViewItems) {
+        _checkViewItems = [NSMutableArray arrayWithCapacity:10];
+    }
+    return _checkViewItems;
 }
 
 

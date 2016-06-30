@@ -71,6 +71,16 @@
  */
 
 -(void)updateUserInfoWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
+
+/**
+ *  填写反馈接口
+ *
+ *  @param params <#params description#>
+ *  @param aBlock <#aBlock description#>
+ */
+-(void)feedBackWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
 @end
 
 

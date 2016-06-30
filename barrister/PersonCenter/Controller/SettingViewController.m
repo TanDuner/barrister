@@ -10,6 +10,7 @@
 #import "BaseDataSingleton.h"
 #import "AppDelegate.h"
 #import "LoginProxy.h"
+#import "FeedBackViewController.h"
 
 @interface SettingViewController ()
 
@@ -105,6 +106,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 2) {
+        FeedBackViewController *feedbackVC = [[FeedBackViewController alloc] init];
+        [self.navigationController pushViewController:feedbackVC animated:YES];
+    }
 }
 
 #pragma -mark -----Action-------
@@ -121,6 +126,7 @@
             [XuUItlity hideLoading];
             if (success) {
                 [self.navigationController popViewControllerAnimated:YES];
+                [[BaseDataSingleton shareInstance] logoOut];
                 AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                 [delegate selectTabWithIndex:0];
                 

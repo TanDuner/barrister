@@ -42,6 +42,7 @@
         [self addSubview:self.titleLabel];
         [self addSubview:self.rightRow];
         [self addSubview:self.subtitleLabel];
+        [self addSubview:self.starView];
     }
     return self;
 }
@@ -56,6 +57,12 @@
         [self.subtitleLabel setFrame:RECT(self.titleLabel.x, self.iconImageIVew.y + self.iconImageIVew.height - 35 , self.titleLabel.width, 10)];
         _titleLabel.textColor = KColorGray333;
         self.rightRow.hidden = NO;
+        self.starView.hidden = NO;
+        [self.starView setFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame), 200, 25)];
+        self.starView.backgroundColor = [UIColor redColor];
+//        [self.starView setStartScores:[BaseDataSingleton shareInstance].userModel.startCount.floatValue];
+        [self.starView setStartScores:3.5];
+
     }
     else
     {
@@ -63,6 +70,7 @@
         [self.titleLabel setFrame:RECT(self.iconImageIVew.x + self.iconImageIVew.width + 15, ([PersonCenterAccountCell getCellHeight] - 15)/2.0, SCREENWIDTH - 100, 15)];
         _titleLabel.textColor = KColorGray666;
         self.rightRow.hidden = YES;
+        self.starView.hidden = YES;
 
     }
     
@@ -83,7 +91,7 @@
         }
         else{
             self.subtitleLabel.hidden = YES;
-            
+            self.starView.hidden = YES;
             UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.model.iconNameStr ofType:nil]];
             self.iconImageIVew.image = image;
             self.titleLabel.text = self.model.titleStr;
@@ -160,6 +168,14 @@
         _subtitleLabel.hidden = YES;
     }
     return _subtitleLabel;
+}
+
+-(AnotherStarEvaluator *)starView
+{
+    if (!_starView) {
+        _starView = [[AnotherStarEvaluator alloc] initWithFrame:CGRectZero];
+    }
+    return _starView;
 }
 
 @end

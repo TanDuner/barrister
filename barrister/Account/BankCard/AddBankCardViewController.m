@@ -93,7 +93,6 @@
     
     _bankNameTextField = [[BorderTextFieldView alloc] initWithFrame:RECT(LeftSpace, sepView1.y + sepView1.height, SCREENWIDTH - LeftSpace, RowHeight)];
     
-    _bankNameTextField.keyboardType = UIKeyboardTypeNumberPad;
     _bankNameTextField.textColor = kFormTextColor;
     _bankNameTextField.cleanBtnOffset_x = _bankNameTextField.width - CleanBtnLessSpace;
     _bankNameTextField.delegate = self;
@@ -156,6 +155,7 @@
     _bankCardNumTextField.leftView = label5;
     _bankCardNumTextField.leftViewMode = UITextFieldViewModeAlways;
     _bankCardNumTextField.textLeftOffset = LeftViewWidth + 20;
+    _bankCardNumTextField.keyboardType = UIKeyboardTypeNumberPad;
     
     UIButton *scanBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [scanBtn setFrame:RECT(SCREENWIDTH - 30 - 20, 7, 30, RowHeight - 14)];
@@ -199,16 +199,25 @@
     if (_nameTextField.text.length > 0 &&_bankCardNumTextField.text.length > 0 && _bankNameTextField.text.length > 0 && _phoneTextField.text.length > 0 && _openBankNameTextField.text.length > 0) {
         
         if (![XuUtlity validateMobile:_phoneTextField.text]) {
-            [XuUItlity showFailedHint:@"手机号不合法" completionBlock:nil];
+            [XuUItlity showFailedHint:@"手机号不正确" completionBlock:nil];
+            return;
+        }
+        if (![self checkCardNo:self.bankCardNumTextField.text]) {
+            [XuUItlity showFailedHint:@"卡号不正确" completionBlock:nil];
+            return;
         }
         
 //        :userId,verifyCode,cardNum（卡号）,cardholderName（持卡人姓名），bankName(银行名称)，bankAddress(开户行)
 
         
+        __weak typeof(*&self) weakSelf = self;
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",_bankCardNumTextField.text,@"cardNum",_nameTextField.text,@"cardholderName",_openBankNameTextField.text,@"bankAddress",_bankNameTextField.text,@"bankName", nil];
         [self.proxy bindCarkWithParams:params block:^(id returnData, BOOL success) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
             if (success) {
+
                 [XuUItlity showSucceedHint:@"绑定成功" completionBlock:nil];
+                [strongSelf saveCardInfo];
             }
             else
             {
@@ -222,6 +231,15 @@
         [XuUItlity showFailedHint:@"请补充完整信息" completionBlock:nil];
     }
 }
+
+-(void)saveCardInfo
+{
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:_bankCardNumTextField.text,@"bankCardNum",_phoneTextField.text,@"bankPhone",_openBankNameTextField.text,@"bankCardAddress",_bankNameTextField.text,@"bankCardName",@"",@"logoName",_bankNameTextField.text,@"", nil];
+    [BaseDataSingleton shareInstance].bankCardDict = dict;
+}
+
+
 
 
 #pragma -mark ----UITextField Methods-----
@@ -249,45 +267,13 @@
     
 }
 
--(void)sacnCardAction:(UIButton *)btn
-{
-    
-//    __weak typeof(*&self) weakSelf = self;
-    
-    //"cardtype": "贷记卡",
-    //"cardlength": 16,
-    //"cardprefixnum": "518710",
-    //"cardname": "MASTER信用卡",
-    //"bankname": "招商银行信用卡中心",
-    //"banknum": "03080010"
-
-//    ScanCardViewController *svc = [[ScanCardViewController alloc] init];
-//    svc.cardBlock = ^(BankCardModel *model)
-//    {
-//        [XuUItlity hideLoading];
-//        weakSelf.bankNameTextField.text = model.bankname;
-//        weakSelf.bankCardNumTextField.text = model.cardNum;
-//    };
-//    [self.navigationController pushViewController:svc animated:YES];
-
-}
-
-/**
- *  根据卡号识别卡的信息
- */
-
--(void)requestCardInfoWithCardNum:(NSString *)cardNo
-{
-    
-
-}
 
 /**
  *  判断卡号输入是否正确
  *
  *  @param cardNo 卡号
  *
- *  @return 
+ *  @return
  */
 
 - (BOOL) checkCardNo:(NSString*) cardNo{
@@ -329,6 +315,55 @@
     else
         return NO;
 }
+
+
+#pragma -mark ---getter----
+
+-(AccountProxy *)proxy
+{
+    if (!_proxy) {
+        _proxy = [[AccountProxy alloc] init];
+    }
+    return _proxy;
+}
+
+
+#pragma -mark ----废弃代码----
+
+-(void)sacnCardAction:(UIButton *)btn
+{
+    
+//    __weak typeof(*&self) weakSelf = self;
+    
+    //"cardtype": "贷记卡",
+    //"cardlength": 16,
+    //"cardprefixnum": "518710",
+    //"cardname": "MASTER信用卡",
+    //"bankname": "招商银行信用卡中心",
+    //"banknum": "03080010"
+
+//    ScanCardViewController *svc = [[ScanCardViewController alloc] init];
+//    svc.cardBlock = ^(BankCardModel *model)
+//    {
+//        [XuUItlity hideLoading];
+//        weakSelf.bankNameTextField.text = model.bankname;
+//        weakSelf.bankCardNumTextField.text = model.cardNum;
+//    };
+//    [self.navigationController pushViewController:svc animated:YES];
+
+}
+
+/**
+ *  根据卡号识别卡的信息
+ */
+
+-(void)requestCardInfoWithCardNum:(NSString *)cardNo
+{
+    
+
+}
+
+
 
 
 //NSString *httpUrl = @"http://apis.baidu.com/datatiny/cardinfo/cardinfo";

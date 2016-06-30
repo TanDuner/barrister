@@ -79,6 +79,16 @@
 }
 
 
+-(void)logoOut
+{
+    self.userModel = nil;
+    self.loginState = 0;
+    self.remainingBalance = @"0";
+    self.totalIncome = @"0";
+    self.loginState = @"0";
+
+}
+
 
 //-(BOOL) archive {
 //    NSString* documentDirectory = [SandboxFile GetDocumentPath];

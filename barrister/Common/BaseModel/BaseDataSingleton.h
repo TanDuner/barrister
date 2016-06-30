@@ -48,6 +48,14 @@ typedef struct PhoneSate PhoneSate;
 -(void)setLoginStateWithValidCode:(NSString *)validCode Phone:(NSString *)phone;
 
 
+/**
+ *  注销 清空数据
+ *
+ *  @return
+ */
+
+-(void)logoOut;
+
 -(BOOL) archive;
 
 @end

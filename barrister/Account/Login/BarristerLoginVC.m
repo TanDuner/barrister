@@ -217,6 +217,8 @@ const float MidViewHeight = 190 / 2.0;
                 [BaseDataSingleton shareInstance].userModel = user;
                 [[BaseDataSingleton shareInstance] setLoginStateWithValidCode:user.verifyCode Phone:user.phone];
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:nil];
+                [self dismissViewControllerAnimated:YES completion:nil];
+
                 [XuUItlity showSucceedHint:@"登录成功" completionBlock:^{
                     if ([user.verifyStatus isEqualToString:@"verify.status.unautherized"] ) {
                         [[BarristerLoginManager shareManager] hideLoginViewController:self isToPersonInfoVC:YES];                        

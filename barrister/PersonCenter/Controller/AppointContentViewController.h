@@ -7,9 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "AppointmentMoel.h"
 
 @interface AppointContentViewController : BaseViewController
 
-@property (nonatomic,strong) NSMutableArray *showStr;
+@property (nonatomic,strong) NSMutableArray *checkViewItems;
+
+@property (nonatomic,strong) AppointmentMoel *model;
 
 @end

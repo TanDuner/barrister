@@ -7,14 +7,18 @@
 //
 
 #import "MeNetProxy.h"
-#define GetAppointDataUrl @""
-#define SetAppointDataUrl @""
+#define GetAppointDataUrl @"getMyAppointmentSettings.do"
+#define SetAppointDataUrl @"setAppointmentSettings.do"
 #define UploadHeadImageUrl @"uploadUserIcon.do"
 #define AreaAndTypeUrl @"bizAreaAndBizTypeList.do?"
 #define UpdateUserInfo @"updateUserInfo.do"
 #define UploadAuthUrl @"uploadFiles.do"
 #define TixianUrl @"getMoney.do";
 #define MyMessageUrl @"getMyMsgs.do"
+
+#define FeedBackUrl @"addFeedback.do"
+
+
 @implementation MeNetProxy
 /**
  *  获取预约设置的数据
@@ -25,9 +29,15 @@
 -(void)getAppointDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking getWithUrl:GetAppointDataUrl params:params success:^(id response) {
-        if (aBlock) {
-            aBlock(response,YES);
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                aBlock(response,YES);
+            }
         }
+        else{
+            aBlock(CommonNetErrorTip,NO);
+        }
+       
     } fail:^(NSError *error) {
         if (aBlock) {
             aBlock(error,NO);
@@ -44,9 +54,16 @@
 -(void)setAppintDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking getWithUrl:SetAppointDataUrl params:params success:^(id response) {
-        if (aBlock) {
-            aBlock(response,YES);
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                aBlock(response,YES);
+            }
         }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+
     } fail:^(NSError *error) {
         if (aBlock) {
             aBlock(error,NO);
@@ -173,6 +190,37 @@
         }
     }];
 }
+
+
+/**
+ *  填写反馈接口
+ *
+ *  @param params <#params description#>
+ *  @param aBlock <#aBlock description#>
+ */
+-(void)feedBackWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:FeedBackUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                aBlock(response,YES);
+            }
+        }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+        
+        
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+        
+    }];
+
+}
+
 
 
 @end
