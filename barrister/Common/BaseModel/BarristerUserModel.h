@@ -46,11 +46,6 @@
  */
 @property (nonatomic,strong) NSString *mail;
 
-/**
- * 律师事务所
- */
-@property (nonatomic,strong) NSString *lawOffice;
-
 
 /**
  *  介绍

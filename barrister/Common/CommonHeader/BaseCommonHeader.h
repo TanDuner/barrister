@@ -14,6 +14,8 @@
 #import "XuUtlity.h"
 #import "XuUItlity.h"
 #import "CommonMacros.h"
+#import "NSArray+CommonAdd.h"
+
 
 #define BaseUrl  @"http://119.254.167.200:8080/lawerservice/"
 

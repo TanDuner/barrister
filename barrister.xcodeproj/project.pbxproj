@@ -205,6 +205,8 @@
 		95BCB7AD1CA3D28200E85E10 /* login3rd_icon_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7A91CA3D28200E85E10 /* login3rd_icon_weixin@2x.png */; };
 		95BCB7AE1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BCB7AA1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png */; };
 		95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */; };
+		95BD99891D25719E002E5B0D /* NSArray+CommonAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BD99861D25719E002E5B0D /* NSArray+CommonAdd.m */; };
+		95BD998A1D25719E002E5B0D /* NSString+CommonAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BD99881D25719E002E5B0D /* NSString+CommonAdd.m */; };
 		95BEDD8B1D23EA0500292895 /* AnotherStarEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */; };
 		95BEDD8F1D24096700292895 /* evaStarEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */; };
 		95BEDD901D24096700292895 /* unSelectedable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8D1D24096700292895 /* unSelectedable@2x.png */; };
@@ -638,6 +640,10 @@
 		95BCB7AA1CA3D28200E85E10 /* login3rd_icon_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login3rd_icon_weixin@3x.png"; sourceTree = "<group>"; };
 		95BCB7AF1CA3DDA600E85E10 /* BarristerRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarristerRegisterVC.h; sourceTree = "<group>"; };
 		95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarristerRegisterVC.m; sourceTree = "<group>"; };
+		95BD99851D25719E002E5B0D /* NSArray+CommonAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CommonAdd.h"; sourceTree = "<group>"; };
+		95BD99861D25719E002E5B0D /* NSArray+CommonAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CommonAdd.m"; sourceTree = "<group>"; };
+		95BD99871D25719E002E5B0D /* NSString+CommonAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CommonAdd.h"; sourceTree = "<group>"; };
+		95BD99881D25719E002E5B0D /* NSString+CommonAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CommonAdd.m"; sourceTree = "<group>"; };
 		95BEDD891D23EA0500292895 /* AnotherStarEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherStarEvaluator.h; sourceTree = "<group>"; };
 		95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotherStarEvaluator.m; sourceTree = "<group>"; };
 		95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "evaStarEmpty@2x.png"; sourceTree = "<group>"; };
@@ -1203,6 +1209,10 @@
 		9541300A1CA003A600D26B11 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				95BD99851D25719E002E5B0D /* NSArray+CommonAdd.h */,
+				95BD99861D25719E002E5B0D /* NSArray+CommonAdd.m */,
+				95BD99871D25719E002E5B0D /* NSString+CommonAdd.h */,
+				95BD99881D25719E002E5B0D /* NSString+CommonAdd.m */,
 				95B425E71D00157E002EB36D /* NSData+ImageContentType.h */,
 				95B425E81D00157E002EB36D /* NSData+ImageContentType.m */,
 				95B425BC1CFD2E06002EB36D /* UINavigationBar+Background.h */,
@@ -2183,6 +2193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95BD998A1D25719E002E5B0D /* NSString+CommonAdd.m in Sources */,
 				95FC445B1D042BEB005BB02A /* UIButton+EnlargeEdge.m in Sources */,
 				9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */,
 				95412A2A1D0C632600C6624F /* OrderDetailCallRecordCell.m in Sources */,
@@ -2262,6 +2273,7 @@
 				95B425961CFB3001002EB36D /* MyAccountHeadView.m in Sources */,
 				95F533AB1CBB835F000C7E91 /* OrderDetailViewController.m in Sources */,
 				95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */,
+				95BD99891D25719E002E5B0D /* NSArray+CommonAdd.m in Sources */,
 				9597B11B1CA1313E00FF65D9 /* DCWebImageManager.m in Sources */,
 				9541302B1CA003B500D26B11 /* UIImage+CompressImage.m in Sources */,
 				9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */,
