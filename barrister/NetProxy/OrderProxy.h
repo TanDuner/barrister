@@ -26,4 +26,12 @@
  */
 -(void)getOrderDetailWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock;
 
+/**
+ *  律师填写小节
+ *
+ *  @param aParams <#aParams description#>
+ *  @param aBlock  <#aBlock description#>
+ */
+-(void)addXiaoJieWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+
 @end

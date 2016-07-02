@@ -10,6 +10,8 @@
 
 #define GetOrderListUrl @"myOrderList.do"
 #define OrderDetialUrl @"orderDetail.do"
+#define AddXiaoJieUrl @"addOrderSummary.do"
+
 
 @implementation OrderProxy
 -(void)getOrderListWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock
@@ -63,5 +65,34 @@
         }
     }];
 }
+
+
+/**
+ *  律师填写小节
+ *
+ *  @param aParams <#aParams description#>
+ *  @param aBlock  <#aBlock description#>
+ */
+-(void)addXiaoJieWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:AddXiaoJieUrl params:aParams success:^(id response) {
+        if (aBlock) {
+            if ([self isCommonCorrectResultCodeWithResponse:response]) {
+                aBlock(response,YES);
+            }
+            else
+            {
+                aBlock(CommonNetErrorTip,NO);
+            }
+            
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    }];
+
+}
+
 
 @end
