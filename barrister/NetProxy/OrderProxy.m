@@ -10,8 +10,10 @@
 
 #define GetOrderListUrl @"myOrderList.do"
 #define OrderDetialUrl @"orderDetail.do"
-#define AddXiaoJieUrl @"addOrderSummary.do"
-
+#define AddXiaoJieUrl @"addOrderFeedback.do"
+#define AgreeCancelOrderUrl @"agreeOrderCancel.do"
+#define unAgreeCancelOrderUrl @"disagreeOrderCancel.do"
+#define FinishOrderUrl @"finishOrder.do"
 
 @implementation OrderProxy
 -(void)getOrderListWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock
@@ -93,6 +95,95 @@
     }];
 
 }
+
+
+/**
+ *  同意取消订单
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)agreeCancelOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:AgreeCancelOrderUrl params:aParams success:^(id response) {
+        if (aBlock) {
+            if ([self isCommonCorrectResultCodeWithResponse:response]) {
+                aBlock(response,YES);
+            }
+            else
+            {
+                aBlock(CommonNetErrorTip,NO);
+            }
+            
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    }];
+
+
+}
+
+
+/**
+ *  不同意取消订单
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)unAgreeCancelOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock
+{
+
+    [XuNetWorking postWithUrl:unAgreeCancelOrderUrl params:aParams success:^(id response) {
+        if (aBlock) {
+            if ([self isCommonCorrectResultCodeWithResponse:response]) {
+                aBlock(response,YES);
+            }
+            else
+            {
+                aBlock(CommonNetErrorTip,NO);
+            }
+            
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    }];
+
+}
+
+
+
+/**
+ *  完成订单
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)finishOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking postWithUrl:unAgreeCancelOrderUrl params:aParams success:^(id response) {
+        if (aBlock) {
+            if ([self isCommonCorrectResultCodeWithResponse:response]) {
+                aBlock(response,YES);
+            }
+            else
+            {
+                aBlock(CommonNetErrorTip,NO);
+            }
+            
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    }];
+
+}
+
+
 
 
 @end

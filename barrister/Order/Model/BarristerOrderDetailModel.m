@@ -13,19 +13,50 @@
 
 -(void)handlePropretyWithDict:(NSDictionary *)dict
 {
+    NSArray *array  = [dict objectForKey:@"callHistories"];
+    if ([XuUtlity isValidArray:array]) {
+        for (int i = 0; i < array.count; i ++) {
+            NSDictionary *dict = (NSDictionary *)[array objectAtIndex:i];
+            CallHistoriesModel *model = [[CallHistoriesModel alloc] initWithDictionary:dict];
+            [self.callRecordArray addObject:model];
+        }
+    }
+  
+    
+    
     if ([dict respondsToSelector:@selector(objectForKey:)]) {
         self.orderId = [dict objectForKey:@"id"];
-        CGFloat height = [XuUtlity textHeightWithString:self.remarks withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 20 WithLineSpace:5];
+        CGFloat customMarkHeight = [XuUtlity textHeightWithString:self.remarks withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:0];
         
-        if (height <= 13) {
-            height = 13;
+        if (customMarkHeight <= 13) {
+            customMarkHeight = 13;
         }
-        self.markHeight = height;
+        self.markHeight = customMarkHeight;
         
         self.orderId = [dict objectForKey:@"id"];
     
+        
+        CGFloat lawyerFeedBackHeight = [XuUtlity textHeightWithString:self.lawFeedback withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:5];
+        if (lawyerFeedBackHeight <= 13) {
+            lawyerFeedBackHeight = 13;
+        }
+        
+        self.lawyerFeedBackHeight = lawyerFeedBackHeight;
+        
+        if (!self.customerNickname) {
+            self.customerNickname = [NSString stringWithFormat:@"用户%@",self.customerPhone];
+        }
+        
     }
 
+}
+
+-(NSMutableArray *)callRecordArray
+{
+    if (!_callRecordArray) {
+        _callRecordArray = [NSMutableArray arrayWithCapacity:10];
+    }
+    return _callRecordArray;
 }
 
 @end

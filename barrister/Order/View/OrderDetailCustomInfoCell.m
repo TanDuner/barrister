@@ -11,6 +11,9 @@
 
 @interface OrderDetailCustomInfoCell ()
 
+
+@property (nonatomic,strong) UIView *topSepView;
+
 @property (nonatomic,strong) UILabel *titleLabel;
 
 @property (nonatomic,strong) UIImageView *headImageView;
@@ -21,7 +24,6 @@
 
 @property (nonatomic,strong) UIButton *callButton;
 
-@property (nonatomic,strong) UIView *separteView;
 
 
 @end
@@ -30,15 +32,18 @@
 
 +(CGFloat)getHeightWithModel:(BarristerOrderDetailModel *)model
 {
-    return 105 + 10;
+    return 105 + 10 ;
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        [self addSubview:self.topSepView];
+        
         [self addSubview:self.titleLabel];
     
-        [self addSubview:[self getLineViewWithRect:RECT(0, 39.5, SCREENWIDTH, .5)]];
+        [self addSubview:[self getLineViewWithRect:RECT(0, 39.5 + 10, SCREENWIDTH, .5)]];
         
         [self addSubview:self.headImageView];
         
@@ -48,7 +53,6 @@
         
         [self addSubview:self.callButton];
         
-        [self addSubview:self.separteView];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -60,11 +64,11 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    [self.topSepView setFrame:RECT(0, 0, SCREENWIDTH, 10)];
     [self.headImageView yy_setImageWithURL:[NSURL URLWithString:self.model.customerIcon] placeholder:nil];
     self.customNamemLabel.text = self.model.customerNickname;
     self.customPhoneLabel.text = self.model.customerPhone;
-    [_callButton setFrame:RECT(self.width - 40 - 10, 40 + (64 - 40)/2.0, 40, 40)];
-    [self.separteView setFrame:RECT(0, self.height - 10, SCREENWIDTH, 10)];
+    [_callButton setFrame:RECT(self.width - 40 - 10, 50 + (64 - 40)/2.0, 40, 40)];
 
 }
 
@@ -74,7 +78,7 @@
 -(UILabel *)titleLabel
 {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:RECT(10, 13, 200, 13)];
+        _titleLabel = [[UILabel alloc] initWithFrame:RECT(10, 23, 200, 13)];
         _titleLabel.text = @"用户信息";
         _titleLabel.textColor = KColorGray222;
         _titleLabel.font = SystemFont(15.0f);
@@ -86,7 +90,7 @@
 -(UIImageView *)headImageView
 {
     if (!_headImageView) {
-        _headImageView = [[UIImageView alloc] initWithFrame:RECT(LeftPadding, 40 + 10, 45, 45)];
+        _headImageView = [[UIImageView alloc] initWithFrame:RECT(LeftPadding, 50 + 10, 45, 45)];
         _headImageView.layer.cornerRadius = 22.5f;
         _headImageView.layer.masksToBounds = YES;
     }
@@ -108,7 +112,7 @@
 -(UILabel *)customNamemLabel
 {
     if (!_customNamemLabel) {
-        _customNamemLabel = [[UILabel alloc] initWithFrame:RECT(self.headImageView.x + self.headImageView.width + 15, 40 + 16.5, 200, 13)];
+        _customNamemLabel = [[UILabel alloc] initWithFrame:RECT(self.headImageView.x + self.headImageView.width + 15, 50 + 15, 200, 13)];
         _customNamemLabel.textColor = KColorGray333;
         _customNamemLabel.font = SystemFont(15.0f);
     }
@@ -127,14 +131,14 @@
     return _customPhoneLabel;
 }
 
--(UIView *)separteView
+
+-(UIView *)topSepView
 {
-    if (!_separteView) {
-        _separteView = [[UIView alloc] init];
-        _separteView.backgroundColor = kBaseViewBackgroundColor;
-        
+    if (!_topSepView) {
+        _topSepView = [[UIView alloc] initWithFrame:RECT(0, 0, 0, 0)];
+        _topSepView.backgroundColor = [UIColor colorWithString:@"#eeeeee" colorAlpha:1];
     }
-    return _separteView;
+    return _topSepView;
 }
 
 #pragma -mark -------Action----------

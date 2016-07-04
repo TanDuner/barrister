@@ -14,7 +14,6 @@
 
 //    a.待处理
 #define  STATUS_WAITING  @"order.status.waiting"
-
 //    b.进行中
 #define STATUS_DOING  @"order.status.doing"
 //    c.已完成
@@ -23,6 +22,8 @@
 #define STATUS_CANCELED  @"order.status.canceled"
 //    e.退款中
 #define STATUS_REFUND  @"order.status.refund"
+//    f 请求取消
+#define STATUS_REQUESTCANCEL @"order.status.request.cancel"
 
 
 

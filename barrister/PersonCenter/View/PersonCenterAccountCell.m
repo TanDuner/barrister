@@ -42,7 +42,7 @@
         [self addSubview:self.titleLabel];
         [self addSubview:self.rightRow];
         [self addSubview:self.subtitleLabel];
-        [self addSubview:self.starView];
+//        [self addSubview:self.starView];
     }
     return self;
 }

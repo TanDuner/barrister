@@ -7,7 +7,12 @@
 //
 
 #import "BaseTableViewCell.h"
+#import "BarristerOrderDetailModel.h"
 
 @interface OrderDetailMarkCell : BaseTableViewCell
+
++(CGFloat)getCellHeightWithModel:(BarristerOrderDetailModel *)model;
+
+@property (nonatomic,strong) BarristerOrderDetailModel *model;
 
 @end

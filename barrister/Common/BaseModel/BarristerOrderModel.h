@@ -63,8 +63,6 @@ typedef NS_ENUM(NSInteger, BarristerOrderState)
 
 @property (nonatomic,strong) NSString *markStr;//律师备注的内容
 
-@property (nonatomic,assign) CGFloat markHeight;//备注区域的高度
-
 @property (nonatomic,strong) NSString *voiceUrl;//录音的链接
 
 @property (nonatomic,strong) NSString *clientPhone;//用户的手机号

@@ -125,6 +125,10 @@
 		955AA44E1CF3EE4E00A47121 /* common_icon_warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955AA4481CF3EE4E00A47121 /* common_icon_warning@3x.png */; };
 		955AA4521CF3EEC000A47121 /* XuPointLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 955AA4511CF3EEC000A47121 /* XuPointLoadingView.m */; };
 		958EEBBC1D2786A800D4CF4C /* LawerXiaoJieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBBB1D2786A800D4CF4C /* LawerXiaoJieViewController.m */; };
+		958EEBFD1D28B88800D4CF4C /* CallHistoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBFC1D28B88800D4CF4C /* CallHistoriesModel.m */; };
+		958EEC001D28C38D00D4CF4C /* OrderDetailCancelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBFF1D28C38D00D4CF4C /* OrderDetailCancelCell.m */; };
+		958EEC031D28C40D00D4CF4C /* OrderDetailFinishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEC021D28C40D00D4CF4C /* OrderDetailFinishCell.m */; };
+		958EEC061D296C8500D4CF4C /* AddOrderFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEC051D296C8500D4CF4C /* AddOrderFeedBackViewController.m */; };
 		9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B0461CA0395F00FF65D9 /* BaseViewController.m */; };
 		9597B04B1CA03D3900FF65D9 /* ZToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B04A1CA03D3900FF65D9 /* ZToastView.m */; };
 		9597B04E1CA03E3900FF65D9 /* UIColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B04D1CA03E3900FF65D9 /* UIColorAdditions.m */; };
@@ -518,6 +522,14 @@
 		955AA4511CF3EEC000A47121 /* XuPointLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuPointLoadingView.m; sourceTree = "<group>"; };
 		958EEBBA1D2786A800D4CF4C /* LawerXiaoJieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawerXiaoJieViewController.h; sourceTree = "<group>"; };
 		958EEBBB1D2786A800D4CF4C /* LawerXiaoJieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawerXiaoJieViewController.m; sourceTree = "<group>"; };
+		958EEBFB1D28B88800D4CF4C /* CallHistoriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallHistoriesModel.h; sourceTree = "<group>"; };
+		958EEBFC1D28B88800D4CF4C /* CallHistoriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallHistoriesModel.m; sourceTree = "<group>"; };
+		958EEBFE1D28C38D00D4CF4C /* OrderDetailCancelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailCancelCell.h; sourceTree = "<group>"; };
+		958EEBFF1D28C38D00D4CF4C /* OrderDetailCancelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCancelCell.m; sourceTree = "<group>"; };
+		958EEC011D28C40D00D4CF4C /* OrderDetailFinishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailFinishCell.h; sourceTree = "<group>"; };
+		958EEC021D28C40D00D4CF4C /* OrderDetailFinishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailFinishCell.m; sourceTree = "<group>"; };
+		958EEC041D296C8500D4CF4C /* AddOrderFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrderFeedBackViewController.h; sourceTree = "<group>"; };
+		958EEC051D296C8500D4CF4C /* AddOrderFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrderFeedBackViewController.m; sourceTree = "<group>"; };
 		9597B0451CA0395F00FF65D9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		9597B0461CA0395F00FF65D9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		9597B0491CA03D3900FF65D9 /* ZToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZToastView.h; sourceTree = "<group>"; };
@@ -1420,6 +1432,8 @@
 				9597B0CE1CA1132800FF65D9 /* OrderViewController.m */,
 				95F533A91CBB835F000C7E91 /* OrderDetailViewController.h */,
 				95F533AA1CBB835F000C7E91 /* OrderDetailViewController.m */,
+				958EEC041D296C8500D4CF4C /* AddOrderFeedBackViewController.h */,
+				958EEC051D296C8500D4CF4C /* AddOrderFeedBackViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1429,6 +1443,8 @@
 			children = (
 				954505271D2225B40039C6B1 /* BarristerOrderDetailModel.h */,
 				954505281D2225B40039C6B1 /* BarristerOrderDetailModel.m */,
+				958EEBFB1D28B88800D4CF4C /* CallHistoriesModel.h */,
+				958EEBFC1D28B88800D4CF4C /* CallHistoriesModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1446,6 +1462,10 @@
 				95412A291D0C632600C6624F /* OrderDetailCallRecordCell.m */,
 				95CA1B971D0D625A00AAE490 /* OrderDetailMarkCell.h */,
 				95CA1B981D0D625A00AAE490 /* OrderDetailMarkCell.m */,
+				958EEBFE1D28C38D00D4CF4C /* OrderDetailCancelCell.h */,
+				958EEBFF1D28C38D00D4CF4C /* OrderDetailCancelCell.m */,
+				958EEC011D28C40D00D4CF4C /* OrderDetailFinishCell.h */,
+				958EEC021D28C40D00D4CF4C /* OrderDetailFinishCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2220,6 +2240,7 @@
 				95A79D881D02C3A1004293F6 /* MyBankCardController.m in Sources */,
 				95412A011D06674800C6624F /* AJPhotoGroupView.m in Sources */,
 				9520BFB61CAA721A00961F05 /* YYMemoryCache.m in Sources */,
+				958EEBFD1D28B88800D4CF4C /* CallHistoriesModel.m in Sources */,
 				95CA1B9D1D0D709F00AAE490 /* OpenUDID.m in Sources */,
 				95412A041D06674800C6624F /* AJPhotoListView.m in Sources */,
 				9545052F1D225EC60039C6B1 /* LearnCenterChannelModel.m in Sources */,
@@ -2305,6 +2326,7 @@
 				95FC44501D040620005BB02A /* BankCardModel.m in Sources */,
 				954505291D2225B40039C6B1 /* BarristerOrderDetailModel.m in Sources */,
 				95F533FD1CBCD758000C7E91 /* MJRefreshAutoFooter.m in Sources */,
+				958EEC031D28C40D00D4CF4C /* OrderDetailFinishCell.m in Sources */,
 				95C0EAF71CB4B301004F9DAD /* UIControl+YYAdd.m in Sources */,
 				9597B0851CA0EFEC00FF65D9 /* BaseTableView.m in Sources */,
 				9597B0D81CA1136B00FF65D9 /* PersonCenterViewController.m in Sources */,
@@ -2331,6 +2353,7 @@
 				95C0EAFF1CB5164F004F9DAD /* LearnCenterCell.m in Sources */,
 				95C0EAFC1CB5152B004F9DAD /* LearnCenterModel.m in Sources */,
 				95C0EAED1CB4B111004F9DAD /* OrderViewCell.m in Sources */,
+				958EEC061D296C8500D4CF4C /* AddOrderFeedBackViewController.m in Sources */,
 				95F534011CBCD758000C7E91 /* MJRefreshBackFooter.m in Sources */,
 				95F533DE1CBCD454000C7E91 /* UIScrollView+MJExtension.m in Sources */,
 				9597B0C91CA112ED00FF65D9 /* HomeViewController.m in Sources */,
@@ -2370,6 +2393,7 @@
 				95C2C8011CF7E21200BE4971 /* MyAccountHomeViewController.m in Sources */,
 				95412A081D06674800C6624F /* AJPhotoTapDetectingImageView.m in Sources */,
 				95412A0E1D06674800C6624F /* MASLayoutConstraint.m in Sources */,
+				958EEC001D28C38D00D4CF4C /* OrderDetailCancelCell.m in Sources */,
 				95B64C571D0471BA00F2B24D /* MBProgressHUD+Add.m in Sources */,
 				95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */,
 				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
@@ -2510,7 +2534,7 @@
 			baseConfigurationReference = FB7025970A6696D2DDBA918B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -2540,7 +2564,7 @@
 			baseConfigurationReference = 002279B49112E96E038ECFA0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

@@ -18,10 +18,9 @@
 @property (nonatomic,strong) UILabel *orderTypeLabel;
 @property (nonatomic,strong) UILabel *orderTimeLabel;
 @property (nonatomic,strong) UILabel *orderPriceLabel;
-@property (nonatomic,strong) UILabel *markLabel;
+//@property (nonatomic,strong) UILabel *markLabel;
 
 
-@property (nonatomic,strong) UIView *separteView;
 
 @end
 
@@ -29,7 +28,7 @@
 
 +(CGFloat)getHeightWithModel:(BarristerOrderDetailModel *)model
 {
-    return   150 + 15 + model.markHeight + 15 + 10;
+    return   150;
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -47,11 +46,10 @@
         
         [self addSubview:[self getLineViewWithRect:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 9.5, SCREENWIDTH - 10, .5)]];
         
-        [self addSubview:self.markLabel];
+//        [self addSubview:self.markLabel];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        [self addSubview:self.separteView];
     }
     return self;
 }
@@ -60,15 +58,15 @@
 {
     [super layoutSubviews];
     
-    [self.separteView setFrame:RECT(0, self.height - 10, SCREENWIDTH, 10)];
+//    [self.separteView setFrame:RECT(0, self.height - 10, SCREENWIDTH, 10)];
     
     
-    [self.markLabel setFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 10 + 15, SCREENWIDTH - 20, self.model.markHeight)];
+//    [self.markLabel setFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 10 + 15, SCREENWIDTH - 20, self.model.markHeight)];
 //    self.orderNoLabel.text = [NSString stringWithFormat:@"订单号：%@",self.model.orderNo?self.model.orderNo:@""];
-    self.orderTypeLabel.text = [NSString stringWithFormat:@"订单类型：%@",self.model.caseType?self.model.caseType:@""];
+    self.orderTypeLabel.text = [NSString stringWithFormat:@"订单类型：%@",self.model.caseType?self.model.caseType:@"无"];
     self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",self.model.payTime?self.model.payTime:@""];
     self.orderPriceLabel.text = [NSString stringWithFormat:@"订单金额：%@",self.model.paymentAmount?self.model.paymentAmount:@""];
-    self.markLabel.text = [NSString stringWithFormat:@"备注：%@",self.model.remarks?self.model.remarks:@"无"];
+//    self.markLabel.text = [NSString stringWithFormat:@"备注：%@",self.model.remarks?self.model.remarks:@"无"];
     
     if ([self.model.status isEqualToString:STATUS_WAITING]) {
         self.stateLabel.text = @"待处理";
@@ -117,16 +115,16 @@
 }
 
 
--(UILabel *)markLabel
-{
-    if (!_markLabel) {
-        _markLabel = [[UILabel alloc] initWithFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 10 + 15, SCREENWIDTH - 20, self.model.markHeight)];
-        _markLabel.textAlignment = NSTextAlignmentLeft;
-        _markLabel.textColor = KColorGray666;
-        _markLabel.font = SystemFont(14.0f);
-    }
-    return _markLabel;
-}
+//-(UILabel *)markLabel
+//{
+//    if (!_markLabel) {
+//        _markLabel = [[UILabel alloc] initWithFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 10 + 15, SCREENWIDTH - 20, self.model.markHeight)];
+//        _markLabel.textAlignment = NSTextAlignmentLeft;
+//        _markLabel.textColor = KColorGray666;
+//        _markLabel.font = SystemFont(14.0f);
+//    }
+//    return _markLabel;
+//}
 
 
 -(UILabel *)orderNoLabel
@@ -177,14 +175,14 @@
     return _orderTypeLabel;
 }
 
--(UIView *)separteView
-{
-    if (!_separteView) {
-        _separteView = [[UIView alloc] init];
-        _separteView.backgroundColor = kBaseViewBackgroundColor;
-        
-    }
-    return _separteView;
-}
+//-(UIView *)separteView
+//{
+//    if (!_separteView) {
+//        _separteView = [[UIView alloc] init];
+//        _separteView.backgroundColor = kBaseViewBackgroundColor;
+//        
+//    }
+//    return _separteView;
+//}
 
 @end

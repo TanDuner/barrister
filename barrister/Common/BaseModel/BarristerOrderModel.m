@@ -20,15 +20,11 @@
 -(void)handlePropretyWithDict:(NSDictionary *)jsonObject
 {
     if ([jsonObject respondsToSelector:@selector(objectForKey:)]) {
-        CGFloat height = [XuUtlity textHeightWithString:self.markStr withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 20 WithLineSpace:5];
-        
-        if (height <= 13) {
-            height = 13;
-        }
-        self.markHeight = height;
         
         self.orderId = [jsonObject objectForKey:@"id"];
-        
+        if (!self.nickname) {
+            self.nickname = [NSString stringWithFormat:@"用户：%@",self.clientPhone];
+        }
     }
 }
 

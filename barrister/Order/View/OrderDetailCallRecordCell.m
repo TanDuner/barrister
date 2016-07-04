@@ -10,6 +10,8 @@
 #import "UIButton+EnlargeEdge.h"
 
 @interface OrderDetailCallRecordCell ()
+
+
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *appointTimeLabel;
 @property (nonatomic,strong) UILabel *talkTimeLabel;
@@ -78,6 +80,8 @@
 {
     [super layoutSubviews];
     
+    [self.separteView setFrame:RECT(0, 0, SCREENWIDTH, 10)];
+
     if ([self.model.status isEqualToString:STATUS_DONE]) {
 
         self.appointTimeLabel.hidden = NO;
@@ -88,7 +92,7 @@
         self.separatelineView2.hidden = NO;
         self.separatelineView3.hidden = NO;
         
-        [self.appointTimeLabel setFrame:RECT(LeftPadding, 40 + 10, SCREENWIDTH - 20, 13)];
+        [self.appointTimeLabel setFrame:RECT(LeftPadding, 40 + 10 + self.separteView.height, SCREENWIDTH - 20, 13)];
         [self.talkTimeLabel setFrame:RECT(LeftPadding, self.appointTimeLabel.y + self.appointTimeLabel.height + 10, SCREENWIDTH - 20, 13)];
         [self.voiceRecordLabel setFrame:RECT(LeftPadding, self.talkTimeLabel.y + self.talkTimeLabel.height + 10 + 20, 64, 13)];
         [self.separatelineView2 setFrame:RECT(0, self.talkTimeLabel.y + self.talkTimeLabel.height + 9.5, SCREENWIDTH, .5)];
@@ -111,7 +115,6 @@
         self.playerSlider.hidden = YES;
     }
     
-    [self.separteView setFrame:RECT(0, self.height - 10, SCREENWIDTH, 10)];
     
 
 }
@@ -122,7 +125,7 @@
 -(UILabel *)titleLabel
 {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:RECT(10, 13, 200, 13)];
+        _titleLabel = [[UILabel alloc] initWithFrame:RECT(10, 13 + 10, 200, 13)];
         _titleLabel.text = @"通话记录";
         _titleLabel.textColor = KColorGray222;
         _titleLabel.font = SystemFont(15.0f);
@@ -219,7 +222,7 @@
 -(UIView *)separatelineView1
 {
     if (!_separatelineView1) {
-        _separatelineView1 = [self getLineViewWithRect:RECT(0, 39.5, SCREENWIDTH, .5)];
+        _separatelineView1 = [self getLineViewWithRect:RECT(0, 39.5 + 10, SCREENWIDTH, .5)];
     }
     return _separatelineView1;
 }

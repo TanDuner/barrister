@@ -34,4 +34,33 @@
  */
 -(void)addXiaoJieWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock;
 
+
+
+/**
+ *  同意取消订单
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)agreeCancelOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+
+
+/**
+ *  不同意取消订单
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)unAgreeCancelOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+
+
+/**
+ *  完成订单
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)finishOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+
+
 @end

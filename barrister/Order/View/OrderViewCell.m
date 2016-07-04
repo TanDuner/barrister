@@ -56,7 +56,7 @@
     [self.headerImageView setFrame:RECT(LeftPadding, LeftPadding + 5, 45, 45)];
     [self.nameLabel setFrame:RECT(self.headerImageView.x + self.headerImageView.width + 10, self.headerImageView.y, 150, 15)];
     [self.typeLabel setFrame:CGRectMake(SCREENWIDTH - 160, LeftPadding + 5, 150, 15)];
-    [self.timeLabel setFrame:CGRectMake(self.nameLabel.x, self.nameLabel.y + self.nameLabel.height + 10, 250, 15)];
+    [self.timeLabel setFrame:CGRectMake(self.nameLabel.x, self.nameLabel.y + self.nameLabel.height + 10, 260, 15)];
 }
 
 
@@ -68,14 +68,14 @@
         [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userIcon] placeholder:[UIImage imageNamed:@"timeline_image_loading"]];
         self.nameLabel.text = self.model.nickname;
         if ([self.model.type isEqualToString:@"APPOINTMENT"]) {
-            self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",self.model.date,self.model.date];
+            self.timeLabel.text = [NSString stringWithFormat:@"%@~%@",self.model.startTime,self.model.endTime];
 
         }
         else
         {
             self.timeLabel.text = [NSString stringWithFormat:@"%@",self.model.date];
         }
-        self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType];
+        self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType?self.model.caseType:@"无"];
     }
 }
 
@@ -122,7 +122,7 @@
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.textColor = KColorGray999;
-        _timeLabel.font = SystemFont(13.0f);
+        _timeLabel.font = SystemFont(12.0f);
         _timeLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _timeLabel;
