@@ -11,6 +11,14 @@
 
 @implementation BaseNetProxy
 
+
+-(void)appendCommonParamsWithDict:(NSMutableDictionary *)params
+{
+    [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
+    [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+}
+
+
 -(NSString *)appendUrlWithString:(NSString *)urlString
 {
     NSString *retString = [NSString stringWithFormat:@"%@%@",BaseDomainUrl,urlString];

@@ -72,7 +72,7 @@
 
 -(void)initData
 {
-    self.remainingBalance = @"300";
+    self.remainingBalance = @"0";
     self.totalIncome = @"0";
     self.loginState = @"0";
     

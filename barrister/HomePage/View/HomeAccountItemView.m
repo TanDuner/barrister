@@ -62,7 +62,7 @@
 
 -(void)configData
 {
-    self.titleLabel.text  = self.titleStr;
+    self.titleLabel.text  = self.titleStr?self.titleStr:@"0";
     self.iconImageView.image = [UIImage imageNamed:self.iconNameStr];
 
 }

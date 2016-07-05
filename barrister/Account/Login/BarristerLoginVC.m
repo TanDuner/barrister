@@ -206,6 +206,7 @@ const float MidViewHeight = 190 / 2.0;
     }
     
     if ([XuUtlity validateMobile:accountTextField.text]) {
+        __weak typeof(*&self) weakSelf = self;
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone",passwordTextField.text,@"verifyCode", nil];
         [XuUItlity showLoading:@"正在登录"];
         [self.proxy loginWithParams:params Block:^(id returnData, BOOL success) {
@@ -217,11 +218,15 @@ const float MidViewHeight = 190 / 2.0;
                 [BaseDataSingleton shareInstance].userModel = user;
                 [[BaseDataSingleton shareInstance] setLoginStateWithValidCode:user.verifyCode Phone:user.phone];
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:nil];
-                [self dismissViewControllerAnimated:YES completion:nil];
 
                 [XuUItlity showSucceedHint:@"登录成功" completionBlock:^{
                     if ([user.verifyStatus isEqualToString:@"verify.status.unautherized"] ) {
                         [[BarristerLoginManager shareManager] hideLoginViewController:self isToPersonInfoVC:YES];                        
+                    }
+                    else
+                    {
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+
                     }
 
                 }];

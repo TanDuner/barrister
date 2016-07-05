@@ -84,7 +84,7 @@
    
         if (self.model.isAccountLogin) {
             self.subtitleLabel.hidden = NO;
-            _titleLabel.text = [BaseDataSingleton shareInstance].userModel.name;
+            _titleLabel.text = [BaseDataSingleton shareInstance].userModel.name?[BaseDataSingleton shareInstance].userModel.name:[BaseDataSingleton shareInstance].userModel.phone;
             _subtitleLabel.text = [BaseDataSingleton shareInstance].userModel.company;
             [_iconImageIVew yy_setImageWithURL:[NSURL URLWithString:[BaseDataSingleton shareInstance].userModel.userIcon] placeholder:[UIImage imageNamed:self.model.iconNameStr]];
 

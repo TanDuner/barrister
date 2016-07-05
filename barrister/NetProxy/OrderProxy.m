@@ -14,6 +14,7 @@
 #define AgreeCancelOrderUrl @"agreeOrderCancel.do"
 #define unAgreeCancelOrderUrl @"disagreeOrderCancel.do"
 #define FinishOrderUrl @"finishOrder.do"
+#define makeCallUrl @"makeCall.do"
 
 @implementation OrderProxy
 -(void)getOrderListWithParams:(NSDictionary *)aParams Block:(ServiceCallBlock)aBlock
@@ -184,6 +185,32 @@
 }
 
 
+/**
+ *  拨打电话
+ *
+ *  @param aParams
+ *  @param aBlock
+ */
+-(void)makeCallWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+{
+    [self appendCommonParamsWithDict:aParams];
+    [XuNetWorking postWithUrl:makeCallUrl params:aParams success:^(id response) {
+        if (aBlock) {
+            if ([self isCommonCorrectResultCodeWithResponse:response]) {
+                aBlock(response,YES);
+            }
+            else
+            {
+                aBlock(CommonNetErrorTip,NO);
+            }
+            
+        }
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    }];
 
+}
 
 @end

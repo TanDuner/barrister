@@ -255,6 +255,33 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     [self.navigationController pushViewController:addFeedBackVC animated:YES];
 }
 
+-(void)callAction:(UIButton *)btn
+{
+    NSDate *startDate = [XuUtlity NSStringDateToNSDate:model.startTime forDateFormatterStyle:DateFormatterDateAndTime];
+    double startNum = [startDate timeIntervalSince1970];
+    
+    double nowNum = [[NSDate date] timeIntervalSince1970];
+    if (nowNum > startNum) {
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:model.orderId,@"orderId", nil];
+        [self.proxy makeCallWithParams:params Block:^(id returnData, BOOL success) {
+            if (success) {
+                [XuUItlity showAlertHint:@"已拨通 等待回拨" completionBlock:nil andView:self.view];
+            }
+            else
+            {
+                [XuUItlity showFailedHint:@"拨打失败" completionBlock:nil];
+            }
+            
+        }];
+
+    }
+    else
+    {
+        [XuUItlity showFailedHint:@"不在约定时间内" completionBlock:nil];
+    }
+    
+}
+
 
 #pragma -mark --------UITableView DataSource Methods------
 
@@ -314,6 +341,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
         case 4:
         {
             OrderDetailCustomInfoCell * cellTemp = [[OrderDetailCustomInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            [cellTemp.callButton addTarget:self action:@selector(callAction:) forControlEvents:UIControlEventTouchUpInside];
             cellTemp.model = model;
             cellTemp.selectionStyle = UITableViewCellSelectionStyleNone;
             return cellTemp;
@@ -398,6 +426,9 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
             break;
     }
 }
+
+
+
 
 #pragma -mark ----Getter----
 

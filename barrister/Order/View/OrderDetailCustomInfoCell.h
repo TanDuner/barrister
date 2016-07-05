@@ -15,4 +15,7 @@
 
 @property (nonatomic,strong) BarristerOrderDetailModel *model;
 
+@property (nonatomic,strong) UIButton *callButton;
+
+
 @end

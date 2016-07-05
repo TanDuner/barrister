@@ -63,4 +63,13 @@
 -(void)finishOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock;
 
 
+
+/**
+ *  拨打电话
+ *
+ *  @param aParams
+ *  @param aBlock  
+ */
+-(void)makeCallWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock;
+
 @end

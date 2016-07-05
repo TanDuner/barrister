@@ -117,16 +117,16 @@
 -(void)logoutAction:(UIButton *)button
 {
     if ([BaseDataSingleton shareInstance].loginState.intValue == 1) {
-        
+        __weak typeof(*&self)weakSelf = self;
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-        [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"id"];
+        [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
         [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
         [XuUItlity showLoading:@"正在注销"];
         [self.proxy loginOutWithParams:params Block:^(id returnData, BOOL success) {
             [XuUItlity hideLoading];
             if (success) {
-                [self.navigationController popViewControllerAnimated:YES];
                 [[BaseDataSingleton shareInstance] logoOut];
+                [weakSelf.navigationController popToRootViewControllerAnimated:YES];
                 AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                 [delegate selectTabWithIndex:0];
                 

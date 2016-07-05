@@ -43,9 +43,16 @@
 -(void)loginOutWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
 {
     [XuNetWorking postWithUrl:LogoutUrl params:params success:^(id response) {
-        if (aBlock) {
-            aBlock(response,YES);
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                aBlock(response,YES);
+            }
         }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+
     } fail:^(NSError *error) {
         if (aBlock) {
             aBlock(error,YES);

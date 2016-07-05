@@ -96,11 +96,73 @@
     {
         
         self.navigationItem.leftBarButtonItem = nil;
-        [self initNavigationRightTextButton:@"完成" action:@selector(FinishConfigData)];
+        [self initNavigationRightTextButton:@"完成" action:@selector(FinishConfigDataCheck)];
     }
 }
 
 #pragma -mark --Aciton---
+
+-(void)FinishConfigDataCheck
+{
+ 
+    if (self.items.count < 10) {
+        [XuUItlity showFailedHint:@"信息错误" completionBlock:nil];
+        return;
+    }
+    
+    if (![BaseDataSingleton shareInstance].userModel.userIcon) {
+        [XuUItlity showFailedHint:@"请上传头像" completionBlock:nil];
+        return;
+    }
+    
+    PersonCenterModel *nameModel = [self.items objectAtIndex:1];
+    if (IS_EMPTY(nameModel.subtitleStr)) {
+        [XuUItlity showFailedHint:@"请填入姓名" completionBlock:nil];
+        return;
+    }
+
+    PersonCenterModel *areaModel = [self.items objectAtIndex:3];
+    if (IS_EMPTY(areaModel.subtitleStr)) {
+        [XuUItlity showFailedHint:@"请选择地区" completionBlock:nil];
+        return;
+    }
+ 
+    PersonCenterModel *goodAtModel = [self.items objectAtIndex:5];
+    if (IS_EMPTY(goodAtModel.subtitleStr)) {
+        [XuUItlity showFailedHint:@"请填写擅长领域" completionBlock:nil];
+        return;
+    }
+    
+   
+    PersonCenterModel *companyModel = [self.items objectAtIndex:6];
+    if (IS_EMPTY(companyModel.subtitleStr)) {
+        [XuUItlity showFailedHint:@"请填写律所" completionBlock:nil];
+        return;
+    }
+
+    PersonCenterModel *zizhiModel = [self.items objectAtIndex:7];
+    if (IS_EMPTY(zizhiModel.subtitleStr)) {
+        [XuUItlity showFailedHint:@"请上传资质材料" completionBlock:nil];
+        return;
+    }
+    
+    PersonCenterModel *workyearsModel = [self.items objectAtIndex:8];
+    if (IS_NOT_EMPTY(workyearsModel.subtitleStr)) {
+        if (![workyearsModel.subtitleStr isEqualToString:@"未填写"]) {
+            [XuUItlity showFailedHint:@"请选择工作时间" completionBlock:nil];
+            return;
+        }
+    }
+    
+    [self FinishConfigData];
+//    PersonCenterModel *introduceModel = [self.items objectAtIndex:9];
+//    if (IS_NOT_EMPTY(introduceModel.subtitleStr)) {
+//        if (![introduceModel.subtitleStr isEqualToString:@"未填写"]) {
+//            [XuUItlity showFailedHint:@"请填写个人简介" completionBlock:nil];
+//            return;
+//        }
+//    }
+}
 
 -(void)FinishConfigData
 {
@@ -163,7 +225,7 @@
     
     PersonCenterModel *workyearsModel = [self.items objectAtIndex:8];
     if (IS_NOT_EMPTY(workyearsModel.subtitleStr)) {
-        if (![companyModel.subtitleStr isEqualToString:@"未填写"]) {
+        if (![workyearsModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:workyearsModel.subtitleStr forKey:@"employmentYears"];
         }
     }

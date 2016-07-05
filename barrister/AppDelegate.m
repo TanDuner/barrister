@@ -6,9 +6,16 @@
 //  Copyright © 2016年 Xu. All rights reserved.
 //
 
+//13301096303
+//638964
+//18515058521
+//159153
+
 #import "AppDelegate.h"
 #import "XuNetWorking.h"
 #import "OpenUDID.h"
+#import "UMMobClick/MobClick.h"
+
 @interface AppDelegate ()
 
 @end
@@ -57,8 +64,19 @@
     [XuNetWorking enableInterfaceDebug:YES];
 }
 
+-(void)initUMData
+{
+    UMConfigInstance.appKey = @"577b28cc67e58e0fd00005d5";
+    UMConfigInstance.channelId = @"App Store";
+    UMConfigInstance.appKey = @"577b28cc67e58e0fd00005d5";
+    [MobClick startWithConfigure:UMConfigInstance];
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    
+    [self initUMData];
     [self initControllersAndConfig];
     
     

@@ -22,7 +22,6 @@
 
 @property (nonatomic,strong) UILabel *customPhoneLabel;
 
-@property (nonatomic,strong) UIButton *callButton;
 
 
 
@@ -102,8 +101,7 @@
 {
     if (!_callButton) {
         _callButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_callButton setImage:[UIImage imageNamed:@"orderdetail_call.png"] forState:UIControlStateNormal];
-        [_callButton addTarget:self action:@selector(callAciton:) forControlEvents:UIControlEventTouchUpInside];
+        [_callButton setImage:[UIImage imageNamed:@"orderdetail_call"] forState:UIControlStateNormal];
     }
     
     return _callButton;
@@ -139,13 +137,6 @@
         _topSepView.backgroundColor = [UIColor colorWithString:@"#eeeeee" colorAlpha:1];
     }
     return _topSepView;
-}
-
-#pragma -mark -------Action----------
-
--(void )callAciton:(UIButton *)btn
-{
-    
 }
 
 
