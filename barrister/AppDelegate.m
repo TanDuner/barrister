@@ -15,6 +15,8 @@
 #import "XuNetWorking.h"
 #import "OpenUDID.h"
 #import "UMMobClick/MobClick.h"
+#import <CoreTelephony/CTCallCenter.h>
+#import <CoreTelephony/CTCall.h>
 
 @interface AppDelegate ()
 
@@ -73,9 +75,39 @@
     
 }
 
+-(void)initCallAction
+{
+    CTCallCenter *callCenter = [[CTCallCenter alloc] init];
+    callCenter.callEventHandler = ^(CTCall* call) {
+        if ([call.callState isEqualToString:CTCallStateDisconnected])
+        {
+            NSLog(@"Call has been disconnected");
+        }
+        else if ([call.callState isEqualToString:CTCallStateConnected])
+        {
+            NSLog(@"Call has just been connected");
+        }
+        else if([call.callState isEqualToString:CTCallStateIncoming])
+        {
+            NSLog(@"Call is incoming");
+        }
+        else if ([call.callState isEqualToString:CTCallStateDialing])
+        {
+            NSLog(@"call is dialing");
+        }
+        else
+        {
+            NSLog(@"Nothing is done");
+        }
+    };
+
+}
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
+    [self initCallAction];
     [self initUMData];
     [self initControllersAndConfig];
     

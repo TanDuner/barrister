@@ -10,7 +10,7 @@
 #import "YYImage.h"
 #import "PersonCenterModel.h"
 #import "BaseTableViewCell.h"
-#import "AnotherStarEvaluator.h"
+#import "CWStarRateView.h"
 
 @interface PersonCenterAccountCell : BaseTableViewCell
 
@@ -22,7 +22,7 @@
 
 @property (nonatomic,strong) PersonCenterModel *model;
 
-@property (nonatomic,strong) AnotherStarEvaluator *starView;
+@property (nonatomic,strong) CWStarRateView *starView;
 
 +(CGFloat)getCellHeight;
 

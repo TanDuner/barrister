@@ -10,6 +10,7 @@
 		24CB192ACBC6ACEB923F90B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3208DA034C83D1BD08505B6E /* libPods.a */; };
 		950009681D21363700A5815C /* KKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 950009651D21363700A5815C /* KKDatePickerView.m */; };
 		950009691D21363700A5815C /* KKDatePickerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950009671D21363700A5815C /* KKDatePickerViewModel.m */; };
+		950120CD1D2B73F500FE3613 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950120CC1D2B73F500FE3613 /* CoreTelephony.framework */; };
 		950C22651CD0680F000C4860 /* AppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C22641CD0680F000C4860 /* AppointmentViewController.m */; };
 		950C226C1CD06F1C000C4860 /* SlideHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C226B1CD06F1C000C4860 /* SlideHeadView.m */; };
 		950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950CB6E81CC342F3004D2A5D /* yue@3x.png */; };
@@ -47,6 +48,10 @@
 		9520BFC21CAA721A00961F05 /* YYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BFAD1CAA721A00961F05 /* YYImageCache.m */; };
 		9520BFC31CAA721A00961F05 /* YYWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BFB01CAA721A00961F05 /* YYWebImageManager.m */; };
 		9520BFC41CAA721A00961F05 /* YYWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BFB21CAA721A00961F05 /* YYWebImageOperation.m */; };
+		9529CC1A1D2C9C000067597A /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC191D2C9C000067597A /* CWStarRateView.m */; };
+		9529CC1E1D2C9E960067597A /* Appraisalstar1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CC1B1D2C9E960067597A /* Appraisalstar1@2x.png */; };
+		9529CC1F1D2C9E960067597A /* Appraisalstar2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CC1C1D2C9E960067597A /* Appraisalstar2@2x.png */; };
+		9529CC201D2C9E960067597A /* Appraisalstar3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CC1D1D2C9E960067597A /* Appraisalstar3@2x.png */; };
 		954129FF1D06674800C6624F /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129CF1D06674800C6624F /* AJGradientView.m */; };
 		95412A001D06674800C6624F /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D11D06674800C6624F /* AJPhotoGroupCell.m */; };
 		95412A011D06674800C6624F /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D31D06674800C6624F /* AJPhotoGroupView.m */; };
@@ -212,11 +217,8 @@
 		95BCB7B11CA3DDA600E85E10 /* BarristerRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCB7B01CA3DDA600E85E10 /* BarristerRegisterVC.m */; };
 		95BD99891D25719E002E5B0D /* NSArray+CommonAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BD99861D25719E002E5B0D /* NSArray+CommonAdd.m */; };
 		95BD998A1D25719E002E5B0D /* NSString+CommonAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BD99881D25719E002E5B0D /* NSString+CommonAdd.m */; };
-		95BEDD8B1D23EA0500292895 /* AnotherStarEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */; };
-		95BEDD8F1D24096700292895 /* evaStarEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */; };
 		95BEDD901D24096700292895 /* unSelectedable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8D1D24096700292895 /* unSelectedable@2x.png */; };
 		95BEDD911D24096700292895 /* unSelectedable@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD8E1D24096700292895 /* unSelectedable@3x.png */; };
-		95BEDD931D2409E700292895 /* evaStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95BEDD921D2409E700292895 /* evaStar@2x.png */; };
 		95BEDD961D2410D900292895 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD951D2410D900292895 /* FeedBackViewController.m */; };
 		95BEDD9E1D24C19600292895 /* AppointmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDD9D1D24C19600292895 /* AppointmentManager.m */; };
 		95BEDDA11D24C1E100292895 /* AppointmentMoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDDA01D24C1E100292895 /* AppointmentMoel.m */; };
@@ -309,6 +311,7 @@
 		950009651D21363700A5815C /* KKDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDatePickerView.m; sourceTree = "<group>"; };
 		950009661D21363700A5815C /* KKDatePickerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDatePickerViewModel.h; sourceTree = "<group>"; };
 		950009671D21363700A5815C /* KKDatePickerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDatePickerViewModel.m; sourceTree = "<group>"; };
+		950120CC1D2B73F500FE3613 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		950C22631CD0680F000C4860 /* AppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentViewController.h; sourceTree = "<group>"; };
 		950C22641CD0680F000C4860 /* AppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentViewController.m; sourceTree = "<group>"; };
 		950C226A1CD06F1C000C4860 /* SlideHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideHeadView.h; sourceTree = "<group>"; };
@@ -372,6 +375,11 @@
 		9520BFB01CAA721A00961F05 /* YYWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWebImageManager.m; sourceTree = "<group>"; };
 		9520BFB11CAA721A00961F05 /* YYWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWebImageOperation.h; sourceTree = "<group>"; };
 		9520BFB21CAA721A00961F05 /* YYWebImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWebImageOperation.m; sourceTree = "<group>"; };
+		9529CC181D2C9C000067597A /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
+		9529CC191D2C9C000067597A /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
+		9529CC1B1D2C9E960067597A /* Appraisalstar1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appraisalstar1@2x.png"; sourceTree = "<group>"; };
+		9529CC1C1D2C9E960067597A /* Appraisalstar2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appraisalstar2@2x.png"; sourceTree = "<group>"; };
+		9529CC1D1D2C9E960067597A /* Appraisalstar3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appraisalstar3@2x.png"; sourceTree = "<group>"; };
 		954129CE1D06674800C6624F /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		954129CF1D06674800C6624F /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		954129D01D06674800C6624F /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -659,12 +667,8 @@
 		95BD99861D25719E002E5B0D /* NSArray+CommonAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CommonAdd.m"; sourceTree = "<group>"; };
 		95BD99871D25719E002E5B0D /* NSString+CommonAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CommonAdd.h"; sourceTree = "<group>"; };
 		95BD99881D25719E002E5B0D /* NSString+CommonAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CommonAdd.m"; sourceTree = "<group>"; };
-		95BEDD891D23EA0500292895 /* AnotherStarEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherStarEvaluator.h; sourceTree = "<group>"; };
-		95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotherStarEvaluator.m; sourceTree = "<group>"; };
-		95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "evaStarEmpty@2x.png"; sourceTree = "<group>"; };
 		95BEDD8D1D24096700292895 /* unSelectedable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelectedable@2x.png"; sourceTree = "<group>"; };
 		95BEDD8E1D24096700292895 /* unSelectedable@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelectedable@3x.png"; sourceTree = "<group>"; };
-		95BEDD921D2409E700292895 /* evaStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "evaStar@2x.png"; sourceTree = "<group>"; };
 		95BEDD941D2410D900292895 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
 		95BEDD951D2410D900292895 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
 		95BEDD9C1D24C19600292895 /* AppointmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentManager.h; sourceTree = "<group>"; };
@@ -787,6 +791,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950120CD1D2B73F500FE3613 /* CoreTelephony.framework in Frameworks */,
 				95A79D831D02BC97004293F6 /* AVFoundation.framework in Frameworks */,
 				95C0EAE31CB4A686004F9DAD /* libz.tbd in Frameworks */,
 				95C0EAE11CB4A677004F9DAD /* libsqlite3.tbd in Frameworks */,
@@ -814,6 +819,7 @@
 		3202AEF620506FFA4625C6B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				950120CC1D2B73F500FE3613 /* CoreTelephony.framework */,
 				95A79D821D02BC96004293F6 /* AVFoundation.framework */,
 				95C0EAE21CB4A686004F9DAD /* libz.tbd */,
 				95C0EAE01CB4A677004F9DAD /* libsqlite3.tbd */,
@@ -1641,8 +1647,6 @@
 		9597B0E41CA1168200FF65D9 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
-				95BEDD8C1D24096700292895 /* evaStarEmpty@2x.png */,
-				95BEDD921D2409E700292895 /* evaStar@2x.png */,
 				95BEDD8D1D24096700292895 /* unSelectedable@2x.png */,
 				95BEDD8E1D24096700292895 /* unSelectedable@3x.png */,
 				95CA1BA71D0E53A300AAE490 /* uploadImage@2x.png */,
@@ -1864,8 +1868,11 @@
 		95BEDD881D23E9F000292895 /* StarView */ = {
 			isa = PBXGroup;
 			children = (
-				95BEDD891D23EA0500292895 /* AnotherStarEvaluator.h */,
-				95BEDD8A1D23EA0500292895 /* AnotherStarEvaluator.m */,
+				9529CC1B1D2C9E960067597A /* Appraisalstar1@2x.png */,
+				9529CC1C1D2C9E960067597A /* Appraisalstar2@2x.png */,
+				9529CC1D1D2C9E960067597A /* Appraisalstar3@2x.png */,
+				9529CC181D2C9C000067597A /* CWStarRateView.h */,
+				9529CC191D2C9C000067597A /* CWStarRateView.m */,
 			);
 			path = StarView;
 			sourceTree = "<group>";
@@ -2076,6 +2083,7 @@
 			files = (
 				951FCDD51CEEAD0100A57BEA /* yue@2x.png in Resources */,
 				955AA44A1CF3EE4E00A47121 /* common_icon_info@3x.png in Resources */,
+				9529CC1E1D2C9E960067597A /* Appraisalstar1@2x.png in Resources */,
 				951FCDC21CED810A00A57BEA /* Selected@3x.png in Resources */,
 				95BEDD901D24096700292895 /* unSelectedable@2x.png in Resources */,
 				95B425B31CFC9463002EB36D /* my-account_cash@2x.png in Resources */,
@@ -2102,12 +2110,13 @@
 				95CA1BAA1D0E53A300AAE490 /* uploadImage@3x.png in Resources */,
 				950CB6EA1CC342F3004D2A5D /* yue@3x.png in Resources */,
 				95C0EB051CB60CFB004F9DAD /* dingdan.png in Resources */,
+				9529CC1F1D2C9E960067597A /* Appraisalstar2@2x.png in Resources */,
 				95412A261D0C5D5600C6624F /* orderdetail_play@2x.png in Resources */,
 				95B64C581D0471BA00F2B24D /* MBProgressHUD.bundle in Resources */,
 				95BCB7AC1CA3D28200E85E10 /* login3rd_icon_qq@3x.png in Resources */,
 				951FCDDD1CF0013600A57BEA /* selectedBg@3x.png in Resources */,
+				9529CC201D2C9E960067597A /* Appraisalstar3@2x.png in Resources */,
 				951FCDC41CED810A00A57BEA /* unSelected@3x.png in Resources */,
-				95BEDD8F1D24096700292895 /* evaStarEmpty@2x.png in Resources */,
 				955AA4491CF3EE4E00A47121 /* common_icon_info@2x.png in Resources */,
 				9597B1151CA12C5D00FF65D9 /* timeline_image_loading.png in Resources */,
 				9597B0FD1CA1168200FF65D9 /* Tab02Highlighted@3x.png in Resources */,
@@ -2129,7 +2138,6 @@
 				9597B0FF1CA1168200FF65D9 /* Tab03Normal@3x.png in Resources */,
 				951FCDD31CEEAD0100A57BEA /* shouru@2x.png in Resources */,
 				95FC44581D042B06005BB02A /* unagree@3x.png in Resources */,
-				95BEDD931D2409E700292895 /* evaStar@2x.png in Resources */,
 				9597B0FA1CA1168200FF65D9 /* Tab02Normal@2x.png in Resources */,
 				95412A271D0C5D5600C6624F /* orderdetail_play@3x.png in Resources */,
 				95C0EB141CB63136004F9DAD /* temlvshi.jpg in Resources */,
@@ -2272,6 +2280,7 @@
 				95C0EAF01CB4B285004F9DAD /* CALayer+YYAdd.m in Sources */,
 				950C226C1CD06F1C000C4860 /* SlideHeadView.m in Sources */,
 				955231351CF2ADCE00E35AD3 /* TiXianViewControlleer.m in Sources */,
+				9529CC1A1D2C9C000067597A /* CWStarRateView.m in Sources */,
 				95A79D491D02AC4D004293F6 /* HYMDatePicker.m in Sources */,
 				955A7B5F1D20C0F000D1DEAC /* BizTypeModel.m in Sources */,
 				9541302A1CA003B500D26B11 /* UIImage+Cache.m in Sources */,
@@ -2372,7 +2381,6 @@
 				95CA1BBB1D0F800100AAE490 /* MyMessgeCell.m in Sources */,
 				95BCB7851CA27ADB00E85E10 /* BarristerLoginVC.m in Sources */,
 				9520BFBF1CAA721A00961F05 /* YYImage.m in Sources */,
-				95BEDD8B1D23EA0500292895 /* AnotherStarEvaluator.m in Sources */,
 				95F533AE1CBCA432000C7E91 /* RefreshTableView.m in Sources */,
 				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				95412A111D06674800C6624F /* NSArray+MASAdditions.m in Sources */,

@@ -42,7 +42,7 @@
         [self addSubview:self.titleLabel];
         [self addSubview:self.rightRow];
         [self addSubview:self.subtitleLabel];
-//        [self addSubview:self.starView];
+        [self addSubview:self.starView];
     }
     return self;
 }
@@ -58,11 +58,7 @@
         _titleLabel.textColor = KColorGray333;
         self.rightRow.hidden = NO;
         self.starView.hidden = NO;
-        [self.starView setFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame), 200, 25)];
-        self.starView.backgroundColor = [UIColor redColor];
-//        [self.starView setStartScores:[BaseDataSingleton shareInstance].userModel.startCount.floatValue];
-        [self.starView setStartScores:3.5];
-
+        [self.starView setFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame), 100, 20)];
     }
     else
     {
@@ -85,9 +81,9 @@
         if (self.model.isAccountLogin) {
             self.subtitleLabel.hidden = NO;
             _titleLabel.text = [BaseDataSingleton shareInstance].userModel.name?[BaseDataSingleton shareInstance].userModel.name:[BaseDataSingleton shareInstance].userModel.phone;
-            _subtitleLabel.text = [BaseDataSingleton shareInstance].userModel.company;
+            _subtitleLabel.text = [NSString stringWithFormat:@"律所：%@",[BaseDataSingleton shareInstance].userModel.company?[BaseDataSingleton shareInstance].userModel.company:@"无"];
             [_iconImageIVew yy_setImageWithURL:[NSURL URLWithString:[BaseDataSingleton shareInstance].userModel.userIcon] placeholder:[UIImage imageNamed:self.model.iconNameStr]];
-
+            [self.starView setScorePercent:([BaseDataSingleton shareInstance].userModel.startCount.floatValue/5.0f)];
         }
         else{
             self.subtitleLabel.hidden = YES;
@@ -170,10 +166,11 @@
     return _subtitleLabel;
 }
 
--(AnotherStarEvaluator *)starView
+-(CWStarRateView *)starView
 {
     if (!_starView) {
-        _starView = [[AnotherStarEvaluator alloc] initWithFrame:CGRectZero];
+        _starView = [[CWStarRateView alloc] initWithFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame), 100, 25) numberOfStars:5];
+        _starView.isAllowTap = NO;
     }
     return _starView;
 }
