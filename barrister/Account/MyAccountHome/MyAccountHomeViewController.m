@@ -16,7 +16,7 @@
 #import "RefreshTableView.h"
 #import "MyBankCardController.h"
 #import "TiXianViewControlleer.h"
-
+#import "JPUSHService.h"
 #define HeadViewHeight 115
 
 @interface MyAccountHomeViewController ()<UITableViewDataSource,UITableViewDelegate,RefreshTableViewDelegate>
@@ -88,6 +88,9 @@
     [self requestMyAccountData];
     
     [self requestAccountDetailData];
+    
+    [JPUSHService setAlias:@"xxxx" callbackSelector:@selector(action) object:nil];
+
     
 }
 

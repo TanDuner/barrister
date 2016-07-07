@@ -56,6 +56,12 @@
 		9529CC531D2D5A890067597A /* VolumePlayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC511D2D5A890067597A /* VolumePlayHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9529CC581D2D5ADE0067597A /* HUMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC551D2D5ADE0067597A /* HUMSlider.m */; };
 		9529CC591D2D5ADE0067597A /* OrderDetailVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */; };
+		9529CC5D1D2E196B0067597A /* XuPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC5C1D2E196B0067597A /* XuPushManager.m */; };
+		9529CC631D2E25740067597A /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC611D2E25740067597A /* jpush-ios-2.1.8.a */; };
+		9529CC651D2E25C30067597A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC641D2E25C30067597A /* CFNetwork.framework */; };
+		9529CC671D2E25D60067597A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC661D2E25D60067597A /* SystemConfiguration.framework */; };
+		9529CC691D2E25DD0067597A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC681D2E25DD0067597A /* CoreGraphics.framework */; };
+		9529CC6B1D2E25E80067597A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC6A1D2E25E80067597A /* Security.framework */; };
 		954129FF1D06674800C6624F /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129CF1D06674800C6624F /* AJGradientView.m */; };
 		95412A001D06674800C6624F /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D11D06674800C6624F /* AJPhotoGroupCell.m */; };
 		95412A011D06674800C6624F /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D31D06674800C6624F /* AJPhotoGroupView.m */; };
@@ -392,6 +398,14 @@
 		9529CC551D2D5ADE0067597A /* HUMSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUMSlider.m; sourceTree = "<group>"; };
 		9529CC561D2D5ADE0067597A /* OrderDetailVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailVoiceView.h; sourceTree = "<group>"; };
 		9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailVoiceView.m; sourceTree = "<group>"; };
+		9529CC5B1D2E196B0067597A /* XuPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuPushManager.h; sourceTree = "<group>"; };
+		9529CC5C1D2E196B0067597A /* XuPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuPushManager.m; sourceTree = "<group>"; };
+		9529CC611D2E25740067597A /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
+		9529CC621D2E25740067597A /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		9529CC641D2E25C30067597A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9529CC661D2E25D60067597A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9529CC681D2E25DD0067597A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9529CC6A1D2E25E80067597A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		954129CE1D06674800C6624F /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		954129CF1D06674800C6624F /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		954129D01D06674800C6624F /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -803,9 +817,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950120CD1D2B73F500FE3613 /* CoreTelephony.framework in Frameworks */,
-				95A79D831D02BC97004293F6 /* AVFoundation.framework in Frameworks */,
 				95C0EAE31CB4A686004F9DAD /* libz.tbd in Frameworks */,
+				9529CC6B1D2E25E80067597A /* Security.framework in Frameworks */,
+				9529CC691D2E25DD0067597A /* CoreGraphics.framework in Frameworks */,
+				9529CC671D2E25D60067597A /* SystemConfiguration.framework in Frameworks */,
+				950120CD1D2B73F500FE3613 /* CoreTelephony.framework in Frameworks */,
+				9529CC651D2E25C30067597A /* CFNetwork.framework in Frameworks */,
+				9529CC631D2E25740067597A /* jpush-ios-2.1.8.a in Frameworks */,
+				95A79D831D02BC97004293F6 /* AVFoundation.framework in Frameworks */,
 				95C0EAE11CB4A677004F9DAD /* libsqlite3.tbd in Frameworks */,
 				24CB192ACBC6ACEB923F90B3 /* libPods.a in Frameworks */,
 			);
@@ -831,6 +850,10 @@
 		3202AEF620506FFA4625C6B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9529CC6A1D2E25E80067597A /* Security.framework */,
+				9529CC681D2E25DD0067597A /* CoreGraphics.framework */,
+				9529CC661D2E25D60067597A /* SystemConfiguration.framework */,
+				9529CC641D2E25C30067597A /* CFNetwork.framework */,
 				950120CC1D2B73F500FE3613 /* CoreTelephony.framework */,
 				95A79D821D02BC96004293F6 /* AVFoundation.framework */,
 				95C0EAE21CB4A686004F9DAD /* libz.tbd */,
@@ -961,6 +984,32 @@
 			path = VoicePlayer;
 			sourceTree = "<group>";
 		};
+		9529CC5A1D2E195B0067597A /* PushManager */ = {
+			isa = PBXGroup;
+			children = (
+				9529CC5B1D2E196B0067597A /* XuPushManager.h */,
+				9529CC5C1D2E196B0067597A /* XuPushManager.m */,
+			);
+			path = PushManager;
+			sourceTree = "<group>";
+		};
+		9529CC5F1D2E25220067597A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9529CC601D2E25680067597A /* JPush */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		9529CC601D2E25680067597A /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				9529CC611D2E25740067597A /* jpush-ios-2.1.8.a */,
+				9529CC621D2E25740067597A /* JPUSHService.h */,
+			);
+			path = JPush;
+			sourceTree = "<group>";
+		};
 		954129CD1D06674800C6624F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,6 +1112,7 @@
 		95412FA51C9F91FA00D26B11 /* barrister */ = {
 			isa = PBXGroup;
 			children = (
+				9529CC5F1D2E25220067597A /* Lib */,
 				95BCB77F1CA2782000E85E10 /* Account */,
 				9597B1241CA1591600FF65D9 /* NetProxy */,
 				9597B0DF1CA1164100FF65D9 /* Resource */,
@@ -1166,6 +1216,7 @@
 		95412FE81C9FCC1100D26B11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				9529CC5A1D2E195B0067597A /* PushManager */,
 				9529CC4C1D2D5A890067597A /* DownloadVoice */,
 				9529CC4F1D2D5A890067597A /* VoicePlayer */,
 				95B425E11D00156F002EB36D /* CityChoose */,
@@ -2078,7 +2129,6 @@
 				TargetAttributes = {
 					95412FA21C9F91FA00D26B11 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = YEAH2N62L2;
 					};
 					95412FBB1C9F91FA00D26B11 = {
 						CreatedOnToolsVersion = 7.2;
@@ -2264,6 +2314,7 @@
 			files = (
 				95BD998A1D25719E002E5B0D /* NSString+CommonAdd.m in Sources */,
 				95FC445B1D042BEB005BB02A /* UIButton+EnlargeEdge.m in Sources */,
+				9529CC5D1D2E196B0067597A /* XuPushManager.m in Sources */,
 				9597B0471CA0395F00FF65D9 /* BaseViewController.m in Sources */,
 				95412A2A1D0C632600C6624F /* OrderDetailCallRecordCell.m in Sources */,
 				9597B11A1CA1313E00FF65D9 /* DCPicScrollView.m in Sources */,
@@ -2583,7 +2634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
@@ -2600,10 +2651,11 @@
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/Products/Release-iphonesimulator",
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphoneos",
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphonesimulator",
+					"$(PROJECT_DIR)/barrister/Lib/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xu.barrister;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "172056bf-8dd2-4285-85b2-61c87793a572";
 			};
 			name = Debug;
 		};
@@ -2613,7 +2665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xuekui Chi (4D57SY5TCP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
@@ -2626,10 +2678,11 @@
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/Products/Release-iphonesimulator",
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphoneos",
 					"$(PROJECT_DIR)/barrister/Common/Vender/CameraRecInIOS/recCore/Release-iphonesimulator",
+					"$(PROJECT_DIR)/barrister/Lib/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xu.barrister;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "172056bf-8dd2-4285-85b2-61c87793a572";
 			};
 			name = Release;
 		};

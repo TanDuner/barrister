@@ -19,6 +19,7 @@
 #import "TiXianViewControlleer.h"
 #import "BarristerLoginManager.h"
 #import "HomeBannerModel.h"
+#import "XuPushManager.h"
 
 @interface HomeViewController ()
 
@@ -53,6 +54,7 @@
     if ([BaseDataSingleton shareInstance].loginState.intValue != 1) {
         [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
     }
+    [[XuPushManager shareInstance] receivePushMsgByUnActive:nil];
     
     
 }

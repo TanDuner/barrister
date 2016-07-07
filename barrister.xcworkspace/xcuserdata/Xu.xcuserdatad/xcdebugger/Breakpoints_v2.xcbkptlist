@@ -59,22 +59,53 @@
             endingLineNumber = "267"
             landmarkName = "-callAction:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "barrister/Account/Login/BarristerLoginVC.m"
-            timestampString = "489368234.784505"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "-loginAction:"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[OrderDetailViewController handleFinishOrderAciton]_block_invoke"
+                  moduleName = "barrister"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xu/Documents/barrister/barrister/Order/Controller/OrderDetailViewController.m"
+                  timestampString = "489577914.500671"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "268"
+                  endingLineNumber = "268"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_177"
+                  moduleName = "barrister"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xu/Documents/barrister/barrister/Order/Controller/OrderDetailViewController.m"
+                  timestampString = "489577914.501047"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_178"
+                  moduleName = "barrister"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xu/Documents/barrister/barrister/Order/Controller/OrderDetailViewController.m"
+                  timestampString = "489577914.501256"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
