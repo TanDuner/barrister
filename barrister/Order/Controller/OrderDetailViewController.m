@@ -16,6 +16,7 @@
 #import "OrderDetailCancelCell.h"
 #import "OrderDetailMarkCell.h"
 #import "AddOrderFeedBackViewController.h"
+#import "VolumePlayHelper.h"
 
 /**
  * 用于显示Detail的类型
@@ -32,8 +33,11 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 };
 
 
+#import "CallHistoriesModel.h"
 
 @interface OrderDetailCellModel : NSObject
+
+@property (nonatomic) CallHistoriesModel *callModel;
 
 @property (nonatomic,assign) OrderDetailShowType showType;
 
@@ -92,6 +96,12 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 {
     [super viewWillAppear:animated];
     [self showTabbar:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[VolumePlayHelper PlayerHelper] audioPlayerStop];
 }
 
 #pragma -mark ---------UI----------
@@ -170,10 +180,21 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     model5.showType = OrderDetailShowTypeOrderCustomInfo;
     [self.items addObject:model5];
     
-    if (model.callRecordArray.count > 0) {
-        OrderDetailCellModel *model6 = [[OrderDetailCellModel alloc] init];
-        model6.showType = OrderDetailShowTypeOrderCallRecord;
-        [self.items addObject:model6];
+    if ([XuUtlity isValidArray:model.callRecordArray]) {
+        if (model.callRecordArray.count > 0) {
+            
+            for (int i = 0; i < model.callRecordArray.count; i ++) {
+                
+                CallHistoriesModel *modelTemp = [model.callRecordArray objectAtIndex:i];
+                modelTemp.index = i;
+                OrderDetailCellModel *model6 = [[OrderDetailCellModel alloc] init];
+                model6.showType = OrderDetailShowTypeOrderCallRecord;
+                model6.callModel = modelTemp;
+                [self.items addObject:model6];
+                
+            }
+            
+        }
         
     }
 
@@ -351,7 +372,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
         case 5:
         {
             OrderDetailCallRecordCell *cellTemp = [[OrderDetailCallRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-            cellTemp.model = model;
+            cellTemp.model = modeTemp.callModel;
             cellTemp.selectionStyle = UITableViewCellSelectionStyleNone;
             return cellTemp;
         }
@@ -411,7 +432,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
         case OrderDetailShowTypeOrderCallRecord:
         {
             if (model.callRecordArray.count > 0) {
-                return [OrderDetailCallRecordCell getHeightWithModel:model];
+                return [OrderDetailCallRecordCell getHeightWithModel:modelTemp.callModel];
             }
             else
             {

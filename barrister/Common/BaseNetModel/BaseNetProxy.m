@@ -14,8 +14,12 @@
 
 -(void)appendCommonParamsWithDict:(NSMutableDictionary *)params
 {
-    [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
-    [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+    if ([BaseDataSingleton shareInstance].userModel.userId) {
+        [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
+    }
+    if ([BaseDataSingleton shareInstance].userModel.verifyCode) {
+        [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
+    }
 }
 
 

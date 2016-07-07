@@ -52,6 +52,10 @@
 		9529CC1E1D2C9E960067597A /* Appraisalstar1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CC1B1D2C9E960067597A /* Appraisalstar1@2x.png */; };
 		9529CC1F1D2C9E960067597A /* Appraisalstar2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CC1C1D2C9E960067597A /* Appraisalstar2@2x.png */; };
 		9529CC201D2C9E960067597A /* Appraisalstar3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CC1D1D2C9E960067597A /* Appraisalstar3@2x.png */; };
+		9529CC521D2D5A890067597A /* DownloadVoiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC4E1D2D5A890067597A /* DownloadVoiceManager.m */; };
+		9529CC531D2D5A890067597A /* VolumePlayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC511D2D5A890067597A /* VolumePlayHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9529CC581D2D5ADE0067597A /* HUMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC551D2D5ADE0067597A /* HUMSlider.m */; };
+		9529CC591D2D5ADE0067597A /* OrderDetailVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */; };
 		954129FF1D06674800C6624F /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129CF1D06674800C6624F /* AJGradientView.m */; };
 		95412A001D06674800C6624F /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D11D06674800C6624F /* AJPhotoGroupCell.m */; };
 		95412A011D06674800C6624F /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D31D06674800C6624F /* AJPhotoGroupView.m */; };
@@ -380,6 +384,14 @@
 		9529CC1B1D2C9E960067597A /* Appraisalstar1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appraisalstar1@2x.png"; sourceTree = "<group>"; };
 		9529CC1C1D2C9E960067597A /* Appraisalstar2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appraisalstar2@2x.png"; sourceTree = "<group>"; };
 		9529CC1D1D2C9E960067597A /* Appraisalstar3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appraisalstar3@2x.png"; sourceTree = "<group>"; };
+		9529CC4D1D2D5A890067597A /* DownloadVoiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVoiceManager.h; sourceTree = "<group>"; };
+		9529CC4E1D2D5A890067597A /* DownloadVoiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVoiceManager.m; sourceTree = "<group>"; };
+		9529CC501D2D5A890067597A /* VolumePlayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumePlayHelper.h; sourceTree = "<group>"; };
+		9529CC511D2D5A890067597A /* VolumePlayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumePlayHelper.m; sourceTree = "<group>"; };
+		9529CC541D2D5ADE0067597A /* HUMSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUMSlider.h; sourceTree = "<group>"; };
+		9529CC551D2D5ADE0067597A /* HUMSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUMSlider.m; sourceTree = "<group>"; };
+		9529CC561D2D5ADE0067597A /* OrderDetailVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailVoiceView.h; sourceTree = "<group>"; };
+		9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailVoiceView.m; sourceTree = "<group>"; };
 		954129CE1D06674800C6624F /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		954129CF1D06674800C6624F /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		954129D01D06674800C6624F /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -931,6 +943,24 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		9529CC4C1D2D5A890067597A /* DownloadVoice */ = {
+			isa = PBXGroup;
+			children = (
+				9529CC4D1D2D5A890067597A /* DownloadVoiceManager.h */,
+				9529CC4E1D2D5A890067597A /* DownloadVoiceManager.m */,
+			);
+			path = DownloadVoice;
+			sourceTree = "<group>";
+		};
+		9529CC4F1D2D5A890067597A /* VoicePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				9529CC501D2D5A890067597A /* VolumePlayHelper.h */,
+				9529CC511D2D5A890067597A /* VolumePlayHelper.m */,
+			);
+			path = VoicePlayer;
+			sourceTree = "<group>";
+		};
 		954129CD1D06674800C6624F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1136,6 +1166,8 @@
 		95412FE81C9FCC1100D26B11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				9529CC4C1D2D5A890067597A /* DownloadVoice */,
+				9529CC4F1D2D5A890067597A /* VoicePlayer */,
 				95B425E11D00156F002EB36D /* CityChoose */,
 				9597B04F1CA0E30B00FF65D9 /* UIUtlity */,
 				9597B0501CA0E30B00FF65D9 /* Utlity */,
@@ -1458,6 +1490,10 @@
 		9597B0CC1CA1131200FF65D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9529CC541D2D5ADE0067597A /* HUMSlider.h */,
+				9529CC551D2D5ADE0067597A /* HUMSlider.m */,
+				9529CC561D2D5ADE0067597A /* OrderDetailVoiceView.h */,
+				9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */,
 				95C0EAEB1CB4B111004F9DAD /* OrderViewCell.h */,
 				95C0EAEC1CB4B111004F9DAD /* OrderViewCell.m */,
 				95412A1A1D0BD15600C6624F /* OrderDetailOrderCell.h */,
@@ -2299,6 +2335,7 @@
 				954505231D2185C40039C6B1 /* HomeWaitHandleModel.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
 				95CA1BA61D0E288700AAE490 /* UploadQualificaitonModel.m in Sources */,
+				9529CC591D2D5ADE0067597A /* OrderDetailVoiceView.m in Sources */,
 				95B425BE1CFD2E06002EB36D /* UINavigationBar+Background.m in Sources */,
 				9520BFC11CAA721A00961F05 /* YYSpriteSheetImage.m in Sources */,
 				95F534051CBCD758000C7E91 /* MJRefreshComponent.m in Sources */,
@@ -2315,6 +2352,7 @@
 				95F5340D1CBD002D000C7E91 /* HomeAccountCell.m in Sources */,
 				95B078691CE96C8A00D8A220 /* LoginProxy.m in Sources */,
 				9541302C1CA003B500D26B11 /* UIImage+CreateImage.m in Sources */,
+				9529CC581D2D5ADE0067597A /* HUMSlider.m in Sources */,
 				95B64C591D0471BA00F2B24D /* MBProgressHUD.m in Sources */,
 				95412A001D06674800C6624F /* AJPhotoGroupCell.m in Sources */,
 				95412A101D06674800C6624F /* MASViewConstraint.m in Sources */,
@@ -2340,6 +2378,7 @@
 				9597B0851CA0EFEC00FF65D9 /* BaseTableView.m in Sources */,
 				9597B0D81CA1136B00FF65D9 /* PersonCenterViewController.m in Sources */,
 				95412A0F1D06674800C6624F /* MASViewAttribute.m in Sources */,
+				9529CC521D2D5A890067597A /* DownloadVoiceManager.m in Sources */,
 				9545052C1D2240010039C6B1 /* LearnCenterContentView.m in Sources */,
 				9520BFB71CAA721A00961F05 /* _YYWebImageSetter.m in Sources */,
 				95CA1BA01D0E250A00AAE490 /* UploadQualificationViewController.m in Sources */,
@@ -2396,6 +2435,7 @@
 				9520BFB41CAA721A00961F05 /* YYDiskCache.m in Sources */,
 				9520BF761CAA48E400961F05 /* PersonCenterModel.m in Sources */,
 				9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */,
+				9529CC531D2D5A890067597A /* VolumePlayHelper.m in Sources */,
 				95F533E01CBCD454000C7E91 /* UIView+MJExtension.m in Sources */,
 				95B0787F1CE9E6A600D8A220 /* MeNetProxy.m in Sources */,
 				95C2C8011CF7E21200BE4971 /* MyAccountHomeViewController.m in Sources */,
