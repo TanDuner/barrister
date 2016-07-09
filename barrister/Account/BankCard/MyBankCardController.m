@@ -8,6 +8,7 @@
 
 #import "MyBankCardController.h"
 #import "AddBankCardViewController.h"
+#import "BankCardModel.h"
 
 @interface MyBankCardController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic,strong) UILabel *phoneLabel;
 
 @property (nonatomic,strong) UILabel *cardNumLabel;
+
 
 @end
 
@@ -92,24 +94,32 @@
     
     if (IS_NOT_EMPTY(logoName)) {
         self.bankLogoImageView.image = [UIImage imageNamed:logoName];
+        if (logoName.length > 0) {
+            UIColor *color = [BankCardModel getColorWithIconName:logoName];
+            self.showBankCardView.backgroundColor = color;
+        }
     }
 
+   
 
 
     self.phoneLabel.text = [NSString stringWithFormat:@"%@",cardPhone?[NSString stringWithFormat:@"尾号 %@",[cardPhone substringFromIndex:cardPhone.length - 4]]:@""];
     self.bankNameLabel.text = cardName?cardName:@"";
     self.cardNumLabel.text = cardNum?[NSString stringWithFormat:@"****   ****   ****   %@", [cardNum substringFromIndex:cardNum.length - 4]]:@"";
+   
+    
 }
 
 
 
 #pragma -mark ---Getter---
 
+
 -(UIView *)showBankCardView
 {
     if (!_showBankCardView) {
         _showBankCardView = [[UIView alloc] initWithFrame:RECT(10, 15, SCREENWIDTH - 20, 100)];
-        _showBankCardView.backgroundColor = [UIColor blueColor];
+        _showBankCardView.backgroundColor = RGBCOLOR(196, 81, 87);
         _showBankCardView.userInteractionEnabled = YES;
         _showBankCardView.layer.cornerRadius = 5.0f;
         _showBankCardView.layer.masksToBounds = YES;
@@ -182,7 +192,6 @@
 
 -(void)addCardAction
 {
-    NSLog(@"点击添加银行卡");
     
     AddBankCardViewController *addVC = [[AddBankCardViewController alloc] init];
     [self.navigationController pushViewController:addVC animated:YES];

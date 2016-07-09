@@ -62,6 +62,7 @@
 		9529CC671D2E25D60067597A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC661D2E25D60067597A /* SystemConfiguration.framework */; };
 		9529CC691D2E25DD0067597A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC681D2E25DD0067597A /* CoreGraphics.framework */; };
 		9529CC6B1D2E25E80067597A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC6A1D2E25E80067597A /* Security.framework */; };
+		9529CD001D3158390067597A /* IMVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CCFF1D3158390067597A /* IMVersionManager.m */; };
 		954129FF1D06674800C6624F /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129CF1D06674800C6624F /* AJGradientView.m */; };
 		95412A001D06674800C6624F /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D11D06674800C6624F /* AJPhotoGroupCell.m */; };
 		95412A011D06674800C6624F /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129D31D06674800C6624F /* AJPhotoGroupView.m */; };
@@ -406,6 +407,8 @@
 		9529CC661D2E25D60067597A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9529CC681D2E25DD0067597A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9529CC6A1D2E25E80067597A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9529CCFE1D3158390067597A /* IMVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMVersionManager.h; sourceTree = "<group>"; };
+		9529CCFF1D3158390067597A /* IMVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVersionManager.m; sourceTree = "<group>"; };
 		954129CE1D06674800C6624F /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		954129CF1D06674800C6624F /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		954129D01D06674800C6624F /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -1010,6 +1013,15 @@
 			path = JPush;
 			sourceTree = "<group>";
 		};
+		9529CCFD1D3158390067597A /* VersionManager */ = {
+			isa = PBXGroup;
+			children = (
+				9529CCFE1D3158390067597A /* IMVersionManager.h */,
+				9529CCFF1D3158390067597A /* IMVersionManager.m */,
+			);
+			path = VersionManager;
+			sourceTree = "<group>";
+		};
 		954129CD1D06674800C6624F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,6 +1228,7 @@
 		95412FE81C9FCC1100D26B11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				9529CCFD1D3158390067597A /* VersionManager */,
 				9529CC5A1D2E195B0067597A /* PushManager */,
 				9529CC4C1D2D5A890067597A /* DownloadVoice */,
 				9529CC4F1D2D5A890067597A /* VoicePlayer */,
@@ -2371,6 +2384,7 @@
 				95A79D491D02AC4D004293F6 /* HYMDatePicker.m in Sources */,
 				955A7B5F1D20C0F000D1DEAC /* BizTypeModel.m in Sources */,
 				9541302A1CA003B500D26B11 /* UIImage+Cache.m in Sources */,
+				9529CD001D3158390067597A /* IMVersionManager.m in Sources */,
 				9597B0731CA0EB7C00FF65D9 /* TabItemView.m in Sources */,
 				95412A0D1D06674800C6624F /* MASConstraintMaker.m in Sources */,
 				955AA4521CF3EEC000A47121 /* XuPointLoadingView.m in Sources */,

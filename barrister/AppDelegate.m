@@ -19,6 +19,7 @@
 #import <CoreTelephony/CTCall.h>
 #import "JPUSHService.h"
 #import "XuPushManager.h"
+#import "IMVersionManager.h"
 
 @interface AppDelegate ()
 
@@ -41,6 +42,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     _tabBarCTL = [[BaseTabbarController alloc] init];
+    [IMVersionManager shareInstance];
     self.window.rootViewController = _tabBarCTL;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
