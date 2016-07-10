@@ -12,7 +12,7 @@
 #define NOTIFICATION_PLAY_VOICE_FINISH        @"playVoice_finish"
 
 #define JPushKey @"0c0127f6d6aee11d76de743b"
-
+#define JpushSecret @"f87159c33622287a18e2e33b"
 
 #define APPOINTMENT @"APPOINTMENT" //预约
 #define IM @"IM"//即时
