@@ -55,6 +55,11 @@
     NSMutableDictionary *headerDict = [NSMutableDictionary dictionary];
     [headerDict setObject:[OpenUDID value] forKey:@"X-DEVICE-NUM"];
     [headerDict setObject:[NSString stringWithFormat:@"ios-%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]] forKey:@"X-VERSION"];
+    
+    if ([JPUSHService registrationID]) {
+        [headerDict setObject:[JPUSHService registrationID] forKey:@"X-PUSHID"];
+    }
+
     [headerDict setObject:[[UIDevice currentDevice] model] forKey:@"X-TYPE"];
     [headerDict setObject: @"ios" forKey:@"X-SYSTEM"];
     [headerDict setObject:[XuUtlity getIOSVersion] forKey:@"X-SYSTEM-VERSION"];
@@ -138,8 +143,13 @@
     
     [JPUSHService setupWithOption:launchOptions appKey:JPushKey channel:@"App Store" apsForProduction:NO];
     
-    [[XuPushManager shareInstance] setJPushTags:[NSSet set] Alias:@"xxxx"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerJPushFInish) name:kJPFNetworkDidLoginNotification object:nil];
     
+}
+
+-(void)registerJPushFInish
+{
+    [self initNetWorkingData];
 }
 
 

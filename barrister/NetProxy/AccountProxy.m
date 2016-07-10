@@ -65,8 +65,9 @@
 
 }
 
--(void)getAccountDetailDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+-(void)getAccountDetailDataWithParams:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock
 {
+    [self appendCommonParamsWithDict:params];
     [XuNetWorking getWithUrl:AccountDetialUrl params:params success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);

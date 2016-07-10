@@ -26,6 +26,8 @@
 #import "HomeCaseListModel.h"
 #import "CaseSourceViewController.h"
 
+#import "OrderDetailViewController.h"
+
 @interface HomeViewController ()
 
 @property (nonatomic,strong) NSMutableArray *orderItems;
@@ -329,6 +331,19 @@
     else
     {
         return 55;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2) {
+        if (self.orderItems.count > indexPath.row) {
+            BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems objectAtIndex:indexPath.row];
+            OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
+        
+
     }
 }
 
