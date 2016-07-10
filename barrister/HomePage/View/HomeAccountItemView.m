@@ -120,7 +120,14 @@
 
 -(void)setSubTitleStr:(NSString *)subTitleStr
 {
-    self.subTitleLabel.text = subTitleStr?subTitleStr:@"-";
+    if (IS_NOT_EMPTY(subTitleStr)) {
+        self.subTitleLabel.text = subTitleStr?subTitleStr:@"-";
+    }
+    else
+    {
+        self.subTitleLabel.text = @"-";
+    }
+
 }
 
 @end
