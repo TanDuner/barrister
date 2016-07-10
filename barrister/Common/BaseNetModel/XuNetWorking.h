@@ -251,4 +251,20 @@ typedef void(^XuResponseFail)(NSError *error);
 
                                success:(XuResponseSuccess)success
                                failure:(XuResponseFail)failure;
+
+/**
+ *  请求不带baseUrl的
+ *
+ *  @param url
+ *  @param success
+ *  @param failure
+ *
+ *  @return
+ */
++ (XuURLSessionTask *)requestWithNoBaseUrl:(NSString *)url
+                                 httpMedth:(NSUInteger)httpMethod
+                                    params:(NSDictionary *)params
+                                  progress:(XuDownloadProgress)progress
+                                   success:(XuResponseSuccess)success
+                                      fail:(XuResponseFail)fail;
 @end

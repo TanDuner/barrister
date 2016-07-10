@@ -43,6 +43,6 @@
 
 
 
-#define ORDER_STATUS_CAN   @"can"; //可以接单
-#define ORDER_STATUS_NOT   @"can_not"; //不可以接单
+#define ORDER_STATUS_CAN   @"can" //可以接单
+#define ORDER_STATUS_NOT   @"can_not" //不可以接单
 

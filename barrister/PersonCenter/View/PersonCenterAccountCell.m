@@ -58,7 +58,7 @@
         _titleLabel.textColor = KColorGray333;
         self.rightRow.hidden = NO;
         self.starView.hidden = NO;
-        [self.starView setFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame), 100, 20)];
+        [self.starView setFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame) + 10, 80, 15)];
     }
     else
     {
@@ -83,6 +83,7 @@
             _titleLabel.text = [BaseDataSingleton shareInstance].userModel.name?[BaseDataSingleton shareInstance].userModel.name:[BaseDataSingleton shareInstance].userModel.phone;
             _subtitleLabel.text = [NSString stringWithFormat:@"律所：%@",[BaseDataSingleton shareInstance].userModel.company?[BaseDataSingleton shareInstance].userModel.company:@"无"];
             [_iconImageIVew yy_setImageWithURL:[NSURL URLWithString:[BaseDataSingleton shareInstance].userModel.userIcon] placeholder:[UIImage imageNamed:self.model.iconNameStr]];
+            
             [self.starView setScorePercent:([BaseDataSingleton shareInstance].userModel.startCount.floatValue/5.0f)];
         }
         else{
@@ -169,7 +170,7 @@
 -(CWStarRateView *)starView
 {
     if (!_starView) {
-        _starView = [[CWStarRateView alloc] initWithFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame), 100, 25) numberOfStars:5];
+        _starView = [[CWStarRateView alloc] initWithFrame:RECT(self.titleLabel.x, CGRectGetMaxY(self.subtitleLabel.frame) + 10, 80, 15) numberOfStars:5];
         _starView.isAllowTap = NO;
     }
     return _starView;

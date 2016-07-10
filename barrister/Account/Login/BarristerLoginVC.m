@@ -253,6 +253,12 @@ const float MidViewHeight = 190 / 2.0;
 {
     if ([XuUtlity validateMobile:accountTextField.text]) {
         [btn clickSelfBtn:btn];
+        
+        if (accountTextField) {
+            [accountTextField resignFirstResponder];            
+        }
+
+        
         [XuUItlity showLoading:@"正在发送验证码..."];
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone", nil];
         [self.proxy getValidCodeWithParams:params Block:^(id returnData, BOOL success) {

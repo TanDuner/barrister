@@ -53,8 +53,6 @@
     
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
-    [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
     [params setObject:[NSString stringWithFormat:@"%ld",self.tableView.pageSize] forKey:@"pageSize"];
     [params setObject:[NSString stringWithFormat:@"%ld",self.tableView.pageNum] forKey:@"page"];
     

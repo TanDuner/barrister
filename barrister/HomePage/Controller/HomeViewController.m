@@ -21,6 +21,11 @@
 #import "HomeBannerModel.h"
 #import "XuPushManager.h"
 
+#import "BaseWebViewController.h"
+#import "HomeCaseSourceCell.h"
+#import "HomeCaseListModel.h"
+#import "CaseSourceViewController.h"
+
 @interface HomeViewController ()
 
 @property (nonatomic,strong) NSMutableArray *orderItems;
@@ -33,6 +38,12 @@
 
 @property (nonatomic,strong) DCPicScrollView *bannerView;
 @property (nonatomic,strong) HomePageProxy *proxy;
+@property (nonatomic,strong) NSMutableArray *bannerItems;
+
+
+@property (nonatomic,strong) NSMutableArray *caseSourceItems;
+
+@property (nonatomic,strong) UIView *caseSourceView;
 
 @end
 
@@ -42,7 +53,6 @@
     [super viewDidLoad];
     [self initData];
     [self configData];
-    [self createView];
 }
 
 
@@ -50,7 +60,6 @@
 {
     [super viewWillAppear:animated];
     [self showTabbar:YES];
-    NSLog(@"%@",[BaseDataSingleton shareInstance]);
     if ([BaseDataSingleton shareInstance].loginState.intValue != 1) {
         [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
     }
@@ -59,27 +68,8 @@
     
 }
 
-#pragma -mark ----UI---------
 
--(void)createView
-{
-    [self createBaseView];
-}
 
--(void)createBaseView
-{
-    [self initNavigationRightTextButton:@"登录" action:@selector(toLoginAction:)];
-}
-
--(void)createTableView
-{
-    NSArray *UrlStringArray = @[@"http://e.hiphotos.baidu.com/lvpics/h=800/sign=61e9995c972397ddc97995046983b216/35a85edf8db1cb134d859ca8db54564e93584b98.jpg", @"http://e.hiphotos.baidu.com/lvpics/h=800/sign=1d1cc1876a81800a71e5840e813533d6/5366d0160924ab185b6fd93f33fae6cd7b890bb8.jpg", @"http://f.hiphotos.baidu.com/lvpics/h=800/sign=8430a8305cee3d6d3dc68acb73176d41/9213b07eca806538d9da1f8492dda144ad348271.jpg", @"http://d.hiphotos.baidu.com/lvpics/w=1000/sign=81bf893e12dfa9ecfd2e521752e0f603/242dd42a2834349b705785a7caea15ce36d3bebb.jpg", @"http://f.hiphotos.baidu.com/lvpics/w=1000/sign=4d69c022ea24b899de3c7d385e361c95/f31fbe096b63f6240e31d3218444ebf81a4ca3a0.jpg"];
-    
-    DCPicScrollView  *picView = [DCPicScrollView picScrollViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140) WithImageUrls:UrlStringArray];
-
-    self.tableView.tableHeaderView = picView;
-
-}
 
 #pragma -mark -------Data---------
 
@@ -98,7 +88,43 @@
 {
     [self.orderItems removeAllObjects];
     [self loadAccountData];
+    [self loadCaseSourceData];
+
 }
+
+-(void)loadCaseSourceData
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"5",@"pageSize",@"1",@"page", nil];
+    
+    __weak typeof(*&self) weakSelf = self;
+    
+    [self.proxy getCaseListWithParams:params Block:^(id returnData, BOOL success) {
+        if (success) {
+            NSDictionary *dict = (NSDictionary *)returnData;
+            [weakSelf handleSourceListWithDict:dict];
+        }
+        else
+        {
+            
+        }
+    }];
+}
+
+
+-(void)handleSourceListWithDict:(NSDictionary *)params
+{
+    
+    NSArray *array = (NSArray *)[params objectForKey:@"cases"];
+    for (int i = 0; i < array.count; i ++) {
+        NSDictionary *dict = (NSDictionary *)[array objectAtIndex:i];
+        HomeCaseListModel *model = [[HomeCaseListModel alloc] initWithDictionary:dict];
+        [self.caseSourceItems addObject:model];
+    }
+    
+    [self.tableView reloadData];
+    
+}
+
 
 
 -(void)configData
@@ -150,7 +176,7 @@
     
     NSString *appintmentStatus = [dict objectForKey:@"status"];
     
-    [BaseDataSingleton shareInstance].appointStatus = appintmentStatus?appintmentStatus:@"can_not";
+    [BaseDataSingleton shareInstance].status = appintmentStatus?appintmentStatus:@"can_not";
 
     
     [BaseDataSingleton shareInstance].remainingBalance = [dict objectForKey:@"remainingBalance"];
@@ -171,37 +197,6 @@
             [self.orderItems addObject:model];
         }
         [self.tableView reloadData];
-//        return;
-//        
-//        BarristerOrderModel *model4 = [[BarristerOrderModel alloc] init];
-//        model4.customerName = @"用户134****7654";
-//        model4.userHeder = @"http://img4.duitang.com/uploads/item/201508/26/20150826212734_ST5BC.thumb.224_0.jpeg";
-//        model4.startTime = @"2016/04/24 13:00";
-//        model4.endTime = @"2016/03/24 14:00";
-//        model4.caseType = @"债务纠纷";
-//        model4.orderType = BarristerOrderTypeYYZX;
-//        
-//        BarristerOrderModel *model5 = [[BarristerOrderModel alloc] init];
-//        model5.userHeder = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327417392,2097894166&fm=116&gp=0.jpg";
-//        model5.customerName = @"用户158****0087";
-//        model5.startTime = @"2016/04/25 14:00";
-//        model5.endTime = @"2016/04/25 15:00";
-//        model5.caseType = @"财产纠纷";
-//        model5.orderType = BarristerOrderTypeYYZX;
-//        
-//        BarristerOrderModel *model6 = [[BarristerOrderModel alloc] init];
-//        model6.userHeder = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=731016823,2238050103&fm=116&gp=0.jpg";
-//        model6.customerName = @"用户186****7339";
-//        model6.startTime = @"2016/04/26 15:00";
-//        model6.endTime = @"2016/04/26 16:00";
-//        model6.caseType = @"民事案件";
-//        model6.orderType = BarristerOrderTypeYYZX;
-//        
-//        [self.orderItems addObject:model4];
-//        [self.orderItems addObject:model5];
-//        [self.orderItems addObject:model6];
-//        
-//        [self.tableView reloadData];
 
     }
 
@@ -214,7 +209,7 @@
     for (int i = 0; i < array.count; i ++) {
         NSDictionary *dict = [array objectAtIndex:i];
         HomeBannerModel *model = [[HomeBannerModel alloc] initWithDictionary:dict];
-        [imageUrls addObject:model.image];
+        [self.bannerItems addObject:model];
         [imageUrls addObject:model.image];
     }
     
@@ -227,7 +222,7 @@
 #pragma -mark ----TableViewDelegate Methods---------
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -236,6 +231,10 @@
         return 1;
     }
     else if (section == 1)
+    {
+        return self.caseSourceItems.count;
+    }
+    else if (section == 2)
     {
         return self.orderItems.count;
     }
@@ -257,6 +256,23 @@
         cell.selectionStyle  = UITableViewCellSelectionStyleNone;
         return cell;
     }
+    else if (indexPath.section == 1)
+    {
+
+        static NSString *identifi  = @"identifi1";
+        HomeCaseSourceCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
+        if (!cell) {
+            cell = [[HomeCaseSourceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        }
+        
+        if (self.caseSourceItems.count > indexPath.row) {
+            HomeCaseListModel *model = [self.caseSourceItems objectAtIndex:indexPath.row];
+            cell.model = model;
+            
+        }
+        
+        return cell;
+    }
     else
     {
         static NSString *identifi = @"identifi";
@@ -275,6 +291,14 @@
     if (indexPath.section == 0) {
         return [HomeAccountCell getCellHeight];
     }
+    else if(indexPath.section == 1)
+    {
+        if (self.caseSourceItems.count > indexPath.row) {
+            HomeCaseListModel *model  = (HomeCaseListModel *)[self.caseSourceItems objectAtIndex:indexPath.row];
+            return [HomeCaseSourceCell getCellHeightWithModel:model];
+        }
+        return 0;
+    }
     else
     {
         return 75;
@@ -286,9 +310,12 @@
     if (section == 0) {
         return self.accountHeadView;
     }
+    else if (section == 1)
+    {
+        return self.caseSourceView;
+    }
     else
     {
-        
         return self.daiBanHeadView;
     }
 }
@@ -306,18 +333,12 @@
 }
 
 #pragma -mark ------Action------------
-
-/**
- *  登录的方法
- *
- *  @param sender sender description
- */
--(void)toLoginAction:(id)sender
+-(void)toCaseListVC:(UITapGestureRecognizer *)tap
 {
-    BarristerLoginVC *loginVC = [[BarristerLoginVC alloc] init];
-    [self.navigationController pushViewController:loginVC animated:YES];
-    
+    CaseSourceViewController*caseSourceVC = [[CaseSourceViewController alloc] init];
+    [self.navigationController pushViewController:caseSourceVC animated:YES];
 }
+
 
 #pragma -mark ----Getter-----
 
@@ -326,9 +347,19 @@
     if (!_bannerView) {
         _bannerView = [DCPicScrollView picScrollViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140) WithImageUrls:urlStrings];
         _bannerView.placeImage = [UIImage imageNamed:@"timeline_image_loading.png"];
-        
+
+        __weak typeof(*&self) weakSelf = self;
         [_bannerView setImageViewDidTapAtIndex:^(NSInteger index) {
-            printf("第%zd张图片\n",index);
+            if (weakSelf.bannerItems.count > index) {
+                HomeBannerModel *model = [weakSelf.bannerItems objectAtIndex:index];
+                
+                BaseWebViewController *webView = [[BaseWebViewController alloc] init];
+                webView.title = model.title;
+                webView.url = model.url;
+                
+                [weakSelf.navigationController pushViewController:webView animated:YES];
+            }
+
         }];
         
         _bannerView.AutoScrollDelay = 2.0f;
@@ -359,7 +390,7 @@
         topBGView.backgroundColor = RGBCOLOR(241,242, 243);
         
         _stateLabel = [[UILabel alloc] initWithFrame:RECT((SCREENWIDTH - 110)/2.0, 15, 110, 15)];
-        _stateLabel.text = @"当前状态:正常接单";
+        _stateLabel.text = @"当前状态:不可接单";
         _stateLabel.textColor = RGBCOLOR(63, 39, 22);
         _stateLabel.font = SystemFont(13.0f);
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingTimeAciton)];
@@ -368,7 +399,7 @@
         
         
         _lightImage = [[UIImageView alloc] initWithFrame:RECT(_stateLabel.x - 15, (45 - 10)/2.0, 10, 10)];
-        [_lightImage setBackgroundColor:RGBCOLOR(54, 182, 31)];
+        [_lightImage setBackgroundColor:[UIColor redColor]];
         _lightImage.layer.cornerRadius = 5.0f;
         _lightImage.layer.masksToBounds = YES;
         
@@ -430,6 +461,49 @@
     return _daiBanHeadView;
 }
 
+
+-(UIView *)caseSourceView
+{
+    if (!_caseSourceView) {
+        _caseSourceView =[[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 55)];
+        _caseSourceView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *topView = [[UIView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, 10)];
+        topView.backgroundColor = RGBCOLOR(241,242, 243);
+        [_caseSourceView addSubview:topView];
+        
+        
+        UILabel *anyuan = [[UILabel alloc] initWithFrame:RECT(LeftPadding, 15 + topView.height, 100, 15)];
+        anyuan.text = @"案源列表";
+        anyuan.textAlignment = NSTextAlignmentLeft;
+        anyuan.textColor = KColorGray222;
+        anyuan.font = [UIFont boldSystemFontOfSize:15.0f];
+        [_caseSourceView addSubview:anyuan];
+        
+        UIImageView *rightRow = [[UIImageView alloc] initWithFrame:RECT(SCREENWIDTH - 10 - 15, anyuan.y, 15, 15)];
+        rightRow.image = [UIImage imageNamed:@"rightRow.png"];
+        rightRow.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toCaseListVC:)];
+        [rightRow addGestureRecognizer:tap];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:RECT(rightRow.x - 200 - 10, anyuan.y, 200, 15)];
+        label.text = @"查看更多";
+        label.userInteractionEnabled = YES;
+        label.textAlignment = NSTextAlignmentRight;
+        label.textColor = KColorGray666;
+        label.font = SystemFont(14.0f);
+        UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toCaseListVC:)];
+        [label addGestureRecognizer:tap1];
+        
+        [_caseSourceView addSubview:rightRow];
+        [_caseSourceView addSubview:label];
+        
+        [_caseSourceView addSubview:[self getLineViewWithFrame:RECT(0, _caseSourceView.height - .5, SCREENWIDTH, .5)]];
+        
+    }
+    return _caseSourceView;
+}
+
 -(HomePageProxy *)proxy
 {
     if (!_proxy) {
@@ -438,22 +512,88 @@
     return _proxy;
 }
 
+-(NSMutableArray *)bannerItems
+{
+    if (!_bannerItems) {
+        _bannerItems = [NSMutableArray arrayWithCapacity:5];
+    }
+    return _bannerItems;
+}
+
+-(NSMutableArray *)caseSourceItems
+{
+    if (!_caseSourceItems) {
+        _caseSourceItems = [NSMutableArray arrayWithCapacity:5];
+    }
+    return _caseSourceItems;
+}
+
 #pragma -mark -------Aciton-----
 
 /**
- *  去预约设置界面
+ *  接单状态设置
  */
 
 -(void)settingTimeAciton
 {
-    AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
-    appointVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:appointVC animated:YES];
+    
+    if ([[BaseDataSingleton shareInstance].status isEqualToString:ORDER_STATUS_CAN]) {
+        [XuUItlity showYesOrNoAlertView:@"确定" noText:@"取消" title:@"提示" mesage:@"确定改成不可接单状态吗" callback:^(NSInteger buttonIndex, NSString *inputString) {
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"can_not",@"status", nil];
+            if (buttonIndex == 1) {
+                __weak typeof(*&self) weakSelf = self;
+                [self.proxy setStatuWithParams:params Block:^(id returnData, BOOL success) {
+                    if (success) {
+                        [XuUItlity showSucceedHint:@"设置成功" completionBlock:nil];
+                        [BaseDataSingleton shareInstance].status = ORDER_STATUS_NOT;
+                    }
+                    else
+                    {
+                        [XuUItlity showFailedHint:@"设置失败" completionBlock:nil];
+
+                    };
+                    [weakSelf updateAppointmentStatus];
+                }];
+            }
+            else
+            {
+                //取消
+            }
+        }];
+    }
+  else
+  {
+      
+      [XuUItlity showYesOrNoAlertView:@"确定" noText:@"取消" title:@"提示" mesage:@"确定改成可接单状态吗" callback:^(NSInteger buttonIndex, NSString *inputString) {
+          NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"can",@"status", nil];
+          if (buttonIndex == 1) {
+                __weak typeof(*&self) weakSelf = self;
+              [self.proxy setStatuWithParams:params Block:^(id returnData, BOOL success) {
+                  if (success) {
+                      [XuUItlity showSucceedHint:@"设置成功" completionBlock:nil];
+                      [BaseDataSingleton shareInstance].status = ORDER_STATUS_CAN;
+                  }
+                  else
+                  {
+                      [XuUItlity showFailedHint:@"设置失败" completionBlock:nil];
+                      
+                  };
+                  [weakSelf updateAppointmentStatus];
+                  
+              }];
+          }
+          else
+          {
+              //取消
+          }
+      }];
+  }
+
 }
 
 -(void)updateAppointmentStatus
 {
-    if ([[BaseDataSingleton shareInstance].appointStatus isEqualToString:@"can_not"]) {
+    if ([[BaseDataSingleton shareInstance].status isEqualToString:ORDER_STATUS_NOT]) {
         self.stateLabel.text = @"当前状态:不可接单";
         self.lightImage.backgroundColor = [UIColor redColor];
     }
@@ -461,7 +601,7 @@
     else
     {
         self.stateLabel.text = @"当前状态:正常接单";
-        self.lightImage.backgroundColor = [UIColor greenColor];
+        self.lightImage.backgroundColor = RGBCOLOR(54, 182, 31);
     }
     self.leijiLabel.text = [NSString stringWithFormat:@"累计订单 %@",[BaseDataSingleton shareInstance].orderQty];
 }

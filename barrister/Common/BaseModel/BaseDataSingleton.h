@@ -23,7 +23,7 @@ typedef struct PhoneSate PhoneSate;
 
 @property (nonatomic,assign) NSString * loginState; //是否登录 //1 登录 0 未登录
 
-@property (nonatomic,strong) NSString *appointStatus;//预约状态 1 
+//@property (nonatomic,strong) NSString *appointStatus;//预约状态 1 
 
 @property (nonatomic,strong) NSString *orderQty;//订单数
 
@@ -36,6 +36,8 @@ typedef struct PhoneSate PhoneSate;
 @property (nonatomic,strong) NSString *bankCardBindStatus;//绑定银行卡的状态
 
 @property (nonatomic,strong) NSDictionary *bankCardDict;//银行卡的字典
+
+@property (nonatomic,strong) NSString *status;//接单状态  
 
 + (instancetype)shareInstance;
 

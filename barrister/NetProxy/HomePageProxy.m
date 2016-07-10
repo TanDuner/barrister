@@ -10,6 +10,8 @@
 
 #define HomePageBannerUrl @"lunboAds.do"
 #define HomePageAccountUrl @"userHome.do"
+#define ChangeStatusUrl @"changeIMStatus.do"
+#define CaseSourceUrl @"caseList.do"
 
 @implementation HomePageProxy
 
@@ -64,6 +66,52 @@
 
     } fail:^(NSError *error) {
         
+    }];
+}
+
+
+/**
+ *  设置接单状态接口
+ *
+ *  @param params
+ *  @param aBlock
+ */
+-(void)setStatuWithParams:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [self appendCommonParamsWithDict:params];
+    [XuNetWorking postWithUrl:ChangeStatusUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response,YES);
+        }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    } fail:^(NSError *error) {
+        aBlock(CommonNetErrorTip,NO);
+    }];
+}
+
+
+/**
+ *  案源列表
+ *
+ *  @param params
+ *  @param aBlock
+ */
+-(void)getCaseListWithParams:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [self appendCommonParamsWithDict:params];
+    [XuNetWorking postWithUrl:CaseSourceUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response,YES);
+        }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    } fail:^(NSError *error) {
+        aBlock(CommonNetErrorTip,YES);
     }];
 }
 

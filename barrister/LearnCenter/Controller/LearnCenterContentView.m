@@ -154,6 +154,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.items.count > indexPath.row) {
+        LearnCenterModel *model = (LearnCenterModel *)[self.items objectAtIndex:indexPath.row];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.url]];
+    }
 }
 
 #pragma -mark --Getter--

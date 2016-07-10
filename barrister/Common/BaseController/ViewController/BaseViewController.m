@@ -464,24 +464,47 @@
  */
 -(void)handleTableRefreshOrLoadMoreWithTableView:(RefreshTableView *)tableView array:(NSArray *)array aBlock:(void(^)())aBlock
 {
-    if (tableView.pageNum == 1) {
-        if (aBlock) {
-            aBlock();
-        }
-        [tableView endRefreshing];
-    }
-    
     if (array.count == 0) {
-        [self showNoContentView];
-    }
-    else
-    {
-        if (array.count < tableView.pageSize) {
-            [tableView endLoadMoreWithNoMoreData:YES];
+        if (tableView.pageNum == 1) {
+            if (aBlock) {
+                aBlock();
+            }
+            [tableView endRefreshing];
+            [self showNoContentView];
         }
         else
         {
-            [tableView endLoadMoreWithNoMoreData:NO];
+            [self hideNoContentView];
+            [tableView endLoadMoreWithNoMoreData:YES];
+        }
+    }
+    else
+    {
+        
+        [self hideNoContentView];
+        if (tableView.pageNum == 1) {
+            if (aBlock) {
+                aBlock();
+            }
+            [tableView endRefreshing];
+            if (array.count < tableView.pageSize) {
+                [tableView endLoadMoreWithNoMoreData:YES];
+            }
+            else
+            {
+                [tableView endLoadMoreWithNoMoreData:NO];
+            }
+            
+        }
+        else
+        {
+            if (array.count < tableView.pageSize) {
+                [tableView endLoadMoreWithNoMoreData:YES];
+            }
+            else
+            {
+                [tableView endLoadMoreWithNoMoreData:NO];
+            }
         }
     }
     
