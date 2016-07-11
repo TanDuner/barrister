@@ -2777,7 +2777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2797,7 +2797,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "172056bf-8dd2-4285-85b2-61c87793a572";
+				PROVISIONING_PROFILE = "57f57bcc-2bad-4318-adb8-12d9ae09f9b0";
 			};
 			name = Debug;
 		};
@@ -2808,7 +2808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
 				INFOPLIST_FILE = barrister/Info.plist;
@@ -2824,7 +2824,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "172056bf-8dd2-4285-85b2-61c87793a572";
+				PROVISIONING_PROFILE = "57f57bcc-2bad-4318-adb8-12d9ae09f9b0";
 			};
 			name = Release;
 		};

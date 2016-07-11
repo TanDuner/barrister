@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "LoginProxy.h"
 #import "FeedBackViewController.h"
+#import "BaseWebViewController.h"
 
 @interface SettingViewController ()
 
@@ -106,10 +107,29 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        BaseWebViewController *baseView = [[BaseWebViewController alloc] init];
+        baseView.title = @"使用帮助";
+        baseView.url = @"http://www.baidu.com";
+        [self.navigationController pushViewController:baseView animated:YES];
+    }
+    if (indexPath.row == 1) {
+        BaseWebViewController *baseView = [[BaseWebViewController alloc] init];
+        baseView.title = @"关于我们";
+        baseView.url = @"http://www.baidu.com";
+        [self.navigationController pushViewController:baseView animated:YES];
+    }
     if (indexPath.row == 2) {
         FeedBackViewController *feedbackVC = [[FeedBackViewController alloc] init];
         [self.navigationController pushViewController:feedbackVC animated:YES];
     }
+    if (indexPath.row == 3) {
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"4009600118"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }
+    
+
 }
 
 #pragma -mark -----Action-------
