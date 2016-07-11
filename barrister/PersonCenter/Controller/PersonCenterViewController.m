@@ -32,6 +32,7 @@
 {
     [super viewWillAppear:animated];
     [self showTabbar:YES];
+    [self configData];
     [self.tableView reloadData];
 }
 
@@ -44,6 +45,11 @@
 
 -(void)configData
 {
+    
+    if (self.items.count > 0) {
+        [self.items removeAllObjects];
+    }
+    
     PersonCenterModel *model1 = [[PersonCenterModel alloc] init];
     model1.titleStr = @"注册/登录";
     model1.cellType = PersonCenterModelTypeZH;

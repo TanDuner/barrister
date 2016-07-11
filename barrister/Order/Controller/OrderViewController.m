@@ -59,7 +59,7 @@
 
 -(void)configNavigationView
 {
-    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"电话咨询",@"预约咨询"]];
+    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"即时咨询",@"预约咨询"]];
     
     [segmentControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     

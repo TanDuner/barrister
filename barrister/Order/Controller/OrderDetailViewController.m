@@ -218,31 +218,51 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     __weak typeof(*&self) weakSelf = self;
     [params setObject:model.orderId forKey:@"orderId"];
     if ([btnType isEqualToString:@"同意"]) {
-        [self.proxy agreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
-            if (success) {
-                [XuUItlity showSucceedHint:@"取消成功" completionBlock:nil];
+        [XuUItlity showYesOrNoAlertView:@"确定" noText:@"取消" title:@"提示" mesage:@"确认同意请求吗" callback:^(NSInteger buttonIndex, NSString *inputString) {
+            if (buttonIndex == 0) {
+                
             }
             else
             {
-                [XuUItlity showFailedHint:@"取消失败" completionBlock:nil];
+                [weakSelf.proxy agreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
+                    if (success) {
+                        [XuUItlity showSucceedHint:@"操作成功 请总结订单" completionBlock:nil];
+                    }
+                    else
+                    {
+                        [XuUItlity showFailedHint:@"操作失败" completionBlock:nil];
+                    }
+                    
+                    [weakSelf initData];
+                    
+                }];
+
             }
-            
-            [weakSelf initData];
-            
         }];
+        
     }
     else
     {
-        [self.proxy unAgreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
-            if (success) {
-                [XuUItlity showSucceedHint:@"拒绝成功" completionBlock:nil];
+        [XuUItlity showYesOrNoAlertView:@"确定" noText:@"取消" title:@"提示" mesage:@"确认拒绝请求吗" callback:^(NSInteger buttonIndex, NSString *inputString) {
+            if (buttonIndex == 0) {
+                
             }
             else
             {
-                [XuUItlity showFailedHint:@"拒绝失败" completionBlock:nil];
+                [weakSelf.proxy unAgreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
+                    if (success) {
+                        [XuUItlity showSucceedHint:@"操作成功 请及时联系客户" completionBlock:nil];
+                    }
+                    else
+                    {
+                        [XuUItlity showFailedHint:@"操作失败" completionBlock:nil];
+                    }
+                    [weakSelf initData];
+                }];
             }
-            [weakSelf initData];
         }];
+        
+        
     }
 
 }
@@ -254,18 +274,28 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     __weak typeof(*&self) weakSelf = self;
     [params setObject:model.orderId forKey:@"orderId"];
     
-    [self.proxy agreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
-        if (success) {
-            [XuUItlity showSucceedHint:@"取消成功" completionBlock:nil];
+    [XuUItlity showYesOrNoAlertView:@"确定" noText:@"取消" title:@"提示" mesage:@"确认完成订单吗" callback:^(NSInteger buttonIndex, NSString *inputString) {
+        if (buttonIndex == 0) {
+            
         }
         else
         {
-            [XuUItlity showFailedHint:@"取消失败" completionBlock:nil];
+            [weakSelf.proxy agreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
+                if (success) {
+                    [XuUItlity showSucceedHint:@"操作成功" completionBlock:nil];
+                }
+                else
+                {
+                    [XuUItlity showFailedHint:@"操作失败" completionBlock:nil];
+                }
+                
+                [weakSelf initData];
+                
+            }];
+
         }
-        
-        [weakSelf initData];
-        
     }];
+    
 }
 
 

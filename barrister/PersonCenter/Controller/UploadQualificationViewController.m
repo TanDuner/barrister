@@ -284,9 +284,9 @@
     __weak typeof(*& self) weakSelf = self;
     
     [self.proxy UploadAuthImageUrlWithImage:model.uploadImage params:params fileName:[self  getImageNameWithUploadModel:model] Block:^(id returnData, BOOL success) {
-        self.uploadCount -= 1;
+        weakSelf.uploadCount -= 1;
         if (success) {
-            
+            weakSelf.model.subtitleStr = @"已上传";
         }
         else
         {

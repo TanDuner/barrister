@@ -49,6 +49,23 @@
 #define Push_Type_Auth_Status_Change    @"type.verify.msg"
 
 
+
+/**
+ *
+ * 提现结果通知
+ *
+ */
+
+#define Push_TYpe_Tixian_Status         @"type.getmoney"
+
+/**
+ *  收到新的预约订单
+ *
+ */
+#define Push_Type_New_AppointmentOrder @"type.order.new"
+
+
+
 @implementation XuPushManager
 
 

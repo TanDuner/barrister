@@ -66,7 +66,7 @@
     [headerDict setObject:[NSString stringWithFormat:@"%f*%f",SCREENWIDTH ,SCREENHEIGHT] forKey:@"X-SCREEN"];
     [headerDict setObject:@"appleStore" forKey:@"X-MARKET"];
     if ([BaseDataSingleton shareInstance].userModel != nil) {
-        [headerDict setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"X-UID"];
+        [headerDict setObject:[NSString stringWithFormat:@"%@",[BaseDataSingleton shareInstance].userModel.userId] forKey:@"X-UID"];
     }
     
     [XuNetWorking configCommonHttpHeaders:headerDict];
@@ -181,6 +181,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
+    [[XuPushManager shareInstance] receivePushMsgByActive:userInfo];
     
     [JPUSHService handleRemoteNotification:userInfo];
 }

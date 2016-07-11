@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "PersonCenterModel.h"
 
 @interface UploadQualificationViewController : BaseViewController
-
+@property (nonatomic,strong) PersonCenterModel *model;
 @end
