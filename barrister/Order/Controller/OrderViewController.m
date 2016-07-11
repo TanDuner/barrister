@@ -74,7 +74,7 @@
 
 -(void)configTableView
 {
-    _leftTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
+    _leftTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT ) style:UITableViewStylePlain];
     [_leftTableView setFootLoadMoreControl];
     _leftTableView.pageSize = 10;
     _leftTableView.backgroundColor = kBaseViewBackgroundColor;
@@ -82,7 +82,7 @@
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
     
-    _rightTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT - TABBAR_HEIGHT) style:UITableViewStylePlain];
+    _rightTableView = [[RefreshTableView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, SCREENHEIGHT - NAVBAR_DEFAULT_HEIGHT) style:UITableViewStylePlain];
     [_rightTableView setFootLoadMoreControl];
     _rightTableView.backgroundColor = kBaseViewBackgroundColor;
     _rightTableView.refreshDelegate = self;
