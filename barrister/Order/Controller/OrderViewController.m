@@ -243,13 +243,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.isShowLeft) {
         BarristerOrderModel *model = [self.leftItems safeObjectAtIndex:indexPath.row];
-        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
+        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithOrderId:model.orderId];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     else
     {
         BarristerOrderModel *model = [self.rightItems safeObjectAtIndex:indexPath.row];
-        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
+        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithOrderId:model.orderId];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 

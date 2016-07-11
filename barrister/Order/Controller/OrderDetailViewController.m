@@ -76,10 +76,10 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 
 @implementation OrderDetailViewController
 
--(id)initWithModel:(BarristerOrderModel *)orderModel
+-(id)initWithOrderId:(NSString  *)orderId;
 {
     if (self  =[super init]) {
-        self.orderId = orderModel.orderId;
+        self.orderId = orderId;
     }
     return self;
 }

@@ -25,7 +25,7 @@
     
     
     if ([dict respondsToSelector:@selector(objectForKey:)]) {
-        self.orderId = [dict objectForKey:@"id"];
+        self.orderId = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
         
         CGFloat customMarkHeight = [XuUtlity textHeightWithString:self.remarks withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:0];
         

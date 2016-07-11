@@ -14,7 +14,7 @@
 {
     if (self = [super initWithDictionary:jsonObject]) {
         if ([jsonObject respondsToSelector:@selector(objectForKey:)]) {
-            self.typeId = [jsonObject objectForKey:@"id"];
+            self.typeId = [NSString stringWithFormat:@"%@",[jsonObject objectForKey:@"id"]];
         }
         
     }

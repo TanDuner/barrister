@@ -21,7 +21,7 @@
 {
     if ([jsonObject respondsToSelector:@selector(objectForKey:)]) {
         
-        self.orderId = [jsonObject objectForKey:@"id"];
+        self.orderId = [NSString stringWithFormat:@"%@",[jsonObject objectForKey:@"id"]];
         if (!self.nickname) {
             self.nickname = [NSString stringWithFormat:@"用户：%@",self.clientPhone];
         }

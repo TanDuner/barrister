@@ -17,5 +17,8 @@
 
 -(void)selectTabWithIndex:(NSInteger)index;
 
+-(void)jumpToViewControllerwithType:(NSString *)type Params:(NSDictionary *)params;
+
+
 @end
 

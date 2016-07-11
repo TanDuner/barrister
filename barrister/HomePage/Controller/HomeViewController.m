@@ -372,7 +372,7 @@
     if (indexPath.section == 2) {
         if (self.orderItems.count > indexPath.row) {
             BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems safeObjectAtIndex:indexPath.row];
-            OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
+            OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithOrderId:model.orderId];
             [self.navigationController pushViewController:detailVC animated:YES];
         }
         

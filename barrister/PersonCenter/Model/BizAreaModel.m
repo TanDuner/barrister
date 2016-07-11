@@ -14,7 +14,7 @@
 {
     if (self = [super initWithDictionary:jsonObject]) {
         if ([jsonObject respondsToSelector:@selector(objectForKey:)]) {
-            self.areaId = [jsonObject objectForKey:@"id"];
+            self.areaId = [NSString stringWithFormat:@"%@",[jsonObject objectForKey:@"id"]];
         }
 
     }

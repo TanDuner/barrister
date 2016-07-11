@@ -20,7 +20,7 @@
 -(void)handlePropretyWithDict:(NSDictionary *)jsonDict
 {
     if ([jsonDict respondsToSelector:@selector(objectForKey:)]) {
-        self.waitHandleId = [jsonDict objectForKey:@"id"];
+        self.waitHandleId = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"id"]];
     }
 
 }

@@ -20,6 +20,11 @@
 #import "JPUSHService.h"
 #import "XuPushManager.h"
 #import "IMVersionManager.h"
+#import "BaseViewController.h"
+#import "BaseNavigaitonController.h"
+#import "OrderDetailViewController.h"
+#import "MyAccountHomeViewController.h"
+#import "MyMessageViewController.h"
 
 @interface AppDelegate ()
 
@@ -172,6 +177,36 @@
 
 
 
+-(void)jumpToViewControllerwithType:(NSString *)type Params:(NSDictionary *)params;
+{
+
+    BaseTabbarController *mainTabVC = self.tabBarCTL;
+    BaseNavigaitonController * navigationController = [mainTabVC.viewControllers objectAtIndex:mainTabVC.selectedIndex];
+    
+
+    if ([type isEqualToString:Push_Type_Order_Status_Change]||[type isEqualToString:Push_Type_Receive_Star]||[type isEqualToString:Push_Type_New_AppointmentOrder]) {
+        NSString *contentId = [params objectForKey:@"contentId"];
+        
+        OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithOrderId:contentId];
+        [navigationController pushViewController:detailVC animated:YES];
+    }
+    else if ([type isEqualToString:Push_Type_Order_Receive_Reward]||[type isEqualToString:Push_Type_Order_Receive_Moneny]||[type isEqualToString:Push_TYpe_Tixian_Status])
+    {
+        //去我的账户
+        MyAccountHomeViewController *account = [[MyAccountHomeViewController alloc] init];
+        [navigationController pushViewController:account animated:YES];
+        
+    }
+    else if ([type isEqualToString:Push_Type_System_Msg])
+    {
+        //去系统消息
+        MyMessageViewController *myMessage = [[MyMessageViewController alloc] init];
+        [navigationController pushViewController:myMessage animated:YES];
+        
+    }
+  
+}
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     /// Required - 注册 DeviceToken
@@ -188,6 +223,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
+    [[XuPushManager shareInstance] receivePushMsgByActive:userInfo];
     // IOS 7 Support Required
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
