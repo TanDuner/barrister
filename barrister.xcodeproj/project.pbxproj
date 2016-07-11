@@ -164,6 +164,7 @@
 		955AA44D1CF3EE4E00A47121 /* common_icon_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955AA4471CF3EE4E00A47121 /* common_icon_warning@2x.png */; };
 		955AA44E1CF3EE4E00A47121 /* common_icon_warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955AA4481CF3EE4E00A47121 /* common_icon_warning@3x.png */; };
 		955AA4521CF3EEC000A47121 /* XuPointLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 955AA4511CF3EEC000A47121 /* XuPointLoadingView.m */; };
+		958493441D33494800F827A2 /* UIControl+JobCustomControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 958493431D33494800F827A2 /* UIControl+JobCustomControl.m */; };
 		958EEBBC1D2786A800D4CF4C /* LawerXiaoJieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBBB1D2786A800D4CF4C /* LawerXiaoJieViewController.m */; };
 		958EEBFD1D28B88800D4CF4C /* CallHistoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBFC1D28B88800D4CF4C /* CallHistoriesModel.m */; };
 		958EEC001D28C38D00D4CF4C /* OrderDetailCancelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBFF1D28C38D00D4CF4C /* OrderDetailCancelCell.m */; };
@@ -610,6 +611,8 @@
 		955AA4481CF3EE4E00A47121 /* common_icon_warning@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_icon_warning@3x.png"; sourceTree = "<group>"; };
 		955AA4501CF3EEC000A47121 /* XuPointLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuPointLoadingView.h; sourceTree = "<group>"; };
 		955AA4511CF3EEC000A47121 /* XuPointLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuPointLoadingView.m; sourceTree = "<group>"; };
+		958493421D33494800F827A2 /* UIControl+JobCustomControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+JobCustomControl.h"; sourceTree = "<group>"; };
+		958493431D33494800F827A2 /* UIControl+JobCustomControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+JobCustomControl.m"; sourceTree = "<group>"; };
 		958EEBBA1D2786A800D4CF4C /* LawerXiaoJieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawerXiaoJieViewController.h; sourceTree = "<group>"; };
 		958EEBBB1D2786A800D4CF4C /* LawerXiaoJieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawerXiaoJieViewController.m; sourceTree = "<group>"; };
 		958EEBFB1D28B88800D4CF4C /* CallHistoriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallHistoriesModel.h; sourceTree = "<group>"; };
@@ -1398,6 +1401,8 @@
 		9541300A1CA003A600D26B11 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				958493421D33494800F827A2 /* UIControl+JobCustomControl.h */,
+				958493431D33494800F827A2 /* UIControl+JobCustomControl.m */,
 				95BD99851D25719E002E5B0D /* NSArray+CommonAdd.h */,
 				95BD99861D25719E002E5B0D /* NSArray+CommonAdd.m */,
 				95BD99871D25719E002E5B0D /* NSString+CommonAdd.h */,
@@ -2514,6 +2519,7 @@
 				9520BFB51CAA721A00961F05 /* YYKVStorage.m in Sources */,
 				9520BFC21CAA721A00961F05 /* YYImageCache.m in Sources */,
 				95BCB79B1CA2827B00E85E10 /* BorderTextFieldView.m in Sources */,
+				958493441D33494800F827A2 /* UIControl+JobCustomControl.m in Sources */,
 				95CA1BA31D0E268300AAE490 /* UploadQualificationCell.m in Sources */,
 				954505231D2185C40039C6B1 /* HomeWaitHandleModel.m in Sources */,
 				9541302F1CA003B500D26B11 /* UIImage+ImagePickerCrop.m in Sources */,
