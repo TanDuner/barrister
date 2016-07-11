@@ -67,17 +67,17 @@
     
     
     HomeViewController *c1 = [[HomeViewController alloc] init];
-    c1.title = [self.titleArray objectAtIndex:0];
+    c1.title = [self.titleArray safeObjectAtIndex:0];
     BaseNavigaitonController *ctl1 = [[BaseNavigaitonController alloc] initWithRootViewController:c1];
     
     
     
     OrderViewController *c2 = [[OrderViewController alloc] init];
-    c2.title = [self.titleArray objectAtIndex:1];
+    c2.title = [self.titleArray safeObjectAtIndex:1];
     BaseNavigaitonController *ctl2 = [[BaseNavigaitonController alloc] initWithRootViewController:c2];
     
     LearnCenterViewController *c3 = [[LearnCenterViewController alloc] init];
-    c3.title = [self.titleArray objectAtIndex:2];
+    c3.title = [self.titleArray safeObjectAtIndex:2];
     BaseNavigaitonController *ctl3 = [[BaseNavigaitonController alloc] initWithRootViewController:c3];
     
     PersonCenterViewController *c4 = [[PersonCenterViewController alloc] init];
@@ -199,7 +199,7 @@
 - (void)changeViewController:(UIButton *)button
 {
     
-    UIButton *lastbtn = (UIButton *)[self.btnArray objectAtIndex:self.selectedIndex];
+    UIButton *lastbtn = (UIButton *)[self.btnArray safeObjectAtIndex:self.selectedIndex];
     for (UIImageView *imageView in lastbtn.subviews) {
         if (imageView.tag == 900) {
             NSString *lastImageName = [self.tabBarImageNames objectAtIndex:self.selectedIndex];

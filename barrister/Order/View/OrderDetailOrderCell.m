@@ -64,7 +64,14 @@
 //    [self.markLabel setFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 10 + 15, SCREENWIDTH - 20, self.model.markHeight)];
 //    self.orderNoLabel.text = [NSString stringWithFormat:@"订单号：%@",self.model.orderNo?self.model.orderNo:@""];
     self.orderTypeLabel.text = [NSString stringWithFormat:@"订单类型：%@",self.model.caseType?self.model.caseType:@"无"];
-    self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",self.model.payTime?self.model.payTime:@""];
+    if ([self.model.type isEqualToString:IM]) {
+        self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",self.model.payTime?self.model.payTime:@""];
+    }
+    else
+    {
+        self.orderTimeLabel.text = [NSString stringWithFormat:@"预约时间：%@~%@",self.model.startTime?self.model.startTime:@"",self.model.endTime?self.model.endTime:@""];
+    }
+
     self.orderPriceLabel.text = [NSString stringWithFormat:@"订单金额：%@",self.model.paymentAmount?self.model.paymentAmount:@""];
 //    self.markLabel.text = [NSString stringWithFormat:@"备注：%@",self.model.remarks?self.model.remarks:@"无"];
     

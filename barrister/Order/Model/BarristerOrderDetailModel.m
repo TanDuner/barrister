@@ -16,7 +16,7 @@
     NSArray *array  = [dict objectForKey:@"callHistories"];
     if ([XuUtlity isValidArray:array]) {
         for (int i = 0; i < array.count; i ++) {
-            NSDictionary *dict = (NSDictionary *)[array objectAtIndex:i];
+            NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
             CallHistoriesModel *model = [[CallHistoriesModel alloc] initWithDictionary:dict];
             [self.callRecordArray addObject:model];
         }
@@ -26,6 +26,7 @@
     
     if ([dict respondsToSelector:@selector(objectForKey:)]) {
         self.orderId = [dict objectForKey:@"id"];
+        
         CGFloat customMarkHeight = [XuUtlity textHeightWithString:self.remarks withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:0];
         
         if (customMarkHeight <= 13) {
@@ -35,7 +36,6 @@
         
         self.orderId = [dict objectForKey:@"id"];
     
-        
         CGFloat lawyerFeedBackHeight = [XuUtlity textHeightWithString:self.lawFeedback withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:5];
         if (lawyerFeedBackHeight <= 13) {
             lawyerFeedBackHeight = 13;
@@ -46,6 +46,13 @@
         if (!self.customerNickname) {
             self.customerNickname = [NSString stringWithFormat:@"用户%@",self.customerPhone];
         }
+                
+        CGFloat commonHeight = [XuUtlity textHeightWithString:self.comment withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:5];
+        if (commonHeight <= 13) {
+            commonHeight = 13;
+        }
+        
+        self.customCommonHeight = commonHeight;
         
     }
 

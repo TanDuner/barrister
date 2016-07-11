@@ -104,7 +104,7 @@
         cell = [[UploadQualificationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
     }
     if (self.items.count > indexPath.row) {
-        UploadQualificaitonModel *modelTemp = [self.items objectAtIndex:indexPath.row];
+        UploadQualificaitonModel *modelTemp = [self.items safeObjectAtIndex:indexPath.row];
         cell.model = modelTemp;
     }
 
@@ -122,7 +122,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.items.count > indexPath.row) {
         
-        self.uploadTempModel = (UploadQualificaitonModel *)[self.items objectAtIndex:indexPath.row];
+        self.uploadTempModel = (UploadQualificaitonModel *)[self.items safeObjectAtIndex:indexPath.row];
         
         AJPhotoPickerViewController *picker = [[AJPhotoPickerViewController alloc] init];
         picker.assetsFilter = [ALAssetsFilter allPhotos];
@@ -263,7 +263,7 @@
     [XuUItlity showLoading:@"正在上传..."];
 
     for (int i = 0; i < self.items.count; i ++) {
-        UploadQualificaitonModel *model = [self.items objectAtIndex:i];
+        UploadQualificaitonModel *model = [self.items safeObjectAtIndex:i];
         [self uploadImageItem:model];
         
     }

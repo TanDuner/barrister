@@ -68,4 +68,7 @@
 
 @property (nonatomic,assign) CGFloat lawyerFeedBackHeight;
 
+@property (nonatomic,strong) NSString *comment;//用户评论
+
+@property (nonatomic,assign) CGFloat customCommonHeight;
 @end

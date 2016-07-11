@@ -190,13 +190,13 @@
     }
     text.textAlignment = NSTextAlignmentCenter;
     if (component==0) {
-        text.text = [_yearArray objectAtIndex:row];
+        text.text = [_yearArray safeObjectAtIndex:row];
     }
     if (component==1) {
-        text.text = [_mothArray objectAtIndex:row];
+        text.text = [_mothArray safeObjectAtIndex:row];
     }
     if (component==2) {
-        text.text = [_dayArray objectAtIndex:row];
+        text.text = [_dayArray safeObjectAtIndex:row];
     }
     [view addSubview:text];
     
@@ -217,14 +217,14 @@
     UILabel * label = view.subviews.firstObject;
     label.textColor =[UIColor colorWithRed:13/255.f green:152/255.f blue:215/255.f alpha:1];
     if (component==0) {
-        self.model.year = [_yearArray objectAtIndex:row];
+        self.model.year = [_yearArray safeObjectAtIndex:row];
     }
     
     if (component==1) {
-        self.model.moth = [_mothArray objectAtIndex:row];
+        self.model.moth = [_mothArray safeObjectAtIndex:row];
     }
     if (component==2) {
-        self.model.day = [_dayArray objectAtIndex:row];
+        self.model.day = [_dayArray safeObjectAtIndex:row];
     }
 }
 //获取某个月的天数

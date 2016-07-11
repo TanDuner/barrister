@@ -31,8 +31,8 @@
     
     if (dateStrArray.count == settingStrArray.count) {
         for (int i = 0; i <dateStrArray.count; i ++) {
-            NSString *dateStr  =[dateStrArray objectAtIndex:i];
-            NSString *settingStr = [settingStrArray objectAtIndex:i];
+            NSString *dateStr  =[dateStrArray safeObjectAtIndex:i];
+            NSString *settingStr = [settingStrArray safeObjectAtIndex:i];
             AppointmentMoel *model = [[AppointmentMoel alloc] init];
             model.date  = dateStr;
             model.settings = settingStr;

@@ -90,7 +90,7 @@
     }];
     
     for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = (NSDictionary *)[array objectAtIndex:i];
+        NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
         HomeCaseListModel *model = [[HomeCaseListModel alloc] initWithDictionary:dict];
         [self.items addObject:model];
     }
@@ -107,7 +107,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.items.count > indexPath.row) {
-        HomeCaseListModel *model = (HomeCaseListModel *)[self.items objectAtIndex:indexPath.row];
+        HomeCaseListModel *model = (HomeCaseListModel *)[self.items safeObjectAtIndex:indexPath.row];
         return [HomeCaseSourceCell getCellHeightWithModel:model];
     }
     return 0;
@@ -123,7 +123,7 @@
     }
     
     if (self.items.count > indexPath.row) {
-        HomeCaseListModel *model = (HomeCaseListModel *)[self.items objectAtIndex:indexPath.row];
+        HomeCaseListModel *model = (HomeCaseListModel *)[self.items safeObjectAtIndex:indexPath.row];
         cell.model = model;
     }
     return cell;

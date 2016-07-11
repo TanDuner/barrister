@@ -142,7 +142,7 @@
     }];
     
     for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = [array objectAtIndex:i];
+        NSDictionary *dict = [array safeObjectAtIndex:i];
         BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:dict];
         [self.leftItems addObject:model];
     }
@@ -185,7 +185,7 @@
     }];
     
     for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = [array objectAtIndex:i];
+        NSDictionary *dict = [array safeObjectAtIndex:i];
         BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:dict];
         [self.rightItems addObject:model];
     }
@@ -208,12 +208,12 @@
         cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     if (tableView == _leftTableView) {
-        BarristerOrderModel *model =  (BarristerOrderModel *)[self.leftItems objectAtIndex:indexPath.row];
+        BarristerOrderModel *model =  (BarristerOrderModel *)[self.leftItems safeObjectAtIndex:indexPath.row];
         cell.model = model;
     }
     else
     {
-        BarristerOrderModel *model =  (BarristerOrderModel *)[self.rightItems objectAtIndex:indexPath.row];
+        BarristerOrderModel *model =  (BarristerOrderModel *)[self.rightItems safeObjectAtIndex:indexPath.row];
         cell.model = model;
     }
 
@@ -242,13 +242,13 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.isShowLeft) {
-        BarristerOrderModel *model = [self.leftItems objectAtIndex:indexPath.row];
+        BarristerOrderModel *model = [self.leftItems safeObjectAtIndex:indexPath.row];
         OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     else
     {
-        BarristerOrderModel *model = [self.rightItems objectAtIndex:indexPath.row];
+        BarristerOrderModel *model = [self.rightItems safeObjectAtIndex:indexPath.row];
         OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
         [self.navigationController pushViewController:detailVC animated:YES];
     }

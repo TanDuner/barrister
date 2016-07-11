@@ -53,7 +53,7 @@
     [self initNavigationRightTextButton:@"确定" action:@selector(confirmSelectAciton:)];
     
     for (int i = 0; i < self.areaArray.count;  i ++) {
-        BizAreaModel *model = [self.areaArray objectAtIndex:i];
+        BizAreaModel *model = [self.areaArray safeObjectAtIndex:i];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:model.desc forState:UIControlStateNormal];
         button.layer.cornerRadius = 2;
@@ -74,7 +74,7 @@
     
     
     for (int i = 0; i < self.typeArray.count;  i ++) {
-        BizTypeModel *typeModel = [self.typeArray objectAtIndex:i];
+        BizTypeModel *typeModel = [self.typeArray safeObjectAtIndex:i];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:typeModel.desc forState:UIControlStateNormal];
         button.layer.cornerRadius = 2;
@@ -110,7 +110,7 @@
 -(void)typeButtonClick:(UIButton *)button
 {
     if (self.typeArray.count > button.tag - 1000) {
-        BizTypeModel *model = (BizTypeModel *)[self.typeArray objectAtIndex:button.tag - 1000];
+        BizTypeModel *model = (BizTypeModel *)[self.typeArray safeObjectAtIndex:button.tag - 1000];
         model.isSelected = !model.isSelected;
         if (model.isSelected) {
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -131,7 +131,7 @@
 {
     
     if (self.areaArray.count > button.tag - 1) {
-        BizAreaModel *model = (BizAreaModel *)[self.areaArray objectAtIndex:button.tag - 1];
+        BizAreaModel *model = (BizAreaModel *)[self.areaArray safeObjectAtIndex:button.tag - 1];
         model.isSelected = !model.isSelected;
         if (model.isSelected) {
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -174,7 +174,7 @@
 -(void)handleCaseTypesWithArray:(NSArray *)array
 {
     for (int i = 0; i < array.count ; i ++) {
-        NSDictionary *dict = [array objectAtIndex:i];
+        NSDictionary *dict = [array safeObjectAtIndex:i];
         BizTypeModel *typeModel = [[BizTypeModel alloc] initWithDictionary:dict];
         [self.typeArray addObject:typeModel];
     }
@@ -184,7 +184,7 @@
 -(void)handleAreaTypesWithArray:(NSArray *)array
 {
     for (int i = 0; i < array.count ; i ++) {
-        NSDictionary *dict = [array objectAtIndex:i];
+        NSDictionary *dict = [array safeObjectAtIndex:i];
         BizAreaModel *typeModel = [[BizAreaModel alloc] initWithDictionary:dict];
         [self.areaArray addObject:typeModel];
     }
@@ -199,7 +199,7 @@
 {
     NSString *typeIdstr = @"";
     for (int i = 0; i < self.typeArray.count; i ++) {
-        BizTypeModel *modelTemp = (BizTypeModel *)[self.typeArray objectAtIndex:i];
+        BizTypeModel *modelTemp = (BizTypeModel *)[self.typeArray safeObjectAtIndex:i];
         if (modelTemp.isSelected) {
             typeIdstr = [NSString stringWithFormat:@"%@,%@",typeIdstr,modelTemp.typeId];
         }
@@ -208,7 +208,7 @@
     
     NSString *areaIdStr = @"";
     for (int i = 0; i < self.areaArray.count; i ++) {
-        BizAreaModel *modelTemp = (BizAreaModel *)[self.areaArray objectAtIndex:i];
+        BizAreaModel *modelTemp = (BizAreaModel *)[self.areaArray safeObjectAtIndex:i];
         if (modelTemp.isSelected) {
             areaIdStr = [NSString stringWithFormat:@"%@,%@",areaIdStr,modelTemp.areaId];
         }

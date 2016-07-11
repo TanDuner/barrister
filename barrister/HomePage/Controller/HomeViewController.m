@@ -118,7 +118,7 @@
     
     NSArray *array = (NSArray *)[params objectForKey:@"cases"];
     for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = (NSDictionary *)[array objectAtIndex:i];
+        NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
         HomeCaseListModel *model = [[HomeCaseListModel alloc] initWithDictionary:dict];
         [self.caseSourceItems addObject:model];
     }
@@ -194,7 +194,7 @@
     if ([XuUtlity isValidArray:array]) {
 
         for (int i = 0; i < array.count; i ++) {
-            NSDictionary *dict = [array objectAtIndex:i];
+            NSDictionary *dict = [array safeObjectAtIndex:i];
             BarristerOrderModel *model = [[BarristerOrderModel alloc] initWithDictionary:dict];
             [self.orderItems addObject:model];
         }
@@ -209,7 +209,7 @@
 {
     NSMutableArray *imageUrls = [NSMutableArray arrayWithCapacity:1];
     for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = [array objectAtIndex:i];
+        NSDictionary *dict = [array safeObjectAtIndex:i];
         HomeBannerModel *model = [[HomeBannerModel alloc] initWithDictionary:dict];
         [self.bannerItems addObject:model];
         [imageUrls addObject:model.image];
@@ -268,7 +268,7 @@
         }
         
         if (self.caseSourceItems.count > indexPath.row) {
-            HomeCaseListModel *model = [self.caseSourceItems objectAtIndex:indexPath.row];
+            HomeCaseListModel *model = [self.caseSourceItems safeObjectAtIndex:indexPath.row];
             cell.model = model;
             
         }
@@ -282,8 +282,12 @@
         if (!cell) {
             cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
         }
-        BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems objectAtIndex:indexPath.row];
-        cell.model = model;
+        if (self.orderItems.count > indexPath.row) {
+            BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems safeObjectAtIndex:indexPath.row];
+            cell.model = model;
+        }
+
+
         return cell;
     }
 }
@@ -296,7 +300,7 @@
     else if(indexPath.section == 1)
     {
         if (self.caseSourceItems.count > indexPath.row) {
-            HomeCaseListModel *model  = (HomeCaseListModel *)[self.caseSourceItems objectAtIndex:indexPath.row];
+            HomeCaseListModel *model  = (HomeCaseListModel *)[self.caseSourceItems safeObjectAtIndex:indexPath.row];
             return [HomeCaseSourceCell getCellHeightWithModel:model];
         }
         return 0;
@@ -318,7 +322,14 @@
     }
     else
     {
-        return self.daiBanHeadView;
+        if (self.orderItems.count > 0) {
+            return self.daiBanHeadView;
+        }
+        else
+        {
+            return [UIView new];
+        }
+
     }
 }
 
@@ -328,17 +339,39 @@
     if (section == 0) {
         return self.accountHeadView.height;
     }
+    else if(section == 1)
+    {
+        if (self.caseSourceItems.count > 0) {
+            return 55;
+        }
+        else
+        {
+            return 0;
+        }
+
+    }
+    else if (section == 2)
+    {
+        if (self.orderItems.count > 0) {
+            return 55;
+        }
+        else
+        {
+            return 0;
+        }
+    }
     else
     {
-        return 55;
+        return 0;
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 2) {
         if (self.orderItems.count > indexPath.row) {
-            BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems objectAtIndex:indexPath.row];
+            BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems safeObjectAtIndex:indexPath.row];
             OrderDetailViewController *detailVC = [[OrderDetailViewController alloc] initWithModel:model];
             [self.navigationController pushViewController:detailVC animated:YES];
         }
@@ -366,10 +399,10 @@
         __weak typeof(*&self) weakSelf = self;
         [_bannerView setImageViewDidTapAtIndex:^(NSInteger index) {
             if (weakSelf.bannerItems.count > index) {
-                HomeBannerModel *model = [weakSelf.bannerItems objectAtIndex:index];
+                HomeBannerModel *model = [weakSelf.bannerItems safeObjectAtIndex:index];
                 
                 BaseWebViewController *webView = [[BaseWebViewController alloc] init];
-                webView.title = model.title;
+                webView.showTitle = model.title;
                 webView.url = model.url;
                 
                 [weakSelf.navigationController pushViewController:webView animated:YES];

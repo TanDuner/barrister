@@ -115,38 +115,38 @@
         return;
     }
     
-    PersonCenterModel *nameModel = [self.items objectAtIndex:1];
+    PersonCenterModel *nameModel = [self.items safeObjectAtIndex:1];
     if (IS_EMPTY(nameModel.subtitleStr)) {
         [XuUItlity showFailedHint:@"请填入姓名" completionBlock:nil];
         return;
     }
 
-    PersonCenterModel *areaModel = [self.items objectAtIndex:3];
+    PersonCenterModel *areaModel = [self.items safeObjectAtIndex:3];
     if (IS_EMPTY(areaModel.subtitleStr)) {
         [XuUItlity showFailedHint:@"请选择地区" completionBlock:nil];
         return;
     }
  
-    PersonCenterModel *goodAtModel = [self.items objectAtIndex:5];
+    PersonCenterModel *goodAtModel = [self.items safeObjectAtIndex:5];
     if (IS_EMPTY(goodAtModel.subtitleStr)) {
         [XuUItlity showFailedHint:@"请填写擅长领域" completionBlock:nil];
         return;
     }
     
    
-    PersonCenterModel *companyModel = [self.items objectAtIndex:6];
+    PersonCenterModel *companyModel = [self.items safeObjectAtIndex:6];
     if (IS_EMPTY(companyModel.subtitleStr)) {
         [XuUItlity showFailedHint:@"请填写律所" completionBlock:nil];
         return;
     }
 
-    PersonCenterModel *zizhiModel = [self.items objectAtIndex:7];
+    PersonCenterModel *zizhiModel = [self.items safeObjectAtIndex:7];
     if (IS_EMPTY(zizhiModel.subtitleStr)) {
         [XuUItlity showFailedHint:@"请上传资质材料" completionBlock:nil];
         return;
     }
     
-    PersonCenterModel *workyearsModel = [self.items objectAtIndex:8];
+    PersonCenterModel *workyearsModel = [self.items safeObjectAtIndex:8];
     if (IS_NOT_EMPTY(workyearsModel.subtitleStr)) {
         if (![workyearsModel.subtitleStr isEqualToString:@"未填写"]) {
             [XuUItlity showFailedHint:@"请选择工作时间" completionBlock:nil];
@@ -176,35 +176,35 @@
     [aParams setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
     [aParams setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
 
-    PersonCenterModel *nameModel = [self.items objectAtIndex:1];
+    PersonCenterModel *nameModel = [self.items safeObjectAtIndex:1];
     if (IS_NOT_EMPTY(nameModel.subtitleStr)) {
         if (![nameModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:nameModel.subtitleStr forKey:@"name"];
         }
     }
     
-    PersonCenterModel *phoneModel = [self.items objectAtIndex:2];
+    PersonCenterModel *phoneModel = [self.items safeObjectAtIndex:2];
     if (IS_NOT_EMPTY(phoneModel.subtitleStr)) {
         if (![phoneModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:phoneModel.subtitleStr forKey:@"phone"];
         }
     }
   
-    PersonCenterModel *emailModel = [self.items objectAtIndex:3];
+    PersonCenterModel *emailModel = [self.items safeObjectAtIndex:3];
     if (IS_NOT_EMPTY(emailModel.subtitleStr)) {
         if (![emailModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:emailModel.subtitleStr forKey:@"email"];
         }
     }
     
-    PersonCenterModel *areaModel = [self.items objectAtIndex:4];
+    PersonCenterModel *areaModel = [self.items safeObjectAtIndex:4];
     if (IS_NOT_EMPTY(areaModel.subtitleStr)) {
         if (![areaModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:areaModel.subtitleStr forKey:@"area"];
         }
     }
     
-    PersonCenterModel *goodAtModel = [self.items objectAtIndex:5];
+    PersonCenterModel *goodAtModel = [self.items safeObjectAtIndex:5];
   
     if (goodAtModel.bizTypeIdStr.length > 0) {
         [aParams setObject:goodAtModel.bizTypeIdStr forKey:@"bizType"];
@@ -215,7 +215,7 @@
     }
     
     
-    PersonCenterModel *companyModel = [self.items objectAtIndex:6];
+    PersonCenterModel *companyModel = [self.items safeObjectAtIndex:6];
     if (IS_NOT_EMPTY(companyModel.subtitleStr)) {
         if (![companyModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:companyModel.subtitleStr forKey:@"lawOffice"];
@@ -223,14 +223,14 @@
     }
     
     
-    PersonCenterModel *workyearsModel = [self.items objectAtIndex:8];
+    PersonCenterModel *workyearsModel = [self.items safeObjectAtIndex:8];
     if (IS_NOT_EMPTY(workyearsModel.subtitleStr)) {
         if (![workyearsModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:workyearsModel.subtitleStr forKey:@"employmentYears"];
         }
     }
     
-    PersonCenterModel *intruduceModel = [self.items objectAtIndex:9];
+    PersonCenterModel *intruduceModel = [self.items safeObjectAtIndex:9];
     if (IS_NOT_EMPTY(intruduceModel.subtitleStr)) {
         if (![intruduceModel.subtitleStr isEqualToString:@"未填写"]) {
             [aParams setObject:intruduceModel.subtitleStr forKey:@"introduction"];
@@ -278,7 +278,7 @@
     NSArray *titleArray = @[@"头像",@"姓名",@"手机",@"邮箱",@"地区",@"擅长",@"律所",@"资质上传",@"工作年限",@"个人简介"];
     for (int i = 0; i < titleArray.count; i ++) {
         PersonCenterModel *model = [[PersonCenterModel alloc] init];
-        model.titleStr = [titleArray objectAtIndex:i];
+        model.titleStr = [titleArray safeObjectAtIndex:i];
      
         switch (i) {
             case 0:
@@ -363,7 +363,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:indexPath.row];
+    PersonCenterModel *model = (PersonCenterModel *)[self.items safeObjectAtIndex:indexPath.row];
     
     return [PersonInfoCustomCell getCellHeightWithModel:model];
 }
@@ -371,7 +371,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonInfoCustomCell *cell = [[PersonInfoCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    PersonCenterModel *modelTemp = (PersonCenterModel *)[self.items objectAtIndex:indexPath.row];
+    PersonCenterModel *modelTemp = (PersonCenterModel *)[self.items safeObjectAtIndex:indexPath.row];
     cell.model = modelTemp;
     return cell;
 }
@@ -383,7 +383,7 @@
         return;
     }
     
-    PersonCenterModel *modelTemp = [self.items objectAtIndex:indexPath.row];
+    PersonCenterModel *modelTemp = [self.items safeObjectAtIndex:indexPath.row];
     switch (indexPath.row) {
         case 0:
         {
@@ -556,7 +556,7 @@
     [self.proxy UploadHeadImageUrlWithImage:self.headImage params:params fileName:@"userIcon" Block:^(id returnData, BOOL success) {
         if (success) {
             [XuUItlity showSucceedHint:@"上传成功" completionBlock:nil];
-            PersonCenterModel *model = (PersonCenterModel *)[self.items objectAtIndex:0];
+            PersonCenterModel *model = (PersonCenterModel *)[self.items safeObjectAtIndex:0];
             model.headImage = self.headImage;
             [self.tableView reloadData];
 
@@ -587,7 +587,7 @@
         {
             if (model.year && model.moth && model.day) {
                 if (weakSelf.items.count > 8) {
-                PersonCenterModel *cellModel = (PersonCenterModel *)[weakSelf.items objectAtIndex:8];
+                PersonCenterModel *cellModel = (PersonCenterModel *)[weakSelf.items safeObjectAtIndex:8];
                     if (cellModel.cellType == PersonCenterModelTypeInfoGZNX) {
                         cellModel.subtitleStr = [NSString stringWithFormat:@"%@-%@-%@",model.year,model.moth,model.day];
                     }

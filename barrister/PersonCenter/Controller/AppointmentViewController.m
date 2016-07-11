@@ -94,12 +94,12 @@
 -(void)handleAppointmentDataWithArray:(NSArray *)array
 {
     for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = (NSDictionary *)[array objectAtIndex:i];
+        NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
         
         AppointmentMoel *model = [[AppointmentMoel alloc] initWithDictionary:dict];
         
         for (int j = 0; j < [AppointmentManager shareInstance].modelArray.count; j ++) {
-            AppointmentMoel *modelTemp = [[AppointmentManager shareInstance].modelArray objectAtIndex:j];
+            AppointmentMoel *modelTemp = [[AppointmentManager shareInstance].modelArray safeObjectAtIndex:j];
             if ([modelTemp.date isEqualToString:model.date]) {
                 [[AppointmentManager shareInstance].modelArray replaceObjectAtIndex:j withObject:model];
             }
@@ -126,7 +126,7 @@
     
     for (int i = 0; i < [AppointmentManager shareInstance].modelArray.count; i ++) {
         
-        AppointmentMoel *modelTemp = (AppointmentMoel *)[[AppointmentManager shareInstance].modelArray objectAtIndex:i];
+        AppointmentMoel *modelTemp = (AppointmentMoel *)[[AppointmentManager shareInstance].modelArray safeObjectAtIndex:i];
         AppointContentViewController *contentVC = [[AppointContentViewController alloc] init];
         contentVC.model = modelTemp;
         [titleArray addObject:modelTemp.date];
@@ -179,7 +179,7 @@
     NSMutableArray *array = [NSMutableArray array];
     
     for ( int i = 0; i < [AppointmentManager shareInstance].modelArray.count; i ++) {
-        AppointmentMoel *model = (AppointmentMoel *)[[AppointmentManager shareInstance].modelArray objectAtIndex:i];
+        AppointmentMoel *model = (AppointmentMoel *)[[AppointmentManager shareInstance].modelArray safeObjectAtIndex:i];
         
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:model.date,@"date",model.settings,@"value", nil];
         
