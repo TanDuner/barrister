@@ -63,27 +63,33 @@
 
 -(void)handleLearnListDataWithArray:(NSArray *)array
 {
-    if (array.count == 0) {
-        [self showNoContentView];
-    }
-    else
-    {
-        [self hideNoContentView];
-    }
+    __weak typeof(*&self) weakSelf = self;
+    [self handleTableRefreshOrLoadMoreWithTableView:self.tableView array:array aBlock:^{
+        [weakSelf.items removeAllObjects];
+    }];
     
-    if (self.tableView.pageNum == 1 ) {
-        [self.tableView endRefreshing];
-        [self.items removeAllObjects];
-        
-    }else{
-        if (array.count < self.tableView.pageSize) {
-            [self.tableView endLoadMoreWithNoMoreData:YES];
-        }
-        else
-        {
-            [self.tableView endLoadMoreWithNoMoreData:NO];
-        }
-    }
+    
+//    if (array.count == 0) {
+//        [self showNoContentView];
+//    }
+//    else
+//    {
+//        [self hideNoContentView];
+//    }
+//    
+//    if (self.tableView.pageNum == 1 ) {
+//        [self.tableView endRefreshing];
+//        [self.items removeAllObjects];
+//        
+//    }else{
+//        if (array.count < self.tableView.pageSize) {
+//            [self.tableView endLoadMoreWithNoMoreData:YES];
+//        }
+//        else
+//        {
+//            [self.tableView endLoadMoreWithNoMoreData:NO];
+//        }
+//    }
     
     for (int i = 0; i < array.count; i ++) {
         NSDictionary *dict = [array safeObjectAtIndex:i];

@@ -470,6 +470,7 @@
                 aBlock();
             }
             [tableView endRefreshing];
+            [tableView endLoadMoreWithNoMoreData:YES];
             [self showNoContentView];
         }
         else

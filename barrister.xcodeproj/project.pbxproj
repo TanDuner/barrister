@@ -165,6 +165,7 @@
 		955AA44E1CF3EE4E00A47121 /* common_icon_warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955AA4481CF3EE4E00A47121 /* common_icon_warning@3x.png */; };
 		955AA4521CF3EEC000A47121 /* XuPointLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 955AA4511CF3EEC000A47121 /* XuPointLoadingView.m */; };
 		958493441D33494800F827A2 /* UIControl+JobCustomControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 958493431D33494800F827A2 /* UIControl+JobCustomControl.m */; };
+		9584934E1D348D6500F827A2 /* UIImage+CommonAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584934D1D348D6500F827A2 /* UIImage+CommonAdd.m */; };
 		958EEBBC1D2786A800D4CF4C /* LawerXiaoJieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBBB1D2786A800D4CF4C /* LawerXiaoJieViewController.m */; };
 		958EEBFD1D28B88800D4CF4C /* CallHistoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBFC1D28B88800D4CF4C /* CallHistoriesModel.m */; };
 		958EEC001D28C38D00D4CF4C /* OrderDetailCancelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 958EEBFF1D28C38D00D4CF4C /* OrderDetailCancelCell.m */; };
@@ -613,6 +614,8 @@
 		955AA4511CF3EEC000A47121 /* XuPointLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuPointLoadingView.m; sourceTree = "<group>"; };
 		958493421D33494800F827A2 /* UIControl+JobCustomControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+JobCustomControl.h"; sourceTree = "<group>"; };
 		958493431D33494800F827A2 /* UIControl+JobCustomControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+JobCustomControl.m"; sourceTree = "<group>"; };
+		9584934C1D348D6500F827A2 /* UIImage+CommonAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CommonAdd.h"; sourceTree = "<group>"; };
+		9584934D1D348D6500F827A2 /* UIImage+CommonAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CommonAdd.m"; sourceTree = "<group>"; };
 		958EEBBA1D2786A800D4CF4C /* LawerXiaoJieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawerXiaoJieViewController.h; sourceTree = "<group>"; };
 		958EEBBB1D2786A800D4CF4C /* LawerXiaoJieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawerXiaoJieViewController.m; sourceTree = "<group>"; };
 		958EEBFB1D28B88800D4CF4C /* CallHistoriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallHistoriesModel.h; sourceTree = "<group>"; };
@@ -1425,6 +1428,8 @@
 				954130141CA003B500D26B11 /* UIImage+Additions.m */,
 				954130151CA003B500D26B11 /* UIImage+Cache.h */,
 				954130161CA003B500D26B11 /* UIImage+Cache.m */,
+				9584934C1D348D6500F827A2 /* UIImage+CommonAdd.h */,
+				9584934D1D348D6500F827A2 /* UIImage+CommonAdd.m */,
 				954130171CA003B500D26B11 /* UIImage+CompressImage.h */,
 				954130181CA003B500D26B11 /* UIImage+CompressImage.m */,
 				954130191CA003B500D26B11 /* UIImage+CreateImage.h */,
@@ -2604,6 +2609,7 @@
 				95B425BB1CFD2C5D002EB36D /* BaseNoDataView.m in Sources */,
 				95BEDDA11D24C1E100292895 /* AppointmentMoel.m in Sources */,
 				954130091C9FDB4A00D26B11 /* BaseTabbarController.m in Sources */,
+				9584934E1D348D6500F827A2 /* UIImage+CommonAdd.m in Sources */,
 				95F534071CBCD758000C7E91 /* MJRefreshGifHeader.m in Sources */,
 				95412A121D06674800C6624F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				95F534031CBCD758000C7E91 /* MJRefreshBackNormalFooter.m in Sources */,
