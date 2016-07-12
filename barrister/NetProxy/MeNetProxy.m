@@ -83,7 +83,10 @@
                           fileName:(NSString *)fileName
                              Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking uploadWithImage:image url:UploadHeadImageUrl filename:@"userIcon" name:@"userIcon" mimeType:@"image/jpeg" parameters:params progress:nil success:^(id response) {
+    NSData *imageData = [XuUtlity p_compressImage:image];
+
+    UIImage *imageTemp = [[UIImage alloc] initWithData:imageData];
+    [XuNetWorking uploadWithImage:imageData url:UploadHeadImageUrl filename:@"userIcon" name:@"userIcon" mimeType:@"image/jpeg" parameters:params progress:nil success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }

@@ -265,8 +265,7 @@ static XuRequestType  sg_requestType  = kXuRequestTypeJSON;
     
     AFHTTPSessionManager *manager = [self manager];
     XuURLSessionTask *session = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        NSData *imageData = UIImageJPEGRepresentation(image, 1);
-        NSData *imageData = [XuUtlity p_compressImage:image];
+        NSData *imageData = UIImageJPEGRepresentation(image, 1);
 
         NSString *imageFileName = filename;
         if (filename == nil || ![filename isKindOfClass:[NSString class]] || filename.length == 0) {
