@@ -332,7 +332,14 @@
             case 7:
             {
                 model.cellType = PersonCenterModelTypeInfoZZSC;
-                model.subtitleStr = @"";
+                if ([[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_SUCCESS]||[[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_VERIFYING]) {
+                    model.subtitleStr = @"已上传";
+                }
+                else
+                {
+                    model.subtitleStr = @"";
+                }
+                
             }
                 break;
                 case 8:
@@ -427,6 +434,7 @@
         case 7:
         {
             UploadQualificationViewController *uploadVC = [[UploadQualificationViewController alloc] init];
+            uploadVC.model = modelTemp;
             [self.navigationController pushViewController:uploadVC animated:YES];
         }
             break;

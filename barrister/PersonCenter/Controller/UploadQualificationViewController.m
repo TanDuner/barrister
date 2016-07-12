@@ -264,7 +264,10 @@
 
     for (int i = 0; i < self.items.count; i ++) {
         UploadQualificaitonModel *model = [self.items safeObjectAtIndex:i];
-        [self uploadImageItem:model];
+        if (model.uploadImage) {
+            [self uploadImageItem:model];            
+        }
+
         
     }
 
