@@ -63,6 +63,12 @@
         _backGroundPushMsg = userInfo;
         [self dispatchPushMsgByActive];
     }else if([UIApplication sharedApplication].applicationState == UIApplicationStateActive){
+        NSString *content = [userInfo objectForKey:@"content"];
+        __weak typeof(*&self) weakSelf = self;
+        
+        [XuUItlity showOkAlertView:@"确定" title:@"提示" mesage:content callback:^(NSInteger buttonIndex, NSString *inputString) {
+            [weakSelf receivePushMsg: userInfo withType:[userInfo objectForKey:@"type"]];
+        }];
         
     }else{
         NSLog(@"drop active push msgs:%@",userInfo);
