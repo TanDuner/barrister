@@ -37,21 +37,19 @@
     
 }
 
-//-(void)arrayToSettingStr:(NSMutableArray *)settingAry
-//{
-//    
-//    NSMutableString *str;
-//    str replaceCharactersInRange:<#(NSRange)#> withString:<#(nonnull NSString *)#>
-//    
-//    
-//    NSString *settingString = @"";
-//    for (int i = 0; i < settingAry.count; i ++) {
-//        NSString *str = [settingAry objectAtIndex:i];
-//        settingString  = [NSString stringWithFormat:@"%@,%@",settingString,str];
-//    }
-//    if ([settingString hasSuffix:@","]) {
-//        settingString = [settingString substringToIndex:settingString.length - 1];
-//    }
-//    self.settings = settingString;
-//}
+-(NSString *)arrayToSettingStr:(NSMutableArray *)settingAry
+{
+    
+    NSString *settingString = @"";
+    for (int i = 0; i < settingAry.count; i ++) {
+        NSString *str = [settingAry objectAtIndex:i];
+        settingString  = [NSString stringWithFormat:@"%@,%@",settingString,str];
+    }
+    if ([settingString hasPrefix:@","]) {
+        settingString = [settingString substringFromIndex:1];
+    }
+
+    return settingString;
+    
+}
 @end

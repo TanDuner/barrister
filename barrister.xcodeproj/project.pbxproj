@@ -290,6 +290,8 @@
 		95CA1BB81D0F7E8D00AAE490 /* MyMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BB71D0F7E8D00AAE490 /* MyMessageModel.m */; };
 		95CA1BBB1D0F800100AAE490 /* MyMessgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BBA1D0F800100AAE490 /* MyMessgeCell.m */; };
 		95CA1BC41D10C5F000AAE490 /* LearnCenterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */; };
+		95EBAB3C1D36919C0041A647 /* XWMoneyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB391D36919C0041A647 /* XWMoneyTextField.m */; };
+		95EBAB3D1D36919C0041A647 /* XWMoneyTextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */; };
 		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
 		95F533A51CBB4A49000C7E91 /* renzheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A41CBB4A49000C7E91 /* renzheng.png */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -813,6 +815,10 @@
 		95CA1BBA1D0F800100AAE490 /* MyMessgeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessgeCell.m; sourceTree = "<group>"; };
 		95CA1BC21D10C5F000AAE490 /* LearnCenterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterProxy.h; sourceTree = "<group>"; };
 		95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterProxy.m; sourceTree = "<group>"; };
+		95EBAB381D36919C0041A647 /* XWMoneyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextField.h; sourceTree = "<group>"; };
+		95EBAB391D36919C0041A647 /* XWMoneyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMoneyTextField.m; sourceTree = "<group>"; };
+		95EBAB3A1D36919C0041A647 /* XWMoneyTextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextFieldLimit.h; sourceTree = "<group>"; };
+		95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMoneyTextFieldLimit.m; sourceTree = "<group>"; };
 		95F533A21CBB4690000C7E91 /* xiaoxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoxi.png; sourceTree = "<group>"; };
 		95F533A41CBB4A49000C7E91 /* renzheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renzheng.png; sourceTree = "<group>"; };
 		95F533A61CBB53FB000C7E91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -1348,6 +1354,7 @@
 		95412FEB1C9FD0F700D26B11 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				95EBAB371D36919C0041A647 /* MonenyTextField */,
 				95B425B81CFD2C51002EB36D /* BaseNoDataView */,
 				955AA44F1CF3EEA100A47121 /* PointLoadingView */,
 				955AA43F1CF3ECEA00A47121 /* XuAlertView */,
@@ -2127,6 +2134,17 @@
 			path = OpenUDID;
 			sourceTree = "<group>";
 		};
+		95EBAB371D36919C0041A647 /* MonenyTextField */ = {
+			isa = PBXGroup;
+			children = (
+				95EBAB381D36919C0041A647 /* XWMoneyTextField.h */,
+				95EBAB391D36919C0041A647 /* XWMoneyTextField.m */,
+				95EBAB3A1D36919C0041A647 /* XWMoneyTextFieldLimit.h */,
+				95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */,
+			);
+			path = MonenyTextField;
+			sourceTree = "<group>";
+		};
 		95F533C81CBCD454000C7E91 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -2584,6 +2602,7 @@
 				95CA1BA01D0E250A00AAE490 /* UploadQualificationViewController.m in Sources */,
 				9520BFBE1CAA721A00961F05 /* YYFrameImage.m in Sources */,
 				95412A161D07BD6200C6624F /* ModifyInfoViewController.m in Sources */,
+				95EBAB3C1D36919C0041A647 /* XWMoneyTextField.m in Sources */,
 				95B425AC1CFC8559002EB36D /* AccountProxy.m in Sources */,
 				955A7B1D1D1F712000D1DEAC /* BarristerLoginManager.m in Sources */,
 				95412FFB1C9FD3EF00D26B11 /* BaseDataSingleton.m in Sources */,
@@ -2649,6 +2668,7 @@
 				9529CD191D323C120067597A /* CaseSourceViewController.m in Sources */,
 				95C0EAE61CB4A781004F9DAD /* BarristerOrderModel.m in Sources */,
 				9597B0C31CA0F94100FF65D9 /* BaseModel.m in Sources */,
+				95EBAB3D1D36919C0041A647 /* XWMoneyTextFieldLimit.m in Sources */,
 				95B078711CE9D3E100D8A220 /* NinaBaseView.m in Sources */,
 				9520BFC41CAA721A00961F05 /* YYWebImageOperation.m in Sources */,
 				9597B0771CA0EBB100FF65D9 /* BadgeNumberView.m in Sources */,

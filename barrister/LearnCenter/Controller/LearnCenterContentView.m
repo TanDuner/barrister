@@ -33,6 +33,7 @@
 }
 
 
+
 #pragma -mark ----Data-----
 
 -(void)loadItems
@@ -162,11 +163,15 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.items.count > indexPath.row) {
+        
         LearnCenterModel *model = (LearnCenterModel *)[self.items safeObjectAtIndex:indexPath.row];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.url]];
+        
+        if (self.cellBlock) {
+            self.cellBlock(model);
+        }
+        
     }
 }
-
 #pragma -mark --Getter--
 
 -(LearnCenterProxy *)proxy

@@ -178,11 +178,19 @@
     if (!_playSlide) {
         _playSlide = [[HUMSlider alloc] initWithFrame:RECT(60, 5, progressViewWidth, 30)];
         _playSlide.hidden = YES;
+        [_playSlide addTarget:self action:@selector(changeSlideValueAciton:) forControlEvents:UIControlEventValueChanged];
         _playSlide.tintColor = kNavigationBarColor;
     }
     return _playSlide;
 }
 
+-(void)changeSlideValueAciton:(HUMSlider *)slider
+{
+    NSTimeInterval time = self.model.duration.floatValue *slider.value;
+    
+    [[VolumePlayHelper PlayerHelper].audioPlayer setCurrentTime:time];
+    
+}
 
 //state 0  未下载 state 1 下载中  state 2  已下载  3 正在播放
 
@@ -238,6 +246,8 @@
     {
         self.playSlide.hidden = NO;
         self.playSlide.value = 0;
+        [self.playBtn removeTarget:self action:@selector(stopAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.playBtn addTarget:self action:@selector(downloadAciton:) forControlEvents:UIControlEventTouchUpInside];
         [_playBtn setImage:[UIImage imageNamed:@"orderdetail_play"] forState:UIControlStateNormal];
         [[VolumePlayHelper PlayerHelper] audioPlayerStop];
         if (_timer) {

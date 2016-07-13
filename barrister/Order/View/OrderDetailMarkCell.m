@@ -55,7 +55,7 @@
     [self.customMarkContentLabel setFrame:RECT(CGRectGetMaxX(self.customMarkTipLabel.frame) + 5, 8, SCREENWIDTH - 90, self.model.markHeight)];
 
     [self.lawyerMarkTipLabel setFrame:RECT(LeftPadding, CGRectGetMaxY(self.customMarkContentLabel.frame) + LeftPadding, TipLabelWidth, 13)];
-    [self.lawyerMarkContentLabel setFrame:RECT(CGRectGetMaxX(self.lawyerMarkTipLabel.frame) + 5, CGRectGetMaxY(self.customMarkContentLabel.frame) + 8, SCREENWIDTH - 90, self.model.markHeight)];
+    [self.lawyerMarkContentLabel setFrame:RECT(CGRectGetMaxX(self.lawyerMarkTipLabel.frame) + 5, CGRectGetMaxY(self.customMarkContentLabel.frame) + 8, SCREENWIDTH - 90, self.model.lawyerFeedBackHeight)];
     
     self.customMarkContentLabel.text = self.model.remarks?self.model.remarks:@"无";
     self.lawyerMarkContentLabel.text = self.model.lawFeedback?self.model.lawFeedback:@"无";

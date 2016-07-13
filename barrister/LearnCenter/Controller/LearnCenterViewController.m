@@ -13,7 +13,7 @@
 #import "LearnCenterChannelModel.h"
 #import "LearnCenterContentView.h"
 #import "NinaPagerView.h"
-
+#import "BaseWebViewController.h"
 
 @interface LearnCenterViewController ()
 
@@ -36,6 +36,15 @@
     [self configData];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.chanelItems.count == 0) {
+        [self configData];
+    }
+    [self showTabbar:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +61,12 @@
         if (self.chanelItems.count > i) {
             LearnCenterChannelModel *model =(LearnCenterChannelModel *)[self.chanelItems safeObjectAtIndex:i];
             LearnCenterContentView *contentVC = [[LearnCenterContentView alloc] init];
+            __weak typeof(*&self) weakSelf = self;
+            contentVC.cellBlock = ^(LearnCenterModel *model)
+            {
+                [weakSelf toLearnWebViewWithModel:model];
+            };
+
             contentVC.chanelId = model.channelId;
             [vcArray addObject:contentVC];
         }
@@ -69,6 +84,14 @@
 
 }
 
+-(void)toLearnWebViewWithModel:(LearnCenterModel *)model
+{
+    BaseWebViewController *baseWebViewController = [[BaseWebViewController alloc] init];
+    baseWebViewController.url = model.url;
+    baseWebViewController.showTitle = model.title;
+    [self.navigationController pushViewController:baseWebViewController animated:YES];
+    
+}
 
 
 #pragma -mark -----Data-----

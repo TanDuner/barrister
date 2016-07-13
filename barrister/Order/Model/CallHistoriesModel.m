@@ -72,17 +72,17 @@
     
     NSURL * downloadUrl = [NSURL URLWithString:self.recordUrl];
     
-    if (self.resumeData != nil) {
-        self.task = [self.session downloadTaskWithResumeData:self.resumeData];
-        [self.task resume];
-        self.resumeData = nil;
-
-    }
-    else
-    {
+//    if (self.resumeData != nil) {
+//        self.task = [self.session downloadTaskWithResumeData:self.resumeData];
+//        [self.task resume];
+//        self.resumeData = nil;
+//
+//    }
+//    else
+//    {
         self.task = [self.session downloadTaskWithURL:downloadUrl];
         [self.task resume];
-    }
+//    }
 }
 
 

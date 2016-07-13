@@ -69,4 +69,6 @@ typedef NS_ENUM(NSInteger, BarristerOrderState)
 
 @property (nonatomic,strong) NSString *talkTime;//通话时长
 
+@property (nonatomic,strong) NSString *status;//订单状态
+
 @end

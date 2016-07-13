@@ -31,7 +31,7 @@
  *  类型Label
  */
 
-@property (nonatomic,strong) UILabel *typeLabel;
+@property (nonatomic,strong) UILabel *stateLabel;
 
 @end
 
@@ -43,7 +43,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.headerImageView];
         [self addSubview:self.nameLabel];
-        [self addSubview:self.typeLabel];
+        [self addSubview:self.stateLabel];
         [self addSubview:self.timeLabel];
     }
     return self;
@@ -55,7 +55,7 @@
     [super layoutSubviews];
     [self.headerImageView setFrame:RECT(LeftPadding, LeftPadding + 5, 45, 45)];
     [self.nameLabel setFrame:RECT(self.headerImageView.x + self.headerImageView.width + 10, self.headerImageView.y, 150, 15)];
-    [self.typeLabel setFrame:CGRectMake(SCREENWIDTH - 160, LeftPadding + 5, 150, 15)];
+    [self.stateLabel setFrame:CGRectMake(SCREENWIDTH - 160, LeftPadding + 5, 150, 15)];
     [self.timeLabel setFrame:CGRectMake(self.nameLabel.x, self.nameLabel.y + self.nameLabel.height + 10, 260, 15)];
 }
 
@@ -67,7 +67,7 @@
     if (self.model) {
         [self.headerImageView yy_setImageWithURL:[NSURL URLWithString:self.model.userIcon] placeholder:[UIImage imageNamed:@"timeline_image_loading"]];
         self.nameLabel.text = self.model.nickname;
-        if ([self.model.type isEqualToString:@"APPOINTMENT"]) {
+        if ([self.model.type isEqualToString:APPOINTMENT]) {
             self.timeLabel.text = [NSString stringWithFormat:@"%@~%@",self.model.startTime,self.model.endTime];
 
         }
@@ -75,7 +75,41 @@
         {
             self.timeLabel.text = [NSString stringWithFormat:@"%@",self.model.date];
         }
-        self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType?self.model.caseType:@"无"];
+//        self.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.model.caseType?self.model.caseType:@"无"];
+        
+        if ([self.model.status isEqualToString:STATUS_CANCELED]) {
+            self.stateLabel.text = @"已取消";
+            self.stateLabel.textColor = [UIColor colorWithString:@"#848284" colorAlpha:1];
+        }
+        else if ([self.model.status isEqualToString:STATUS_DOING])
+        {
+            self.stateLabel.text = @"进行中";
+            self.stateLabel.textColor = [UIColor colorWithString:@"#45cd87" colorAlpha:1];
+            
+        }
+        else if([self.model.status isEqualToString:STATUS_DONE])
+        {
+            self.stateLabel.text = @"已完成";
+            self.stateLabel.textColor = [UIColor colorWithString:@"#59E1FA" colorAlpha:1];
+            
+        }
+        else if ([self.model.status isEqualToString:STATUS_WAITING])
+        {
+            self.stateLabel.text = @"待处理";
+            self.stateLabel.textColor = [UIColor colorWithString:@"#F8C82E" colorAlpha:1];
+            
+        }
+        else if ([self.model.startTime isEqualToString:STATUS_REFUND])
+        {
+            self.stateLabel.text = @"退款中";
+            self.stateLabel.textColor = [UIColor colorWithString:@"#a9f82e" colorAlpha:1];
+        }
+        else if ([self.model.status isEqualToString:STATUS_REQUESTCANCEL])
+        {
+            self.stateLabel.text = @"申请取消中";
+            self.stateLabel.textColor = [UIColor colorWithString:@"#ff4444" colorAlpha:1];
+        }
+
     }
 }
 
@@ -128,15 +162,15 @@
     return _timeLabel;
 }
 
--(UILabel *)typeLabel
+-(UILabel *)stateLabel
 {
-    if (!_typeLabel) {
-        _typeLabel = [[UILabel alloc] init];
-        _typeLabel.textColor = KColorGray999;
-        _typeLabel.font = SystemFont(13.0f);
-        _typeLabel.textAlignment = NSTextAlignmentRight;
+    if (!_stateLabel) {
+        _stateLabel = [[UILabel alloc] init];
+        _stateLabel.textColor = KColorGray999;
+        _stateLabel.font = SystemFont(13.0f);
+        _stateLabel.textAlignment = NSTextAlignmentRight;
     }
-    return _typeLabel;
+    return _stateLabel;
 }
 
 

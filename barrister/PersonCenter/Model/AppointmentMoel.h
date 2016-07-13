@@ -18,4 +18,14 @@
 
 -(void)replaceStringWithArrayIndex:(NSInteger)index withStatus:(NSString *)status;
 
+
+/**
+ *  选择全部的时候 重新设置setting字符串
+ *
+ *  @param settingAry
+ *
+ *  @return
+ */
+-(NSString *)arrayToSettingStr:(NSMutableArray *)settingAry;
+
 @end
