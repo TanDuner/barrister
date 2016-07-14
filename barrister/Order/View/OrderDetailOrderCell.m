@@ -75,24 +75,37 @@
     self.orderPriceLabel.text = [NSString stringWithFormat:@"订单金额：%@",self.model.paymentAmount?self.model.paymentAmount:@""];
 //    self.markLabel.text = [NSString stringWithFormat:@"备注：%@",self.model.remarks?self.model.remarks:@"无"];
     
-    if ([self.model.status isEqualToString:STATUS_WAITING]) {
-        self.stateLabel.text = @"待处理";
-    }
-    else if ([self.model.status  isEqualToString:STATUS_DONE])
-    {
-        self.stateLabel.text = @"已完成";
-    }
-    else if ([self.model.status isEqualToString:STATUS_REFUND])
-    {
-        self.stateLabel.text = @"退款中";
+    if ([self.model.status isEqualToString:STATUS_CANCELED]) {
+        self.stateLabel.text = @"已取消";
+        self.stateLabel.textColor = [UIColor colorWithString:@"#848284" colorAlpha:1];
     }
     else if ([self.model.status isEqualToString:STATUS_DOING])
     {
         self.stateLabel.text = @"进行中";
+        self.stateLabel.textColor = [UIColor colorWithString:@"#45cd87" colorAlpha:1];
+        
     }
-    else if ([self.model.status isEqualToString:STATUS_CANCELED])
+    else if([self.model.status isEqualToString:STATUS_DONE])
     {
-        self.stateLabel.text = @"已取消";
+        self.stateLabel.text = @"已完成";
+        self.stateLabel.textColor = [UIColor colorWithString:@"#59E1FA" colorAlpha:1];
+        
+    }
+    else if ([self.model.status isEqualToString:STATUS_WAITING])
+    {
+        self.stateLabel.text = @"待处理";
+        self.stateLabel.textColor = [UIColor colorWithString:@"#F8C82E" colorAlpha:1];
+        
+    }
+    else if ([self.model.startTime isEqualToString:STATUS_REFUND])
+    {
+        self.stateLabel.text = @"退款中";
+        self.stateLabel.textColor = [UIColor colorWithString:@"#a9f82e" colorAlpha:1];
+    }
+    else if ([self.model.status isEqualToString:STATUS_REQUESTCANCEL])
+    {
+        self.stateLabel.text = @"申请取消中";
+        self.stateLabel.textColor = [UIColor colorWithString:@"#ff4444" colorAlpha:1];
     }
     
 }

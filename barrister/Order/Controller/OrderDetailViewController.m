@@ -226,7 +226,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
             {
                 [weakSelf.proxy agreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
                     if (success) {
-                        [XuUItlity showSucceedHint:@"操作成功 请总结订单" completionBlock:nil];
+                        [XuUItlity showSucceedHint:@"操作成功" completionBlock:nil];
                     }
                     else
                     {
@@ -282,7 +282,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
         {
             [weakSelf.proxy finishOrderWithParams:params Block:^(id returnData, BOOL success) {
                 if (success) {
-                    [XuUItlity showSucceedHint:@"操作成功" completionBlock:nil];
+                    [XuUItlity showSucceedHint:@"操作成功，请及时对此订单做出总结" completionBlock:nil];
                 }
                 else
                 {
