@@ -41,29 +41,23 @@
     
     
     if ([self.model.type isEqualToString:TYPE_ORDER]) {
-        self.typeLabel.text = @"订单消费";
-        self.handleLabel.text = [NSString stringWithFormat:@"-%@",self.model.money];
+        self.typeLabel.text = @"订单收入";
+        self.handleLabel.text = [NSString stringWithFormat:@"+%@",self.model.money];
     }
     else if ([self.model.type isEqualToString:TYPE_GET_MONEY])
     {
         self.typeLabel.text = @"提现";
-        self.handleLabel.text = [NSString stringWithFormat:@"+%@",self.model.money];
+        self.handleLabel.text = [NSString stringWithFormat:@"-%@",self.model.money];
     }
     else if([self.model.type isEqualToString:TYPE_REWARD])
     {
-        self.typeLabel.text = @"订单打赏";
-        self.handleLabel.text = [NSString stringWithFormat:@"-%@",self.model.money];
-    }
-    else if ([self.model.type isEqualToString:TYPE_RECHARGE])
-    {
-        self.typeLabel.text = @"充值";
+        self.typeLabel.text = @"用户打赏";
         self.handleLabel.text = [NSString stringWithFormat:@"+%@",self.model.money];
-        
     }
-    else if ([self.model.type isEqualToString:TYPE_BACK])
+    else
     {
-        self.typeLabel.text = @"系统退款";
-        self.handleLabel.text = [NSString stringWithFormat:@"-%@",self.model.money];
+        self.typeLabel.text = @"未知";
+        self.handleLabel.text = [NSString stringWithFormat:@"+%@",self.model.money];
     }
     _handleLabel.textColor = [UIColor greenColor];
 

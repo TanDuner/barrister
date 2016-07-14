@@ -15,7 +15,7 @@
 #import "AppointmentViewController.h"
 #import "MyAccountHomeViewController.h"
 #import "MyMessageViewController.h"
-
+#import "BarristerLoginManager.h"
 @interface PersonCenterViewController ()
 
 @end
@@ -24,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginSuccessAciton) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
     [self configView];
     [self configData];
 }
@@ -42,6 +44,12 @@
 }
 
 #pragma -mark ------Data-------
+
+-(void)LoginSuccessAciton
+{
+    [self configData];
+}
+
 
 -(void)configData
 {
@@ -222,6 +230,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    if (![[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
+        [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
+        return;
+    }
     
     if (indexPath.section == 0) {
         PersonInfoViewController *personInfo = [[PersonInfoViewController alloc] init];

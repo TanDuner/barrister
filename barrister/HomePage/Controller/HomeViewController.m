@@ -65,7 +65,11 @@
     if ([BaseDataSingleton shareInstance].loginState.intValue != 1) {
         [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
     }
-    [[XuPushManager shareInstance] receivePushMsgByUnActive:nil];
+    else
+    {
+        [[BarristerLoginManager shareManager] userAutoLogin];
+    }
+    [[XuPushManager shareInstance] handleUnActiveMsg];
     
     
 }

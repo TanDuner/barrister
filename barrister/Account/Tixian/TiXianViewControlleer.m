@@ -85,7 +85,7 @@
     self.checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.checkButton setFrame:RECT(LeftSpace, inputBgView.y + inputBgView.height + 10, 20, 20)];
     [self.checkButton setEnlargeEdgeWithTop:0 right:100 bottom:100 left:0];
-    [self.checkButton setImage:[UIImage imageNamed:@"unSelected"] forState:UIControlStateNormal];
+    [self.checkButton setImage:[UIImage imageNamed:@"Selected"] forState:UIControlStateNormal];
     [self.checkButton addTarget:self action:@selector(checkAciton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.checkButton];
     
@@ -144,16 +144,19 @@
             
             [XuUItlity showLoading:@"正在提交"];
             
-            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[BaseDataSingleton shareInstance].userModel.userId,@"userId",[BaseDataSingleton shareInstance].userModel.verifyCode,@"verifyCode",self.tixianTextField.text,@"moneny", nil];
-            
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.tixianTextField.text,@"money", nil];
+            __weak typeof(*&self) weakSelf = self;
             [self.proxy tiXianActionWithMoney:params Block:^(id returnData, BOOL success) {
                 [XuUItlity hideLoading];
                 if (success) {
-                    [XuUItlity showSucceedHint:@"提交成功" completionBlock:nil];
+                    [XuUItlity showSucceedHint:@"提现成功" completionBlock:^{
+                        [weakSelf.navigationController popViewControllerAnimated:YES];
+                    }];
                 }
                 else
                 {
-                    [XuUItlity showFailedHint:@"提交失败" completionBlock:nil];
+                    NSString *str = (NSString *)returnData;
+                    [XuUItlity showFailedHint:str completionBlock:nil];
                 }
             }];
         }
@@ -171,11 +174,11 @@
 {
     self.isCheched = !self.isCheched;
     if (self.isCheched) {
-        [self.checkButton setImage:[UIImage imageNamed:@"Selected"] forState:UIControlStateNormal];
+        [self.checkButton setImage:[UIImage imageNamed:@"unSelected"] forState:UIControlStateNormal];
     }
     else
     {
-        [self.checkButton setImage:[UIImage imageNamed:@"unSelected"] forState:UIControlStateNormal];
+        [self.checkButton setImage:[UIImage imageNamed:@"Selected"] forState:UIControlStateNormal];
     }
 }
 

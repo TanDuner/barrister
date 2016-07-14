@@ -80,11 +80,17 @@
     }];
 }
 
--(void)tiXianActionWithMoney:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+-(void)tiXianActionWithMoney:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock
 {
+    [self appendCommonParamsWithDict:params];
     [XuNetWorking postWithUrl:TixianUrl params:params success:^(id response) {
         if ([self isCommonCorrectResultCodeWithResponse:response]) {
             aBlock(response ,YES);
+        }
+        else
+        {
+            NSString *str = [response objectForKey:@"resultMsg"];
+            aBlock(str,NO);
         }
     } fail:^(NSError *error) {
         
