@@ -29,16 +29,16 @@
         
         CGFloat customMarkHeight = [XuUtlity textHeightWithString:self.remarks withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:0];
         
-        if (customMarkHeight <= 13) {
-            customMarkHeight = 13;
+        if (customMarkHeight <= 14) {
+            customMarkHeight = 14;
         }
         self.markHeight = customMarkHeight;
         
         self.orderId = [dict objectForKey:@"id"];
     
         CGFloat lawyerFeedBackHeight = [XuUtlity textHeightWithString:self.lawFeedback withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:5];
-        if (lawyerFeedBackHeight <= 13) {
-            lawyerFeedBackHeight = 13;
+        if (lawyerFeedBackHeight <= 14) {
+            lawyerFeedBackHeight = 14;
         }
         
         self.lawyerFeedBackHeight = lawyerFeedBackHeight;
@@ -48,8 +48,8 @@
         }
         
         CGFloat commonHeight = [XuUtlity textHeightWithString:self.comment withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - 90 WithLineSpace:5];
-        if (commonHeight <= 13) {
-            commonHeight = 13;
+        if (commonHeight <= 14) {
+            commonHeight = 14;
         }
         
         self.customCommonHeight = commonHeight;
