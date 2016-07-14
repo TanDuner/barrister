@@ -317,7 +317,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 {
     
     if ([model.status isEqualToString:STATUS_DONE]) {
-        [self makeToast:@"已完成订单不可以再拨打电话了哦~" duration:1];
+        [XuUItlity showAlertHint:@"订单已完成就不可以再通话了哦~" completionBlock:nil andView:self.view];
         return;
     }
     NSDate *startDate = [XuUtlity NSStringDateToNSDate:model.startTime forDateFormatterStyle:DateFormatterDateAndTime];
