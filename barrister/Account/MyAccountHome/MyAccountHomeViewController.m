@@ -138,7 +138,7 @@
     [self.proxy getAccountDetailDataWithParams:params Block:^(id returnData, BOOL success) {
         if (success) {
             NSDictionary *dict = (NSDictionary *)returnData;
-            NSArray *detailArray = [dict objectForKey:@"items"];
+            NSArray *detailArray = [dict objectForKey:@"incomeDetails"];
             if ([XuUtlity isValidArray:detailArray]) {
                 [weakSelf handleAccountDetailDataWithArray:detailArray];
             }
@@ -159,20 +159,25 @@
 
 -(void)handleAccountDetailDataWithArray:(NSArray *)array
 {
-    if (self.detailTableView.pageNum == 1) {
-        [self.detailArray removeAllObjects];
-        [self.detailTableView endRefreshing];
-    }
-    else
-    {
-        if (array.count < self.detailTableView.pageSize) {
-            [self.detailTableView endLoadMoreWithNoMoreData:YES];
-        }
-        else
-        {
-            [self.detailTableView endLoadMoreWithNoMoreData:NO];
-        }
-    }
+//    if (self.detailTableView.pageNum == 1) {
+//        [self.detailArray removeAllObjects];
+//        [self.detailTableView endRefreshing];
+//    }
+//    else
+//    {
+//        if (array.count < self.detailTableView.pageSize) {
+//            [self.detailTableView endLoadMoreWithNoMoreData:YES];
+//        }
+//        else
+//        {
+//            [self.detailTableView endLoadMoreWithNoMoreData:NO];
+//        }
+//    }
+
+    __weak typeof(*&self) weakSelf  = self;
+    [self handleTableRefreshOrLoadMoreWithTableView:self.detailTableView array:array aBlock:^{
+        [weakSelf.detailArray removeAllObjects];
+    }];
     
     for (int i = 0; i < array.count; i ++) {
         NSDictionary *dict = [array objectAtIndex:i];
@@ -252,6 +257,7 @@
         _detailTableView.dataSource = self;
         _detailTableView.tableHeaderView = self.headView;
         _detailTableView.refreshDelegate = self;
+        [_detailTableView setFootLoadMoreControl];
         _detailTableView.backgroundColor = [UIColor clearColor];
         _detailTableView.backgroundView = nil;
         _detailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;

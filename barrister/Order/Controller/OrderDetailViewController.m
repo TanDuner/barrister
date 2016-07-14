@@ -135,7 +135,9 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     [aParams setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
     
     __weak typeof(*&self) weakSelf = self;
+    [XuUItlity showLoadingInView:self.view hintText:@"加载中..."];
     [self.proxy getOrderDetailWithParams:aParams Block:^(id returnData, BOOL success) {
+        [XuUItlity hideLoading];
         if (success) {
             NSDictionary *dict = (NSDictionary *)returnData;
             model = [[BarristerOrderDetailModel alloc] initWithDictionary:dict];
@@ -169,7 +171,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
     }
 
 
-    if ([model.status isEqualToString:STATUS_DOING]) {
+    if ([model.status isEqualToString:STATUS_DOING] && model.callRecordArray.count > 0) {
         OrderDetailCellModel *model4 = [[OrderDetailCellModel alloc] init];
         model4.showType = OrderDetailShowTypeOrderFinishOrder;
         [self.items addObject:model4];
@@ -270,6 +272,11 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 
 -(void)handleFinishOrderAciton
 {
+    
+    if (model.callRecordArray.count == 0) {
+        [XuUItlity showAlertHint:@"您还没有与客户联系，不可以完成订单哦" completionBlock:nil andView:self.view];
+        return;
+    }
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     __weak typeof(*&self) weakSelf = self;
     [params setObject:model.orderId forKey:@"orderId"];
@@ -308,6 +315,11 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
 
 -(void)callAction:(UIButton *)btn
 {
+    
+    if ([model.status isEqualToString:STATUS_DONE]) {
+        [self makeToast:@"已完成订单不可以再拨打电话了哦~" duration:1];
+        return;
+    }
     NSDate *startDate = [XuUtlity NSStringDateToNSDate:model.startTime forDateFormatterStyle:DateFormatterDateAndTime];
     double startNum = [startDate timeIntervalSince1970];
     

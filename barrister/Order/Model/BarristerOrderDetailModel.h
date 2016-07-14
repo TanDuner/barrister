@@ -57,11 +57,14 @@
 @property (nonatomic,strong) NSString *payTime;
 @property (nonatomic,strong) NSString *paymentAmount;
 @property (nonatomic,strong) NSString *remarks;
+
+@property (nonatomic,strong) NSString *orderNo;//订单号
 @property (nonatomic,strong) NSString *status;
 @property (nonatomic,strong) NSString *type;
 @property (nonatomic,strong) NSString *startTime;
 @property (nonatomic,strong) NSString *endTime;
 @property (nonatomic,strong) NSString *lawFeedback;
+
 
 @property (nonatomic,strong) NSString *userIcon;
 @property (nonatomic,assign) CGFloat markHeight;

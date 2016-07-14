@@ -64,7 +64,7 @@
 {
     [super layoutSubviews];
     [self.topSepView setFrame:RECT(0, 0, SCREENWIDTH, 10)];
-    [self.headImageView yy_setImageWithURL:[NSURL URLWithString:self.model.customerIcon] placeholder:nil];
+    [self.headImageView yy_setImageWithURL:[NSURL URLWithString:self.model.customerIcon] placeholder:[UIImage imageNamed:@"commom_default_head"]];
     self.customNamemLabel.text = self.model.customerNickname;
     self.customPhoneLabel.text = self.model.customerPhone;
     [_callButton setFrame:RECT(self.width - 40 - 10, 50 + (64 - 40)/2.0, 40, 40)];

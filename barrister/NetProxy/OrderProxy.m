@@ -135,7 +135,7 @@
  */
 -(void)unAgreeCancelOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock
 {
-
+    [self appendCommonParamsWithDict:aParams];
     [XuNetWorking postWithUrl:unAgreeCancelOrderUrl params:aParams success:^(id response) {
         if (aBlock) {
             if ([self isCommonCorrectResultCodeWithResponse:response]) {

@@ -57,9 +57,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:[NSString stringWithFormat:@"%ld",self.tableView.pageSize] forKey:@"pageSize"];
     [params setObject:[NSString stringWithFormat:@"%ld",self.tableView.pageNum] forKey:@"page"];
-    
+    [XuUItlity showLoadingInView:self.view hintText:@"正在加载..."];
     __weak typeof(*&self) weakSelf = self;
     [self.proxy getMyMessageWithParams:params block:^(id returnData, BOOL success) {
+        [XuUItlity hideLoading];
         if (success) {
             NSDictionary *msg = (NSDictionary *)returnData;
             NSArray *array = [msg objectForKey:@"msgs"];
