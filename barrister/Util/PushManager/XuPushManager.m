@@ -58,7 +58,6 @@
 
 - (void) receivePushMsgByActive:(NSDictionary *)userInfo
 {
-    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateInactive) {
         _backGroundPushMsg = userInfo;
         [self dispatchPushMsgByActive];
@@ -93,7 +92,6 @@
 //发送push 消息
 -(void)sendPushMsg
 {
-    
     [self receivePushMsg: _backGroundPushMsg withType:[_backGroundPushMsg objectForKey:@"type"]];
     _backGroundPushMsg = nil;
 
@@ -134,6 +132,9 @@
  */
 - (void)receivePushMsg:(NSDictionary *)pushdata withType:(NSString *)type
 {
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:1];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+
     if (!pushdata) {
         return;
     }
