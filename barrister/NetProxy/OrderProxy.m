@@ -165,7 +165,8 @@
  */
 -(void)finishOrderWithParams:(NSMutableDictionary *)aParams Block:(ServiceCallBlock)aBlock
 {
-    [XuNetWorking postWithUrl:unAgreeCancelOrderUrl params:aParams success:^(id response) {
+    [self appendCommonParamsWithDict:aParams];
+    [XuNetWorking postWithUrl:FinishOrderUrl params:aParams success:^(id response) {
         if (aBlock) {
             if ([self isCommonCorrectResultCodeWithResponse:response]) {
                 aBlock(response,YES);

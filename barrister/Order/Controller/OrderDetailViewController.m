@@ -280,7 +280,7 @@ typedef NS_ENUM(NSInteger,OrderDetailShowType)
         }
         else
         {
-            [weakSelf.proxy agreeCancelOrderWithParams:params Block:^(id returnData, BOOL success) {
+            [weakSelf.proxy finishOrderWithParams:params Block:^(id returnData, BOOL success) {
                 if (success) {
                     [XuUItlity showSucceedHint:@"操作成功" completionBlock:nil];
                 }
