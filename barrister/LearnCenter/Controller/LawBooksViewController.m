@@ -95,7 +95,7 @@
         button.titleEdgeInsets = UIEdgeInsetsMake(60, 0, 0, 0);
         button.titleLabel.font = SystemFont(10.0f);
         [button addTarget:self action:@selector(clickLawBooksAciton:) forControlEvents:UIControlEventTouchUpInside];
-        [button setFrame:RECT(LawLeftPadding + (LawButtonWidth + LawHorSpacing) *(i%LawNumOfLine), LawTopPadding + (LawButtonWidth + LawVerSpacing)*(i/LawNumOfLine), LawButtonWidth, LawButtonWidth)];
+        [button setFrame:RECT(LawLeftPadding + (LawButtonWidth + LawHorSpacing) *(i%LawNumOfLine), 10 + (LawButtonWidth + LawVerSpacing)*(i/LawNumOfLine), LawButtonWidth, LawButtonWidth)];
         
         UILabel *tipLabel = [[UILabel alloc] initWithFrame:RECT(button.x - 10, button.y + button.height + 15, LawButtonWidth + 20, 12)];
         tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -116,7 +116,7 @@
     }
     
     
-    [self.bottomCategoryView setFrame:RECT(0, 78 + 10, SCREENWIDTH, ceil(array.count/4) * (LawTopPadding + LawButtonWidth))];
+    [self.bottomCategoryView setFrame:RECT(0, 10, SCREENWIDTH, ceil(array.count/4) * (LawTopPadding + LawButtonWidth))];
     
     
 }
@@ -202,6 +202,14 @@
     
 }
 
+
+-(LearnCenterProxy *)proxy
+{
+    if (!_proxy) {
+        _proxy = [[LearnCenterProxy alloc] init];
+    }
+    return _proxy;
+}
 
 
 @end

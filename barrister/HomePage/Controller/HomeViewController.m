@@ -56,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"barrister2c",@"type",@"ios",@"platform", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"barrister",@"type",@"ios",@"platform", nil];
     __weak typeof(*&self) weakSelf = self;
     [self.proxy getHidePayDataWithParams:params Block:^(id returnData, BOOL success) {
         if (success) {
@@ -78,7 +78,7 @@
 {
     NSDictionary *versionDict = [dict objectForKey:@"version"];
     if ([versionDict respondsToSelector:@selector(objectForKey:)]) {
-        NSString *versionCode = [versionDict objectForKey:@"versionCode"];
+        NSString *versionCode = [versionDict objectForKey:@"versionName"];
         
         NSString *nativeVersion = [IMVersionManager shareInstance].nativeVersion;
         if ([versionCode isEqualToString:nativeVersion]) {
