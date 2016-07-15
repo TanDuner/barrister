@@ -27,6 +27,8 @@
 #import "CaseSourceViewController.h"
 #import "MyAccountHomeViewController.h"
 #import "OrderDetailViewController.h"
+#import "IMVersionManager.h"
+
 
 @interface HomeViewController ()
 
@@ -53,8 +55,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"barrister2c",@"type",@"ios",@"platform", nil];
+    __weak typeof(*&self) weakSelf = self;
+    [self.proxy getHidePayDataWithParams:params Block:^(id returnData, BOOL success) {
+        if (success) {
+            NSDictionary *dict = (NSDictionary *)returnData;
+            [weakSelf handlePSWithDict:dict];
+        }
+        else
+        {
+            
+        }
+    }];
+    
     [self initData];
     [self configData];
+    
+}
+
+-(void)handlePSWithDict:(NSDictionary *)dict
+{
+    NSDictionary *versionDict = [dict objectForKey:@"version"];
+    if ([versionDict respondsToSelector:@selector(objectForKey:)]) {
+        NSString *versionCode = [versionDict objectForKey:@"versionCode"];
+        
+        NSString *nativeVersion = [IMVersionManager shareInstance].nativeVersion;
+        if ([versionCode isEqualToString:nativeVersion]) {
+            [BaseDataSingleton shareInstance].isClosePay = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+            
+        }
+        else
+        {
+            [BaseDataSingleton shareInstance].isClosePay = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+        }
+        
+        
+    }
 }
 
 
@@ -83,6 +122,8 @@
 {
     self.orderItems = [NSMutableArray arrayWithCapacity:1];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPayTableView) name:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginSuccessAciton:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
     if ([[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
         [BarristerLoginManager shareManager].showController  = self;
@@ -90,10 +131,26 @@
     }
 }
 
+//ps结果回来之后
+-(void)reloadPayTableView
+{
+    if ([[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
+        if (![BaseDataSingleton shareInstance].isClosePay) {
+            [self loadAccountData];
+        }
+
+    }
+
+}
+
+
 -(void)LoginSuccessAciton:(NSNotification *)nsnotifi
 {
     [self.orderItems removeAllObjects];
-    [self loadAccountData];
+    if (![BaseDataSingleton shareInstance].isClosePay) {
+        [self loadAccountData];
+    }
+
     [self loadCaseSourceData];
 
 }
@@ -120,6 +177,7 @@
 -(void)handleSourceListWithDict:(NSDictionary *)params
 {
     
+    [self.caseSourceItems removeAllObjects];
     NSArray *array = (NSArray *)[params objectForKey:@"cases"];
     for (int i = 0; i < array.count; i ++) {
         NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
@@ -159,8 +217,6 @@
 {
 
     NSMutableDictionary *aParams = [NSMutableDictionary dictionary];
-    [aParams setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
-    [aParams setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
    [_proxy getHomePageAccountDataWithParams:aParams Block:^(id returnData, BOOL success) {
        if (success) {
            NSDictionary *dict = (NSDictionary *)returnData;
@@ -174,6 +230,9 @@
        
        }
    }];
+    
+    [self.tableView reloadData];
+    
 }
 
 
@@ -194,6 +253,9 @@
     [self.tableView reloadData];
     
     NSArray *array = [dict objectForKey:@"todoList"];
+    
+    
+    [self.orderItems removeAllObjects];
     
     if ([XuUtlity isValidArray:array]) {
 
@@ -228,110 +290,205 @@
 #pragma -mark ----TableViewDelegate Methods---------
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        return 2;
+    }
     return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 1;
-    }
-    else if (section == 1)
-    {
-        return self.caseSourceItems.count;
-    }
-    else if (section == 2)
-    {
-        return self.orderItems.count;
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        if (section == 0)
+        {
+            return self.caseSourceItems.count;
+        }
+        else if (section == 1)
+        {
+            return self.orderItems.count;
+        }
+        return 0;
     }
     else
     {
+
+        if (section == 0) {
+            return 1;
+        }
+        else if (section == 1)
+        {
+            return self.caseSourceItems.count;
+        }
+        else if (section == 2)
+        {
+            return self.orderItems.count;
+        }
         return 0;
+
     }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        HomeAccountCell *cell = [[HomeAccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        __weak typeof(*&self) weakSelf = self;
-        cell.ActionBlock = ^(id object ,BaseTableViewCell *cellTemp)
+    //打开ps 的时候
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        if (indexPath.section == 0)
         {
-            [weakSelf actionWithObject:object];
-        };
-        cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-        return cell;
-    }
-    else if (indexPath.section == 1)
-    {
-
-        static NSString *identifi  = @"identifi1";
-        HomeCaseSourceCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
-        if (!cell) {
-            cell = [[HomeCaseSourceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        }
-        
-        if (self.caseSourceItems.count > indexPath.row) {
-            HomeCaseListModel *model = [self.caseSourceItems safeObjectAtIndex:indexPath.row];
-            cell.model = model;
             
+            static NSString *identifi  = @"identifi1";
+            HomeCaseSourceCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
+            if (!cell) {
+                cell = [[HomeCaseSourceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            }
+            
+            if (self.caseSourceItems.count > indexPath.row) {
+                HomeCaseListModel *model = [self.caseSourceItems safeObjectAtIndex:indexPath.row];
+                cell.model = model;
+                
+            }
+            
+            return cell;
+        }
+        else
+        {
+            static NSString *identifi = @"identifi";
+            OrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
+            if (!cell) {
+                cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
+            }
+            if (self.orderItems.count > indexPath.row) {
+                BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems safeObjectAtIndex:indexPath.row];
+                cell.model = model;
+            }
+            
+            return cell;
+        }
+
+    }
+    else // 没有打开ps 的时候
+    {
+        if (indexPath.section == 0) {
+            HomeAccountCell *cell = [[HomeAccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            __weak typeof(*&self) weakSelf = self;
+            cell.ActionBlock = ^(id object ,BaseTableViewCell *cellTemp)
+            {
+                [weakSelf actionWithObject:object];
+            };
+            cell.selectionStyle  = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+        else if (indexPath.section == 1)
+        {
+            
+            static NSString *identifi  = @"identifi1";
+            HomeCaseSourceCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
+            if (!cell) {
+                cell = [[HomeCaseSourceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            }
+            
+            if (self.caseSourceItems.count > indexPath.row) {
+                HomeCaseListModel *model = [self.caseSourceItems safeObjectAtIndex:indexPath.row];
+                cell.model = model;
+                
+            }
+            
+            return cell;
+        }
+        else
+        {
+            static NSString *identifi = @"identifi";
+            OrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
+            if (!cell) {
+                cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
+            }
+            if (self.orderItems.count > indexPath.row) {
+                BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems safeObjectAtIndex:indexPath.row];
+                cell.model = model;
+            }
+            
+            
+            return cell;
         }
         
-        return cell;
+    
     }
-    else
-    {
-        static NSString *identifi = @"identifi";
-        OrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi];
-        if (!cell) {
-            cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifi];
-        }
-        if (self.orderItems.count > indexPath.row) {
-            BarristerOrderModel *model = (BarristerOrderModel *)[self.orderItems safeObjectAtIndex:indexPath.row];
-            cell.model = model;
-        }
-
-
-        return cell;
-    }
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        return [HomeAccountCell getCellHeight];
-    }
-    else if(indexPath.section == 1)
-    {
-        if (self.caseSourceItems.count > indexPath.row) {
-            HomeCaseListModel *model  = (HomeCaseListModel *)[self.caseSourceItems safeObjectAtIndex:indexPath.row];
-            return [HomeCaseSourceCell getCellHeightWithModel:model];
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        if (indexPath.section == 0) {
+            if (self.caseSourceItems.count > indexPath.row) {
+                HomeCaseListModel *model  = (HomeCaseListModel *)[self.caseSourceItems safeObjectAtIndex:indexPath.row];
+                return [HomeCaseSourceCell getCellHeightWithModel:model];
+            }
+            return 0;
         }
-        return 0;
+        else
+        {
+            return 75;
+        }
     }
     else
     {
-        return 75;
+        if (indexPath.section == 0) {
+            return [HomeAccountCell getCellHeight];
+        }
+        else if(indexPath.section == 1)
+        {
+            if (self.caseSourceItems.count > indexPath.row) {
+                HomeCaseListModel *model  = (HomeCaseListModel *)[self.caseSourceItems safeObjectAtIndex:indexPath.row];
+                return [HomeCaseSourceCell getCellHeightWithModel:model];
+            }
+            return 0;
+        }
+        else
+        {
+            return 75;
+        }
     }
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return self.accountHeadView;
-    }
-    else if (section == 1)
-    {
-        return self.caseSourceView;
-    }
-    else
-    {
-        if (self.orderItems.count > 0) {
-            return self.daiBanHeadView;
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        if (section == 0) {
+            return self.caseSourceView;
         }
         else
         {
-            return [UIView new];
+            if (self.orderItems.count > 0) {
+                return self.daiBanHeadView;
+            }
+            else
+            {
+                return [UIView new];
+            }
+            
+        }
+
+    }
+    else
+    {
+        if (section == 0) {
+            return self.accountHeadView;
+        }
+        else if (section == 1)
+        {
+            return self.caseSourceView;
+        }
+        else
+        {
+            if (self.orderItems.count > 0) {
+                return self.daiBanHeadView;
+            }
+            else
+            {
+                return [UIView new];
+            }
+            
         }
 
     }
@@ -340,33 +497,43 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return self.accountHeadView.height;
-    }
-    else if(section == 1)
-    {
-        if (self.caseSourceItems.count > 0) {
-            return 55;
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        if (section == 0) {
+            if (self.caseSourceItems.count > 0) {
+                return 55;
+            }
         }
-        else
+        else if (section == 2)
         {
-            return 0;
+            if (self.orderItems.count > 0) {
+                return 55;
+            }
         }
+        return 0;
 
-    }
-    else if (section == 2)
-    {
-        if (self.orderItems.count > 0) {
-            return 55;
-        }
-        else
-        {
-            return 0;
-        }
     }
     else
     {
+        if (section == 0) {
+            return self.accountHeadView.height;
+        }
+        else if(section == 1)
+        {
+            if (self.caseSourceItems.count > 0) {
+                return 55;
+            }
+            return 0;
+        }
+        else if (section == 2)
+        {
+            if (self.orderItems.count > 0) {
+                return 55;
+            }
+            return 0;
+        }
         return 0;
+
+    
     }
 }
 

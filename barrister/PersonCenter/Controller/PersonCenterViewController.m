@@ -26,6 +26,8 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginSuccessAciton) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPayData) name:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+
     [self configView];
     [self configData];
 }
@@ -44,6 +46,15 @@
 }
 
 #pragma -mark ------Data-------
+
+-(void)reloadPayData
+{
+    if (self.items.count > 0) {
+        [self.items removeAllObjects];
+        [self configData];
+    }
+
+}
 
 -(void)LoginSuccessAciton
 {
@@ -65,13 +76,20 @@
     model1.isShowArrow = NO;
     model1.isAccountLogin = [BaseDataSingleton shareInstance].loginState.integerValue == 1?YES:NO;
  
+    [self.items addObject:model1];
+
+    if (![BaseDataSingleton shareInstance].isClosePay) {
+        PersonCenterModel *model2 = [[PersonCenterModel alloc] init];
+        model2.titleStr = @"我的账户";
+        model2.cellType = PersonCenterModelTypeZHU;
+        model2.iconNameStr = @"zhanghu.png";
+        model2.isShowArrow = YES;
+        model2.isAccountLogin = NO;
+        [self.items addObject:model2];
+
+    }
     
-    PersonCenterModel *model2 = [[PersonCenterModel alloc] init];
-    model2.titleStr = @"我的账户";
-    model2.cellType = PersonCenterModelTypeZHU;
-    model2.iconNameStr = @"zhanghu.png";
-    model2.isShowArrow = YES;
-    model2.isAccountLogin = NO;
+
     
     PersonCenterModel *model3 = [[PersonCenterModel alloc] init];
     model3.titleStr = @"我的消息";
@@ -122,8 +140,6 @@
     model6.isShowArrow = YES;
     model6.isAccountLogin = NO;
 
-    [self.items addObject:model1];
-    [self.items addObject:model2];
     [self.items addObject:model3];
     [self.items addObject:model4];
     [self.items addObject:model5];
@@ -152,6 +168,9 @@
     }
     else if (section == 1)
     {
+        if ([BaseDataSingleton shareInstance].isClosePay) {
+            return 3;
+        }
         return 4;
     }
     else
@@ -246,25 +265,54 @@
         switch (indexPath.row) {
             case 0:
             {
-                MyAccountHomeViewController *accountVC = [[MyAccountHomeViewController alloc] init];
-                [self.navigationController pushViewController:accountVC animated:YES];
+                if ([BaseDataSingleton shareInstance].isClosePay) {
+                    MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
+                    [self.navigationController pushViewController:messageVC animated:YES];
+
+                }
+                else
+                {
+                    MyAccountHomeViewController *accountVC = [[MyAccountHomeViewController alloc] init];
+                    [self.navigationController pushViewController:accountVC animated:YES];
+                }
+                
             }
                 break;
             case 1:
             {
-                MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
-                [self.navigationController pushViewController:messageVC animated:YES];
+                if ([BaseDataSingleton shareInstance].isClosePay) {
+                    
+                }
+                else
+                {
+                    MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
+                    [self.navigationController pushViewController:messageVC animated:YES];
+                }
             }
                 break;
              case 2:
             {
-                
+                if ([BaseDataSingleton shareInstance].isClosePay) {
+                    AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
+                    [self.navigationController pushViewController:appointVC animated:YES];
+                }
+                else
+                {
+                    
+                }
             }
                 break;
             case 3:
             {
-                AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
-                [self.navigationController pushViewController:appointVC animated:YES];
+                if ([BaseDataSingleton shareInstance].isClosePay) {
+                    
+                }
+                else
+                {
+                    AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
+                    [self.navigationController pushViewController:appointVC animated:YES];
+
+                }
             }
                 break;
             default:

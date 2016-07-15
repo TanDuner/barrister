@@ -12,6 +12,8 @@
 #define HomePageAccountUrl @"userHome.do"
 #define ChangeStatusUrl @"changeIMStatus.do"
 #define CaseSourceUrl @"caseList.do"
+#define SwitchUrl @"getLatestVersion.do"
+
 
 @implementation HomePageProxy
 
@@ -43,8 +45,9 @@
  *  @param aBlock 返回处理Block
  */
 
--(void)getHomePageAccountDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+-(void)getHomePageAccountDataWithParams:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock
 {
+    [self appendCommonParamsWithDict:params];
     [XuNetWorking getWithUrl:HomePageAccountUrl params:params success:^(id response) {
         if ([response respondsToSelector:@selector(objectForKey:)]) {
             NSString *resultCode = [response objectForKey:@"resultCode"];
@@ -113,6 +116,32 @@
     } fail:^(NSError *error) {
         aBlock(CommonNetErrorTip,YES);
     }];
+}
+
+
+
+/**
+ *  获取开关数据
+ *
+ *  @param params
+ *  @param aBlock
+ */
+
+-(void)getHidePayDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [XuNetWorking getWithUrl:SwitchUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response,YES);
+        }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    } fail:^(NSError *error) {
+        aBlock(CommonNetErrorTip,NO);
+    }];
+    
+    
 }
 
 @end

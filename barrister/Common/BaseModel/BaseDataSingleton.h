@@ -39,6 +39,8 @@ typedef struct PhoneSate PhoneSate;
 
 @property (nonatomic,strong) NSString *status;//接单状态  
 
+@property (nonatomic,assign) BOOL isClosePay;//支付开关
+
 + (instancetype)shareInstance;
 
 /**
