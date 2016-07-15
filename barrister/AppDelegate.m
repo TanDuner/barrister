@@ -169,6 +169,7 @@
     
     [self initControllersAndConfig];
     
+    [[IMVersionManager shareInstance] judgeIsNeedUpdate];
     
     [self initNetWorkingData];
    
