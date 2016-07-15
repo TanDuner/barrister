@@ -26,4 +26,15 @@
  *  @param aBlock 回调
  */
 -(void)getLearnChannelWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
+
+/**
+ *  获取中国法律应用大全接口
+ *
+ *  @param params 参数
+ *  @param aBlock 回调
+ */
+
+-(void)getLawBooksWithParams:(NSMutableDictionary *)params WithBlock:(ServiceCallBlock)aBlock;
+
 @end

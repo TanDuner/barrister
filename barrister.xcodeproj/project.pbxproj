@@ -290,6 +290,8 @@
 		95CA1BB81D0F7E8D00AAE490 /* MyMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BB71D0F7E8D00AAE490 /* MyMessageModel.m */; };
 		95CA1BBB1D0F800100AAE490 /* MyMessgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BBA1D0F800100AAE490 /* MyMessgeCell.m */; };
 		95CA1BC41D10C5F000AAE490 /* LearnCenterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */; };
+		95CD051F1D392DBA0080975B /* LawBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD051E1D392DBA0080975B /* LawBooksViewController.m */; };
+		95CD05221D39303B0080975B /* LawBooksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD05211D39303B0080975B /* LawBooksModel.m */; };
 		95EBAB3C1D36919C0041A647 /* XWMoneyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB391D36919C0041A647 /* XWMoneyTextField.m */; };
 		95EBAB3D1D36919C0041A647 /* XWMoneyTextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */; };
 		95F533A31CBB4690000C7E91 /* xiaoxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F533A21CBB4690000C7E91 /* xiaoxi.png */; };
@@ -815,6 +817,10 @@
 		95CA1BBA1D0F800100AAE490 /* MyMessgeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessgeCell.m; sourceTree = "<group>"; };
 		95CA1BC21D10C5F000AAE490 /* LearnCenterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnCenterProxy.h; sourceTree = "<group>"; };
 		95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnCenterProxy.m; sourceTree = "<group>"; };
+		95CD051D1D392DBA0080975B /* LawBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawBooksViewController.h; sourceTree = "<group>"; };
+		95CD051E1D392DBA0080975B /* LawBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawBooksViewController.m; sourceTree = "<group>"; };
+		95CD05201D39303B0080975B /* LawBooksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawBooksModel.h; sourceTree = "<group>"; };
+		95CD05211D39303B0080975B /* LawBooksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawBooksModel.m; sourceTree = "<group>"; };
 		95EBAB381D36919C0041A647 /* XWMoneyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextField.h; sourceTree = "<group>"; };
 		95EBAB391D36919C0041A647 /* XWMoneyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMoneyTextField.m; sourceTree = "<group>"; };
 		95EBAB3A1D36919C0041A647 /* XWMoneyTextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextFieldLimit.h; sourceTree = "<group>"; };
@@ -1745,6 +1751,8 @@
 				9597B0DD1CA113AF00FF65D9 /* LearnCenterViewController.m */,
 				9545052A1D2240010039C6B1 /* LearnCenterContentView.h */,
 				9545052B1D2240010039C6B1 /* LearnCenterContentView.m */,
+				95CD051D1D392DBA0080975B /* LawBooksViewController.h */,
+				95CD051E1D392DBA0080975B /* LawBooksViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1754,6 +1762,8 @@
 			children = (
 				9545052D1D225EC60039C6B1 /* LearnCenterChannelModel.h */,
 				9545052E1D225EC60039C6B1 /* LearnCenterChannelModel.m */,
+				95CD05201D39303B0080975B /* LawBooksModel.h */,
+				95CD05211D39303B0080975B /* LawBooksModel.m */,
 				95C0EAFA1CB5152B004F9DAD /* LearnCenterModel.h */,
 				95C0EAFB1CB5152B004F9DAD /* LearnCenterModel.m */,
 			);
@@ -2493,6 +2503,7 @@
 				9520BFBD1CAA721A00961F05 /* YYAnimatedImageView.m in Sources */,
 				95C0EAF91CB4B301004F9DAD /* UIView+YYAdd.m in Sources */,
 				95F533FF1CBCD758000C7E91 /* MJRefreshAutoNormalFooter.m in Sources */,
+				95CD051F1D392DBA0080975B /* LawBooksViewController.m in Sources */,
 				95B425E91D00157E002EB36D /* NSData+ImageContentType.m in Sources */,
 				9529CD081D31F8600067597A /* IMWebView.m in Sources */,
 				950CB7131CC5FEAB004D2A5D /* PersonInfoCustomCell.m in Sources */,
@@ -2511,6 +2522,7 @@
 				95F534081CBCD758000C7E91 /* MJRefreshHeader.m in Sources */,
 				95B078731CE9D3E100D8A220 /* UIView+ViewController.m in Sources */,
 				95F534021CBCD758000C7E91 /* MJRefreshBackGifFooter.m in Sources */,
+				95CD05221D39303B0080975B /* LawBooksModel.m in Sources */,
 				95B0787C1CE9E61400D8A220 /* AppointContentViewController.m in Sources */,
 				954130251CA003B500D26B11 /* NSDate+Addition.m in Sources */,
 				95412A021D06674800C6624F /* AJPhotoListCell.m in Sources */,

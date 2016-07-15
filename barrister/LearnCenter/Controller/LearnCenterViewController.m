@@ -14,6 +14,7 @@
 #import "LearnCenterContentView.h"
 #import "NinaPagerView.h"
 #import "BaseWebViewController.h"
+#import "LawBooksViewController.h"
 
 @interface LearnCenterViewController ()
 
@@ -33,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self configData];
+    [self initNavigationRightTextButton:@"法律大全" action:@selector(toAllLawVC) target:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -134,6 +135,12 @@
     
 }
 
+
+-(void)toAllLawVC
+{
+    LawBooksViewController *controller = [[LawBooksViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 
 
