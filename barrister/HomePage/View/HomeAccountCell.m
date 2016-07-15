@@ -63,6 +63,7 @@
 {
     if (!_leftView) {
         _leftView = [[HomeAccountItemView alloc] initWithFrame:RECT(0, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"yue.png" titleStr:@"余额" subTitleStr:@"-"];
+        [_leftView.bottomBtn addTarget:self action:@selector(bottomBtnClickAction) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return _leftView;
@@ -72,6 +73,7 @@
 {
     if (!_rightView) {
         _rightView = [[HomeAccountItemView alloc] initWithFrame:RECT((SCREENWIDTH - 1)/2.0 + 1, 0, (SCREENWIDTH - 1)/2.0, ItemViewHeight) iconName:@"shouru.png" titleStr:@"总收入" subTitleStr:@"-"];
+        [_rightView.bottomBtn addTarget:self action:@selector(bottomBtnClickAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightView;
 }
@@ -95,6 +97,14 @@
 {
     if (self.ActionBlock) {
         self.ActionBlock(nil,self);
+    }
+}
+
+
+-(void)bottomBtnClickAction
+{
+    if (self.ActionBlock) {
+        self.ActionBlock(@"account",self);
     }
 }
 

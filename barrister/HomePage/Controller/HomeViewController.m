@@ -25,7 +25,7 @@
 #import "HomeCaseSourceCell.h"
 #import "HomeCaseListModel.h"
 #import "CaseSourceViewController.h"
-
+#import "MyAccountHomeViewController.h"
 #import "OrderDetailViewController.h"
 
 @interface HomeViewController ()
@@ -257,7 +257,7 @@
         __weak typeof(*&self) weakSelf = self;
         cell.ActionBlock = ^(id object ,BaseTableViewCell *cellTemp)
         {
-            [weakSelf tixianAction];
+            [weakSelf actionWithObject:object];
         };
         cell.selectionStyle  = UITableViewCellSelectionStyleNone;
         return cell;
@@ -658,8 +658,13 @@
     self.leijiLabel.text = [NSString stringWithFormat:@"累计订单 %@",[BaseDataSingleton shareInstance].orderQty];
 }
 
--(void)tixianAction
+-(void)actionWithObject:(id )object
 {
+    if (object) {
+        MyAccountHomeViewController *accountVC = [[MyAccountHomeViewController alloc] init];
+        [self.navigationController pushViewController:accountVC animated:YES];
+        return;
+    }
     TiXianViewControlleer *tixianVC = [[TiXianViewControlleer alloc] init];
     [self.navigationController pushViewController:tixianVC animated:YES];
 }

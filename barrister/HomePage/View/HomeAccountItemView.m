@@ -16,7 +16,7 @@
 @property (nonatomic,strong) UIImageView *iconImageView;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *subTitleLabel;
-@property (nonatomic,strong) UIButton *bottomBtn;
+
 
 @property (nonatomic,copy) NSString *titleStr;
 @property (nonatomic,copy) NSString *subTitleStr;
@@ -94,7 +94,6 @@
     if (!_bottomBtn) {
         _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_bottomBtn setFrame:CGRectMake(0, 0, ItemWidth, 70)];
-        [_bottomBtn addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
         [_bottomBtn setBackgroundImage:[UIImage createImageWithColor:RGBCOLOR(233, 233, 233)] forState:UIControlStateHighlighted];
 
     }
@@ -113,10 +112,7 @@
 
 #pragma -mark ----clickAction
 
--(void)clickAction:(UIButton *)btn
-{
-    
-}
+
 
 -(void)setSubTitleStr:(NSString *)subTitleStr
 {

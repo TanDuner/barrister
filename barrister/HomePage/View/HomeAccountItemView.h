@@ -10,6 +10,8 @@
 
 @interface HomeAccountItemView : UIView
 
+@property (nonatomic,strong) UIButton *bottomBtn;
+
 -(id)initWithFrame:(CGRect)frame
           iconName:(NSString *)iconName
           titleStr:(NSString *)titleStr
