@@ -17,7 +17,7 @@
 #import "NSArray+CommonAdd.h"
 
 
-#define BaseUrl  @"http://119.254.167.200:8080/lawerservice/"
+#define BaseUrl  @"http://app.dls.com.cn:8080/lawerservice/"
 
 //#define BaseUrl  @"http://192.168.1.25:8080/lawerservice/"
 
