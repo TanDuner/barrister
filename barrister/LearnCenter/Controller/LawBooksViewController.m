@@ -127,7 +127,7 @@
 -(void)clickLawBooksAciton:(UIButton *)btn
 {
     //没登录让登录
-    if (![[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
+    if (![[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_SUCCESS]) {
         [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
         return;
     }

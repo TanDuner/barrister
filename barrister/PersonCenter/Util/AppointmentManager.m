@@ -63,7 +63,7 @@
     for ( int i = 0; i < 7; i ++) {
         NSString *settingStr = @"";
         for (int j = 0; j < 36 ; j++) {
-            settingStr = [settingStr stringByAppendingString:@",1"];
+            settingStr = [settingStr stringByAppendingString:@",0"];
         }
         if ([settingStr hasPrefix:@","]) {
             settingStr = [settingStr substringFromIndex:1];
