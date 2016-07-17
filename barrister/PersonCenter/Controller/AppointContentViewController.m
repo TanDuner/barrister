@@ -96,6 +96,7 @@
 @interface AppointContentViewController ()
 
 @property (nonatomic,strong) AppointCheckView *checkView;
+@property (nonatomic,strong) UIScrollView *bgScrollView;
 
 @end
 @implementation AppointContentViewController
@@ -130,7 +131,7 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkAllAction:)];
     [self.checkView addGestureRecognizer:tap];
-    [self.view addSubview:self.checkView];
+    [self.bgScrollView addSubview:self.checkView];
 
     
     [self createView];
@@ -182,12 +183,25 @@
         [checkView addGestureRecognizer:tap];
         
         [self.checkViewItems addObject:checkView];
-        [self.view addSubview:checkView];
+        [self.bgScrollView addSubview:checkView];
 
         startTimeNum += 30;
         endTimeNum += 30;
         
     }
+    
+    
+    [self.bgScrollView setContentSize:CGSizeMake(0, 650)];
+    [self.view addSubview:self.bgScrollView];
+}
+
+-(UIScrollView *)bgScrollView
+{
+    if (!_bgScrollView) {
+        _bgScrollView = [[UIScrollView alloc] initWithFrame:RECT(0, 0, SCREENWIDTH, self.view.height)];
+        
+    }
+    return _bgScrollView;
 }
 
 
