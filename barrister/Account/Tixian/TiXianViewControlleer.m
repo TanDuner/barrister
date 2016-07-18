@@ -11,6 +11,8 @@
 #import "UIButton+EnlargeEdge.h"
 #import "AccountProxy.h"
 #import "XWMoneyTextField.h"
+#import "BaseWebViewController.h"
+
 
 #define RowHeight 45
 #define LeftSpace 10
@@ -84,13 +86,17 @@
     
     self.checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.checkButton setFrame:RECT(LeftSpace, inputBgView.y + inputBgView.height + 10, 20, 20)];
-    [self.checkButton setEnlargeEdgeWithTop:0 right:100 bottom:100 left:0];
+    [self.checkButton setEnlargeEdgeWithTop:0 right:40 bottom:100 left:0];
     [self.checkButton setImage:[UIImage imageNamed:@"Selected"] forState:UIControlStateNormal];
     [self.checkButton addTarget:self action:@selector(checkAciton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.checkButton];
     
     UILabel *xieyiLabel = [[UILabel alloc] initWithFrame:RECT(self.checkButton.x + self.checkButton.width + 15, self.checkButton.y, 200, 20)];
+    xieyiLabel.userInteractionEnabled = YES;
     xieyiLabel.textAlignment = NSTextAlignmentLeft;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toXieYiVC)];
+    [xieyiLabel addGestureRecognizer:tap];
+    xieyiLabel.textColor = kNavigationBarColor;
     xieyiLabel.text = @"我同意大律师提现协议";
     xieyiLabel.font = SystemFont(14.0f);
     [self.view addSubview:xieyiLabel];
@@ -107,6 +113,14 @@
     [self.tixianButton setFrame:RECT(15, RowHeight *3 + 10 + 48, SCREENWIDTH - 30, 45)];
     [self.view addSubview:self.tixianButton];
 
+}
+
+-(void)toXieYiVC
+{
+    BaseWebViewController *controller = [[BaseWebViewController alloc] init];
+    controller.showTitle = @"提现协议";
+    controller.url = @"http://www.dls.com.cn/art/waplist.asp?id=673";
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

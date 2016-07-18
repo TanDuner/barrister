@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "barrister/Account/Tixian/TiXianViewControlleer.m"
-            timestampString = "490233325.694427"
+            timestampString = "490543981.308303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-tixianAction:"
             landmarkType = "5">
          </BreakpointContent>

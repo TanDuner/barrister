@@ -12,6 +12,8 @@
 #import "LoginProxy.h"
 #import "BarristerUserModel.h"
 #import "BarristerLoginManager.h"
+#import "UIButton+EnlargeEdge.h"
+#import "BaseWebViewController.h"
 
 const float MidViewHeight = 190 / 2.0;
 
@@ -24,9 +26,14 @@ const float MidViewHeight = 190 / 2.0;
     UIButton *getValidCodeBtn;
 }
 
+@property (nonatomic,assign) BOOL isCheched;
+
 @property (nonatomic,strong)TFSButton *validBtn;
 
 @property (nonatomic,strong) LoginProxy *proxy;
+
+@property (nonatomic,strong) UIButton *checkButton;
+
 
 @end
 
@@ -104,6 +111,7 @@ const float MidViewHeight = 190 / 2.0;
     
     self.navigationItem.title = @"登录";
     
+    self.isCheched = YES;
 }
 
 -(void)createMidView
@@ -144,6 +152,23 @@ const float MidViewHeight = 190 / 2.0;
 
     
     
+    self.checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.checkButton setFrame:RECT(15, inputBgView.y + inputBgView.height + 20, 20, 20)];
+    [self.checkButton setEnlargeEdgeWithTop:0 right:40 bottom:100 left:0];
+    [self.checkButton setImage:[UIImage imageNamed:@"unSelected"] forState:UIControlStateNormal];
+    [self.checkButton addTarget:self action:@selector(checkAciton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.checkButton];
+    
+    UILabel *xieyiLabel = [[UILabel alloc] initWithFrame:RECT(self.checkButton.x + self.checkButton.width + 15, self.checkButton.y, 200, 20)];
+    xieyiLabel.userInteractionEnabled = YES;
+    xieyiLabel.textAlignment = NSTextAlignmentLeft;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toXieYiVC)];
+    [xieyiLabel addGestureRecognizer:tap];
+    xieyiLabel.textColor = kNavigationBarColor;
+    xieyiLabel.text = @"我同意大律师注册协议";
+    xieyiLabel.font = SystemFont(14.0f);
+    [self.view addSubview:xieyiLabel];
+    
     
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
@@ -153,12 +178,31 @@ const float MidViewHeight = 190 / 2.0;
     [loginBtn.titleLabel setFont:SystemFont(14.0)];
     [loginBtn setTitleColor:kNavigationTitleColor forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
-    [loginBtn setFrame:RECT(15, inputBgView.y + inputBgView.height + 48, SCREENWIDTH - 30, 45)];
+    [loginBtn setFrame:RECT(15, inputBgView.y + inputBgView.height + 70, SCREENWIDTH - 30, 45)];
     [self.view addSubview:loginBtn];
     
-    
-    
 }
+
+-(void)checkAciton:(UIButton *)checkAciton
+{
+    self.isCheched = !self.isCheched;
+    if (self.isCheched) {
+        [self.checkButton setImage:[UIImage imageNamed:@"unSelected"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.checkButton setImage:[UIImage imageNamed:@"Selected"] forState:UIControlStateNormal];
+    }
+}
+
+-(void)toXieYiVC
+{
+    BaseWebViewController *controller = [[BaseWebViewController alloc] init];
+    controller.showTitle = @"注册协议";
+    controller.url = @"http://www.dls.com.cn/art/waplist.asp?id=675";
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 #pragma -mark ------TextField Delegate Methods--------
 
@@ -206,6 +250,10 @@ const float MidViewHeight = 190 / 2.0;
         return;
     }
     
+    if (!self.isCheched) {
+        [XuUItlity showFailedHint:@"请同意大律师注册协议" completionBlock:nil];
+        return;
+    }
     if ([XuUtlity validateMobile:accountTextField.text]) {
         __weak typeof(*&self) weakSelf = self;
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:accountTextField.text,@"phone",passwordTextField.text,@"verifyCode", nil];
