@@ -128,7 +128,7 @@
 {
     //没登录让登录
     if (![[BaseDataSingleton shareInstance].userModel.verifyStatus isEqualToString:AUTH_STATUS_SUCCESS]) {
-        [[BarristerLoginManager shareManager] showLoginViewControllerWithController:self];
+        [XuUItlity showFailedHint:@"请先通过认证" completionBlock:nil];
         return;
     }
     if (self.titleArray.count != self.urlArray.count) {

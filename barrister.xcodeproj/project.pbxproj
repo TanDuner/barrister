@@ -2840,7 +2840,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "57f57bcc-2bad-4318-adb8-12d9ae09f9b0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2867,7 +2867,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "57f57bcc-2bad-4318-adb8-12d9ae09f9b0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -21,6 +21,18 @@
 {
     self.userId = [NSString stringWithFormat:@"%@",[jsoObject objectForKey:@"id"]];
     
+    if (self.orderCount == 0) {
+        self.stars = 5;
+    }
+    else
+    {
+        self.stars = self.startCount.floatValue/(self.orderCount.floatValue + 1);
+    }
+
+    if (self.stars > 5) {
+        self.stars = 5;
+    }
+    
 }
 
 @end

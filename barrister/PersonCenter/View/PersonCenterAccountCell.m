@@ -84,7 +84,7 @@
             _subtitleLabel.text = [NSString stringWithFormat:@"律所：%@",[BaseDataSingleton shareInstance].userModel.company?[BaseDataSingleton shareInstance].userModel.company:@"无"];
             [_iconImageIVew yy_setImageWithURL:[NSURL URLWithString:[BaseDataSingleton shareInstance].userModel.userIcon] placeholder:[UIImage imageNamed:self.model.iconNameStr]];
             
-            [self.starView setScorePercent:([BaseDataSingleton shareInstance].userModel.startCount.floatValue/5.0f)];
+            [self.starView setScorePercent:([BaseDataSingleton shareInstance].userModel.stars)];
         }
         else{
             self.subtitleLabel.hidden = YES;

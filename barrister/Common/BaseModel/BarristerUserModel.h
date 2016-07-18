@@ -109,6 +109,11 @@
 @property (nonatomic,strong) NSString *orderCount;
 
 /**
+ *  星级
+ */
+@property (nonatomic,assign) CGFloat stars;
+
+/**
  *  法律职业资格证书
  */
 
