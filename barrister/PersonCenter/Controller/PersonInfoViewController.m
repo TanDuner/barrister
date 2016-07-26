@@ -560,8 +560,9 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:[BaseDataSingleton shareInstance].userModel.userId forKey:@"userId"];
     [params setObject:[BaseDataSingleton shareInstance].userModel.verifyCode forKey:@"verifyCode"];
-    
+    [XuUItlity showLoading:@"正在上传..."];
     [self.proxy UploadHeadImageUrlWithImage:self.headImage params:params fileName:@"userIcon" Block:^(id returnData, BOOL success) {
+        [XuUItlity hideLoading];
         if (success) {
             [XuUItlity showSucceedHint:@"上传成功" completionBlock:nil];
             PersonCenterModel *model = (PersonCenterModel *)[self.items safeObjectAtIndex:0];
