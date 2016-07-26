@@ -19,7 +19,7 @@
 #import "GoodAtViewController.h"
 #import "KKDatePickerView.h"
 #import "BarristerUserModel.h"
-
+#import "JPUSHService.h"
 
 @interface PersonInfoViewController ()<AJPhotoPickerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -239,6 +239,11 @@
     
     //缺少极光推送的push id
     
+    
+    NSString *registrationId =  [JPUSHService registrationID];
+    if (registrationId) {
+        [aParams setObject:[NSString stringWithFormat:@"%@",registrationId] forKey:@"pushId"];
+    }
     
     [XuUItlity showLoading:@"正在提交"];
     

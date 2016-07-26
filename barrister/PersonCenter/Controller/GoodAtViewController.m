@@ -66,6 +66,17 @@
         [button setTitleColor:KColorGray666 forState:UIControlStateNormal];
         [button.titleLabel setFont:SystemFont(14.0f)];
         [button addTarget:self action:@selector(areaButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        if (model.isSelected) {
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:kNavigationBarColor];
+        }
+        else
+        {
+            [button setTitleColor:KColorGray666 forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor whiteColor]];
+        }
+
+        
         [self.areaView addSubview:button];
         
     }
@@ -87,6 +98,17 @@
         [button setTitleColor:KColorGray666 forState:UIControlStateNormal];
         [button.titleLabel setFont:SystemFont(14.0f)];
         [button addTarget:self action:@selector(typeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (typeModel.isSelected) {
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:kNavigationBarColor];
+        }
+        else
+        {
+            [button setTitleColor:KColorGray666 forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor whiteColor]];
+        }
+
         [self.typeView addSubview:button];
         
     }
@@ -178,6 +200,19 @@
         BizTypeModel *typeModel = [[BizTypeModel alloc] initWithDictionary:dict];
         [self.typeArray addObject:typeModel];
     }
+    
+    
+    for (int i = 0; i < self.typeArray.count; i ++) {
+        BizTypeModel *typeModel = (BizTypeModel *)[self.typeArray objectAtIndex:i];
+        for (int j = 0; j < [BaseDataSingleton shareInstance].userModel.bizTypeList.count; j ++) {
+            NSDictionary *dict = [[BaseDataSingleton shareInstance].userModel.bizTypeList safeObjectAtIndex:j];
+            BizTypeModel *modelTemp = [[BizTypeModel alloc] initWithDictionary:dict];
+            if ([typeModel.typeId isEqualToString:modelTemp.typeId]) {
+                typeModel.isSelected = YES;
+            }
+        }
+    }
+    
 }
 
 
@@ -188,6 +223,19 @@
         BizAreaModel *typeModel = [[BizAreaModel alloc] initWithDictionary:dict];
         [self.areaArray addObject:typeModel];
     }
+    
+    for (int i = 0; i < self.areaArray.count; i ++) {
+        BizAreaModel *areaModel = (BizAreaModel *)[self.areaArray objectAtIndex:i];
+        for (int j = 0; j < [BaseDataSingleton shareInstance].userModel.bizAreaList.count; j ++) {
+            NSDictionary *dict = [[BaseDataSingleton shareInstance].userModel.bizAreaList safeObjectAtIndex:j];
+            BizAreaModel *modelTemp = [[BizAreaModel alloc] initWithDictionary:dict];
+            if ([areaModel.areaId isEqualToString:modelTemp.areaId]) {
+                areaModel.isSelected = YES;
+            }
+ 
+        }
+    }
+
     
     [self configView];
     
