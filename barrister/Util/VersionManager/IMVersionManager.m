@@ -39,6 +39,7 @@
     self = [super init];
     if (self) {
         [self checkNativeVersion];
+        [self checkNetworkVersion];
     }
     return self;
 }
@@ -69,13 +70,13 @@
     if ([IMVersionManager shareInstance].appStoreVersion) {
         isneed = [[IMVersionManager shareInstance].nativeVersion compare:[IMVersionManager shareInstance].appStoreVersion] == -1;
     }
-    
+
     if (isneed) {
         [XuUItlity showYesOrNoAlertView:@"更新" noText:@"以后再说" title:@"提示" mesage:@"有新版本可以更新" callback:^(NSInteger buttonIndex, NSString *inputString) {
             //确定
             if(buttonIndex == 1)
             {
-                NSString *checkUrl = [NSString stringWithFormat:AppstoreUrl,APP_ID];
+                NSString *checkUrl = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",APP_ID];
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:checkUrl]];
             }
         }];
