@@ -110,48 +110,49 @@
         return;
     }
     
-    if (![BaseDataSingleton shareInstance].userModel.userIcon) {
+    PersonCenterModel *model = (PersonCenterModel *)[self.items safeObjectAtIndex:0];
+
+    if (![BaseDataSingleton shareInstance].userModel.userIcon &&!model.headImage) {
         [XuUItlity showFailedHint:@"请上传头像" completionBlock:nil];
         return;
     }
     
     PersonCenterModel *nameModel = [self.items safeObjectAtIndex:1];
-    if (IS_EMPTY(nameModel.subtitleStr)) {
+    if (IS_EMPTY(nameModel.subtitleStr) || [nameModel.subtitleStr isEqualToString:@"未填写"]) {
         [XuUItlity showFailedHint:@"请填入姓名" completionBlock:nil];
         return;
     }
 
-    PersonCenterModel *areaModel = [self.items safeObjectAtIndex:3];
-    if (IS_EMPTY(areaModel.subtitleStr)) {
+    PersonCenterModel *areaModel = [self.items safeObjectAtIndex:4];
+    if (IS_EMPTY(areaModel.subtitleStr) || [areaModel.subtitleStr isEqualToString:@"未填写"]) {
         [XuUItlity showFailedHint:@"请选择地区" completionBlock:nil];
         return;
     }
  
     PersonCenterModel *goodAtModel = [self.items safeObjectAtIndex:5];
-    if (IS_EMPTY(goodAtModel.subtitleStr)) {
+    if (IS_EMPTY(goodAtModel.subtitleStr) || [goodAtModel.subtitleStr isEqualToString:@"未填写"]) {
         [XuUItlity showFailedHint:@"请填写擅长领域" completionBlock:nil];
         return;
     }
     
    
     PersonCenterModel *companyModel = [self.items safeObjectAtIndex:6];
-    if (IS_EMPTY(companyModel.subtitleStr)) {
+    if (IS_EMPTY(companyModel.subtitleStr) || [companyModel.subtitleStr isEqualToString:@"未填写"]) {
         [XuUItlity showFailedHint:@"请填写律所" completionBlock:nil];
         return;
     }
 
     PersonCenterModel *zizhiModel = [self.items safeObjectAtIndex:7];
-    if (IS_EMPTY(zizhiModel.subtitleStr)) {
+    if (IS_EMPTY(zizhiModel.subtitleStr)|| [zizhiModel.subtitleStr isEqualToString:@"未上传"]) {
         [XuUItlity showFailedHint:@"请上传资质材料" completionBlock:nil];
         return;
     }
     
     PersonCenterModel *workyearsModel = [self.items safeObjectAtIndex:8];
-    if (IS_NOT_EMPTY(workyearsModel.subtitleStr)) {
-        if (![workyearsModel.subtitleStr isEqualToString:@"未填写"]) {
-            [XuUItlity showFailedHint:@"请选择工作时间" completionBlock:nil];
-            return;
-        }
+    if (IS_EMPTY(workyearsModel.subtitleStr) || [workyearsModel.subtitleStr isEqualToString:@"未填写"]) {
+        [XuUItlity showFailedHint:@"请选择工作时间" completionBlock:nil];
+        return;
+
     }
     
     [self FinishConfigData];
@@ -342,7 +343,7 @@
                 }
                 else
                 {
-                    model.subtitleStr = @"";
+                    model.subtitleStr = @"未上传";
                 }
                 
             }
@@ -572,7 +573,10 @@
             [XuUItlity showSucceedHint:@"上传成功" completionBlock:nil];
             PersonCenterModel *model = (PersonCenterModel *)[self.items safeObjectAtIndex:0];
             model.headImage = self.headImage;
-            [self.tableView reloadData];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
 
         }
         else
