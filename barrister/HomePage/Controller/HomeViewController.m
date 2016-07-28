@@ -134,12 +134,15 @@
 //ps结果回来之后
 -(void)reloadPayTableView
 {
-    if ([[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
-        if (![BaseDataSingleton shareInstance].isClosePay) {
-            [self loadAccountData];
+    if (IS_NOT_EMPTY([BaseDataSingleton shareInstance].loginState)) {
+        if ([[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {
+            if (![BaseDataSingleton shareInstance].isClosePay) {
+                [self loadAccountData];
+            }
+            
         }
-
     }
+
 
 }
 
