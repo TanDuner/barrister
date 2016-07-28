@@ -36,7 +36,7 @@
     NSString *loginState = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginState"];
     NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:@"phone"];
     self.userModel.verifyCode = validCode;
-    self.loginState = loginState;
+    self.loginState = loginState?loginState:@"0";
     self.userModel.phone = phone;
 }
 
