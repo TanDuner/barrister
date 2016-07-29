@@ -180,10 +180,17 @@
         if (success) {
          
             NSDictionary *dict = (NSDictionary *)returnData;
-
             NSArray *bizTypes = [dict objectForKey:@"bizTypes"];
+            if ([XuUtlity isValidArray:bizTypes]) {
+                [weakSelf handleCaseTypesWithArray:bizTypes];
+            }
+            
             NSArray *bizAreas = [dict objectForKey:@"bizAreas"];
-            [weakSelf handleCaseTypesWithArray:bizTypes];
+            if ([XuUtlity isValidArray:bizAreas]) {
+                [weakSelf handleAreaTypesWithArray:bizAreas];
+            }
+
+
             [weakSelf handleAreaTypesWithArray:bizAreas];
         }
         else

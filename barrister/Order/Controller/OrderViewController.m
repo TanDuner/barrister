@@ -121,7 +121,14 @@
     [self.proxy getOrderListWithParams:params Block:^(id returnData, BOOL success) {
         if (success) {
             NSArray *array = (NSArray *)returnData;
-            [weakSelf wrapLeftOrderDataWithArray:array];
+            if ([XuUtlity isValidArray:array]) {
+                [weakSelf wrapLeftOrderDataWithArray:array];
+            }
+            else
+            {
+                [weakSelf wrapLeftOrderDataWithArray:@[]];
+            }
+
         }
         else
         {
@@ -162,7 +169,14 @@
     [self.proxy getOrderListWithParams:params Block:^(id returnData, BOOL success) {
         if (success) {
             NSArray *array = (NSArray *)returnData;
-            [weakSelf wrapRightOrderDataWithArray:array];
+            if ([XuUtlity isValidArray:array]) {
+                [weakSelf wrapRightOrderDataWithArray:array];
+            }
+            else
+            {
+                [weakSelf wrapRightOrderDataWithArray:@[]];
+            }
+
             
         }
         else

@@ -15,12 +15,15 @@
 {
     NSArray *array  = [dict objectForKey:@"callHistories"];
     if ([XuUtlity isValidArray:array]) {
-        for (int i = 0; i < array.count; i ++) {
-            NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
-            CallHistoriesModel *model = [[CallHistoriesModel alloc] initWithDictionary:dict];
-            [self.callRecordArray addObject:model];
+        if ([XuUtlity isValidArray:array]) {
+            for (int i = 0; i < array.count; i ++) {
+                NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
+                CallHistoriesModel *model = [[CallHistoriesModel alloc] initWithDictionary:dict];
+                [self.callRecordArray addObject:model];
+            }
         }
     }
+
   
     
     

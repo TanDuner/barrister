@@ -169,10 +169,7 @@
             NSDictionary *dict = (NSDictionary *)returnData;
             [weakSelf handleSourceListWithDict:dict];
         }
-        else
-        {
-            
-        }
+      
     }];
 }
 
@@ -182,13 +179,15 @@
     
     [self.caseSourceItems removeAllObjects];
     NSArray *array = (NSArray *)[params objectForKey:@"cases"];
-    for (int i = 0; i < array.count; i ++) {
-        NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
-        HomeCaseListModel *model = [[HomeCaseListModel alloc] initWithDictionary:dict];
-        [self.caseSourceItems addObject:model];
+    if ([XuUtlity isValidArray:array]) {
+        for (int i = 0; i < array.count; i ++) {
+            NSDictionary *dict = (NSDictionary *)[array safeObjectAtIndex:i];
+            HomeCaseListModel *model = [[HomeCaseListModel alloc] initWithDictionary:dict];
+            [self.caseSourceItems addObject:model];
+        }
+        
+        [self.tableView reloadData];
     }
-    
-    [self.tableView reloadData];
     
 }
 
@@ -209,7 +208,10 @@
             NSDictionary *dict = (NSDictionary *)returnData;
             if ([dict respondsToSelector:@selector(objectForKey:)]) {
                 NSArray *listArray = [dict objectForKey:@"list"];
-                [self handleBannerDataWithArray:listArray];
+                if ([XuUtlity isValidArray:listArray]) {
+                    [self handleBannerDataWithArray:listArray];                    
+                }
+
             }
         }
    
