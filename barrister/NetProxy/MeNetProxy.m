@@ -183,8 +183,9 @@
                           fileName:(NSString *)fileName
                              Block:(ServiceCallBlock)aBlock
 {
+    [self appendCommonParamsWithDict:params];
 
-    [XuNetWorking uploadWithImage:image url:UploadAuthUrl filename:@"userIcon" name:@"userIcon" mimeType:@"image/jpeg" parameters:params progress:nil success:^(id response) {
+    [XuNetWorking uploadWithImage:image url:UploadAuthUrl filename:fileName name:fileName mimeType:@"image/jpeg" parameters:params progress:nil success:^(id response) {
         if (aBlock) {
             aBlock(response,YES);
         }
