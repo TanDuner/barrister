@@ -51,6 +51,31 @@
 {
     self.titleLabel.text = [NSString stringWithFormat:@"案源号:%@",self.model.caseId?self.model.caseId:@"无"];
     self.dateLabel.text = self.model.addTime;
+    NSString *str = @"";
+    if ([self.model.status isEqualToString:@"case.status.consulting"]) {
+        str = @"咨询";
+    }
+    else if ([self.model.status isEqualToString:@"case.status.interview"])
+    {
+        str = @"面谈";
+    }
+    else if ([self.model.status isEqualToString:@"case.status.signatory"])
+    {
+        str = @"签约";
+    }
+    else if ([self.model.status isEqualToString:@"case.status.followup"])
+    {
+        str = @"跟进";
+    }
+    else if ([self.model.status isEqualToString:@"case.status.clearing"])
+    {
+        str = @"结算";
+    }
+    else
+    {
+        str = @"未知";
+    }
+    self.model.status = str;
     self.midLabel.text = [NSString stringWithFormat:@"%@  %@  %@",self.model.status?self.model.status:@"",self.model.contactPhone,self.model.area];
     self.descLabel.text = self.model.caseInfo;
 }
