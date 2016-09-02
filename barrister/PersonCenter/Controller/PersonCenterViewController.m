@@ -104,7 +104,7 @@
     PersonCenterModel *model8 = [[PersonCenterModel alloc] init];
     model8.titleStr = @"我的案源";
     model8.cellType = PersonCenterModelTypeWDAY;
-    model8.iconNameStr = @"xiaoxi.png";
+    model8.iconNameStr = @"Me_source";
     model8.isShowArrow = YES;
     model8.isAccountLogin = NO;
 
