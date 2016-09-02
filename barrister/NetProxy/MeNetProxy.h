@@ -83,6 +83,14 @@
 
 
 
+/**
+ *  发布案源接口
+ *
+ *  @param params
+ *  @param aBlock
+ */
+-(void)publishCaseSourceWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
 @end
 
 

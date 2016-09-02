@@ -17,6 +17,7 @@
 #define MyMessageUrl @"getMyMsgs.do"
 
 #define FeedBackUrl @"addFeedback.do"
+#define PublishCaseSource @"uploadCase.do"
 
 
 @implementation MeNetProxy
@@ -225,6 +226,37 @@
     }];
 
 }
+
+
+/**
+ *  发布案源接口
+ *
+ *  @param params
+ *  @param aBlock
+ */
+-(void)publishCaseSourceWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [self appendCommonParamsWithDict:params];
+    
+    [XuNetWorking postWithUrl:PublishCaseSource params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            if (aBlock) {
+                aBlock(response,YES);
+            }
+        }
+        else{
+            aBlock(CommonNetErrorTip,NO);
+        }
+        
+    } fail:^(NSError *error) {
+        if (aBlock) {
+            aBlock(error,NO);
+        }
+        
+    }];
+    
+}
+
 
 
 

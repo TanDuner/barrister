@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, PersonCenterModelType)
     PersonCenterModelTypeInfoZZSC = 13,//资质上传
     PersonCenterModelTypeInfoGZNX = 14,//工作年限
     PersonCenterModelTypeInfoIntroduce = 15,//个人简介
+    PersonCenterModelTypeWDAY = 16,
 };
 
 typedef void (^ModelActionBlock)(NSInteger PersonCenterModelType);

@@ -16,6 +16,8 @@
 #import "MyAccountHomeViewController.h"
 #import "MyMessageViewController.h"
 #import "BarristerLoginManager.h"
+#import "MyCaseListViewController.h"
+
 @interface PersonCenterViewController ()
 
 @end
@@ -82,7 +84,7 @@
         PersonCenterModel *model2 = [[PersonCenterModel alloc] init];
         model2.titleStr = @"我的账户";
         model2.cellType = PersonCenterModelTypeZHU;
-        model2.iconNameStr = @"zhanghu.png";
+        model2.iconNameStr = @"Me_account";
         model2.isShowArrow = YES;
         model2.isAccountLogin = NO;
         [self.items addObject:model2];
@@ -94,10 +96,19 @@
     PersonCenterModel *model3 = [[PersonCenterModel alloc] init];
     model3.titleStr = @"我的消息";
     model3.cellType = PersonCenterModelTypeXX;
-    model3.iconNameStr = @"xiaoxi.png";
+    model3.iconNameStr = @"Me_message";
     model3.isShowArrow = YES;
     model3.isAccountLogin = NO;
 
+    
+    PersonCenterModel *model8 = [[PersonCenterModel alloc] init];
+    model8.titleStr = @"我的案源";
+    model8.cellType = PersonCenterModelTypeWDAY;
+    model8.iconNameStr = @"xiaoxi.png";
+    model8.isShowArrow = YES;
+    model8.isAccountLogin = NO;
+
+    
     
     PersonCenterModel *model4 = [[PersonCenterModel alloc] init];
     model4.titleStr = @"认证状态";
@@ -120,7 +131,7 @@
     }
     
     model4.cellType = PersonCenterModelTypeRZZT;
-    model4.iconNameStr = @"renzheng.png";
+    model4.iconNameStr = @"Me_renzhen";
     model4.isShowArrow = NO;
     model4.isAccountLogin = NO;
     
@@ -128,7 +139,7 @@
     PersonCenterModel *model5 = [[PersonCenterModel alloc] init];
     model5.titleStr = @"接单设置";
     model5.cellType = PersonCenterModelTypeJDSZ;
-    model5.iconNameStr = @"jiedan.png";
+    model5.iconNameStr = @"Me_jiedan";
     model5.isShowArrow = YES;
     model5.isAccountLogin = NO;
 
@@ -136,11 +147,12 @@
     PersonCenterModel *model6 = [[PersonCenterModel alloc] init];
     model6.titleStr = @"设置";
     model6.cellType = PersonCenterModelTypeSZ;
-    model6.iconNameStr = @"shezhi.png";
+    model6.iconNameStr = @"Me_setting";
     model6.isShowArrow = YES;
     model6.isAccountLogin = NO;
 
     [self.items addObject:model3];
+    [self.items addObject:model8];
     [self.items addObject:model4];
     [self.items addObject:model5];
     [self.items addObject:model6];
@@ -169,9 +181,9 @@
     else if (section == 1)
     {
         if ([BaseDataSingleton shareInstance].isClosePay) {
-            return 3;
+            return 4;
         }
-        return 4;
+        return 5;
     }
     else
     {
@@ -255,74 +267,60 @@
         return;
     }
     
-    if (indexPath.section == 0) {
-        PersonInfoViewController *personInfo = [[PersonInfoViewController alloc] init];
-        personInfo.fromType = @"1";
-        [self.navigationController pushViewController:personInfo animated:YES];
-    }
-    else if (indexPath.section == 1)
-    {
-        switch (indexPath.row) {
-            case 0:
-            {
-                if ([BaseDataSingleton shareInstance].isClosePay) {
-                    MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
-                    [self.navigationController pushViewController:messageVC animated:YES];
-
-                }
-                else
-                {
-                    MyAccountHomeViewController *accountVC = [[MyAccountHomeViewController alloc] init];
-                    [self.navigationController pushViewController:accountVC animated:YES];
-                }
+        PersonCenterCustomCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        PersonCenterModel *model = (PersonCenterModel *)cell.model;
+    
+        switch (model.cellType) {
                 
-            }
-                break;
-            case 1:
+            case PersonCenterModelTypeZH:
             {
-                if ([BaseDataSingleton shareInstance].isClosePay) {
-                    
-                }
-                else
-                {
-                    MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
-                    [self.navigationController pushViewController:messageVC animated:YES];
-                }
-            }
-                break;
-             case 2:
-            {
-                if ([BaseDataSingleton shareInstance].isClosePay) {
-                    AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
-                    [self.navigationController pushViewController:appointVC animated:YES];
-                }
-                else
-                {
-                    
-                }
-            }
-                break;
-            case 3:
-            {
-                if ([BaseDataSingleton shareInstance].isClosePay) {
-                    
-                }
-                else
-                {
-                    AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
-                    [self.navigationController pushViewController:appointVC animated:YES];
+                PersonInfoViewController *personInfo = [[PersonInfoViewController alloc] init];
+                personInfo.fromType = @"1";
+                [self.navigationController pushViewController:personInfo animated:YES];
 
-                }
             }
                 break;
-            default:
+            case PersonCenterModelTypeZHU:
+            {
+                MyAccountHomeViewController *accountVC = [[MyAccountHomeViewController alloc] init];
+                [self.navigationController pushViewController:accountVC animated:YES];
+
+            }
                 break;
-        }
-    }
-    else
-    {
-        SettingViewController *settingVC = [[SettingViewController alloc] init];
-        [self.navigationController pushViewController:settingVC animated:YES];
+                case PersonCenterModelTypeXX:
+            {
+                MyMessageViewController *messageVC = [[MyMessageViewController alloc] init];
+                [self.navigationController pushViewController:messageVC animated:YES];
+
+            }
+                break;
+                case PersonCenterModelTypeJDSZ:
+            {
+                AppointmentViewController *appointVC = [[AppointmentViewController alloc] init];
+                [self.navigationController pushViewController:appointVC animated:YES];
+
+            }
+                break;
+                case PersonCenterModelTypeSZ:
+            {
+                SettingViewController *settingVC = [[SettingViewController alloc] init];
+                [self.navigationController pushViewController:settingVC animated:YES];
+
+            }
+                break;
+                
+                case PersonCenterModelTypeWDAY:
+            {
+                MyCaseListViewController *caseList = [[MyCaseListViewController alloc] init];
+                [self.navigationController pushViewController:caseList animated:YES];
+            }
+                break;
+                default:
+            {
+            
+            }
+                break;
+                
     }
 }
 

@@ -35,7 +35,7 @@
 
 +(CGFloat) getCellHeightWithModel:(HomeCaseListModel *)model
 {
-    return LeftPadding + 12 + LeftPadding + 12 + LeftPadding + model.titleHeight + LeftPadding;
+    return LeftPadding + 12 + LeftPadding + 12 + LeftPadding + model.caseInfoHeight + LeftPadding;
 }
 
 
@@ -44,7 +44,7 @@
     [self.titleLabel setFrame:RECT(LeftPadding, LeftPadding, 100, 12)];
     [self.dateLabel setFrame:RECT(SCREENWIDTH - LeftPadding  - 150, LeftPadding, 150, 12)];
     [self.midLabel setFrame:RECT(LeftPadding, CGRectGetMaxY(self.titleLabel.frame) + LeftPadding, SCREENWIDTH - LeftPadding *2, 12)];
-    [self.descLabel setFrame:RECT(LeftPadding, CGRectGetMaxY(self.midLabel.frame) +LeftPadding, SCREENWIDTH - LeftPadding *2, self.model.titleHeight)];
+    [self.descLabel setFrame:RECT(LeftPadding, CGRectGetMaxY(self.midLabel.frame) +LeftPadding, SCREENWIDTH - LeftPadding *2, self.model.caseInfoHeight)];
 }
 
 -(void)configData
@@ -52,31 +52,33 @@
     self.titleLabel.text = [NSString stringWithFormat:@"案源号:%@",self.model.caseId?self.model.caseId:@"无"];
     self.dateLabel.text = self.model.addTime;
     NSString *str = @"";
-    if ([self.model.status isEqualToString:@"case.status.consulting"]) {
-        str = @"咨询";
+    if ([self.model.status isEqualToString:STATUS_0_INIT]) {
+        str = @"等待审核";
     }
-    else if ([self.model.status isEqualToString:@"case.status.interview"])
+    else if ([self.model.status isEqualToString:STATUS_1_PUBLISHED])
     {
-        str = @"面谈";
+        str = @"可代理";
     }
-    else if ([self.model.status isEqualToString:@"case.status.signatory"])
+    else if ([self.model.status isEqualToString:STATUS_2_WAIT_UPDATE])
     {
-        str = @"签约";
+        str = @"代理中";
     }
-    else if ([self.model.status isEqualToString:@"case.status.followup"])
+    else if ([self.model.status isEqualToString:STATUS_3_WAIT_CLEARING])
     {
-        str = @"跟进";
+        str = @"等待结算";
     }
-    else if ([self.model.status isEqualToString:@"case.status.clearing"])
+    else if ([self.model.status isEqualToString:STATUS_4_WAIT_CLEARED])
     {
-        str = @"结算";
+        str = @"已结算";
     }
     else
     {
         str = @"未知";
     }
-    self.model.status = str;
-    self.midLabel.text = [NSString stringWithFormat:@"%@  %@  %@",self.model.status?self.model.status:@"",self.model.contactPhone,self.model.area];
+    
+    NSString *showPhoneStr = [NSString stringWithFormat:@"%@****%@",[self.model.contactPhone substringToIndex:3],[self.model.contactPhone substringFromIndex:7]];
+    
+    self.midLabel.text = [NSString stringWithFormat:@"状态:%@  %@  %@",str?str:@"-",showPhoneStr,IS_NOT_EMPTY(self.model.area)?self.model.area:@""];
     self.descLabel.text = self.model.caseInfo;
 }
 

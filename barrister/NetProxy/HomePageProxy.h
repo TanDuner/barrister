@@ -55,4 +55,13 @@
 
 -(void)getHidePayDataWithParams:(NSDictionary *)params Block:(ServiceCallBlock)aBlock;
 
+
+/**
+ *  获取我的案源列表
+ *
+ *  @param params
+ *  @param aBlock
+ */
+-(void)getMyCaseListWithParams:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock;
+
 @end

@@ -1,57 +1,56 @@
 //
-//  CaseSourceViewController.m
+//  MyCaseListViewController.m
 //  barrister
 //
-//  Created by 徐书传 on 16/7/10.
+//  Created by 徐书传 on 16/8/29.
 //  Copyright © 2016年 Xu. All rights reserved.
 //
 
-#import "CaseSourceViewController.h"
+#import "MyCaseListViewController.h"
 #import "RefreshTableView.h"
 #import "HomePageProxy.h"
 #import "HomeCaseListModel.h"
 #import "HomeCaseSourceCell.h"
 #import "CaseSourceDetailViewController.h"
-#import "NeedHelpViewController.h"
 
+@interface MyCaseListViewController ()<UITableViewDataSource,UITableViewDelegate,RefreshTableViewDelegate>
 
-@interface CaseSourceViewController ()<UITableViewDataSource,UITableViewDelegate,RefreshTableViewDelegate>
 @property (nonatomic,strong) RefreshTableView *tableView;
 @property (nonatomic,strong) NSMutableArray *items;
 @property (nonatomic,strong) HomePageProxy *proxy;
 
+
 @end
 
-@implementation CaseSourceViewController
+@implementation MyCaseListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    
     [self configView];
+    [self configData];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self showTabbar:NO];
-    [self configData];
-
 }
 
 -(void)configView
 {
-    self.title = @"案源列表";
+    self.title = @"我的案源";
     [self.view addSubview:self.tableView];
-    [self initNavigationRightTextButton:@"发布案源" action:@selector(addCaseSource) target:self];
+//    [self initNavigationRightTextButton:@"发布案源" action:@selector(addCaseSource) target:self];
     
 }
 
--(void)addCaseSource
-{
-    NeedHelpViewController *needVC = [[NeedHelpViewController alloc] init];
-    [self.navigationController pushViewController:needVC animated:YES];
-
-}
+//-(void)addCaseSource
+//{
+//    NeedHelpViewController *needVC = [[NeedHelpViewController alloc] init];
+//    [self.navigationController pushViewController:needVC animated:YES];
+//    
+//}
 
 
 -(void)configData
@@ -60,7 +59,7 @@
     
     __weak typeof(*&self) weakSelf = self;
     
-    [self.proxy getCaseListWithParams:params Block:^(id returnData, BOOL success) {
+    [self.proxy getMyCaseListWithParams:params Block:^(id returnData, BOOL success) {
         if (success) {
             NSDictionary *dict = (NSDictionary *)returnData;
             NSArray *array = (NSArray *)[dict objectForKey:@"cases"];
@@ -71,15 +70,15 @@
             {
                 [weakSelf handleSourceListWithArray:@[]];
             }
-
+            
         }
         else
         {
             
         }
     }];
-
-   
+    
+    
 }
 
 -(void)circleTableViewDidTriggerRefresh:(RefreshTableView *)tableView
@@ -96,12 +95,12 @@
 
 -(void)handleSourceListWithArray:(NSArray *)array
 {
-   
+    
     __weak typeof(*&self) weakSelf = self;
     [self handleTableRefreshOrLoadMoreWithTableView:self.tableView array:array aBlock:^{
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf.items removeAllObjects];
-
+        
     }];
     
     for (int i = 0; i < array.count; i ++) {
@@ -153,7 +152,7 @@
         detailVC.model = model;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
-
+    
 }
 
 
@@ -185,5 +184,4 @@
     }
     return _proxy;
 }
-
 @end

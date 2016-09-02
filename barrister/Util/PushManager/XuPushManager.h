@@ -63,6 +63,8 @@
 #define Push_Type_New_AppointmentOrder @"type.order.new"
 
 
+#define Push_Type_HangOff               @"type.hang.off"
+
 
 @interface XuPushManager : NSObject
 

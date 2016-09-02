@@ -15,6 +15,8 @@
 #define SwitchUrl @"getLatestVersion.do"
 
 
+#define MyCaseListUrl @"myCaseList.do"
+
 @implementation HomePageProxy
 
 /**
@@ -143,5 +145,30 @@
     
     
 }
+
+
+
+/**
+ *  获取我的案源列表
+ *
+ *  @param params
+ *  @param aBlock
+ */
+-(void)getMyCaseListWithParams:(NSMutableDictionary *)params Block:(ServiceCallBlock)aBlock
+{
+    [self appendCommonParamsWithDict:params];
+    [XuNetWorking postWithUrl:MyCaseListUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response,YES);
+        }
+        else
+        {
+            aBlock(CommonNetErrorTip,NO);
+        }
+    } fail:^(NSError *error) {
+        aBlock(CommonNetErrorTip,YES);
+    }];
+}
+
 
 @end

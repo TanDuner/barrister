@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPSessionManager.h"
 
 /*!
  *
@@ -267,4 +268,8 @@ typedef void(^XuResponseFail)(NSError *error);
                                   progress:(XuDownloadProgress)progress
                                    success:(XuResponseSuccess)success
                                       fail:(XuResponseFail)fail;
+
+
++ (AFHTTPSessionManager *)manager;
+
 @end

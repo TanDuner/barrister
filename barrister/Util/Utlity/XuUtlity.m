@@ -1629,7 +1629,7 @@ const NSUInteger kDefaultImageDataLength = 80000; //80k
  */
 + (NSData *)p_compressImage:(UIImage *)soruceImage
 {
-    NSData *imageData = UIImageJPEGRepresentation(soruceImage, 1.0);
+    NSData *imageData = UIImageJPEGRepresentation(soruceImage, 0.2);
     
     if (imageData.length <= kDefaultImageDataLength) {
         

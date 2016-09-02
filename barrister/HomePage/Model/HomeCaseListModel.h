@@ -40,6 +40,14 @@
 //status = "case.status.consulting";
 //title = "\U54a8\U8be2\Uff0c\U5a5a\U524d\U7236\U6bcd\U4e70\U623f\U7684";
 
+
+#define STATUS_0_INIT  @"case.status.init"//刚刚上传（或刚被退回），等待审核
+#define STATUS_1_PUBLISHED  @"case.status.published"//客服审核确认,发布
+#define STATUS_2_WAIT_UPDATE  @"case.status.agency"//代理中，等待更新进度
+#define STATUS_3_WAIT_CLEARING @"case.status.clearing"//已代理，等待结算
+#define STATUS_4_WAIT_CLEARED  @"case.status.cleared"//结束，已结算
+
+
 @interface HomeCaseListModel : BaseModel
 
 @property (nonatomic,strong) NSString *addTime;
@@ -76,5 +84,6 @@
 
 @property (nonatomic,assign) CGFloat titleHeight;
 
+@property (nonatomic,assign) CGFloat caseInfoHeight;
 
 @end

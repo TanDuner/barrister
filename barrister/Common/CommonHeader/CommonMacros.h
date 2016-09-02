@@ -38,6 +38,15 @@
 #define TYPE_REWARD  @"income.type.reward"// 打赏
 #define TYPE_RECHARGE  @"consume.type.recharge"// 充值
 #define TYPE_BACK  @"consume.type.back"// 退钱
+#define Type_CASE   @"income.type.buycase"//案源消耗
+
+
+//#define STATUS_0_INIT  @"case.status.init"//刚刚上传（或刚被退回），等待审核
+//#define STATUS_1_PUBLISHED  @"case.status.published"//客服审核确认,发布
+//#define STATUS_2_WAIT_UPDATE  @"case.status.agency"//代理中，等待更新进度
+//#define STATUS_3_WAIT_CLEARING  @"case.status.clearing"//已代理，等待结算
+//#define STATUS_4_WAIT_CLEARED  @"case.status.cleared"//结束，已结算
+
 
 
 

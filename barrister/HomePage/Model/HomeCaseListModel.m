@@ -15,6 +15,11 @@
     self.caseId = [dict objectForKey:@"id"];
     CGFloat textHeight = [XuUtlity textHeightWithString:self.title withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - LeftPadding *2];
     self.titleHeight = textHeight;
+    
+    self.caseInfoHeight = [XuUtlity textHeightWithString:self.caseInfo withFont:SystemFont(14.0f) sizeWidth:SCREENWIDTH - LeftPadding *2];
+    if (self.caseInfoHeight < 12) {
+        self.caseInfoHeight = 12;
+    }
 }
 
 @end

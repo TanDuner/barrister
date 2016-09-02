@@ -54,6 +54,12 @@
         self.typeLabel.text = @"用户打赏";
         self.handleLabel.text = [NSString stringWithFormat:@"+%@",self.model.money];
     }
+    else if ([self.model.type isEqualToString:@""])
+    {
+        self.typeLabel.text = @"购买案源";
+        self.handleLabel.text = [NSString stringWithFormat:@"+%@",self.model.money];
+        
+    }
     else
     {
         self.typeLabel.text = @"未知";
