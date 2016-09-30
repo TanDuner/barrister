@@ -17,8 +17,12 @@
 #import "MyMessageViewController.h"
 #import "BarristerLoginManager.h"
 #import "MyCaseListViewController.h"
+#import "PriceSettingViewController.h"
+#import "AccountProxy.h"
 
 @interface PersonCenterViewController ()
+
+@property (nonatomic,strong) AccountProxy *proxy;
 
 @end
 
@@ -60,8 +64,13 @@
 
 -(void)LoginSuccessAciton
 {
+    
+    //请求是否是专家
+    
     [self configData];
+
 }
+
 
 
 -(void)configData
@@ -99,15 +108,20 @@
     model3.iconNameStr = @"Me_message";
     model3.isShowArrow = YES;
     model3.isAccountLogin = NO;
+    [self.items addObject:model3];
+
 
     
-    PersonCenterModel *model8 = [[PersonCenterModel alloc] init];
-    model8.titleStr = @"我的案源";
-    model8.cellType = PersonCenterModelTypeWDAY;
-    model8.iconNameStr = @"Me_source";
-    model8.isShowArrow = YES;
-    model8.isAccountLogin = NO;
+    if (![BaseDataSingleton shareInstance].isClosePay) {
+        PersonCenterModel *model8 = [[PersonCenterModel alloc] init];
+        model8.titleStr = @"我的案源";
+        model8.cellType = PersonCenterModelTypeWDAY;
+        model8.iconNameStr = @"Me_source";
+        model8.isShowArrow = YES;
+        model8.isAccountLogin = NO;
+        [self.items addObject:model8];
 
+    }
     
     
     PersonCenterModel *model4 = [[PersonCenterModel alloc] init];
@@ -134,7 +148,8 @@
     model4.iconNameStr = @"Me_renzhen";
     model4.isShowArrow = NO;
     model4.isAccountLogin = NO;
-    
+    [self.items addObject:model4];
+
     
     PersonCenterModel *model5 = [[PersonCenterModel alloc] init];
     model5.titleStr = @"接单设置";
@@ -142,7 +157,22 @@
     model5.iconNameStr = @"Me_jiedan";
     model5.isShowArrow = YES;
     model5.isAccountLogin = NO;
+    [self.items addObject:model5];
 
+    
+    if (![BaseDataSingleton shareInstance].isClosePay) {
+        
+        if (IS_NOT_EMPTY([BaseDataSingleton shareInstance].userModel.isExpert) && [[BaseDataSingleton shareInstance].userModel.isExpert isEqualToString:@"1"]) {
+            PersonCenterModel *model7 = [[PersonCenterModel alloc] init];
+            model7.titleStr = @"价格设置";
+            model7.cellType = PersonCenterModelTypeJGSZ;
+            model7.iconNameStr = @"Me_jiedan";
+            model7.isShowArrow = YES;
+            model7.isAccountLogin = NO;
+            [self.items addObject:model7];
+        }
+        
+    }
     
     PersonCenterModel *model6 = [[PersonCenterModel alloc] init];
     model6.titleStr = @"设置";
@@ -150,11 +180,6 @@
     model6.iconNameStr = @"Me_setting";
     model6.isShowArrow = YES;
     model6.isAccountLogin = NO;
-
-    [self.items addObject:model3];
-    [self.items addObject:model8];
-    [self.items addObject:model4];
-    [self.items addObject:model5];
     [self.items addObject:model6];
 }
 
@@ -180,10 +205,7 @@
     }
     else if (section == 1)
     {
-        if ([BaseDataSingleton shareInstance].isClosePay) {
-            return 4;
-        }
-        return 5;
+        return self.items.count - 2;
     }
     else
     {
@@ -313,6 +335,13 @@
             {
                 MyCaseListViewController *caseList = [[MyCaseListViewController alloc] init];
                 [self.navigationController pushViewController:caseList animated:YES];
+            }
+                break;
+                
+                case PersonCenterModelTypeJGSZ:
+            {
+                PriceSettingViewController *settingVC = [[PriceSettingViewController alloc] init];
+                [self.navigationController pushViewController:settingVC animated:YES];
             }
                 break;
                 default:

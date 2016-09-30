@@ -102,15 +102,22 @@
     
     [self.contentScrollView addSubview:_areaTextField];
     
+
+    UILabel *label = [[UILabel alloc] initWithFrame:RECT(LeftPadding, CGRectGetMaxY(_areaTextField.frame) + 10, SCREENWIDTH, 12)];
+    label.text = @"请输入案情描述";
+    label.textColor = KColorGray666;
+    label.font = SystemFont(13.0f);
+    label.textAlignment = NSTextAlignmentLeft;
+    [self.contentScrollView addSubview:label];
     
-    _introTextView = [[UITextView alloc] initWithFrame:RECT(0, CGRectGetMaxY(_areaTextField.frame) + 10, SCREENWIDTH, 180)];
+    
+    _introTextView = [[UITextView alloc] initWithFrame:RECT(0, CGRectGetMaxY(label.frame) + 10, SCREENWIDTH, 180)];
     _introTextView.delegate = self;
-    _introTextView.text = @"请输入案情描述";
     _introTextView.textColor = KColorGray999;
     
     [self.contentScrollView addSubview:_introTextView];
     
-    self.contentScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(_introTextView.frame) + 216 + 30);
+    self.contentScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(_introTextView.frame) + 216 + 40);
     
     
     [self.view addSubview:self.contentScrollView];

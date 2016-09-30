@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, PersonCenterModelType)
     PersonCenterModelTypeXX = 2,//消息
     PersonCenterModelTypeRZZT = 3,//认证状态
     PersonCenterModelTypeJDSZ = 4,//接单设置
+    PersonCenterModelTypeJGSZ = 17,//价格设置
     PersonCenterModelTypeSZ = 5,//设置
     PersonCenterModelTypeInfoTX = 6,//个人信息界面 头像
     PersonCenterModelTypeInfoName = 7,//姓名

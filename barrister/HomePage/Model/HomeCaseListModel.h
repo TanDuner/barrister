@@ -86,4 +86,6 @@
 
 @property (nonatomic,assign) CGFloat caseInfoHeight;
 
+@property (nonatomic,assign) CGFloat caseDetailInfoHeight;
+
 @end

@@ -98,10 +98,12 @@
     }
     else if ([self.model.status isEqualToString:STATUS_3_WAIT_CLEARING])
     {
-        CaseSourceCellModel *model5 = [[CaseSourceCellModel alloc] init];
-        model5.cellType = @"5";
-        [self.items addObject:model5];
+        
+        CaseSourceCellModel *model4 = [[CaseSourceCellModel alloc] init];
+        model4.cellType = @"4";
+        [self.items addObject:model4];
 
+        
     }
     else if ([self.model.status isEqualToString:STATUS_4_WAIT_CLEARED])
     {

@@ -42,7 +42,18 @@
 {
     self.title = @"案源列表";
     [self.view addSubview:self.tableView];
-    [self initNavigationRightTextButton:@"发布案源" action:@selector(addCaseSource) target:self];
+//    [self initNavigationRightTextButton:@"发布案源" action:@selector(addCaseSource) target:self];
+    
+    UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addBtn addTarget:self action:@selector(addCaseSource) forControlEvents:UIControlEventTouchUpInside];
+//    [addBtn setImage:[UIImage imageNamed:@"add.png"] forState:UIControlStateNormal];
+    [addBtn setBackgroundImage:[UIImage imageNamed:@"add.png"] forState:UIControlStateNormal];
+    [addBtn setFrame:RECT((SCREENWIDTH - 20 - 30)/2.0, (100 - 30)/2.0 - 15, 25, 25)];
+
+
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:addBtn];
+    
+    self.navigationItem.rightBarButtonItem = item;
     
 }
 
@@ -147,6 +158,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([BaseDataSingleton shareInstance].isClosePay) {
+        return;
+    }
     if (self.items.count > indexPath.row) {
         HomeCaseListModel *model = (HomeCaseListModel *)[self.items objectAtIndex:indexPath.row];
         CaseSourceDetailViewController *detailVC = [[CaseSourceDetailViewController alloc] init];

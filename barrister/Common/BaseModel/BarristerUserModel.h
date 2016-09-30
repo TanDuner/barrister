@@ -200,4 +200,7 @@
 @property (nonatomic,strong) NSString *verifyStatus;
 
 
+//是否是专家 1 是专家 其他都不是
+@property (nonatomic,strong) NSString *isExpert;
+
 @end

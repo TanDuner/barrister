@@ -12,6 +12,8 @@
 #define AccountDetialUrl @"getIncomeDetailList.do"
 #define TixianUrl @"getMoney.do"
 #define BindBankCardUrl @"bindBankCard.do"
+#define SettingPriceUrl @"fitPrice.do"
+#define IsExpertUrl     @"isExpert.do"
 
 @implementation AccountProxy
 
@@ -84,6 +86,57 @@
 {
     [self appendCommonParamsWithDict:params];
     [XuNetWorking postWithUrl:TixianUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response ,YES);
+        }
+        else
+        {
+            NSString *str = [response objectForKey:@"resultMsg"];
+            aBlock(str,NO);
+        }
+    } fail:^(NSError *error) {
+        
+        aBlock(CommonNetErrorTip,NO);
+    }];
+}
+
+
+/**
+ 修改服务价格
+ 
+ @param params 参数
+ @param aBlock 回调block
+ */
+
+-(void)changePriceWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+    [self appendCommonParamsWithDict:params];
+    [XuNetWorking postWithUrl:SettingPriceUrl params:params success:^(id response) {
+        if ([self isCommonCorrectResultCodeWithResponse:response]) {
+            aBlock(response ,YES);
+        }
+        else
+        {
+            NSString *str = [response objectForKey:@"resultMsg"];
+            aBlock(str,NO);
+        }
+    } fail:^(NSError *error) {
+        
+        aBlock(CommonNetErrorTip,NO);
+    }];
+}
+
+/**
+ 请求是否是专家
+ 
+ @param params
+ @param aBlock
+ */
+-(void)getIsExpertDataWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock
+{
+
+    [self appendCommonParamsWithDict:params];
+    [XuNetWorking postWithUrl:IsExpertUrl params:params success:^(id response) {
         if ([self isCommonCorrectResultCodeWithResponse:response]) {
             aBlock(response ,YES);
         }

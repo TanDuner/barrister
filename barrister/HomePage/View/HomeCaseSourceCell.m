@@ -76,9 +76,14 @@
         str = @"未知";
     }
     
-    NSString *showPhoneStr = [NSString stringWithFormat:@"%@****%@",[self.model.contactPhone substringToIndex:3],[self.model.contactPhone substringFromIndex:7]];
+    if ([XuUtlity validateMobile:self.model.contactPhone]) {
+        NSString *showPhoneStr = [NSString stringWithFormat:@"%@****%@",[self.model.contactPhone substringToIndex:3],[self.model.contactPhone substringFromIndex:7]];
+        self.midLabel.text = [NSString stringWithFormat:@"状态:%@  %@  %@",str?str:@"-",showPhoneStr,IS_NOT_EMPTY(self.model.area)?self.model.area:@""];
+
+    }
     
-    self.midLabel.text = [NSString stringWithFormat:@"状态:%@  %@  %@",str?str:@"-",showPhoneStr,IS_NOT_EMPTY(self.model.area)?self.model.area:@""];
+
+    
     self.descLabel.text = self.model.caseInfo;
 }
 
@@ -139,7 +144,7 @@
         _descLabel.font = SystemFont(14.0f);
         _descLabel.textColor  = KColorGray666;
         _descLabel.textAlignment = NSTextAlignmentLeft;
-        _descLabel.numberOfLines = 0;
+        _descLabel.numberOfLines = 3;
     }
     return _descLabel;
 }

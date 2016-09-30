@@ -62,7 +62,7 @@
     
     self.markLabel.text = [NSString stringWithFormat:@"备注:%@",self.model.caseInfo];
     
-    [self.markLabel setFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 15, SCREENWIDTH - 20, self.model.caseInfoHeight)];
+    [self.markLabel setFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 15, SCREENWIDTH - 20, self.model.caseDetailInfoHeight)];
 }
 
 #pragma -mark ----Getter---
@@ -85,6 +85,7 @@
     if (!_markLabel) {
         _markLabel = [[UILabel alloc] initWithFrame:RECT(LeftPadding, self.orderPriceLabel.y + self.orderPriceLabel.height + 15, SCREENWIDTH - 20, self.model.caseInfoHeight)];
         _markLabel.textAlignment = NSTextAlignmentLeft;
+        _markLabel.numberOfLines = 0;
         _markLabel.textColor = KColorGray666;
         _markLabel.font = SystemFont(14.0f);
     }

@@ -211,6 +211,7 @@
 		9597B1231CA1581400FF65D9 /* XuNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1221CA1581400FF65D9 /* XuNetWorking.m */; };
 		9597B12A1CA1595A00FF65D9 /* BaseNetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B1291CA1595A00FF65D9 /* BaseNetProxy.m */; };
 		9597B12D1CA1597200FF65D9 /* HomePageProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9597B12C1CA1597200FF65D9 /* HomePageProxy.m */; };
+		95A124651D9A95A700B1C6DC /* PriceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A124641D9A95A700B1C6DC /* PriceSettingViewController.m */; };
 		95A79D441D028301004293F6 /* commom_default_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A79D421D028301004293F6 /* commom_default_head@2x.png */; };
 		95A79D451D028301004293F6 /* commom_default_head@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A79D431D028301004293F6 /* commom_default_head@3x.png */; };
 		95A79D491D02AC4D004293F6 /* HYMDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A79D481D02AC4D004293F6 /* HYMDatePicker.m */; };
@@ -293,6 +294,7 @@
 		95CA1BC41D10C5F000AAE490 /* LearnCenterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA1BC31D10C5F000AAE490 /* LearnCenterProxy.m */; };
 		95CD051F1D392DBA0080975B /* LawBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD051E1D392DBA0080975B /* LawBooksViewController.m */; };
 		95CD05221D39303B0080975B /* LawBooksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD05211D39303B0080975B /* LawBooksModel.m */; };
+		95D39D2E1D7BC6B30026FFAC /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D39D2D1D7BC6B30026FFAC /* add.png */; };
 		95EBAB3C1D36919C0041A647 /* XWMoneyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB391D36919C0041A647 /* XWMoneyTextField.m */; };
 		95EBAB3D1D36919C0041A647 /* XWMoneyTextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -709,6 +711,8 @@
 		9597B1291CA1595A00FF65D9 /* BaseNetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetProxy.m; sourceTree = "<group>"; };
 		9597B12B1CA1597200FF65D9 /* HomePageProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageProxy.h; sourceTree = "<group>"; };
 		9597B12C1CA1597200FF65D9 /* HomePageProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageProxy.m; sourceTree = "<group>"; };
+		95A124631D9A95A700B1C6DC /* PriceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceSettingViewController.h; sourceTree = "<group>"; };
+		95A124641D9A95A700B1C6DC /* PriceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceSettingViewController.m; sourceTree = "<group>"; };
 		95A79D421D028301004293F6 /* commom_default_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commom_default_head@2x.png"; sourceTree = "<group>"; };
 		95A79D431D028301004293F6 /* commom_default_head@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commom_default_head@3x.png"; sourceTree = "<group>"; };
 		95A79D471D02AC4D004293F6 /* HYMDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYMDatePicker.h; sourceTree = "<group>"; };
@@ -842,6 +846,7 @@
 		95CD051E1D392DBA0080975B /* LawBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawBooksViewController.m; sourceTree = "<group>"; };
 		95CD05201D39303B0080975B /* LawBooksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawBooksModel.h; sourceTree = "<group>"; };
 		95CD05211D39303B0080975B /* LawBooksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawBooksModel.m; sourceTree = "<group>"; };
+		95D39D2D1D7BC6B30026FFAC /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		95EBAB381D36919C0041A647 /* XWMoneyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextField.h; sourceTree = "<group>"; };
 		95EBAB391D36919C0041A647 /* XWMoneyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMoneyTextField.m; sourceTree = "<group>"; };
 		95EBAB3A1D36919C0041A647 /* XWMoneyTextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextFieldLimit.h; sourceTree = "<group>"; };
@@ -1742,6 +1747,8 @@
 			children = (
 				9597B0D61CA1136B00FF65D9 /* PersonCenterViewController.h */,
 				9597B0D71CA1136B00FF65D9 /* PersonCenterViewController.m */,
+				95A124631D9A95A700B1C6DC /* PriceSettingViewController.h */,
+				95A124641D9A95A700B1C6DC /* PriceSettingViewController.m */,
 				950CB70E1CC5FE5F004D2A5D /* PersonInfoViewController.h */,
 				950CB70F1CC5FE5F004D2A5D /* PersonInfoViewController.m */,
 				95CA1B9E1D0E250A00AAE490 /* UploadQualificationViewController.h */,
@@ -1879,6 +1886,7 @@
 		9597B0E11CA1168200FF65D9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				95D39D2D1D7BC6B30026FFAC /* add.png */,
 				951FCDDE1CF0042A00A57BEA /* tixian@2x.png */,
 				951FCDDF1CF0042A00A57BEA /* tixian@3x.png */,
 				951FCDDA1CF0013600A57BEA /* selectedBg@2x.png */,
@@ -2484,6 +2492,7 @@
 				95A79D441D028301004293F6 /* commom_default_head@2x.png in Resources */,
 				95A79D931D03E4CB004293F6 /* canCard@3x.png in Resources */,
 				951FCDC11CED810A00A57BEA /* Selected@2x.png in Resources */,
+				95D39D2E1D7BC6B30026FFAC /* add.png in Resources */,
 				95A79D451D028301004293F6 /* commom_default_head@3x.png in Resources */,
 				95412A061D06674800C6624F /* BoPhotoPicker.bundle in Resources */,
 				9597B1001CA1168200FF65D9 /* Tab03Highlighted@2x.png in Resources */,
@@ -2744,6 +2753,7 @@
 				95F533AE1CBCA432000C7E91 /* RefreshTableView.m in Sources */,
 				9597B06F1CA0E9CF00FF65D9 /* BaseTableViewController.m in Sources */,
 				95412A111D06674800C6624F /* NSArray+MASAdditions.m in Sources */,
+				95A124651D9A95A700B1C6DC /* PriceSettingViewController.m in Sources */,
 				9529CD131D3205320067597A /* HomeCaseSourceCell.m in Sources */,
 				9597B0CF1CA1132800FF65D9 /* OrderViewController.m in Sources */,
 				955A7B591D209B7F00D1DEAC /* GoodAtViewController.m in Sources */,

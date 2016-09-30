@@ -84,12 +84,14 @@
         if ([versionCode isEqualToString:nativeVersion]) {
             [BaseDataSingleton shareInstance].isClosePay = YES;
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+            [self reloadPayTableView];
             
         }
         else
         {
             [BaseDataSingleton shareInstance].isClosePay = NO;
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+            [self reloadPayTableView];
         }
         
         
@@ -122,7 +124,7 @@
 {
     self.orderItems = [NSMutableArray arrayWithCapacity:1];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPayTableView) name:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPayTableView) name:NOTIFICATION_PAYSWITCH_NOTIFICATION object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginSuccessAciton:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
     if ([[BaseDataSingleton shareInstance].loginState isEqualToString:@"1"]) {

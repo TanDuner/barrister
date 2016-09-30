@@ -49,4 +49,24 @@
  */
 -(void)bindCarkWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
 
+
+
+/**
+ 修改服务价格
+
+ @param params 参数
+ @param aBlock 回调block
+ */
+
+-(void)changePriceWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
+
+/**
+ 请求是否是专家
+
+ @param params
+ @param aBlock
+ */
+-(void)getIsExpertDataWithParams:(NSMutableDictionary *)params block:(ServiceCallBlock)aBlock;
+
 @end

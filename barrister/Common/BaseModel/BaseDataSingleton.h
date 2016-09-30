@@ -41,6 +41,8 @@ typedef struct PhoneSate PhoneSate;
 
 @property (nonatomic,assign) BOOL isClosePay;//支付开关
 
+
+
 + (instancetype)shareInstance;
 
 /**

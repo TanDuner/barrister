@@ -20,6 +20,17 @@
     if (self.caseInfoHeight < 12) {
         self.caseInfoHeight = 12;
     }
+    
+    self.caseDetailInfoHeight = self.caseInfoHeight;
+    
+    if (self.caseInfoHeight > 83.5) {
+        self.caseInfoHeight = 83.5f;
+    }
+    
+    
+    
+    
+    
 }
 
 @end
