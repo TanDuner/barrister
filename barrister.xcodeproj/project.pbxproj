@@ -57,7 +57,6 @@
 		9529CC581D2D5ADE0067597A /* HUMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC551D2D5ADE0067597A /* HUMSlider.m */; };
 		9529CC591D2D5ADE0067597A /* OrderDetailVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */; };
 		9529CC5D1D2E196B0067597A /* XuPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9529CC5C1D2E196B0067597A /* XuPushManager.m */; };
-		9529CC631D2E25740067597A /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC611D2E25740067597A /* jpush-ios-2.1.8.a */; };
 		9529CC651D2E25C30067597A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC641D2E25C30067597A /* CFNetwork.framework */; };
 		9529CC671D2E25D60067597A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC661D2E25D60067597A /* SystemConfiguration.framework */; };
 		9529CC691D2E25DD0067597A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529CC681D2E25DD0067597A /* CoreGraphics.framework */; };
@@ -87,6 +86,8 @@
 		9529CD351D3256A80067597A /* icon_bank_zg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CD261D3256A80067597A /* icon_bank_zg.png */; };
 		9529CD361D3256A80067597A /* icon_bank_zs.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CD271D3256A80067597A /* icon_bank_zs.png */; };
 		9529CD371D3256A80067597A /* icon_bank_zx.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529CD281D3256A80067597A /* icon_bank_zx.png */; };
+		952B3CC31DBC922C00E7E581 /* jiageshezhi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 952B3CBF1DBC922C00E7E581 /* jiageshezhi@2x.png */; };
+		952B3CC41DBC922C00E7E581 /* jiageshezhi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 952B3CC01DBC922C00E7E581 /* jiageshezhi@3x.png */; };
 		953506251D79C9E700BBA637 /* Me_source@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 953506231D79C9E700BBA637 /* Me_source@2x.png */; };
 		953506261D79C9E700BBA637 /* Me_source@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 953506241D79C9E700BBA637 /* Me_source@3x.png */; };
 		954129FF1D06674800C6624F /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954129CF1D06674800C6624F /* AJGradientView.m */; };
@@ -295,6 +296,7 @@
 		95CD051F1D392DBA0080975B /* LawBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD051E1D392DBA0080975B /* LawBooksViewController.m */; };
 		95CD05221D39303B0080975B /* LawBooksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD05211D39303B0080975B /* LawBooksModel.m */; };
 		95D39D2E1D7BC6B30026FFAC /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D39D2D1D7BC6B30026FFAC /* add.png */; };
+		95D8D88C1DC3893300769EB5 /* jpush-ios-2.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D8D88B1DC3893300769EB5 /* jpush-ios-2.2.0.a */; };
 		95EBAB3C1D36919C0041A647 /* XWMoneyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB391D36919C0041A647 /* XWMoneyTextField.m */; };
 		95EBAB3D1D36919C0041A647 /* XWMoneyTextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -451,7 +453,6 @@
 		9529CC571D2D5ADE0067597A /* OrderDetailVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailVoiceView.m; sourceTree = "<group>"; };
 		9529CC5B1D2E196B0067597A /* XuPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuPushManager.h; sourceTree = "<group>"; };
 		9529CC5C1D2E196B0067597A /* XuPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuPushManager.m; sourceTree = "<group>"; };
-		9529CC611D2E25740067597A /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		9529CC621D2E25740067597A /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		9529CC641D2E25C30067597A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9529CC661D2E25D60067597A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -488,6 +489,8 @@
 		9529CD261D3256A80067597A /* icon_bank_zg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bank_zg.png; sourceTree = "<group>"; };
 		9529CD271D3256A80067597A /* icon_bank_zs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bank_zs.png; sourceTree = "<group>"; };
 		9529CD281D3256A80067597A /* icon_bank_zx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bank_zx.png; sourceTree = "<group>"; };
+		952B3CBF1DBC922C00E7E581 /* jiageshezhi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiageshezhi@2x.png"; sourceTree = "<group>"; };
+		952B3CC01DBC922C00E7E581 /* jiageshezhi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiageshezhi@3x.png"; sourceTree = "<group>"; };
 		953506231D79C9E700BBA637 /* Me_source@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Me_source@2x.png"; sourceTree = "<group>"; };
 		953506241D79C9E700BBA637 /* Me_source@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Me_source@3x.png"; sourceTree = "<group>"; };
 		954129CE1D06674800C6624F /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
@@ -847,6 +850,7 @@
 		95CD05201D39303B0080975B /* LawBooksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LawBooksModel.h; sourceTree = "<group>"; };
 		95CD05211D39303B0080975B /* LawBooksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawBooksModel.m; sourceTree = "<group>"; };
 		95D39D2D1D7BC6B30026FFAC /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		95D8D88B1DC3893300769EB5 /* jpush-ios-2.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.2.0.a"; sourceTree = "<group>"; };
 		95EBAB381D36919C0041A647 /* XWMoneyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextField.h; sourceTree = "<group>"; };
 		95EBAB391D36919C0041A647 /* XWMoneyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMoneyTextField.m; sourceTree = "<group>"; };
 		95EBAB3A1D36919C0041A647 /* XWMoneyTextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextFieldLimit.h; sourceTree = "<group>"; };
@@ -947,10 +951,10 @@
 				9529CC671D2E25D60067597A /* SystemConfiguration.framework in Frameworks */,
 				950120CD1D2B73F500FE3613 /* CoreTelephony.framework in Frameworks */,
 				9529CC651D2E25C30067597A /* CFNetwork.framework in Frameworks */,
-				9529CC631D2E25740067597A /* jpush-ios-2.1.8.a in Frameworks */,
 				95A79D831D02BC97004293F6 /* AVFoundation.framework in Frameworks */,
 				95C0EAE11CB4A677004F9DAD /* libsqlite3.tbd in Frameworks */,
 				24CB192ACBC6ACEB923F90B3 /* libPods.a in Frameworks */,
+				95D8D88C1DC3893300769EB5 /* jpush-ios-2.2.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,7 +1132,7 @@
 		9529CC601D2E25680067597A /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				9529CC611D2E25740067597A /* jpush-ios-2.1.8.a */,
+				95D8D88B1DC3893300769EB5 /* jpush-ios-2.2.0.a */,
 				9529CC621D2E25740067597A /* JPUSHService.h */,
 			);
 			path = JPush;
@@ -1926,6 +1930,8 @@
 		9597B0E41CA1168200FF65D9 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				952B3CBF1DBC922C00E7E581 /* jiageshezhi@2x.png */,
+				952B3CC01DBC922C00E7E581 /* jiageshezhi@3x.png */,
 				95FE92E11D716D21001F85B5 /* Me_account@2x.png */,
 				95FE92E21D716D21001F85B5 /* Me_account@3x.png */,
 				95FE92E31D716D21001F85B5 /* Me_contact@2x.png */,
@@ -2433,6 +2439,7 @@
 				95FE92F61D716D21001F85B5 /* Me_renzhen@3x.png in Resources */,
 				9529CD2E1D3256A80067597A /* icon_bank_js.png in Resources */,
 				955A7B4B1D1FEF7E00D1DEAC /* common_point_loading@2x.png in Resources */,
+				952B3CC41DBC922C00E7E581 /* jiageshezhi@3x.png in Resources */,
 				9529CD341D3256A80067597A /* icon_bank_yc.png in Resources */,
 				95412A2D1D0D029800C6624F /* orderDetail_slider@2x.png in Resources */,
 				951FCDD41CEEAD0100A57BEA /* shouru@3x.png in Resources */,
@@ -2480,6 +2487,7 @@
 				9597B0FF1CA1168200FF65D9 /* Tab03Normal@3x.png in Resources */,
 				951FCDD31CEEAD0100A57BEA /* shouru@2x.png in Resources */,
 				95FE92ED1D716D21001F85B5 /* Me_account@2x.png in Resources */,
+				952B3CC31DBC922C00E7E581 /* jiageshezhi@2x.png in Resources */,
 				95FC44581D042B06005BB02A /* unagree@3x.png in Resources */,
 				9597B0FA1CA1168200FF65D9 /* Tab02Normal@2x.png in Resources */,
 				95FE92F51D716D21001F85B5 /* Me_renzhen@2x.png in Resources */,

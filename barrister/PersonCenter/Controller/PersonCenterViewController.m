@@ -166,7 +166,7 @@
             PersonCenterModel *model7 = [[PersonCenterModel alloc] init];
             model7.titleStr = @"价格设置";
             model7.cellType = PersonCenterModelTypeJGSZ;
-            model7.iconNameStr = @"Me_jiedan";
+            model7.iconNameStr = @"jiageshezhi";
             model7.isShowArrow = YES;
             model7.isAccountLogin = NO;
             [self.items addObject:model7];

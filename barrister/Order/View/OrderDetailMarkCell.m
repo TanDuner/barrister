@@ -7,7 +7,7 @@
 //
 
 #import "OrderDetailMarkCell.h"
-#define TipLabelWidth 70
+#define TipLabelWidth 75
 
 @interface OrderDetailMarkCell ()
 
