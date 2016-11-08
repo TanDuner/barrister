@@ -297,6 +297,7 @@
 		95CD05221D39303B0080975B /* LawBooksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD05211D39303B0080975B /* LawBooksModel.m */; };
 		95D39D2E1D7BC6B30026FFAC /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D39D2D1D7BC6B30026FFAC /* add.png */; };
 		95D8D88C1DC3893300769EB5 /* jpush-ios-2.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D8D88B1DC3893300769EB5 /* jpush-ios-2.2.0.a */; };
+		95D8D88E1DC38CEB00769EB5 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D8D88D1DC38CEB00769EB5 /* libresolv.tbd */; };
 		95EBAB3C1D36919C0041A647 /* XWMoneyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB391D36919C0041A647 /* XWMoneyTextField.m */; };
 		95EBAB3D1D36919C0041A647 /* XWMoneyTextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EBAB3B1D36919C0041A647 /* XWMoneyTextFieldLimit.m */; };
 		95F533A81CBB53FB000C7E91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F533A71CBB53FB000C7E91 /* SettingViewController.m */; };
@@ -851,6 +852,7 @@
 		95CD05211D39303B0080975B /* LawBooksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LawBooksModel.m; sourceTree = "<group>"; };
 		95D39D2D1D7BC6B30026FFAC /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		95D8D88B1DC3893300769EB5 /* jpush-ios-2.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.2.0.a"; sourceTree = "<group>"; };
+		95D8D88D1DC38CEB00769EB5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		95EBAB381D36919C0041A647 /* XWMoneyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextField.h; sourceTree = "<group>"; };
 		95EBAB391D36919C0041A647 /* XWMoneyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMoneyTextField.m; sourceTree = "<group>"; };
 		95EBAB3A1D36919C0041A647 /* XWMoneyTextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMoneyTextFieldLimit.h; sourceTree = "<group>"; };
@@ -945,6 +947,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D8D88E1DC38CEB00769EB5 /* libresolv.tbd in Frameworks */,
 				95C0EAE31CB4A686004F9DAD /* libz.tbd in Frameworks */,
 				9529CC6B1D2E25E80067597A /* Security.framework in Frameworks */,
 				9529CC691D2E25DD0067597A /* CoreGraphics.framework in Frameworks */,
@@ -978,6 +981,7 @@
 		3202AEF620506FFA4625C6B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95D8D88D1DC38CEB00769EB5 /* libresolv.tbd */,
 				9529CC6A1D2E25E80067597A /* Security.framework */,
 				9529CC681D2E25DD0067597A /* CoreGraphics.framework */,
 				9529CC661D2E25D60067597A /* SystemConfiguration.framework */,
@@ -2365,6 +2369,7 @@
 					95412FA21C9F91FA00D26B11 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 7U34CFE9VJ;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -2929,7 +2934,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7U34CFE9VJ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2949,7 +2955,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e1c0084a-68ee-4514-b241-9b639e66b012";
+				PROVISIONING_PROFILE = "b9db21e1-c28c-405a-bccf-34ccd3ecf091";
+				PROVISIONING_PROFILE_SPECIFIER = barrister_Dis_Push_provisioning;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2961,7 +2968,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yaqian zhao (28UDM3V4JW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7U34CFE9VJ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/barrister/PrefixHeader.pch";
 				INFOPLIST_FILE = barrister/Info.plist;
@@ -2977,7 +2985,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsc.barrister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e1c0084a-68ee-4514-b241-9b639e66b012";
+				PROVISIONING_PROFILE = "b9db21e1-c28c-405a-bccf-34ccd3ecf091";
+				PROVISIONING_PROFILE_SPECIFIER = barrister_Dis_Push_provisioning;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
